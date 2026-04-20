@@ -14,26 +14,11 @@ app = FastAPI(
     version="3.0.0"
 )
 
-# Đọc ALLOWED_ORIGINS từ env (để thêm domain Vercel linh hoạt)
-FRONTEND_URL = os.getenv("FRONTEND_URL", "")
-
-origins = [
-    "http://localhost:5173",
-    "http://localhost:3000",
-    "http://127.0.0.1:5173",
-    "http://127.0.0.1:3000",
-]
-
-# Thêm Vercel domain nếu có
-if FRONTEND_URL:
-    origins.append(FRONTEND_URL)
-
-# Cho phép tất cả *.vercel.app (để preview deployments cũng hoạt động)
+# Cho phép tất cả origins — phù hợp cho demo/đồ án
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
-    allow_origin_regex=r"https://.*\.vercel\.app",
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
