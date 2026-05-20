@@ -58,7 +58,7 @@ export default function DishDetailPage() {
       try {
         const recData = await getRecommendationsForDish(id, 10);
         if (!alive) return;
-        const items = Array.isArray(recData) ? recData : recData?.items ?? [];
+        const items = Array.isArray(recData) ? recData : recData?.recommendations ?? recData?.items ?? [];
         setRecs(items);
       } catch {
         if (!alive) return;

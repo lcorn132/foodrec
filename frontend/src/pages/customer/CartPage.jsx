@@ -40,7 +40,7 @@ export default function CartPage() {
       try {
         const data = await getRecommendationsForCart(dishIds, 10);
         if (!alive) return;
-        const items = Array.isArray(data) ? data : data?.items ?? [];
+        const items = Array.isArray(data) ? data : data?.recommendations ?? data?.items ?? [];
         setRecs(items);
       } catch {
         if (!alive) return;
