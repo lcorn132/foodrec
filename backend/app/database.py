@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import inspect, text
 
 load_dotenv()
 
@@ -39,3 +40,50 @@ def get_db():
         yield db
     finally:
         db.close()
+
+
+def ensure_database_schema():
+    """Add columns introduced after the first deploy.
+
+    SQLAlchemy create_all() creates missing tables, but it does not alter
+    existing tables. Render/PostgreSQL deployments that already had the old
+    schema need these additive columns before startup queries run.
+    """
+    inspector = inspect(engine)
+    existing_tables = set(inspector.get_table_names())
+    if not existing_tables:
+        return
+
+    migrations = {
+        "dishes": {
+            "source_url": "VARCHAR(500)",
+            "is_available": "INTEGER DEFAULT 1",
+            "sort_order": "INTEGER DEFAULT 0",
+            "prep_time": "INTEGER DEFAULT 20",
+        },
+        "customers": {
+            "password_hash": "VARCHAR(255)",
+        },
+        "orders": {
+            "payment_method": "VARCHAR(50)",
+            "address": "TEXT",
+            "note": "TEXT",
+            "customer_name": "VARCHAR(100)",
+            "customer_phone": "VARCHAR(20)",
+        },
+        "ratings": {
+            "admin_reply": "TEXT",
+            "reply_date": "TIMESTAMP",
+        },
+    }
+
+    with engine.begin() as conn:
+        for table_name, columns in migrations.items():
+            if table_name not in existing_tables:
+                continue
+            existing_columns = {
+                column["name"] for column in inspector.get_columns(table_name)
+            }
+            for column_name, ddl in columns.items():
+                if column_name not in existing_columns:
+                    conn.execute(text(f"ALTER TABLE {table_name} ADD COLUMN {column_name} {ddl}"))

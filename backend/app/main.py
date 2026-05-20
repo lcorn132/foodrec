@@ -1,12 +1,13 @@
 import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.database import Base, SessionLocal, engine
+from app.database import Base, SessionLocal, engine, ensure_database_schema
 from app.models.models import Dish, Customer, Order, Rating
 from app.routers import dishes, orders, recommendations, auth, analytics, ratings
 from app.services.data_loader import load_csv_to_db
 
 Base.metadata.create_all(bind=engine)
+ensure_database_schema()
 
 app = FastAPI(
     title="FoodRec API",
