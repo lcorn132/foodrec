@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background: #FFFAF3;
+    color: #2C1810;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #EFEBE9;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #BCAAA4;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8D6E63;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 font-bold text-[15px] px-8 py-3.5 rounded-xl
+           transition-all duration-300 cursor-pointer border-none shadow-lg;
+    background: linear-gradient(135deg, #E6B422, #D4A017);
+    color: #3E2723;
+    box-shadow: 0 4px 16px rgba(230, 180, 34, 0.35);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(230, 180, 34, 0.45);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 font-semibold text-[15px] px-8 py-3.5 rounded-xl
+           transition-all duration-300 cursor-pointer bg-transparent text-white;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+  }
+  .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .btn-dark {
+    @apply inline-flex items-center gap-2 font-bold text-[15px] px-8 py-4 rounded-xl
+           transition-all duration-300 cursor-pointer text-white border-none;
+    background: #3E2723;
+    box-shadow: 0 4px 16px rgba(62, 39, 35, 0.3);
+  }
+  .btn-dark:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(62, 39, 35, 0.4);
+  }
+
+  .section-label {
+    @apply text-[13px] font-bold uppercase tracking-[3px] mb-3 block;
+    color: #D4A017;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply text-4xl font-bold leading-tight;
+    color: #3E2723;
+  }
+
+  .card-warm {
+    @apply bg-white rounded-2xl border transition-all duration-300;
+    border-color: #E8DDD4;
+  }
+  .card-warm:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(62, 39, 35, 0.12);
+    border-color: #F5D680;
+  }
+}
