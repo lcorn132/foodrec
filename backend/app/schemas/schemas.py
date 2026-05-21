@@ -55,6 +55,7 @@ class ProfileUpdate(BaseModel):
 
 
 class CheckoutRequest(BaseModel):
+    customer_id: Optional[int] = None
     items: List[dict]
     payment_method: str
     address: str

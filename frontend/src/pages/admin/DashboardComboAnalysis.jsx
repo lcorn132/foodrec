@@ -1,16 +1,12 @@
-/**
- * [V6] Phân tích Combo & Gợi ý — thay thế DashboardAssociation
- * - Ngôn ngữ kinh doanh F&B: "Món thường mua cùng", "Tỷ lệ đồng xuất hiện"
- * - Biểu đồ cột (Bar Chart) cho Top 5 cặp combo
- * - KHÔNG hiển thị công thức toán học
- * - Tabs: Tất cả / Nhóm Chay / Nhóm Mặn
- */
 import { useEffect, useState } from "react";
 import { getAssociationRules, getRecommendationRate } from "../../api/analyticsApi";
 import Loading from "../../components/Loading";
 
 function BarChart({ data }) {
-  if (!data?.length) return <p className="text-center py-10 text-sm" style={{ color: "#8D6E63" }}>Chưa đủ dữ liệu để phân tích</p>;
+  if (!data?.length) {
+    return <p className="text-center py-10 text-sm" style={{ color: "#8D6E63" }}>Chưa đủ dữ liệu để phân tích</p>;
+  }
+
   const max = Math.max(...data.map(d => d.pct), 1);
 
   return (
@@ -41,64 +37,47 @@ export default function DashboardComboAnalysis() {
   const [rules, setRules] = useState(null);
   const [recRate, setRecRate] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [tab, setTab] = useState("all");
 
   useEffect(() => {
     setLoading(true);
-    const dtype = tab === "all" ? null : tab;
     Promise.all([
-      getAssociationRules(0.15, 0.6, dtype).catch(() => ({ rules: [], total_transactions: 0 })),
+      getAssociationRules(0.15, 0.6).catch(() => ({ rules: [], total_transactions: 0 })),
       getRecommendationRate().catch(() => ({ rate: 0 })),
     ]).then(([ar, rr]) => {
-      setRules(ar); setRecRate(rr); setLoading(false);
+      setRules(ar);
+      setRecRate(rr);
+      setLoading(false);
     });
-  }, [tab]);
+  }, []);
 
   if (loading) return <Loading label="Đang phân tích dữ liệu combo..." />;
 
-  // Build chart data — ngôn ngữ F&B
   const chartData = (rules?.rules || []).slice(0, 5).map((r) => ({
     combo: `${r.antecedent} + ${r.consequent}`,
     pct: Math.round((r.confidence || 0) * 100),
     count: r.count || 0,
   }));
-
-  // Table data
   const tableData = (rules?.rules || []).slice(0, 10);
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-display text-2xl font-bold" style={{ color: "#3E2723" }}>🔗 Phân Tích Combo & Món Thường Mua Cùng</h1>
+        <h1 className="font-display text-2xl font-bold" style={{ color: "#3E2723" }}>Phân Tích Combo & Món Thường Mua Cùng</h1>
         <p className="text-sm" style={{ color: "#8D6E63" }}>
-          Phân tích từ {rules?.total_transactions || 0} set menu công khai — giúp tối ưu combo và gợi ý món đi kèm
+          Phân tích từ {rules?.total_transactions || 0} set menu công khai, giúp tối ưu combo và gợi ý món đi kèm.
         </p>
       </div>
 
-      {/* [V6] Tabs: Tất cả / Chay / Mặn */}
-      <div className="flex gap-2">
-        {[{ k: "all", l: "🍽️ Tất cả" }, { k: "chay", l: "🥬 Nhóm Chay" }, { k: "man", l: "🥩 Nhóm Mặn" }].map((t) => (
-          <button key={t.k} onClick={() => setTab(t.k)}
-            className="px-4 py-2.5 rounded-xl text-[13px] font-semibold cursor-pointer transition-all"
-            style={{ background: tab === t.k ? "#3E2723" : "white", color: tab === t.k ? "white" : "#5D4037",
-              border: tab === t.k ? "none" : "1px solid #E8DDD4" }}>
-            {t.l}
-          </button>
-        ))}
-      </div>
-
-      {/* [V6] Bar Chart — Top 5 cặp combo */}
       <div className="bg-white rounded-2xl p-6" style={{ border: "1px solid #E8DDD4" }}>
-        <h3 className="font-display text-lg font-bold mb-1" style={{ color: "#3E2723" }}>📊 Top Cặp Combo Phổ Biến</h3>
+        <h3 className="font-display text-lg font-bold mb-1" style={{ color: "#3E2723" }}>Top Cặp Combo Phổ Biến</h3>
         <p className="text-[12px] mb-5" style={{ color: "#8D6E63" }}>
-          Biểu đồ cột: Tỷ lệ set menu có món B khi đã có món A (%)
+          Tỷ lệ set menu có món B khi đã có món A.
         </p>
         <BarChart data={chartData} />
       </div>
 
-      {/* [V6] Bảng chi tiết — ngôn ngữ F&B */}
       <div className="bg-white rounded-2xl p-6" style={{ border: "1px solid #E8DDD4" }}>
-        <h3 className="font-display text-lg font-bold mb-4" style={{ color: "#3E2723" }}>📋 Chi Tiết Các Cặp Món</h3>
+        <h3 className="font-display text-lg font-bold mb-4" style={{ color: "#3E2723" }}>Chi Tiết Các Cặp Món</h3>
         {tableData.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="w-full text-sm" style={{ borderCollapse: "separate", borderSpacing: 0 }}>
@@ -119,13 +98,13 @@ export default function DashboardComboAnalysis() {
                     <td className="px-3 py-2.5 font-semibold" style={{ color: "#D4A017", borderBottom: "1px solid #EFEBE9" }}>{r.consequent}</td>
                     <td className="px-3 py-2.5" style={{ borderBottom: "1px solid #EFEBE9" }}>
                       <span className="px-2.5 py-1 rounded-full text-[11px] font-bold" style={{ background: "#DCFCE7", color: "#16A34A" }}>
-                        {Math.round((r.confidence || 0) * 100)}% set cùng xuất hiện
+                        {Math.round((r.confidence || 0) * 100)}%
                       </span>
                     </td>
                     <td className="px-3 py-2.5" style={{ borderBottom: "1px solid #EFEBE9" }}>
                       <span className="px-2 py-0.5 rounded-full text-[11px] font-bold"
                         style={{ background: (r.lift || 0) > 1 ? "#DCFCE7" : "#FEE2E2", color: (r.lift || 0) > 1 ? "#16A34A" : "#EF4444" }}>
-                        {(r.lift || 0) > 1.5 ? "🔥 Rất cao" : (r.lift || 0) > 1 ? "✅ Cao" : "➖ Trung bình"}
+                        {(r.lift || 0) > 1.5 ? "Rất cao" : (r.lift || 0) > 1 ? "Cao" : "Trung bình"}
                       </span>
                     </td>
                     <td className="px-3 py-2.5 font-semibold" style={{ color: "#5D4037", borderBottom: "1px solid #EFEBE9" }}>{r.count}</td>
@@ -135,15 +114,12 @@ export default function DashboardComboAnalysis() {
             </table>
           </div>
         ) : (
-          <p className="text-center py-8 text-sm" style={{ color: "#8D6E63" }}>
-            Chưa đủ dữ liệu cho nhóm "{tab === "chay" ? "Chay" : tab === "man" ? "Mặn" : ""}". Hãy thử tab khác.
-          </p>
+          <p className="text-center py-8 text-sm" style={{ color: "#8D6E63" }}>Chưa đủ dữ liệu để phân tích combo.</p>
         )}
       </div>
 
-      {/* [V6] Hiệu suất gợi ý */}
       <div className="bg-white rounded-2xl p-6" style={{ border: "1px solid #E8DDD4" }}>
-        <h3 className="font-display text-lg font-bold mb-3" style={{ color: "#3E2723" }}>🤖 Hiệu Quả Mô Hình Gợi Ý</h3>
+        <h3 className="font-display text-lg font-bold mb-3" style={{ color: "#3E2723" }}>Hiệu Quả Mô Hình Gợi Ý</h3>
         <div className="flex items-center gap-6">
           <div className="relative w-24 h-24 flex-shrink-0">
             <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
@@ -160,7 +136,7 @@ export default function DashboardComboAnalysis() {
               {recRate?.orders_with_recs || 0} / {recRate?.total_orders || 0} set menu chứa cặp món phổ biến
             </p>
             <p className="text-[12px] mt-1" style={{ color: "#8D6E63" }}>
-              Set menu có chứa nhóm món đồng xuất hiện thường xuyên — minh họa khả năng gợi ý từ luật kết hợp.
+              Minh họa khả năng gợi ý từ luật kết hợp dựa trên các cặp món thường xuất hiện cùng nhau.
             </p>
           </div>
         </div>

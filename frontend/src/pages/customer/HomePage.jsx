@@ -106,7 +106,7 @@ export default function HomePage() {
               <div className="font-display text-[22px] font-semibold text-white mb-3">Phân tích sở thích & đề xuất thực đơn</div>
               <p className="text-sm text-white/60 mb-6">Hệ thống phân tích dữ liệu đánh giá, lịch sử đặt hàng để đưa ra gợi ý chính xác nhất.</p>
               <div className="flex flex-wrap gap-2 mb-6">
-                {['🌶 Cay vừa', '🥗 Healthy', '💰 Giá tốt', '🍚 Cơm niêu', '🥬 Chay'].map((t) => (
+                {['🌶 Cay vừa', '🥗 Healthy', '💰 Giá tốt', '🍚 Cơm niêu', '🍵 Món nhẹ'].map((t) => (
                   <span key={t} className="px-3.5 py-1.5 rounded-full text-[12px] font-medium text-white/70"
                         style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.12)' }}>
                     {t}

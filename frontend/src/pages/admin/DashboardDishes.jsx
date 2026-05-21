@@ -1,7 +1,6 @@
 /**
  * [V6] DashboardDishes — CRUD Thực đơn
  * - Upload ảnh từ máy tính (Base64) thay URL
- * - Trường Chay/Mặn (dish_type)
  * - formatCurrency chuẩn
  */
 import { useEffect, useState } from "react";
@@ -10,13 +9,8 @@ import { createDish, updateDish, deleteDish } from "../../api/userApi";
 import Loading from "../../components/Loading";
 import { formatCurrency } from "../../utils/format";
 
-const EMPTY = { name: "", category: "", price: 0, price_range: "moderate", dish_type: "main_course", description: "", image_url: "" };
+const EMPTY = { name: "", category: "", price: 0, price_range: "moderate", description: "", image_url: "" };
 const CATEGORIES = ["Khai vị", "Rau", "Bò", "Heo", "Gà / Vịt", "Hải sản", "Lẩu", "Cơm", "Canh", "Đậu hũ - Trứng", "Đồ thêm", "Tráng miệng"];
-const DISH_TYPES = [
-  { v: "main_course", l: "Mặn" }, { v: "appetizer", l: "Khai vị" },
-  { v: "vegetarian", l: "Chay" }, { v: "soup", l: "Canh / Lẩu" },
-  { v: "dessert", l: "Tráng miệng" }, { v: "drink", l: "Đồ uống" },
-];
 const PRICE_RANGES = [
   { v: "budget", l: "Bình dân" },
   { v: "affordable", l: "Vừa phải" },
@@ -67,7 +61,12 @@ export default function DashboardDishes() {
   const handleSave = async () => {
     if (!form.name?.trim()) { alert("Vui lòng nhập tên món"); return; }
     try {
-      const payload = { ...form, price: Number(form.price) || 0 };
+      const cleanForm = { ...form };
+      delete cleanForm.dish_type;
+      delete cleanForm.ingredients;
+      delete cleanForm.detailed_ingredients;
+      delete cleanForm.tags;
+      const payload = { ...cleanForm, price: Number(form.price) || 0 };
       if (modal === "add") await createDish(payload);
       else await updateDish(modal.id, payload);
       close(); load();
@@ -79,8 +78,6 @@ export default function DashboardDishes() {
     await deleteDish(id).catch(() => {}); load();
   };
 
-  const isVeg = (d) => (d.dish_type || "").includes("vegetarian");
-
   if (loading) return <Loading label="Đang tải thực đơn..." />;
 
   return (
@@ -88,7 +85,7 @@ export default function DashboardDishes() {
       <div className="flex items-center justify-between flex-wrap gap-4">
         <div>
           <h1 className="font-display text-2xl font-bold" style={{ color: "#3E2723" }}>🍽️ Quản Lý Thực Đơn</h1>
-          <p className="text-sm" style={{ color: "#8D6E63" }}>{dishes.length} món • {dishes.filter(isVeg).length} chay • {dishes.filter(d => !isVeg(d)).length} mặn</p>
+          <p className="text-sm" style={{ color: "#8D6E63" }}>{dishes.length} món trong thực đơn</p>
         </div>
         <button onClick={openAdd} className="px-5 py-2.5 rounded-xl text-sm font-bold cursor-pointer"
           style={{ background: "linear-gradient(135deg, #E6B422, #D4A017)", color: "#3E2723", border: "none" }}>➕ Thêm món mới</button>
@@ -106,7 +103,7 @@ export default function DashboardDishes() {
       <div className="overflow-x-auto bg-white rounded-2xl" style={{ border: "1px solid #E8DDD4" }}>
         <table className="w-full text-sm" style={{ borderCollapse: "separate", borderSpacing: 0 }}>
           <thead><tr>
-            {["ID", "Tên món", "Danh mục", "Phân loại", "Giá", ""].map(h =>
+            {["ID", "Tên món", "Danh mục", "Giá", ""].map(h =>
               <th key={h} className="text-left text-[11px] font-bold uppercase tracking-wider px-3 py-2.5" style={{ color: "#4E342E", background: "#FDF6EC", borderBottom: "2px solid #E8DDD4" }}>{h}</th>)}
           </tr></thead>
           <tbody>
@@ -115,11 +112,6 @@ export default function DashboardDishes() {
                 <td className="px-3 py-2.5" style={{ color: "#8D6E63", borderBottom: "1px solid #EFEBE9" }}>{d.id}</td>
                 <td className="px-3 py-2.5 font-semibold" style={{ color: "#3E2723", borderBottom: "1px solid #EFEBE9" }}>{d.name}</td>
                 <td className="px-3 py-2.5" style={{ color: "#5D4037", borderBottom: "1px solid #EFEBE9" }}>{d.category}</td>
-                <td className="px-3 py-2.5" style={{ borderBottom: "1px solid #EFEBE9" }}>
-                  <span className="text-[11px] font-bold px-2 py-0.5 rounded-full" style={{ background: isVeg(d) ? "#DCFCE7" : "#FDF3D7", color: isVeg(d) ? "#16A34A" : "#D4A017" }}>
-                    {isVeg(d) ? "🥬 Chay" : "🥩 Mặn"}
-                  </span>
-                </td>
                 <td className="px-3 py-2.5 font-bold" style={{ color: "#D4A017", borderBottom: "1px solid #EFEBE9" }}>{formatCurrency(d.price)}</td>
                 <td className="px-3 py-2.5" style={{ borderBottom: "1px solid #EFEBE9" }}>
                   <div className="flex gap-1.5">
@@ -156,7 +148,7 @@ export default function DashboardDishes() {
                   </select>
                 </div>
               </div>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-[11px] font-bold mb-1" style={{ color: "#4E342E" }}>Giá (VNĐ)</label>
                   <input type="number" value={form.price || ""} onChange={e => setForm(p => ({ ...p, price: e.target.value }))}
@@ -167,13 +159,6 @@ export default function DashboardDishes() {
                   <select value={form.price_range || ""} onChange={e => setForm(p => ({ ...p, price_range: e.target.value }))}
                     className="w-full px-3 py-2 rounded-lg text-sm" style={{ border: "1.5px solid #E8DDD4", background: "#FFFAF3" }}>
                     {PRICE_RANGES.map(p => <option key={p.v} value={p.v}>{p.l}</option>)}
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-[11px] font-bold mb-1" style={{ color: "#4E342E" }}>Phân loại *</label>
-                  <select value={form.dish_type || ""} onChange={e => setForm(p => ({ ...p, dish_type: e.target.value }))}
-                    className="w-full px-3 py-2 rounded-lg text-sm" style={{ border: "1.5px solid #E8DDD4", background: "#FFFAF3" }}>
-                    {DISH_TYPES.map(t => <option key={t.v} value={t.v}>{t.l}</option>)}
                   </select>
                 </div>
               </div>

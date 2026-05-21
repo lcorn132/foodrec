@@ -13,6 +13,7 @@ import PageHero from "../../components/PageHero.jsx";
 import { useCart } from "../../context/CartContext.jsx";
 import { formatCurrency } from "../../utils/format.js";
 import { validateCheckout } from "../../utils/validation.js";
+import { showToast } from "../../components/Toast.jsx";
 
 const PAYMENTS = [
   { id: "cod", icon: "💵", label: "Thanh toán khi nhận hàng", desc: "Trả tiền mặt cho shipper", tag: "Phổ biến" },
@@ -48,6 +49,7 @@ export default function CheckoutPage() {
   // Logic states
   const [placing, setPlacing] = useState(false);
   const [errors, setErrors] = useState({});
+  const [validationSummary, setValidationSummary] = useState("");
   const [orderResult, setOrderResult] = useState(null); // [V6] Lưu lại ID và giá tổng trước khi clear giỏ hàng
 
   // Tính toán giỏ hàng (Chỉ có ý nghĩa khi chưa đặt hàng)
@@ -63,10 +65,12 @@ export default function CheckoutPage() {
     // Nếu có lỗi, bật thông báo ngay để khách biết
     if (!valid) {
       const errorMsgs = Object.values(errs).filter(Boolean).join("\n");
-      alert("Vui lòng kiểm tra lại thông tin giao hàng:\n" + errorMsgs);
+      setValidationSummary(errorMsgs);
+      showToast("Vui lòng kiểm tra lại thông tin giao hàng.", "error");
       return;
     }
 
+    setValidationSummary("");
     setPlacing(true);
   try {
     const { checkout: checkoutApi } = await import("../../api/userApi.js");
@@ -98,7 +102,7 @@ export default function CheckoutPage() {
 
     } catch (error) { 
       console.error(error);
-      alert("Có lỗi xảy ra khi đặt hàng. Vui lòng thử lại!");
+      showToast(error?.message || "Có lỗi xảy ra khi đặt hàng. Vui lòng thử lại!", "error");
     } finally {
       setPlacing(false);
     }
@@ -149,6 +153,12 @@ export default function CheckoutPage() {
           <div className="space-y-6">
             <div className="bg-white rounded-2xl p-6 shadow-sm" style={{ border: "1px solid #E8DDD4" }}>
               <h3 className="font-display text-lg font-bold mb-5 flex items-center gap-2" style={{ color: "#3E2723" }}>📍 Thông tin giao hàng</h3>
+              {validationSummary && (
+                <div className="mb-4 rounded-xl px-4 py-3 text-sm font-medium" style={{ background: "#FEF2F2", color: "#B91C1C", border: "1px solid #FECACA" }}>
+                  <div className="font-bold mb-1">Vui lòng kiểm tra lại thông tin giao hàng</div>
+                  <div className="whitespace-pre-line">{validationSummary}</div>
+                </div>
+              )}
               <div className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Field label="Họ tên người nhận" required error={errors.customerName}>

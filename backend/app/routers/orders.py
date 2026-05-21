@@ -1,4 +1,5 @@
 from datetime import datetime
+from collections import Counter
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.database import get_db
@@ -8,13 +9,27 @@ from app.schemas.schemas import CheckoutRequest, OrderStatusUpdate
 router = APIRouter(prefix="/api/orders", tags=["Orders"])
 
 
+def _order_dishes(db: Session, dish_ids):
+    counts = Counter(dish_ids)
+    dishes = db.query(Dish).filter(Dish.id.in_(counts.keys())).all() if counts else []
+    dish_map = {d.id: d for d in dishes}
+    result = []
+    for dish_id, qty in counts.items():
+        dish = dish_map.get(dish_id)
+        if dish:
+            result.append({"id": dish.id, "name": dish.name, "price": dish.price, "qty": qty})
+    return result
+
+
 @router.post("/checkout")
 def checkout(req: CheckoutRequest, db: Session = Depends(get_db)):
     if not req.items:
         raise HTTPException(400, "Cart is empty")
 
-    customer_id = None
-    if req.customer_phone:
+    customer_id = req.customer_id
+    if customer_id and not db.query(Customer).filter(Customer.id == customer_id).first():
+        customer_id = None
+    if not customer_id and req.customer_phone:
         cust = db.query(Customer).filter(Customer.phone == req.customer_phone).first()
         if cust: customer_id = cust.id
 
@@ -45,8 +60,8 @@ def list_orders(status: str = None, limit: int = 100, db: Session = Depends(get_
     result = []
     for o in orders:
         dish_ids = [int(x) for x in o.dish_ids.split(",") if x.strip()]
-        dishes = db.query(Dish).filter(Dish.id.in_(dish_ids)).all()
-        dish_names = [d.name for d in dishes]
+        dishes = _order_dishes(db, dish_ids)
+        dish_names = [d["name"] for d in dishes]
         cust = db.query(Customer).filter(Customer.id == o.customer_id).first() if o.customer_id else None
         result.append({
             "id": o.id, "customer_id": o.customer_id,
@@ -62,15 +77,20 @@ def list_orders(status: str = None, limit: int = 100, db: Session = Depends(get_
 
 @router.get("/customer/{customer_id}")
 def customer_orders(customer_id: int, db: Session = Depends(get_db)):
-    orders = db.query(Order).filter(Order.customer_id == customer_id)\
+    customer = db.query(Customer).filter(Customer.id == customer_id).first()
+    query = db.query(Order).filter(Order.customer_id == customer_id)
+    if customer and customer.phone:
+        query = db.query(Order).filter(
+            (Order.customer_id == customer_id) | (Order.customer_phone == customer.phone)
+        )
+    orders = query\
         .order_by(Order.order_date.desc()).all()
     result = []
     for o in orders:
         dish_ids = [int(x) for x in o.dish_ids.split(",") if x.strip()]
-        dishes = db.query(Dish).filter(Dish.id.in_(dish_ids)).all()
         result.append({
             "id": o.id, "order_date": str(o.order_date),
-            "dishes": [{"id": d.id, "name": d.name, "price": d.price} for d in dishes],
+            "dishes": _order_dishes(db, dish_ids),
             "total_amount": o.total_amount, "status": o.status,
             "payment_method": o.payment_method, "address": o.address,
         })

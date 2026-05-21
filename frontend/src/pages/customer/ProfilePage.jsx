@@ -186,7 +186,7 @@ export default function ProfilePage() {
               </div>
               <div>
                 <label className="block text-[12px] font-bold uppercase tracking-wider mb-1.5" style={{ color: "#4E342E" }}>Danh mục yêu thích</label>
-                <input value={form.preferred_categories || ""} disabled={!editing} placeholder="VD: Bò, Hải sản, Chay..."
+                <input value={form.preferred_categories || ""} disabled={!editing} placeholder="VD: Bò, Hải sản, Lẩu..."
                   onChange={e => { setForm(p => ({ ...p, preferred_categories: e.target.value })); }}
                   className="w-full px-4 py-2.5 rounded-xl text-sm outline-none disabled:opacity-70 disabled:bg-[#F9FAFB]"
                   style={{ border: "1.5px solid #E8DDD4", background: "#FFFAF3" }} />
