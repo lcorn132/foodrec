@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy import func
@@ -9,7 +9,7 @@ from app.schemas.schemas import DishResponse, DishCreate, DishUpdate
 router = APIRouter(prefix="/api/dishes", tags=["Dishes"])
 
 
-@router.get("/", response_model=List[DishResponse])
+@router.get("/")
 def get_dishes(
     q: Optional[str] = None,
     category: Optional[str] = None,
@@ -36,8 +36,21 @@ def get_dishes(
         query = query.filter(Dish.price < max_price)
 
     # 4. Xử lý phân trang tự động
+    total = query.count()
+    page = max(page, 1)
+    limit = max(1, min(limit, 200))
     skip = (page - 1) * limit
-    return query.offset(skip).limit(limit).all()
+    items = query.offset(skip).limit(limit).all()
+    total_pages = (total + limit - 1) // limit if total else 1
+
+    return {
+        "items": items,
+        "total": total,
+        "page": page,
+        "limit": limit,
+        "total_pages": total_pages,
+        "has_more": page < total_pages,
+    }
 
 
 @router.get("/categories")

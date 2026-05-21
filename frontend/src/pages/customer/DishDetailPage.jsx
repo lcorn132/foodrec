@@ -1,10 +1,11 @@
 import { formatCurrency } from "../../utils/format.js";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 
 import { getDishById } from "../../api/dishesApi.js";
 import { getRecommendationsForDish } from "../../api/recommendationsApi.js";
+import { createRating, getDishRatings } from "../../api/userApi.js";
 import Header from "../../components/Header.jsx";
 import Footer from "../../components/Footer.jsx";
 import PageHero from "../../components/PageHero.jsx";
@@ -14,15 +15,16 @@ import { useCart } from "../../context/CartContext.jsx";
 import { showToast } from "../../components/Toast.jsx";
 
 
-function asArray(value) {
-  if (Array.isArray(value)) return value;
-  if (typeof value === "string" && value.trim()) return value.split(",").map((s) => s.trim());
-  return [];
-}
-
 const categoryEmojis = {
   'Khai vị': '🥩', 'Rau': '🥬', 'Bò': '🥩', 'Heo': '🐷',
   'Gà / Vịt': '🍗', 'Hải sản': '🦐', 'Lẩu': '🍲', 'Cơm': '🍚', 'Tráng miệng': '🍮',
+};
+
+const PRICE_RANGE_LABELS = {
+  budget: "Bình dân",
+  affordable: "Vừa phải",
+  moderate: "Trung bình",
+  premium: "Cao cấp",
 };
 
 export default function DishDetailPage() {
@@ -34,6 +36,10 @@ export default function DishDetailPage() {
   const [errorDish, setErrorDish] = useState("");
   const [recs, setRecs] = useState(null);
   const [qty, setQty] = useState(1);
+  const [ratingData, setRatingData] = useState({ ratings: [], avg_rating: 0, total: 0 });
+  const [ratingValue, setRatingValue] = useState(5);
+  const [comment, setComment] = useState("");
+  const [submittingRating, setSubmittingRating] = useState(false);
 
   useEffect(() => {
     let alive = true;
@@ -64,25 +70,47 @@ export default function DishDetailPage() {
         if (!alive) return;
         setRecs([]);
       }
+      try {
+        const ratingRes = await getDishRatings(id);
+        if (!alive) return;
+        setRatingData(ratingRes.data ?? { ratings: [], avg_rating: 0, total: 0 });
+      } catch {
+        if (!alive) return;
+        setRatingData({ ratings: [], avg_rating: 0, total: 0 });
+      }
     }
     run();
     return () => { alive = false; };
   }, [id]);
 
-  const tags = useMemo(() => asArray(dish?.tags), [dish?.tags]);
-  const ingredients = useMemo(
-    () => asArray(dish?.ingredients ?? dish?.nguyen_lieu),
-    [dish?.ingredients, dish?.nguyen_lieu],
-  );
-  const detailedIngredients = useMemo(
-    () => asArray(dish?.detailed_ingredients),
-    [dish?.detailed_ingredients],
-  );
-
-  const displayIngredients = detailedIngredients.length > 0 ? detailedIngredients : ingredients;
   const cat = dish?.category ?? '';
   const emoji = categoryEmojis[cat] ?? '🍽️';
   const canAdd = Boolean(dish?.id);
+  const user = (() => {
+    try { return JSON.parse(localStorage.getItem("foodrec_user")); } catch { return null; }
+  })();
+
+  const handleSubmitRating = async () => {
+    if (!dish?.id || submittingRating) return;
+    setSubmittingRating(true);
+    try {
+      await createRating({
+        dish_id: dish.id,
+        rating: ratingValue,
+        comment,
+        customer_id: user?.id,
+      });
+      const ratingRes = await getDishRatings(id);
+      setRatingData(ratingRes.data ?? { ratings: [], avg_rating: 0, total: 0 });
+      setComment("");
+      setRatingValue(5);
+      showToast("Đã gửi đánh giá của bạn");
+    } catch (error) {
+      showToast(error?.message || "Không gửi được đánh giá", "error");
+    } finally {
+      setSubmittingRating(false);
+    }
+  };
 
   return (
     <div className="min-h-dvh" style={{ background: '#FFFAF3' }}>
@@ -166,7 +194,7 @@ export default function DishDetailPage() {
                   <div className="text-right">
                     <div className="text-[12px]" style={{ color: '#8D6E63' }}>Mức giá</div>
                     <div className="text-sm font-semibold" style={{ color: '#D4A017' }}>
-                      {dish.price_range.charAt(0).toUpperCase() + dish.price_range.slice(1)}
+                      {PRICE_RANGE_LABELS[dish.price_range] ?? dish.price_range}
                     </div>
                   </div>
                 )}
@@ -180,36 +208,6 @@ export default function DishDetailPage() {
                 </p>
               ) : (
                 <p className="text-sm" style={{ color: '#8D6E63' }}>Chưa có mô tả cho món ăn này.</p>
-              )}
-
-              {/* Tags */}
-              {tags.length > 0 && (
-                <div className="flex flex-wrap gap-2">
-                  {tags.map((t) => (
-                    <span key={t} className="text-[13px] font-semibold px-3.5 py-1.5 rounded-lg transition-colors duration-300 cursor-default"
-                          style={{ background: '#EFEBE9', color: '#6D4C41' }}>
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              {/* Ingredients */}
-              {displayIngredients.length > 0 && (
-                <div className="bg-white rounded-2xl p-6" style={{ border: '1px solid #E8DDD4' }}>
-                  <h3 className="font-display text-lg font-semibold mb-4 flex items-center gap-2" style={{ color: '#3E2723' }}>
-                    🧾 Nguyên liệu
-                  </h3>
-                  <div className="grid grid-cols-2 gap-2">
-                    {displayIngredients.map((ing) => (
-                      <div key={ing} className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-colors"
-                           style={{ background: '#FFFAF3', color: '#5D4037' }}>
-                        <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: '#E6B422' }} />
-                        {ing}
-                      </div>
-                    ))}
-                  </div>
-                </div>
               )}
 
               {/* Add to cart */}
@@ -266,6 +264,83 @@ export default function DishDetailPage() {
               </div>
             </div>
           </div>
+        )}
+
+        {!loadingDish && !errorDish && (
+          <section className="bg-white rounded-3xl p-6" style={{ border: '1px solid #E8DDD4' }}>
+            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+              <div>
+                <h2 className="font-display text-2xl font-bold" style={{ color: '#3E2723' }}>Đánh giá món ăn</h2>
+                <p className="mt-1 text-sm" style={{ color: '#8D6E63' }}>
+                  {ratingData.total ? `${ratingData.total} lượt đánh giá` : "Chưa có đánh giá nào"}
+                </p>
+              </div>
+              <div className="rounded-2xl px-5 py-3 text-center" style={{ background: '#FDF3D7', color: '#3E2723' }}>
+                <div className="text-3xl font-bold">⭐ {ratingData.avg_rating || 0}</div>
+                <div className="text-xs font-semibold" style={{ color: '#8D6E63' }}>Điểm trung bình</div>
+              </div>
+            </div>
+
+            <div className="mt-6 rounded-2xl p-4" style={{ background: '#FFFAF3', border: '1px solid #E8DDD4' }}>
+              <div className="grid gap-3 md:grid-cols-[180px_1fr_auto] md:items-end">
+                <div>
+                  <label className="block text-[12px] font-bold uppercase tracking-wider mb-1.5" style={{ color: '#4E342E' }}>Số sao</label>
+                  <select
+                    value={ratingValue}
+                    onChange={(e) => setRatingValue(Number(e.target.value))}
+                    className="w-full px-3 py-2.5 rounded-xl text-sm outline-none"
+                    style={{ border: '1.5px solid #E8DDD4', background: 'white', color: '#2C1810' }}
+                  >
+                    {[5, 4, 3, 2, 1].map((star) => (
+                      <option key={star} value={star}>{star} sao</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-[12px] font-bold uppercase tracking-wider mb-1.5" style={{ color: '#4E342E' }}>Nhận xét</label>
+                  <input
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                    placeholder="Bạn thấy món này thế nào?"
+                    className="w-full px-3 py-2.5 rounded-xl text-sm outline-none"
+                    style={{ border: '1.5px solid #E8DDD4', background: 'white', color: '#2C1810' }}
+                  />
+                </div>
+                <button
+                  type="button"
+                  onClick={handleSubmitRating}
+                  disabled={submittingRating}
+                  className="px-5 py-2.5 rounded-xl text-sm font-bold cursor-pointer disabled:opacity-60"
+                  style={{ background: 'linear-gradient(135deg, #E6B422, #D4A017)', color: '#3E2723', border: 'none' }}
+                >
+                  {submittingRating ? "Đang gửi..." : "Gửi đánh giá"}
+                </button>
+              </div>
+            </div>
+
+            <div className="mt-5 space-y-3">
+              {(ratingData.ratings || []).length === 0 ? (
+                <div className="rounded-2xl border-2 border-dashed p-6 text-center text-sm" style={{ borderColor: '#E8DDD4', color: '#8D6E63' }}>
+                  Hãy là người đầu tiên đánh giá món này.
+                </div>
+              ) : (
+                ratingData.ratings.map((rating) => (
+                  <div key={rating.id} className="rounded-2xl p-4" style={{ border: '1px solid #E8DDD4', background: '#FFFAF3' }}>
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="font-semibold" style={{ color: '#3E2723' }}>{rating.customer_name || "Ẩn danh"}</div>
+                      <div className="text-sm font-bold" style={{ color: '#D4A017' }}>{"⭐".repeat(rating.rating)}</div>
+                    </div>
+                    {rating.comment && <p className="mt-2 text-sm" style={{ color: '#5D4037' }}>{rating.comment}</p>}
+                    {rating.admin_reply && (
+                      <div className="mt-3 rounded-xl px-3 py-2 text-sm" style={{ background: '#DCFCE7', color: '#15803D' }}>
+                        Phản hồi: {rating.admin_reply}
+                      </div>
+                    )}
+                  </div>
+                ))
+              )}
+            </div>
+          </section>
         )}
 
         {/* Recommendations */}

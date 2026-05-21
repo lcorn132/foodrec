@@ -9,7 +9,7 @@ import Loading from "../../components/Loading.jsx";
 
 const FEATURES = [
   { icon: "🤖", title: "AI Thông Minh", desc: "Gợi ý dựa trên sở thích" },
-  { icon: "🥬", title: "Nguyên Liệu Tươi", desc: "Chọn lọc kỹ lưỡng" },
+  { icon: "⭐", title: "Món Ngon Chọn Lọc", desc: "Phù hợp từng khẩu vị" },
   { icon: "🍳", title: "Hương Vị Chính Gốc", desc: "Ẩm thực thuần Việt" },
   { icon: "🚀", title: "Đặt Hàng Nhanh", desc: "Giao món tận nơi" },
 ];
@@ -45,7 +45,7 @@ export default function HomePage() {
       setLoading(true);
       setError("");
       try {
-        const data = await getTrending(10);
+        const data = await getTrending(9);
         const items = data.trending ? data.trending.map((item) => item.dish) : [];
         if (alive) setTrending(items);
       } catch (e) {

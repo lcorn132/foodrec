@@ -24,11 +24,18 @@ function normalizeCategories(data) {
 }
 
 function normalizeDishes(data) {
-  if (Array.isArray(data)) return { items: data, hasMore: false };
+  if (Array.isArray(data)) return { items: data, hasMore: false, total: data.length, totalPages: 1 };
   const items = Array.isArray(data?.items) ? data.items : [];
   const hasMore = Boolean(data?.hasMore ?? data?.has_more ?? false);
-  return { items, hasMore };
+  return {
+    items,
+    hasMore,
+    total: Number(data?.total ?? items.length),
+    totalPages: Number(data?.total_pages ?? data?.totalPages ?? 1),
+  };
 }
+
+const PAGE_SIZE = 9;
 
 export default function MenuPage() {
   const [search, setSearch] = useState("");
@@ -43,7 +50,8 @@ export default function MenuPage() {
   const [error, setError] = useState("");
 
   const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(false);
+  const [totalPages, setTotalPages] = useState(1);
+  const [total, setTotal] = useState(0);
 
   const range = useMemo(
     () => PRICE_RANGES.find((r) => r.key === priceRange) ?? null,
@@ -88,13 +96,14 @@ export default function MenuPage() {
           maxPrice: range?.max !== undefined ? range.max : undefined,
         
           page,
-          limit: 12,
+          limit: PAGE_SIZE,
         };
         const data = await getDishes(params);
         if (!alive) return;
         const normalized = normalizeDishes(data);
-        setHasMore(normalized.hasMore || normalized.items.length === 12);
-        setDishes((prev) => (page === 1 ? normalized.items : [...prev, ...normalized.items]));
+        setTotal(normalized.total);
+        setTotalPages(Math.max(1, normalized.totalPages));
+        setDishes(normalized.items);
       } catch (e) {
         if (!alive) return;
         setError(e?.response?.data?.message || e?.message || "Không thể tải danh sách món ăn.");
@@ -107,7 +116,7 @@ export default function MenuPage() {
   }, [search, category, range?.min, range?.max, page]);
 
   const isInitialLoading = loading && page === 1;
-  const isLoadingMore = loading && page > 1;
+  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
     <div className="min-h-dvh" style={{ background: '#FFFAF3' }}>
@@ -212,7 +221,7 @@ export default function MenuPage() {
       <main className="max-w-[1200px] mx-auto px-6 py-8 pb-16">
         <div className="text-sm mb-6" style={{ color: '#8D6E63' }}>
           {!isInitialLoading && !error && (
-            <>Hiển thị <strong style={{ color: '#4E342E' }}>{dishes.length}</strong> món ăn</>
+            <>Hiển thị <strong style={{ color: '#4E342E' }}>{dishes.length}</strong> / {total} món ăn</>
           )}
         </div>
 
@@ -239,23 +248,41 @@ export default function MenuPage() {
               ))}
             </div>
 
-            <div className="flex items-center justify-center mt-10">
-              {hasMore ? (
+            <div className="flex items-center justify-center gap-2 mt-10 flex-wrap">
+              <button
+                type="button"
+                disabled={page === 1 || loading}
+                onClick={() => setPage((p) => Math.max(1, p - 1))}
+                className="px-4 py-2.5 rounded-xl text-sm font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                style={{ border: '1px solid #E8DDD4', background: 'white', color: '#5D4037' }}
+              >
+                Trang trước
+              </button>
+              {pageNumbers.map((p) => (
                 <button
+                  key={p}
                   type="button"
-                  disabled={isLoadingMore}
-                  onClick={() => setPage((p) => p + 1)}
-                  className="px-9 py-3.5 rounded-xl text-[15px] font-bold text-white transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+                  disabled={loading}
+                  onClick={() => setPage(p)}
+                  className="min-w-10 px-3 py-2.5 rounded-xl text-sm font-bold transition-all disabled:opacity-50"
                   style={{
-                    background: 'linear-gradient(135deg, #4E342E, #5D4037)',
-                    boxShadow: '0 4px 24px rgba(62,39,35,0.08)',
+                    background: page === p ? 'linear-gradient(135deg, #4E342E, #5D4037)' : 'white',
+                    color: page === p ? 'white' : '#5D4037',
+                    border: page === p ? 'none' : '1px solid #E8DDD4',
                   }}
                 >
-                  {isLoadingMore ? "Đang tải..." : "Tải thêm món ăn"}
+                  {p}
                 </button>
-              ) : (
-                <div className="text-sm" style={{ color: '#8D6E63' }}>Bạn đã xem hết.</div>
-              )}
+              ))}
+              <button
+                type="button"
+                disabled={page >= totalPages || loading}
+                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                className="px-4 py-2.5 rounded-xl text-sm font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                style={{ border: '1px solid #E8DDD4', background: 'white', color: '#5D4037' }}
+              >
+                Trang sau
+              </button>
             </div>
           </>
         )}

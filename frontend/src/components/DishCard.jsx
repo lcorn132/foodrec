@@ -21,10 +21,6 @@ export default function DishCard({ dish, badge }) {
   const name = dish.dish_name ?? dish.name;
   const id = dish.dish_id ?? dish.id;
 
-  const tags = typeof dish.tags === "string"
-    ? dish.tags.split(",").map((t) => t.trim()).filter(Boolean).slice(0, 3)
-    : Array.isArray(dish.tags) ? dish.tags.slice(0, 3) : [];
-
   // [V6] Quick Add — thêm giỏ hàng ngay, không cần vào trang chi tiết
   const handleQuickAdd = (e) => {
     e.preventDefault(); // Ngăn navigate sang trang chi tiết
@@ -71,13 +67,7 @@ export default function DishCard({ dish, badge }) {
         {dish.description && <p className="text-[13px] leading-relaxed line-clamp-2" style={{ color: "#8D6E63" }}>{dish.description}</p>}
       </div>
 
-      {/* Tags + Quick Add button */}
-      <div className="px-5 pb-4 flex items-center justify-between gap-2">
-        <div className="flex items-center gap-1.5 flex-wrap flex-1 min-w-0">
-          {tags.map((tag) => (
-            <span key={tag} className="text-[10px] font-semibold px-2 py-0.5 rounded-md" style={{ background: "#EFEBE9", color: "#6D4C41" }}>{tag}</span>
-          ))}
-        </div>
+      <div className="px-5 pb-4 flex items-center justify-end">
         {/* [V6] Quick Add to Cart button */}
         <button onClick={handleQuickAdd}
           className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-[12px] font-bold cursor-pointer transition-all duration-200 hover:scale-105 flex-shrink-0"

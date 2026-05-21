@@ -10,12 +10,18 @@ import { createDish, updateDish, deleteDish } from "../../api/userApi";
 import Loading from "../../components/Loading";
 import { formatCurrency } from "../../utils/format";
 
-const EMPTY = { name: "", category: "", price: 0, price_range: "moderate", dish_type: "main_course", ingredients: "", detailed_ingredients: "", tags: "", description: "", image_url: "" };
+const EMPTY = { name: "", category: "", price: 0, price_range: "moderate", dish_type: "main_course", description: "", image_url: "" };
 const CATEGORIES = ["Khai vị", "Rau", "Bò", "Heo", "Gà / Vịt", "Hải sản", "Lẩu", "Cơm", "Canh", "Đậu hũ - Trứng", "Đồ thêm", "Tráng miệng"];
 const DISH_TYPES = [
   { v: "main_course", l: "Mặn" }, { v: "appetizer", l: "Khai vị" },
   { v: "vegetarian", l: "Chay" }, { v: "soup", l: "Canh / Lẩu" },
   { v: "dessert", l: "Tráng miệng" }, { v: "drink", l: "Đồ uống" },
+];
+const PRICE_RANGES = [
+  { v: "budget", l: "Bình dân" },
+  { v: "affordable", l: "Vừa phải" },
+  { v: "moderate", l: "Trung bình" },
+  { v: "premium", l: "Cao cấp" },
 ];
 
 export default function DashboardDishes() {
@@ -62,9 +68,6 @@ export default function DashboardDishes() {
     if (!form.name?.trim()) { alert("Vui lòng nhập tên món"); return; }
     try {
       const payload = { ...form, price: Number(form.price) || 0 };
-      if (payload.dish_type === "vegetarian" && !payload.tags?.includes("chay")) {
-        payload.tags = payload.tags ? payload.tags + ",chay_duoc" : "chay_duoc";
-      }
       if (modal === "add") await createDish(payload);
       else await updateDish(modal.id, payload);
       close(); load();
@@ -76,7 +79,7 @@ export default function DashboardDishes() {
     await deleteDish(id).catch(() => {}); load();
   };
 
-  const isVeg = (d) => (d.tags || "").toLowerCase().includes("chay") || (d.dish_type || "").includes("vegetarian");
+  const isVeg = (d) => (d.dish_type || "").includes("vegetarian");
 
   if (loading) return <Loading label="Đang tải thực đơn..." />;
 
@@ -163,7 +166,7 @@ export default function DashboardDishes() {
                   <label className="block text-[11px] font-bold mb-1" style={{ color: "#4E342E" }}>Mức giá</label>
                   <select value={form.price_range || ""} onChange={e => setForm(p => ({ ...p, price_range: e.target.value }))}
                     className="w-full px-3 py-2 rounded-lg text-sm" style={{ border: "1.5px solid #E8DDD4", background: "#FFFAF3" }}>
-                    {["budget", "affordable", "moderate", "premium"].map(p => <option key={p} value={p}>{p}</option>)}
+                    {PRICE_RANGES.map(p => <option key={p.v} value={p.v}>{p.l}</option>)}
                   </select>
                 </div>
                 <div>
@@ -196,14 +199,6 @@ export default function DashboardDishes() {
                 <p className="text-[10px] mt-1" style={{ color: "#A1887F" }}>Tối đa 2MB. Hỗ trợ JPG, PNG, WebP.</p>
               </div>
 
-              {[{ l: "Nguyên liệu chính", k: "ingredients" }, { l: "NL chi tiết (phân tách dấu phẩy)", k: "detailed_ingredients" },
-                { l: "Tags (phân tách dấu phẩy)", k: "tags" }].map(f => (
-                <div key={f.k}>
-                  <label className="block text-[11px] font-bold mb-1" style={{ color: "#4E342E" }}>{f.l}</label>
-                  <input value={form[f.k] || ""} onChange={e => setForm(p => ({ ...p, [f.k]: e.target.value }))}
-                    className="w-full px-3 py-2 rounded-lg text-sm outline-none" style={{ border: "1.5px solid #E8DDD4", background: "#FFFAF3" }} />
-                </div>
-              ))}
               <div>
                 <label className="block text-[11px] font-bold mb-1" style={{ color: "#4E342E" }}>Mô tả</label>
                 <textarea value={form.description || ""} onChange={e => setForm(p => ({ ...p, description: e.target.value }))} rows={2}
