@@ -16,7 +16,7 @@ const FEATURES = [
 
 const HIW_STEPS = [
   { icon: "📋", title: "Khám Phá Thực Đơn", desc: "Duyệt qua hơn 160 món ăn Việt Nam đa dạng, từ khai vị cho đến tráng miệng." },
-  { icon: "🤖", title: "AI Phân Tích", desc: "Hệ thống tự động phân tích sở thích, đánh giá và lịch sử để hiểu khẩu vị của bạn." },
+  { icon: "🤖", title: "AI Phân Tích", desc: "Hệ thống tự động phân tích sở thích và lịch sử đặt hàng để hiểu khẩu vị của bạn." },
   { icon: "✨", title: "Nhận Gợi Ý", desc: "Nhận danh sách món ăn được đề xuất với % phù hợp, thêm vào giỏ và đặt hàng." },
 ];
 
@@ -29,7 +29,7 @@ const TESTIMONIALS = [
 const STATS = [
   { icon: "🍽️", value: "160+", label: "Món ăn đa dạng" },
   { icon: "👨‍🍳", value: "300+", label: "Khách hàng mỗi ngày" },
-  { icon: "⭐", value: "4.8", label: "Đánh giá trung bình" },
+  { icon: "🤖", value: "95%", label: "Độ chính xác gợi ý" },
   { icon: "🤖", value: "95%", label: "Độ chính xác gợi ý" },
 ];
 
@@ -104,7 +104,7 @@ export default function HomePage() {
                  style={{ background: 'rgba(255,255,255,0.06)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.1)' }}>
               <div className="text-[12px] font-semibold uppercase tracking-[2px] mb-4" style={{ color: '#F0C94D' }}>Gợi ý hôm nay</div>
               <div className="font-display text-[22px] font-semibold text-white mb-3">Phân tích sở thích & đề xuất thực đơn</div>
-              <p className="text-sm text-white/60 mb-6">Hệ thống phân tích dữ liệu đánh giá, lịch sử đặt hàng để đưa ra gợi ý chính xác nhất.</p>
+              <p className="text-sm text-white/60 mb-6">Hệ thống phân tích sở thích và lịch sử đặt hàng để đưa ra gợi ý chính xác nhất.</p>
               <div className="flex flex-wrap gap-2 mb-6">
                 {['🌶 Cay vừa', '🥗 Healthy', '💰 Giá tốt', '🍚 Cơm niêu', '🍵 Món nhẹ'].map((t) => (
                   <span key={t} className="px-3.5 py-1.5 rounded-full text-[12px] font-medium text-white/70"
@@ -114,7 +114,7 @@ export default function HomePage() {
                 ))}
               </div>
               <div className="grid grid-cols-3 gap-4 pt-5" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                {[{ v: '160+', l: 'Món ăn' }, { v: '95%', l: 'Độ chính xác' }, { v: '4.8', l: 'Đánh giá' }].map((s) => (
+                {[{ v: '160+', l: 'Món ăn' }, { v: '95%', l: 'Độ chính xác' }, { v: '300+', l: 'Khách hàng' }].map((s) => (
                   <div key={s.l}>
                     <div className="font-display text-[28px] font-bold" style={{ color: '#F0C94D' }}>{s.v}</div>
                     <div className="text-[12px] text-white/50 mt-0.5">{s.l}</div>
@@ -167,7 +167,7 @@ export default function HomePage() {
             <ul className="space-y-3 mb-7">
               <li className="flex gap-3 text-sm leading-relaxed" style={{ color: '#5D4037' }}>
                 <span className="mt-0.5 flex-shrink-0">🍃</span>
-                Thuật toán collaborative filtering phân tích dữ liệu đánh giá từ hàng trăm khách hàng để tìm ra xu hướng ẩm thực phù hợp.
+                Thuật toán gợi ý phân tích lịch sử đặt hàng và sở thích để tìm ra xu hướng ẩm thực phù hợp.
               </li>
               <li className="flex gap-3 text-sm leading-relaxed" style={{ color: '#5D4037' }}>
                 <span className="mt-0.5 flex-shrink-0">🍃</span>
@@ -186,7 +186,7 @@ export default function HomePage() {
             <span className="section-label">Thực đơn nổi bật</span>
             <h2 className="section-title">Món Ăn Phổ Biến Hôm Nay</h2>
             <p className="text-base mt-3 max-w-[560px] mx-auto" style={{ color: '#8D6E63' }}>
-              Khám phá những món ăn được yêu thích nhất, được hệ thống AI đề xuất dựa trên đánh giá của thực khách
+              Khám phá những món ăn được yêu thích nhất, được hệ thống AI đề xuất dựa trên hành vi đặt hàng của thực khách
             </p>
           </div>
 

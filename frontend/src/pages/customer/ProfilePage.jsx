@@ -1,7 +1,7 @@
 /**
  * [V6] ProfilePage
  * - Cập nhật thanh Tiến độ đơn hàng (Order Tracking Stepper)
- * - Nút Đánh giá hỗ trợ trạng thái "Đã đánh giá / Chỉnh sửa"
+ * - Lịch sử đơn hàng và theo dõi trạng thái
  */
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,6 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import PageHero from "../../components/PageHero";
 import Loading from "../../components/Loading";
-import RatingModal from "../../components/RatingModal";
 import { getProfile, updateProfile, getCustomerOrders } from "../../api/userApi";
 import { formatCurrency } from "../../utils/format";
 import { validateProfile } from "../../utils/validation";
@@ -86,7 +85,6 @@ export default function ProfilePage() {
   const [editing, setEditing] = useState(false);
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
-  const [ratingOrder, setRatingOrder] = useState(null);
 
   useEffect(() => {
     const stored = localStorage.getItem("foodrec_user");
@@ -221,10 +219,6 @@ export default function ProfilePage() {
               </div>
             ) : orders.map(o => {
               const st = SM[o.status] || SM.pending;
-              const isCompleted = o.status === "completed";
-              // [Logic Đánh giá] Nếu API trả về o.is_rated = true thì hiện "Sửa đánh giá"
-              const isRated = o.is_rated; 
-              
               return (
                 <div key={o.id} className="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow" style={{ border: "1px solid #E8DDD4" }}>
                   <div className="flex items-center justify-between mb-4">
@@ -252,17 +246,6 @@ export default function ProfilePage() {
                   <div className="flex justify-between items-center pt-3" style={{ borderTop: "1px dashed #E8DDD4" }}>
                     <span className="text-sm font-medium" style={{ color: "#8D6E63" }}>{o.payment_method === "cod" ? "💵 COD" : "💳 Chuyển khoản"}</span>
                     <div className="flex items-center gap-4">
-                      {/* [V6] Đổi chữ hiển thị dựa trên việc đã đánh giá hay chưa */}
-                      {isCompleted && (
-                        <button onClick={() => setRatingOrder(o)} className="text-[12px] font-bold px-4 py-2 rounded-lg cursor-pointer transition-colors"
-                          style={{ 
-                            background: isRated ? "#EFEBE9" : "#FDF3D7", 
-                            color: isRated ? "#5D4037" : "#D4A017", 
-                            border: isRated ? "1px solid #E8DDD4" : "1px solid #FDE68A" 
-                          }}>
-                          {isRated ? "✏️ Sửa đánh giá" : "⭐ Đánh giá món"}
-                        </button>
-                      )}
                       <span className="font-display text-xl font-bold" style={{ color: "#D4A017" }}>{formatCurrency(o.total_amount)}</span>
                     </div>
                   </div>
@@ -272,20 +255,6 @@ export default function ProfilePage() {
           </div>
         )}
       </main>
-
-      {ratingOrder && (
-        <RatingModal
-          order={ratingOrder}
-          dishes={ratingOrder.dishes || []}
-          userId={user?.id}
-          onClose={() => setRatingOrder(null)}
-          onDone={() => {
-            setRatingOrder(null);
-            // Có thể reload lại order API ở đây để cập nhật biến is_rated
-            showToast("Đã lưu đánh giá!");
-          }}
-        />
-      )}
 
       <Footer minimal />
     </div>

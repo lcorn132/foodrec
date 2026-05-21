@@ -3,7 +3,7 @@
  * - Upload ảnh từ máy tính (Base64) thay URL
  * - formatCurrency chuẩn
  */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getDishes } from "../../api/dishesApi";
 import { createDish, updateDish, deleteDish } from "../../api/userApi";
 import Loading from "../../components/Loading";
@@ -17,6 +17,68 @@ const PRICE_RANGES = [
   { v: "moderate", l: "Trung bình" },
   { v: "premium", l: "Cao cấp" },
 ];
+
+function RichTextEditor({ value, onChange }) {
+  const editorRef = useRef(null);
+
+  useEffect(() => {
+    const editor = editorRef.current;
+    if (editor && editor.innerHTML !== (value || "")) {
+      editor.innerHTML = value || "";
+    }
+  }, [value]);
+
+  const sync = () => onChange(editorRef.current?.innerHTML || "");
+  const run = (command, arg = null) => {
+    editorRef.current?.focus();
+    document.execCommand(command, false, arg);
+    sync();
+  };
+
+  const tools = [
+    { label: "B", title: "In đậm", action: () => run("bold") },
+    { label: "I", title: "In nghiêng", action: () => run("italic") },
+    { label: "U", title: "Gạch chân", action: () => run("underline") },
+    { label: "H2", title: "Tiêu đề", action: () => run("formatBlock", "h3") },
+    { label: "•", title: "Danh sách chấm", action: () => run("insertUnorderedList") },
+    { label: "1.", title: "Danh sách số", action: () => run("insertOrderedList") },
+  ];
+
+  return (
+    <div className="rounded-lg overflow-hidden" style={{ border: "1.5px solid #E8DDD4", background: "#FFFAF3" }}>
+      <div className="flex flex-wrap gap-1 p-2" style={{ borderBottom: "1px solid #E8DDD4", background: "white" }}>
+        {tools.map((tool) => (
+          <button
+            key={tool.title}
+            type="button"
+            title={tool.title}
+            onClick={tool.action}
+            className="h-8 min-w-8 px-2 rounded-md text-xs font-bold cursor-pointer"
+            style={{ border: "1px solid #E8DDD4", background: "#FFFAF3", color: "#3E2723" }}
+          >
+            {tool.label}
+          </button>
+        ))}
+        <button
+          type="button"
+          title="Xóa định dạng"
+          onClick={() => run("removeFormat")}
+          className="h-8 px-2 rounded-md text-xs font-bold cursor-pointer"
+          style={{ border: "1px solid #E8DDD4", background: "#FFFAF3", color: "#5D4037" }}
+        >
+          Clear
+        </button>
+      </div>
+      <div
+        ref={editorRef}
+        contentEditable
+        onInput={sync}
+        className="min-h-[130px] px-3 py-2 text-sm outline-none prose-lite"
+        style={{ color: "#2C1810" }}
+      />
+    </div>
+  );
+}
 
 export default function DashboardDishes() {
   const [dishes, setDishes] = useState([]);
@@ -186,8 +248,10 @@ export default function DashboardDishes() {
 
               <div>
                 <label className="block text-[11px] font-bold mb-1" style={{ color: "#4E342E" }}>Mô tả</label>
-                <textarea value={form.description || ""} onChange={e => setForm(p => ({ ...p, description: e.target.value }))} rows={2}
-                  className="w-full px-3 py-2 rounded-lg text-sm outline-none resize-none" style={{ border: "1.5px solid #E8DDD4", background: "#FFFAF3" }} />
+                <RichTextEditor
+                  value={form.description || ""}
+                  onChange={(description) => setForm(p => ({ ...p, description }))}
+                />
               </div>
             </div>
             <div className="flex justify-end gap-3 mt-5 pt-4" style={{ borderTop: "1px solid #E8DDD4" }}>

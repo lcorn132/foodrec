@@ -14,11 +14,6 @@ export const getAllOrders = (status) => axiosClient.get("/orders", { params: sta
 export const updateOrderStatus = (orderId, status) => axiosClient.put(`/orders/${orderId}/status`, { status });
 
 // RATINGS
-export const createRating = (data) => axiosClient.post("/ratings", data);
-export const getAllRatings = (limit = 100) => axiosClient.get("/ratings", { params: { limit } });
-export const replyRating = (id, reply) => axiosClient.put(`/ratings/${id}/reply`, { reply });
-export const deleteRating = (id) => axiosClient.delete(`/ratings/${id}`);
-export const getDishRatings = (dishId) => axiosClient.get(`/dishes/${dishId}/ratings`);
 
 // DISHES CRUD (admin)
 export const createDish = (data) => axiosClient.post("/dishes/", data);

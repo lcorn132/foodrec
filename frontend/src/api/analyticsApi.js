@@ -15,11 +15,6 @@ export async function getPriceDistribution() {
   return res.data;
 }
 
-export async function getRatingDistribution() {
-  const res = await axiosClient.get("/analytics/rating-distribution");
-  return res.data;
-}
-
 export async function getTopDishes(topN = 10) {
   const res = await axiosClient.get("/analytics/top-dishes", { params: { top_n: topN } });
   return res.data;

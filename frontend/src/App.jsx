@@ -22,7 +22,6 @@ import DashboardOverview from "./pages/admin/DashboardOverview";
 import DashboardComboAnalysis from "./pages/admin/DashboardComboAnalysis";
 import DashboardOrders from "./pages/admin/DashboardOrders";
 import DashboardDishes from "./pages/admin/DashboardDishes";
-import DashboardRatings from "./pages/admin/DashboardRatings";
 import DashboardPreprocessing from "./pages/admin/DashboardPreprocessing";
 import DashboardApriori from "./pages/admin/DashboardApriori";
 
@@ -51,7 +50,6 @@ function App() {
             <Route path="apriori" element={<DashboardApriori />} />
             <Route path="orders" element={<DashboardOrders />} />
             <Route path="dishes-manage" element={<DashboardDishes />} />
-            <Route path="ratings-manage" element={<DashboardRatings />} />
           </Route>
         </Routes>
       </BrowserRouter>
