@@ -13,12 +13,12 @@ class RecommendationService:
         self.db = db
 
     def get_recommendations_for_dish(self, dish_id: int, top_n: int = 10) -> List[Dict]:
-        """Gợi ý món dựa chủ yếu trên luật kết hợp từ set menu đã làm sạch."""
+        """Gợi ý món cho web bằng độ tương tự nội dung và tín hiệu nguyên liệu nếu khớp."""
 
         # 1. Mức độ tương tự nội dung, dùng như tín hiệu phụ.
         content_scores = self._content_based(dish_id)
 
-        # 2. Luật kết hợp Apriori từ set menu công khai, là tín hiệu chính của đề tài.
+        # 2. Luật Apriori nguyên liệu chỉ hỗ trợ khi tên món trùng với một item nguyên liệu.
         association_scores = self._association_based(dish_id)
 
         all_dish_ids = set(list(content_scores.keys()) + list(association_scores.keys()))
@@ -91,7 +91,7 @@ class RecommendationService:
         return scores
 
     def _association_based(self, dish_id: int) -> Dict[int, float]:
-        """Dựa trên luật kết hợp Apriori từ các set menu công khai."""
+        """Dựa trên luật kết hợp Apriori từ giao dịch nguyên liệu thật nếu có thể ánh xạ."""
         from pathlib import Path
         from app.services.apriori_service import AprioriService
 

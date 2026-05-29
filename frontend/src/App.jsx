@@ -2,7 +2,7 @@
  * [V6] App.jsx
  * - AuthGuard bảo vệ /profile, /checkout
  * - Loại bỏ tabs học thuật (Classification, Clustering, Correlation)
- * - Đổi Association → "Phân tích Combo"
+ * - Đổi Association sang phân tích nguyên liệu bằng Apriori
  */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";

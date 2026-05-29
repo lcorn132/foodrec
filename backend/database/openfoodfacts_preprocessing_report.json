@@ -1,0 +1,463 @@
+{
+  "generated_on": "2026-05-29",
+  "data_source": {
+    "name": "Open Food Facts",
+    "url": "https://world.openfoodfacts.org/",
+    "raw_file": "openfoodfacts_products_raw.csv",
+    "clean_products_file": "openfoodfacts_products_clean.csv",
+    "transactions_file": "openfoodfacts_ingredient_transactions_clean.csv",
+    "note": "Dữ liệu sản phẩm thực phẩm thật từ Open Food Facts. Mỗi sản phẩm được xem như một giao dịch gồm các nguyên liệu được công bố trên nhãn."
+  },
+  "summary": {
+    "raw_rows": 3316,
+    "clean_product_rows": 3104,
+    "transactions_count": 3104,
+    "unique_ingredients": 15383,
+    "unique_categories": 959,
+    "unique_countries": 94,
+    "duplicate_or_missing_code": 0,
+    "missing_name": 64,
+    "too_few_ingredients": 148,
+    "avg_ingredients_per_product": 14.54,
+    "min_ingredients_per_product": 3,
+    "max_ingredients_per_product": 192
+  },
+  "cleaning": {
+    "steps": [
+      {
+        "name": "Kiểm tra mã sản phẩm",
+        "detail": "Loại bản ghi thiếu barcode hoặc bị trùng barcode.",
+        "count": 0
+      },
+      {
+        "name": "Kiểm tra tên sản phẩm",
+        "detail": "Loại sản phẩm thiếu tên vì không thể trình bày hoặc đối chiếu.",
+        "count": 64
+      },
+      {
+        "name": "Chuẩn hóa nguyên liệu",
+        "detail": "Chuyển ingredients_tags về chữ thường, bỏ tiền tố ngôn ngữ, thay gạch nối bằng khoảng trắng, loại từ quá tổng quát.",
+        "count": 15383
+      },
+      {
+        "name": "Thu giảm giao dịch quá ngắn",
+        "detail": "Loại sản phẩm có dưới 3 nguyên liệu sau chuẩn hóa vì không phù hợp khai phá luật kết hợp.",
+        "count": 148
+      },
+      {
+        "name": "Tăng cường đặc trưng",
+        "detail": "Bổ sung nhóm sản phẩm, quốc gia, Nutri-Score, Eco-Score và chỉ số dinh dưỡng trên 100g.",
+        "count": 3104
+      }
+    ],
+    "correction_examples": [
+      {
+        "raw": "Vinaigrette légère\rvinaigre balsamique tomates et tomates séchée",
+        "clean": "Vinaigrette légère vinaigre balsamique tomates et tomates séchée"
+      },
+      {
+        "raw": "Sauce salade légère \r\nà la moutarde à l'ancienne",
+        "clean": "Sauce salade légère à la moutarde à l'ancienne"
+      },
+      {
+        "raw": "Les Fourrées  -  Beurre de Cacahuète & Cacao",
+        "clean": "Les Fourrées - Beurre de Cacahuète & Cacao"
+      },
+      {
+        "raw": "سيرجيو  صغيرة",
+        "clean": "سيرجيو صغيرة"
+      },
+      {
+        "raw": "Plaisir du Primeur -  Girasoli cèpes",
+        "clean": "Plaisir du Primeur - Girasoli cèpes"
+      },
+      {
+        "raw": "Ravioli pur bœuf  sans colorant ni conservateur",
+        "clean": "Ravioli pur bœuf sans colorant ni conservateur"
+      },
+      {
+        "raw": "XtremBox - Radiatori  Bœuf Sauce au poivre",
+        "clean": "XtremBox - Radiatori Bœuf Sauce au poivre"
+      },
+      {
+        "raw": "PAD THAÏ Poulet - Nouilles, poulet  et citronnelle",
+        "clean": "PAD THAÏ Poulet - Nouilles, poulet et citronnelle"
+      },
+      {
+        "raw": "OSLO  - Pâtes concombre saumon skyr",
+        "clean": "OSLO - Pâtes concombre saumon skyr"
+      },
+      {
+        "raw": "Petites Madeleines  -30% de sucres",
+        "clean": "Petites Madeleines -30% de sucres"
+      }
+    ]
+  },
+  "transformation": {
+    "description": "Biến đổi mỗi sản phẩm thành giao dịch TID -> tập nguyên liệu để khai phá Apriori.",
+    "transactions": {
+      "count": 3104,
+      "min_item_count": 3,
+      "max_item_count": 192,
+      "avg_item_count": 14.54,
+      "preview": [
+        {
+          "transaction_id": "8076809513753",
+          "product_name": "PESTO alla GENOVESE",
+          "main_category": "green pestos",
+          "item_count": 12,
+          "items": "sunflower oil | fresh basil | cashew nuts | parmigiano reggiano pdo cheese | maize fibre | whey powder | milk protein | extra virgin olive oil | basil extract | natural flavourings | acidity regulator: lactic acid | garlic",
+          "source": "Open Food Facts"
+        },
+        {
+          "transaction_id": "8076809523547",
+          "product_name": "Pesto Rosso",
+          "main_category": "red pestos",
+          "item_count": 14,
+          "items": "tomato pulp | sunflower oil | tomato concentrate | grana padano pdo cheese (milk | lysozyme from egg | cashews | basil | balsamic vinegar of modena (wine vinegar | cooked grape must | whey powder | pecorino romano pdo cheese | rice starch | garlic | acidity regulator: lactic acid",
+          "source": "Open Food Facts"
+        },
+        {
+          "transaction_id": "6111184004129",
+          "product_name": "Mayonnaise recette originale",
+          "main_category": "groceries",
+          "item_count": 8,
+          "items": "huile de soja | vinaigre de table | jaune d’œufs | moutarde&quot | stabilisants (e412 | e415 | conservateur : (e202 | e211) et antioxydant : e330. contient des sulfites",
+          "source": "Open Food Facts"
+        },
+        {
+          "transaction_id": "8720182556738",
+          "product_name": "Maille Moutarde Fine de Dijon L'Originale Bocal 360g",
+          "main_category": "dijon mustards",
+          "item_count": 4,
+          "items": "graines de moutarde | vinaigre d'alcool | acidifiant : acide citrique | conservateur : disulfite de potassium",
+          "source": "Open Food Facts"
+        },
+        {
+          "transaction_id": "6111184004730",
+          "product_name": "Ketchup star 310 g",
+          "main_category": "groceries",
+          "item_count": 7,
+          "items": "starch | خل الطماطلخ مركز سكر | المکونات | مواد معدل | مشخن المائدة | وتوابل حافظة | e202 e211",
+          "source": "Open Food Facts"
+        }
+      ]
+    }
+  },
+  "reduction": {
+    "description": "Loại nguyên liệu quá tổng quát và sản phẩm có quá ít nguyên liệu để giảm luật tầm thường.",
+    "excluded_item_groups": [
+      {
+        "group": "Nguyên liệu/từ khóa quá tổng quát",
+        "items": [
+          "aceite",
+          "acid",
+          "acidifiant",
+          "acidity regulator",
+          "added sugar",
+          "agua",
+          "and",
+          "antioxidant",
+          "arome",
+          "aromes",
+          "azucar",
+          "azúcar",
+          "açúcar",
+          "cereal",
+          "color",
+          "colorant",
+          "colour",
+          "conservateur",
+          "disaccharide",
+          "eau",
+          "emulsifiant",
+          "emulsifier",
+          "espesante",
+          "flavor",
+          "flavors",
+          "flavouring",
+          "flavourings",
+          "herb",
+          "herbs",
+          "huile",
+          "ingredient",
+          "ingredients",
+          "natural flavor",
+          "natural flavors",
+          "natural flavouring",
+          "oil",
+          "oil and fat",
+          "or",
+          "preservative",
+          "sal",
+          "salt",
+          "sel",
+          "spice",
+          "spices",
+          "stabilisant",
+          "stabiliser",
+          "stabilizer",
+          "sucre",
+          "sugar",
+          "sugars",
+          "thickener",
+          "vegetable oil",
+          "vegetable oil and fat",
+          "water"
+        ],
+        "rows": null
+      }
+    ],
+    "top_repeated_items": [
+      {
+        "item": "huile de tournesol",
+        "transaction_count": 560
+      },
+      {
+        "item": "huile de colza",
+        "transaction_count": 397
+      },
+      {
+        "item": "beurre de cacao",
+        "transaction_count": 379
+      },
+      {
+        "item": "farine de blé",
+        "transaction_count": 342
+      },
+      {
+        "item": "ail",
+        "transaction_count": 332
+      },
+      {
+        "item": "pâte de cacao",
+        "transaction_count": 305
+      },
+      {
+        "item": "arôme naturel",
+        "transaction_count": 201
+      },
+      {
+        "item": "poivre",
+        "transaction_count": 191
+      },
+      {
+        "item": "levure",
+        "transaction_count": 184
+      },
+      {
+        "item": "lait",
+        "transaction_count": 175
+      },
+      {
+        "item": "sirop de glucose",
+        "transaction_count": 174
+      },
+      {
+        "item": "sucre de canne",
+        "transaction_count": 173
+      },
+      {
+        "item": "soja",
+        "transaction_count": 166
+      },
+      {
+        "item": "lait écrémé en poudre",
+        "transaction_count": 166
+      },
+      {
+        "item": "vinaigre d'alcool",
+        "transaction_count": 162
+      },
+      {
+        "item": "dextrose",
+        "transaction_count": 162
+      },
+      {
+        "item": "émulsifiant",
+        "transaction_count": 154
+      },
+      {
+        "item": "oignons",
+        "transaction_count": 150
+      },
+      {
+        "item": "semoule de blé dur",
+        "transaction_count": 149
+      },
+      {
+        "item": "arômes naturels",
+        "transaction_count": 144
+      }
+    ],
+    "top_categories": [
+      {
+        "category": "instant noodles",
+        "count": 228
+      },
+      {
+        "category": "groceries",
+        "count": 207
+      },
+      {
+        "category": "dark chocolates",
+        "count": 115
+      },
+      {
+        "category": "instant noodle soups",
+        "count": 55
+      },
+      {
+        "category": "mueslis with chocolate",
+        "count": 39
+      },
+      {
+        "category": "mueslis",
+        "count": 37
+      },
+      {
+        "category": "biscuits",
+        "count": 36
+      },
+      {
+        "category": "mueslis with fruits",
+        "count": 33
+      },
+      {
+        "category": "dark chocolate bar with more than 70 cocoa",
+        "count": 33
+      },
+      {
+        "category": "microwave meals",
+        "count": 29
+      },
+      {
+        "category": "canned raviolis",
+        "count": 26
+      },
+      {
+        "category": "mayonnaises",
+        "count": 23
+      },
+      {
+        "category": "milk chocolates",
+        "count": 23
+      },
+      {
+        "category": "breakfast cereals",
+        "count": 22
+      },
+      {
+        "category": "mueslis with nuts",
+        "count": 21
+      },
+      {
+        "category": "cereal clusters with chocolate",
+        "count": 20
+      },
+      {
+        "category": "extruded cereals",
+        "count": 20
+      },
+      {
+        "category": "extra fine dark chocolates",
+        "count": 20
+      },
+      {
+        "category": "flavoured dehydrated asian noodles",
+        "count": 19
+      },
+      {
+        "category": "dark chocolate bars for cooking",
+        "count": 18
+      }
+    ],
+    "top_countries": [
+      {
+        "country": "france",
+        "count": 2584
+      },
+      {
+        "country": "germany",
+        "count": 463
+      },
+      {
+        "country": "belgium",
+        "count": 394
+      },
+      {
+        "country": "morocco",
+        "count": 364
+      },
+      {
+        "country": "spain",
+        "count": 315
+      },
+      {
+        "country": "united kingdom",
+        "count": 260
+      },
+      {
+        "country": "switzerland",
+        "count": 213
+      },
+      {
+        "country": "italy",
+        "count": 178
+      },
+      {
+        "country": "portugal",
+        "count": 110
+      },
+      {
+        "country": "reunion",
+        "count": 102
+      },
+      {
+        "country": "bulgaria",
+        "count": 100
+      },
+      {
+        "country": "netherlands",
+        "count": 78
+      },
+      {
+        "country": "ireland",
+        "count": 73
+      },
+      {
+        "country": "austria",
+        "count": 68
+      },
+      {
+        "country": "united states",
+        "count": 61
+      },
+      {
+        "country": "romania",
+        "count": 55
+      },
+      {
+        "country": "poland",
+        "count": 54
+      },
+      {
+        "country": "australia",
+        "count": 46
+      },
+      {
+        "country": "czech republic",
+        "count": 45
+      },
+      {
+        "country": "india",
+        "count": 39
+      }
+    ]
+  },
+  "method_notes": [
+    "Áp dụng tiền xử lý dữ liệu theo quy trình đã học: làm sạch, tích hợp, biến đổi, thu giảm và tăng cường đặc trưng.",
+    "Áp dụng khai phá luật kết hợp: mỗi sản phẩm là một transaction, mỗi nguyên liệu là một item.",
+    "Dữ liệu không được sinh ngẫu nhiên; các trường gốc lấy từ Open Food Facts, các trường tăng cường được dẫn xuất bằng code."
+  ]
+}

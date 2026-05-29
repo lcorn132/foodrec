@@ -16,8 +16,8 @@ function StatCard({ icon, value, label, sub, color = "#E6B422" }) {
   );
 }
 
-function BarChartCombo({ data }) {
-  if (!data || data.length === 0) {
+function IngredientChart({ data }) {
+  if (!data?.length) {
     return <p className="text-center py-8 text-sm" style={{ color: "#8D6E63" }}>Chưa đủ dữ liệu để hiển thị biểu đồ.</p>;
   }
 
@@ -42,7 +42,7 @@ function BarChartCombo({ data }) {
         })}
       </div>
       <p className="text-center mt-4 text-[11px]" style={{ color: "#8D6E63" }}>
-        Biểu đồ thể hiện tỷ lệ món thường được gọi cùng nhau trong cùng một đơn.
+        Biểu đồ thể hiện confidence của luật kết hợp nguyên liệu từ dữ liệu sản phẩm thật.
       </p>
     </div>
   );
@@ -59,7 +59,7 @@ export default function DashboardOverview() {
     Promise.all([
       getOverview().catch(() => null),
       getTopDishes(5).catch(() => ({ data: [] })),
-      getAssociationRules(0.15, 0.6).catch(() => ({ rules: [] })),
+      getAssociationRules(0.03, 0.25).catch(() => ({ rules: [] })),
       getRecommendationRate().catch(() => ({ rate: 0 })),
     ]).then(([o, t, ar, rr]) => {
       setOv(o);
@@ -72,8 +72,8 @@ export default function DashboardOverview() {
 
   if (loading) return <Loading label="Đang tải dữ liệu tổng quan..." />;
 
-  const comboChartData = (rules?.rules || []).slice(0, 5).map((r) => ({
-    label: `${r.antecedent?.split(" ").slice(0, 2).join(" ")} + ${r.consequent?.split(" ").slice(0, 2).join(" ")}`,
+  const chartData = (rules?.rules || []).slice(0, 5).map((r) => ({
+    label: `${r.antecedent?.split(" ").slice(0, 2).join(" ")} -> ${r.consequent?.split(" ").slice(0, 2).join(" ")}`,
     value: Math.round((r.confidence || 0) * 100),
   }));
 
@@ -81,27 +81,27 @@ export default function DashboardOverview() {
     <div className="space-y-6">
       <div>
         <h1 className="font-display text-2xl font-bold" style={{ color: "#3E2723" }}>Tổng quan</h1>
-        <p className="text-sm" style={{ color: "#8D6E63" }}>Theo dõi doanh thu, đơn hàng, thực đơn và hiệu quả gợi ý.</p>
+        <p className="text-sm" style={{ color: "#8D6E63" }}>Theo dõi hoạt động web và kết quả khai phá dữ liệu nguyên liệu thực phẩm.</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-        <StatCard icon="💰" value={formatCurrency(ov?.total_revenue || 0)} label="Doanh thu" sub="Đã ghi nhận" color="#16A34A" />
+        <StatCard icon="💰" value={formatCurrency(ov?.total_revenue || 0)} label="Doanh thu web" sub="Đã ghi nhận" color="#16A34A" />
         <StatCard icon="📦" value={ov?.total_orders ?? 0} label="Đơn hàng" sub={`${ov?.completed_orders || 0} hoàn thành`} />
         <StatCard icon="🍽️" value={ov?.total_dishes ?? 0} label="Món trong thực đơn" sub="Đang bán" color="#3B82F6" />
-        <StatCard icon="🔗" value={`${recRate?.rate || 0}%`} label="Hiệu quả gợi ý" sub={`${recRate?.orders_with_recs || 0}/${recRate?.total_orders || 0} đơn`} color="#8B5CF6" />
+        <StatCard icon="🔗" value={`${recRate?.rate || 0}%`} label={recRate?.metric_label || "Tỷ lệ có luật kết hợp"} sub={`${recRate?.orders_with_recs || 0}/${recRate?.total_orders || 0} giao dịch`} color="#8B5CF6" />
       </div>
 
       <div className="bg-white rounded-2xl p-6" style={{ border: "1px solid #E8DDD4" }}>
-        <h3 className="font-display text-lg font-bold mb-1" style={{ color: "#3E2723" }}>Top 5 Cặp Món Được Gọi Cùng Nhau</h3>
+        <h3 className="font-display text-lg font-bold mb-1" style={{ color: "#3E2723" }}>Top 5 luật kết hợp nguyên liệu</h3>
         <p className="text-[12px] mb-5" style={{ color: "#8D6E63" }}>
-          Dựa trên {rules?.total_transactions || 0} đơn hàng có dữ liệu món ăn.
+          Dựa trên {rules?.total_transactions || 0} sản phẩm thật sau tiền xử lý từ Open Food Facts.
         </p>
-        <BarChartCombo data={comboChartData} />
+        <IngredientChart data={chartData} />
       </div>
 
       {topDishes.length > 0 && (
         <div className="bg-white rounded-2xl p-6" style={{ border: "1px solid #E8DDD4" }}>
-          <h3 className="font-display text-lg font-bold mb-4" style={{ color: "#3E2723" }}>Món được quan tâm nhiều</h3>
+          <h3 className="font-display text-lg font-bold mb-4" style={{ color: "#3E2723" }}>Món được quan tâm nhiều trên web</h3>
           <div className="space-y-3">
             {topDishes.map((d, i) => (
               <div key={d.dish_id} className="flex items-center gap-4 p-3 rounded-xl hover:bg-gold-100/20 transition-colors" style={{ border: "1px solid #EFEBE9" }}>

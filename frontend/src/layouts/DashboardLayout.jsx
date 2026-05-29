@@ -13,7 +13,7 @@ const NAV = [
     section: "Báo cáo",
     items: [
       { to: "/dashboard", label: "Tổng quan", icon: "📊", end: true },
-      { to: "/dashboard/combo-analysis", label: "Phân tích combo", icon: "🔗" },
+      { to: "/dashboard/combo-analysis", label: "Phân tích nguyên liệu", icon: "🔗" },
       { to: "/dashboard/apriori", label: "Luật kết hợp", icon: "🔍" },
       { to: "/dashboard/preprocessing", label: "Dữ liệu", icon: "⚙️" },
     ],
@@ -66,7 +66,7 @@ export default function DashboardLayout() {
                   to={item.to}
                   end={item.end}
                   className={({ isActive }) => `flex items-center gap-3 px-3 py-2.5 rounded-xl text-[13px] font-medium transition-all no-underline my-0.5 ${isActive ? "text-white" : "text-white/40 hover:text-white/80 hover:bg-white/5"}`}
-                  style={({ isActive }) => isActive ? { background: "rgba(230,180,34,0.15)", borderLeft: "3px solid #E6B422" } : {}}
+                  style={({ isActive }) => (isActive ? { background: "rgba(230,180,34,0.15)", borderLeft: "3px solid #E6B422" } : {})}
                   title={collapsed ? item.label : undefined}
                 >
                   <span className="text-base flex-shrink-0">{item.icon}</span>
@@ -88,7 +88,7 @@ export default function DashboardLayout() {
         <div className="sticky top-0 z-40 px-8 py-3 flex items-center justify-between bg-white/90 backdrop-blur-lg" style={{ borderBottom: "1px solid #E8DDD4" }}>
           <div>
             <h2 className="font-display text-base font-bold" style={{ color: "#3E2723" }}>FoodRec - Trang quản trị</h2>
-            <p className="text-[11px]" style={{ color: "#8D6E63" }}>Quản lý thực đơn, đơn hàng và báo cáo</p>
+            <p className="text-[11px]" style={{ color: "#8D6E63" }}>Quản lý thực đơn, đơn hàng và báo cáo dữ liệu</p>
           </div>
           <div className="text-[11px] font-semibold px-3 py-1.5 rounded-full" style={{ background: "#DCFCE7", color: "#16A34A" }}>
             Đang hoạt động

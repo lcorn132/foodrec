@@ -1,106 +1,124 @@
-# FoodRec — Xây dựng thực đơn nhà hàng bằng khai phá dữ liệu
-## Nhóm 10 — Đồ án Khai phá dữ liệu
+# FoodRec - Đồ án Khai phá dữ liệu
 
-Dự án được chỉnh lại theo đúng bài toán:
+## Bài toán
 
-> **Thu thập/xây dựng bộ dữ liệu, làm sạch dữ liệu, sau đó khai phá mối quan hệ giữa các món ăn trong thực đơn nhà hàng bằng Apriori.**
+FoodRec là web gợi ý thực đơn/ẩm thực cho nhà hàng, trong đó phần khai phá dữ liệu tập trung vào:
 
-Nguồn dữ liệu thực tế dùng cho phần trọng tâm là **các set menu công khai của Nhà hàng Cơm Niêu Việt Nam**. Mỗi set menu được xem như **một giao dịch** chứa nhiều món ăn.
+> Thu thập dữ liệu thực phẩm thật, làm sạch và tăng cường dữ liệu, chuyển dữ liệu thành giao dịch nguyên liệu, sau đó dùng Apriori để tìm mối quan hệ giữa các nguyên liệu thường xuất hiện cùng nhau.
 
----
+Phần đơn hàng, khách hàng và thực đơn trong web vẫn phục vụ demo nghiệp vụ nhà hàng. Riêng phần dữ liệu khai phá chính không dùng đơn hàng mô phỏng.
 
-## 1. Quy trình dữ liệu đã triển khai
+## Nguồn dữ liệu thật
 
-### 1.1. Dữ liệu thu thập
-Các file mới trong `backend/database/`:
+Dữ liệu gốc được lấy từ **Open Food Facts**, một cơ sở dữ liệu mở về sản phẩm thực phẩm thật trên toàn cầu.
 
-- `set_menu_items_raw.csv` — dữ liệu thô của từng dòng món trong 12 set menu.
-- `set_menu_items_clean.csv` — dữ liệu sau làm sạch và gán cờ phục vụ khai phá.
-- `set_menu_transactions_clean.csv` — dữ liệu giao dịch TID → Items dùng cho Apriori.
-- `set_menu_preprocessing_report.json` — báo cáo thống kê tiền xử lý.
+File gốc trong repo:
 
-### 1.2. Làm sạch dữ liệu bằng code
-Script:
+- `backend/database/openfoodfacts_products_raw.csv`
+
+Cấu trúc chính:
+
+- `source`: nhóm danh mục lúc thu thập, ví dụ `sauces`, `breakfast-cereals`, `instant-noodles`.
+- `code`: mã sản phẩm thật trên Open Food Facts.
+- `product_name`: tên sản phẩm.
+- `brands`, `quantity`: thương hiệu và khối lượng.
+- `categories`, `categories_tags`: danh mục sản phẩm.
+- `countries`, `countries_tags`: thị trường/quốc gia xuất hiện.
+- `ingredients_text`, `ingredients_tags`: danh sách nguyên liệu công bố trên nhãn.
+- `nutriscore_grade`, `ecoscore_grade`: điểm dinh dưỡng/môi trường nếu có.
+- `nutriments_json`: thông tin dinh dưỡng dạng JSON.
+
+Quy mô hiện tại:
+
+- 3.316 dòng dữ liệu thô.
+- 3.104 sản phẩm sạch sau tiền xử lý.
+- 3.104 giao dịch nguyên liệu dùng cho Apriori.
+- 15.383 nguyên liệu khác nhau sau chuẩn hóa.
+- 94 quốc gia và 959 nhóm danh mục được ghi nhận trong dữ liệu.
+
+## Pipeline dữ liệu
+
+Script thu thập:
 
 ```bash
-python backend/scripts/prepare_set_menu_dataset.py
+python backend/scripts/collect_openfoodfacts_dataset.py
 ```
 
-Các bước xử lý:
+Script tiền xử lý:
 
-1. Kiểm tra trường bắt buộc.
-2. Chuẩn hóa chuỗi tên món: khoảng trắng, chữ hoa/thường, sửa một số cách viết không đồng nhất.
-3. Tách dòng gộp như `Trái cây + Khăn lạnh + Trà đá` thành từng item riêng.
-4. Chống trùng lặp trong cùng set menu theo khóa `(set_id, item_name_clean)`.
-5. Thu giảm dữ liệu trước khai phá: loại `Trái cây`, `Khăn lạnh`, `Trà đá`, `Cơm niêu` khỏi tập Apriori để tránh luật hiển nhiên.
-
-### 1.3. Biến đổi dữ liệu cho Apriori
-Mỗi set menu sạch được chuyển thành một giao dịch:
-
-```text
-TID = SM300_02
-Items = Gỏi Thái Hải Sản | Gà Hấp Mắm Nhĩ | Cá Kho Làng Vũ Đại | ...
+```bash
+cd backend
+python -c "from app.services.real_food_preprocessor import run_real_food_preprocessing; run_real_food_preprocessing()"
 ```
 
----
+Các file sau xử lý:
 
-## 2. Phân tích Apriori
+- `backend/database/openfoodfacts_products_clean.csv`: bảng sản phẩm sạch, đã chuẩn hóa tên, danh mục, quốc gia, điểm dinh dưỡng và số lượng nguyên liệu.
+- `backend/database/openfoodfacts_ingredient_transactions_clean.csv`: dữ liệu giao dịch Apriori, mỗi sản phẩm là một giao dịch, mỗi nguyên liệu là một item.
+- `backend/database/openfoodfacts_preprocessing_report.json`: báo cáo làm sạch, biến đổi, thu giảm, thống kê top nguyên liệu.
+
+Các bước đã làm bằng code:
+
+1. Loại dòng thiếu mã sản phẩm hoặc thiếu tên sản phẩm.
+2. Tách nguyên liệu từ `ingredients_text`; nếu thiếu thì dùng `ingredients_tags`.
+3. Chuẩn hóa chữ thường, khoảng trắng, dấu ngoặc, phần trăm, ký tự thừa.
+4. Loại token quá ngắn, số, ký hiệu, và các thành phần quá chung như nước, muối, đường, dầu.
+5. Loại sản phẩm còn dưới 3 nguyên liệu sau làm sạch.
+6. Tăng cường đặc trưng: danh mục chính, quốc gia chính, số nguyên liệu, điểm Nutri-Score, Eco-Score.
+7. Chuyển mỗi sản phẩm thành một giao dịch `transaction_id -> items` cho Apriori.
+
+## Apriori
 
 Service chính:
 
-```text
-backend/app/services/apriori_service.py
-```
+- `backend/app/services/apriori_service.py`
+- `backend/app/services/real_food_preprocessor.py`
 
-Chức năng:
+Thông số mặc định:
 
-- Tìm tập phổ biến.
-- Sinh luật kết hợp `X → Y`.
-- Tính `support`, `confidence`, `lift`.
-- Gợi ý món đi kèm dựa trên luật kết hợp từ set menu.
+- `min_support = 0.03`
+- `min_confidence = 0.25`
+- `min_lift = 1.05`
+
+Kết quả hiện tại:
+
+- 51 tập phổ biến.
+- 9 luật kết hợp hợp lệ.
+- Ví dụ luật:
+  - `pâte de cacao -> beurre de cacao`
+  - `poivre -> ail`
 
 API:
 
+- `GET /api/analytics/preprocessing-report`
+- `POST /api/analytics/preprocessing-report/refresh`
 - `GET /api/analytics/apriori/full`
 - `POST /api/analytics/apriori/refresh`
-- `GET /api/analytics/apriori/dish-recommendations?dish_name=...`
-- `GET /api/analytics/preprocessing-report`
+- `GET /api/analytics/apriori/ingredient-suggestions?ingredients=poivre`
+- `GET /api/analytics/association-rules`
+- `GET /api/analytics/recommendation-rate`
 
----
+## Web thay đổi theo dữ liệu
 
-## 3. Cài đặt
+Dashboard đã được chỉnh để phản ánh dữ liệu mới:
 
-### 3.1. PostgreSQL
-```bash
-createdb foodrec
-```
+- `/dashboard`: tổng quan web và top luật nguyên liệu.
+- `/dashboard/preprocessing`: nguồn dữ liệu, file thô/sạch/giao dịch, thống kê làm sạch.
+- `/dashboard/apriori`: tập phổ biến, luật kết hợp, giao dịch nguyên liệu, gợi ý nguyên liệu đi kèm.
+- `/dashboard/combo-analysis`: đổi thành phân tích quan hệ nguyên liệu.
 
-Cấu hình trong `backend/.env`:
+## Cài đặt
 
-```env
-DATABASE_URL=postgresql://postgres:your_password@localhost:5432/foodrec
-```
+Backend:
 
-Có thể dùng SQLite để chạy nhanh khi demo:
-
-```env
-DATABASE_URL=sqlite:///./app.db
-```
-
-### 3.2. Backend
 ```bash
 cd backend
 pip install -r requirements.txt
 python -m uvicorn app.main:app --reload --port 8000
 ```
 
-API docs:
+Frontend:
 
-```text
-http://localhost:8000/docs
-```
-
-### 3.3. Frontend
 ```bash
 cd frontend
 npm install
@@ -109,41 +127,13 @@ npm run dev
 
 Truy cập:
 
-```text
-http://localhost:5173
-```
+- Frontend: `http://localhost:5173`
+- API docs: `http://localhost:8000/docs`
 
----
+## Ghi chú nộp đồ án
 
-## 4. Cấu trúc web
+Khi trình bày báo cáo, nên nhấn mạnh:
 
-### Backend — FastAPI
-- `/api/auth` — đăng ký/đăng nhập.
-- `/api/dishes` — danh mục món.
-- `/api/orders` — chức năng mô phỏng đặt món.
-- `/api/recommendations` — gợi ý món, ưu tiên luật kết hợp từ set menu.
-- `/api/analytics` — dashboard phân tích.
-
-### Frontend — React + Vite
-**Trang khách hàng**:
-- `/`
-- `/menu`
-- `/dish/:id`
-- `/cart`
-- `/checkout`
-- `/login`, `/register`
-
-**Dashboard**:
-- `/dashboard/preprocessing` — báo cáo thu thập/làm sạch/chuyển đổi dữ liệu.
-- `/dashboard/apriori` — tập phổ biến, luật kết hợp, giao dịch set menu, gợi ý món.
-- Các màn hình phân tích khác được giữ phục vụ phần mở rộng/demo hệ thống.
-
----
-
-## 5. Lưu ý về phạm vi dữ liệu
-
-- **Dữ liệu set menu** là dữ liệu trọng tâm cho phần khai phá luật kết hợp của đề tài.
-- Các file `orders.csv`, `ratings.csv`, `customers.csv` trong dự án ban đầu được giữ cho chức năng web/demo mở rộng; chúng **không được dùng làm nguồn chính cho phần Apriori của đề tài**.
-- Khi viết báo cáo, nên tách rõ:
-  - **Dữ liệu thu thập thật**: set menu từ website.
-  - **Dữ liệu mô phỏng/phụ trợ**: đơn hàng, đánh giá, khách hàng nếu nhóm vẫn dùng để minh họa chức năng web.
+- Dữ liệu khai phá chính là dữ liệu thật từ Open Food Facts, không phải dữ liệu tự sinh ngẫu nhiên.
+- Dữ liệu được biến đổi thành dạng giao dịch để phù hợp với Apriori.
+- Web nhà hàng là lớp ứng dụng minh họa kết quả phân tích và quản lý thực đơn/đơn hàng.
