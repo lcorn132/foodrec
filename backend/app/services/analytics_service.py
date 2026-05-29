@@ -68,14 +68,12 @@ class AnalyticsService:
         Endpoint cũ được giữ để các dashboard tổng quan/combo không bị gãy.
         """
         from pathlib import Path
-        from app.services.apriori_service import SetMenuAssociationMiner
+        from app.services.apriori_service import AprioriService
 
         data_path = Path(__file__).resolve().parents[2] / "database"
-        result = SetMenuAssociationMiner(data_path).run(
-            min_support=min_support,
-            min_confidence=min_confidence,
-            min_lift=1.0,
-        )
+        report = AprioriService(data_path).run_full_analysis()
+        result = report.get("dish_association", {})
+        stats = result.get("stats", {})
 
         # Các màn hình cũ kỳ vọng antecedent/consequent là chuỗi, nên ta chuyển về dạng hiển thị.
         display_rules = []
@@ -102,8 +100,8 @@ class AnalyticsService:
             "rules": display_rules[:25],
             "frequent_itemsets": fis[:25],
             "total_transactions": result.get("transactions_count", 0),
-            "min_support": min_support,
-            "min_confidence": min_confidence,
+            "min_support": stats.get("min_support", min_support),
+            "min_confidence": stats.get("min_confidence", min_confidence),
             "source": "set_menu_transactions_augmented.csv",
             "note": "Luật được khai phá từ set menu Cơm Niêu Việt Nam và dữ liệu tăng cường dẫn xuất có đánh dấu.",
         }

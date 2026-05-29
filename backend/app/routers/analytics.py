@@ -52,24 +52,19 @@ def assoc_rules(min_support: float = 0.02, min_confidence: float = 0.25, db: Ses
 def recommendation_rate():
     """Tỷ lệ set menu có chứa ít nhất một cặp món phổ biến dùng để sinh gợi ý."""
     from pathlib import Path
-    from app.services.apriori_service import SetMenuAssociationMiner
+    from app.services.apriori_service import AprioriService
 
     data_path = Path(__file__).parent.parent.parent / "database"
-    miner = SetMenuAssociationMiner(data_path)
-    result = miner.run(min_support=0.02, min_confidence=0.25, min_lift=1.0)
-    itemsets = [set(row.get("itemset", [])) for row in result.get("frequent_itemsets", []) if len(row.get("itemset", [])) >= 2]
-    transactions = [set(row.get("items", [])) for row in result.get("transactions_preview", [])]
+    report = AprioriService(data_path).run_full_analysis()
+    summary = report.get("summary", {})
+    stats = report.get("dish_association", {}).get("stats", {})
 
-    # Dùng toàn bộ transaction thực trong miner để tránh preview chỉ 5 dòng.
-    all_transactions = [set(tx) for tx in miner.transactions]
-    total = len(all_transactions)
-    covered = 0
-    for tx in all_transactions:
-        if any(itemset.issubset(tx) for itemset in itemsets):
-            covered += 1
+    # Read cached Apriori coverage to keep dashboard requests light on Render free.
+    total = summary.get("transactions_count", 0)
+    covered = stats.get("covered_transactions", 0)
 
     return {
-        "rate": round(covered / total * 100, 1) if total else 0,
+        "rate": stats.get("coverage_rate", round(covered / total * 100, 1) if total else 0),
         "total_orders": total,
         "orders_with_recs": covered,
         "metric_label": "Tỷ lệ giao dịch có cặp món phổ biến",

@@ -11,7 +11,9 @@ Nguồn giao dịch:
 from __future__ import annotations
 
 import csv
+import json
 import math
+import time
 from collections import Counter, defaultdict
 from itertools import combinations
 from pathlib import Path
@@ -19,6 +21,7 @@ from pathlib import Path
 
 DEFAULT_DB_DIR = Path(__file__).resolve().parents[2] / "database"
 TRANSACTIONS_FILE = "set_menu_transactions_augmented.csv"
+REPORT_FILE = "set_menu_apriori_report.json"
 
 _cache: dict = {}
 
@@ -166,6 +169,7 @@ class SetMenuAssociationMiner:
                     self.item_to_transactions[item].add(tx_id)
 
     def run(self, min_support: float = 0.02, min_confidence: float = 0.25, min_lift: float = 1.0) -> dict:
+        started_at = time.perf_counter()
         freq_itemsets, n, min_count = _get_frequent_itemsets(self.transactions, min_support)
         rules = _generate_rules(freq_itemsets, n, min_confidence, min_lift)
 
@@ -191,14 +195,22 @@ class SetMenuAssociationMiner:
                 })
         single_supports.sort(key=lambda row: (-row["count"], row["item"]))
 
+        pair_itemsets = [set(itemset) for itemset in freq_itemsets if len(itemset) >= 2]
+        covered_transactions = 0
+        if pair_itemsets:
+            for tx in self.transactions:
+                tx_set = set(tx)
+                if any(itemset.issubset(tx_set) for itemset in pair_itemsets):
+                    covered_transactions += 1
+
         return {
             "transactions_count": n,
             "original_transactions_count": sum(1 for row in self.transaction_rows if not row.get("is_augmented")),
             "augmented_transactions_count": sum(1 for row in self.transaction_rows if row.get("is_augmented")),
             "transactions_preview": self.transaction_rows[:5],
-            "single_item_supports": single_supports[:20],
-            "frequent_itemsets": frequent_itemsets[:40],
-            "rules": rules[:60],
+            "single_item_supports": single_supports[:30],
+            "frequent_itemsets": frequent_itemsets[:200],
+            "rules": rules[:200],
             "stats": {
                 "min_support": min_support,
                 "min_support_count": min_count,
@@ -207,8 +219,11 @@ class SetMenuAssociationMiner:
                 "total_unique_items": len({item for tx in self.transactions for item in tx}),
                 "total_freq_itemsets": len(freq_itemsets),
                 "total_rules": len(rules),
+                "covered_transactions": covered_transactions,
+                "coverage_rate": round(covered_transactions / n * 100, 1) if n else 0,
                 "mean_transaction_size": round(sum(len(tx) for tx in self.transactions) / n, 2) if n else 0,
                 "source_file": TRANSACTIONS_FILE,
+                "runtime_ms": round((time.perf_counter() - started_at) * 1000, 2),
             },
         }
 
@@ -255,12 +270,48 @@ class AprioriService:
 
     def __init__(self, data_path: Path | None = None):
         self.data_path = Path(data_path) if data_path else DEFAULT_DB_DIR
-        self.miner = SetMenuAssociationMiner(self.data_path)
+        self._miner: SetMenuAssociationMiner | None = None
+
+    @property
+    def miner(self) -> SetMenuAssociationMiner:
+        if self._miner is None:
+            self._miner = SetMenuAssociationMiner(self.data_path)
+        return self._miner
+
+    @property
+    def report_path(self) -> Path:
+        return self.data_path / REPORT_FILE
+
+    def _load_report(self) -> dict | None:
+        if not self.report_path.exists():
+            return None
+        try:
+            with self.report_path.open("r", encoding="utf-8") as f:
+                report = json.load(f)
+            if report.get("dish_association") and report.get("summary"):
+                return report
+        except (OSError, json.JSONDecodeError):
+            return None
+        return None
+
+    def _write_report(self, report: dict) -> None:
+        try:
+            with self.report_path.open("w", encoding="utf-8") as f:
+                json.dump(report, f, ensure_ascii=False, indent=2)
+        except OSError:
+            # Render can still serve from memory if the filesystem is read-only.
+            pass
 
     def run_full_analysis(self, force: bool = False) -> dict:
         global _cache
         if _cache and not force:
             return _cache
+
+        if not force:
+            cached_report = self._load_report()
+            if cached_report is not None:
+                _cache = cached_report
+                return _cache
 
         association = self.miner.run()
         _cache = {
@@ -277,9 +328,49 @@ class AprioriService:
                 "min_support_count": association["stats"]["min_support_count"],
                 "min_confidence": association["stats"]["min_confidence"],
                 "min_lift": association["stats"]["min_lift"],
+                "coverage_rate": association["stats"]["coverage_rate"],
+                "covered_transactions": association["stats"]["covered_transactions"],
             },
         }
+        self._write_report(_cache)
         return _cache
 
     def get_dish_recommendations(self, dish_name: str) -> list[dict]:
-        return self.miner.get_recommendations(dish_name)
+        dish_name = str(dish_name or "").strip()
+        if not dish_name:
+            return []
+
+        report = self.run_full_analysis()
+        rules = report.get("dish_association", {}).get("rules", [])
+        canonical = None
+        for rule in rules:
+            for item in rule.get("antecedent", []) + rule.get("consequent", []):
+                if str(item).casefold() == dish_name.casefold():
+                    canonical = item
+                    break
+            if canonical:
+                break
+        if canonical is None:
+            return []
+
+        recs: dict[str, dict] = {}
+        for rule in rules:
+            antecedent = rule.get("antecedent", [])
+            if len(antecedent) != 1 or antecedent[0] != canonical:
+                continue
+            for item in rule.get("consequent", []):
+                if item == canonical:
+                    continue
+                candidate = {
+                    "dish": item,
+                    "because": antecedent,
+                    "confidence": rule.get("confidence", 0),
+                    "lift": rule.get("lift", 0),
+                    "support": rule.get("support", 0),
+                    "support_count": rule.get("support_count", 0),
+                }
+                old = recs.get(item)
+                if old is None or (candidate["lift"], candidate["confidence"], candidate["support"]) > (old["lift"], old["confidence"], old["support"]):
+                    recs[item] = candidate
+
+        return sorted(recs.values(), key=lambda row: (-row["lift"], -row["confidence"], -row["support"]))[:8]

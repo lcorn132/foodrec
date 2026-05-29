@@ -1,0 +1,4143 @@
+{
+  "dish_association": {
+    "transactions_count": 9812,
+    "original_transactions_count": 12,
+    "augmented_transactions_count": 9800,
+    "transactions_preview": [
+      {
+        "transaction_id": "SM200_01",
+        "set_name": "Set menu 200.000đ /người (1)",
+        "price_vnd": 200000,
+        "source_url": "https://comnieuvietnam.vn/products/set-menu-200-000d-nguoi-1",
+        "items": [
+          "Cải thìa xào dầu hào",
+          "Gà rang gừng",
+          "Cá bống kho tộ",
+          "Tôm rim thịt",
+          "Mực chiên nước mắm",
+          "Canh cua cà pháo"
+        ],
+        "item_count": 6,
+        "is_augmented": 0,
+        "origin_transaction_id": "SM200_01",
+        "augmentation_method": "original_public_set_menu",
+        "excluded_items": []
+      },
+      {
+        "transaction_id": "SM200_02",
+        "set_name": "Set menu 200.000đ /người (2)",
+        "price_vnd": 200000,
+        "source_url": "https://comnieuvietnam.vn/products/set-menu-200-000d-nguoi-2",
+        "items": [
+          "Đậu que xào lòng gà",
+          "Vịt kho gừng",
+          "Cá ngừ đại dương kho thơm",
+          "Thịt kho trứng",
+          "Tôm rang muối",
+          "Canh thát lát khổ qua"
+        ],
+        "item_count": 6,
+        "is_augmented": 0,
+        "origin_transaction_id": "SM200_02",
+        "augmentation_method": "original_public_set_menu",
+        "excluded_items": []
+      },
+      {
+        "transaction_id": "SM200_03",
+        "set_name": "Set menu 200.000đ /người (3)",
+        "price_vnd": 200000,
+        "source_url": "https://comnieuvietnam.vn/products/set-menu-200-000d-nguoi-3",
+        "items": [
+          "Rau luộc thập cẩm kho quẹt",
+          "Gà chiên nước mắm",
+          "Tôm cháy tỏi",
+          "Thịt kho củ cải trắng",
+          "Cá ngừ đại dương sốt cà",
+          "Canh cá nấu riêu"
+        ],
+        "item_count": 6,
+        "is_augmented": 0,
+        "origin_transaction_id": "SM200_03",
+        "augmentation_method": "original_public_set_menu",
+        "excluded_items": []
+      },
+      {
+        "transaction_id": "SM250_01",
+        "set_name": "Set menu 250.000đ /người (1)",
+        "price_vnd": 250000,
+        "source_url": "https://comnieuvietnam.vn/products/set-menu-250-000d-nguoi-1",
+        "items": [
+          "Gân bò xào cải chua",
+          "Gà hấp mắm nhĩ",
+          "Bò sốt nấm",
+          "Cá dứa kho tộ",
+          "Tôm rang muối",
+          "Canh chua cá bóp"
+        ],
+        "item_count": 6,
+        "is_augmented": 0,
+        "origin_transaction_id": "SM250_01",
+        "augmentation_method": "original_public_set_menu",
+        "excluded_items": []
+      },
+      {
+        "transaction_id": "SM250_02",
+        "set_name": "Set menu 250.000đ /người (2)",
+        "price_vnd": 250000,
+        "source_url": "https://comnieuvietnam.vn/products/set-menu-250-000d-nguoi-2",
+        "items": [
+          "Đậu que xào bò",
+          "Gà chiên nước mắm",
+          "Giò heo nấu giả cầy",
+          "Cá thu sốt cà chua",
+          "Tôm cháy tỏi",
+          "Canh chua cá dứa"
+        ],
+        "item_count": 6,
+        "is_augmented": 0,
+        "origin_transaction_id": "SM250_02",
+        "augmentation_method": "original_public_set_menu",
+        "excluded_items": []
+      }
+    ],
+    "single_item_supports": [
+      {
+        "item": "Gà hấp mắm nhĩ",
+        "support": 0.2383,
+        "count": 2338
+      },
+      {
+        "item": "Gà chiên nước mắm",
+        "support": 0.197,
+        "count": 1933
+      },
+      {
+        "item": "Tôm cháy tỏi",
+        "support": 0.1816,
+        "count": 1782
+      },
+      {
+        "item": "Tôm rang muối",
+        "support": 0.1766,
+        "count": 1733
+      },
+      {
+        "item": "Gà hấp mía",
+        "support": 0.1736,
+        "count": 1703
+      },
+      {
+        "item": "Gà hấp cải xanh",
+        "support": 0.173,
+        "count": 1697
+      },
+      {
+        "item": "Gà kho sả ớt",
+        "support": 0.1722,
+        "count": 1690
+      },
+      {
+        "item": "Lẩu vịt om sấu",
+        "support": 0.1586,
+        "count": 1556
+      },
+      {
+        "item": "Rau rừng gia lai xào bò",
+        "support": 0.1582,
+        "count": 1552
+      },
+      {
+        "item": "Cá ngừ đại dương lúc lắc",
+        "support": 0.158,
+        "count": 1550
+      },
+      {
+        "item": "Giò heo nấu giả cầy",
+        "support": 0.1576,
+        "count": 1546
+      },
+      {
+        "item": "Cá kho làng vũ đại",
+        "support": 0.1574,
+        "count": 1544
+      },
+      {
+        "item": "Canh chua cá dứa",
+        "support": 0.157,
+        "count": 1540
+      },
+      {
+        "item": "Lẩu riêu cua sườn sun",
+        "support": 0.1567,
+        "count": 1538
+      },
+      {
+        "item": "Tôm chiên nước mắm",
+        "support": 0.1566,
+        "count": 1537
+      },
+      {
+        "item": "Tôm càng hấp bia",
+        "support": 0.1566,
+        "count": 1537
+      },
+      {
+        "item": "Bắp bò ngâm nước mắm",
+        "support": 0.1561,
+        "count": 1532
+      },
+      {
+        "item": "Cá dứa kho tộ",
+        "support": 0.1561,
+        "count": 1532
+      },
+      {
+        "item": "Gỏi thái hải sản",
+        "support": 0.1561,
+        "count": 1532
+      },
+      {
+        "item": "Cá chim hấp hong kong",
+        "support": 0.1558,
+        "count": 1529
+      },
+      {
+        "item": "Đậu que xào bò",
+        "support": 0.1557,
+        "count": 1528
+      },
+      {
+        "item": "Mực 1 nắng chiên nước mắm",
+        "support": 0.1556,
+        "count": 1527
+      },
+      {
+        "item": "Cá thu sốt cà chua",
+        "support": 0.1554,
+        "count": 1525
+      },
+      {
+        "item": "Thịt rang cháy cạnh",
+        "support": 0.1552,
+        "count": 1523
+      },
+      {
+        "item": "Canh chua cá bóp",
+        "support": 0.1549,
+        "count": 1520
+      },
+      {
+        "item": "Gân bò xào cải chua",
+        "support": 0.1549,
+        "count": 1520
+      },
+      {
+        "item": "Gỏi bò đồng quê",
+        "support": 0.1545,
+        "count": 1516
+      },
+      {
+        "item": "Bò sốt nấm",
+        "support": 0.154,
+        "count": 1511
+      },
+      {
+        "item": "Bò sốt tiêu đen",
+        "support": 0.153,
+        "count": 1501
+      },
+      {
+        "item": "Salad cải mầm bò",
+        "support": 0.153,
+        "count": 1501
+      }
+    ],
+    "frequent_itemsets": [
+      {
+        "itemset": [
+          "Gà chiên nước mắm",
+          "Tôm cháy tỏi"
+        ],
+        "support": 0.0574,
+        "count": 563
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Gân bò xào cải chua"
+        ],
+        "support": 0.0552,
+        "count": 542
+      },
+      {
+        "itemset": [
+          "Cá kho làng vũ đại",
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0546,
+        "count": 536
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Gỏi thái hải sản"
+        ],
+        "support": 0.0546,
+        "count": 536
+      },
+      {
+        "itemset": [
+          "Bắp bò ngâm nước mắm",
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0543,
+        "count": 533
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Tôm rang muối"
+        ],
+        "support": 0.0542,
+        "count": 532
+      },
+      {
+        "itemset": [
+          "Canh chua cá bóp",
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0538,
+        "count": 528
+      },
+      {
+        "itemset": [
+          "Cá dứa kho tộ",
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0531,
+        "count": 521
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Tôm càng xanh rang muối"
+        ],
+        "support": 0.0522,
+        "count": 512
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Lẩu ngót cá chim"
+        ],
+        "support": 0.0509,
+        "count": 499
+      },
+      {
+        "itemset": [
+          "Bò sốt nấm",
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0506,
+        "count": 496
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Lẩu riêu cua sườn sun"
+        ],
+        "support": 0.0493,
+        "count": 484
+      },
+      {
+        "itemset": [
+          "Canh chua cá dứa",
+          "Gà chiên nước mắm"
+        ],
+        "support": 0.0491,
+        "count": 482
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Mực 1 nắng chiên nước mắm"
+        ],
+        "support": 0.0486,
+        "count": 477
+      },
+      {
+        "itemset": [
+          "Gà kho sả ớt",
+          "Rau rừng gia lai xào bò"
+        ],
+        "support": 0.0486,
+        "count": 477
+      },
+      {
+        "itemset": [
+          "Cá ngừ đại dương lúc lắc",
+          "Gà hấp mía"
+        ],
+        "support": 0.0481,
+        "count": 472
+      },
+      {
+        "itemset": [
+          "Cá thu sốt cà chua",
+          "Gà chiên nước mắm"
+        ],
+        "support": 0.048,
+        "count": 471
+      },
+      {
+        "itemset": [
+          "Gà hấp cải xanh",
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "support": 0.0477,
+        "count": 468
+      },
+      {
+        "itemset": [
+          "Gà kho sả ớt",
+          "Tôm chiên nước mắm"
+        ],
+        "support": 0.0477,
+        "count": 468
+      },
+      {
+        "itemset": [
+          "Gà chiên nước mắm",
+          "Đậu que xào bò"
+        ],
+        "support": 0.0475,
+        "count": 466
+      },
+      {
+        "itemset": [
+          "Gà hấp cải xanh",
+          "Gỏi bò đồng quê"
+        ],
+        "support": 0.0474,
+        "count": 465
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Tôm càng hấp bia"
+        ],
+        "support": 0.0473,
+        "count": 464
+      },
+      {
+        "itemset": [
+          "Cá bống mú chưng tương",
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.0471,
+        "count": 462
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Salad cải mầm bò"
+        ],
+        "support": 0.0469,
+        "count": 460
+      },
+      {
+        "itemset": [
+          "Bò sốt tiêu đen",
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.0466,
+        "count": 457
+      },
+      {
+        "itemset": [
+          "Bắp bò ngâm nước mắm",
+          "Cá kho làng vũ đại"
+        ],
+        "support": 0.0463,
+        "count": 454
+      },
+      {
+        "itemset": [
+          "Cá ngừ đại dương lúc lắc",
+          "Tôm càng hấp bia"
+        ],
+        "support": 0.0463,
+        "count": 454
+      },
+      {
+        "itemset": [
+          "Canh hến (dắt) mồng tơi",
+          "Gà kho sả ớt"
+        ],
+        "support": 0.0462,
+        "count": 453
+      },
+      {
+        "itemset": [
+          "Rau rừng gia lai xào bò",
+          "Tôm chiên nước mắm"
+        ],
+        "support": 0.0462,
+        "count": 453
+      },
+      {
+        "itemset": [
+          "Gà hấp cải xanh",
+          "Lẩu vịt om sấu"
+        ],
+        "support": 0.0461,
+        "count": 452
+      },
+      {
+        "itemset": [
+          "Cá chim hấp hong kong",
+          "Gà kho sả ớt"
+        ],
+        "support": 0.046,
+        "count": 451
+      },
+      {
+        "itemset": [
+          "Giò heo nấu giả cầy",
+          "Gà chiên nước mắm"
+        ],
+        "support": 0.0459,
+        "count": 450
+      },
+      {
+        "itemset": [
+          "Cá chim hấp hong kong",
+          "Tôm chiên nước mắm"
+        ],
+        "support": 0.0457,
+        "count": 448
+      },
+      {
+        "itemset": [
+          "Gà kho sả ớt",
+          "Thịt rang cháy cạnh"
+        ],
+        "support": 0.0457,
+        "count": 448
+      },
+      {
+        "itemset": [
+          "Lẩu riêu cua sườn sun",
+          "Salad cải mầm bò"
+        ],
+        "support": 0.0455,
+        "count": 446
+      },
+      {
+        "itemset": [
+          "Cá thu sốt cà chua",
+          "Tôm cháy tỏi"
+        ],
+        "support": 0.0454,
+        "count": 445
+      },
+      {
+        "itemset": [
+          "Bò sốt tiêu đen",
+          "Lẩu vịt om sấu"
+        ],
+        "support": 0.045,
+        "count": 442
+      },
+      {
+        "itemset": [
+          "Cá ngừ đại dương lúc lắc",
+          "Lẩu riêu cua sườn sun"
+        ],
+        "support": 0.045,
+        "count": 442
+      },
+      {
+        "itemset": [
+          "Mực 1 nắng chiên nước mắm",
+          "Tôm càng hấp bia"
+        ],
+        "support": 0.045,
+        "count": 442
+      },
+      {
+        "itemset": [
+          "Canh chua cá dứa",
+          "Cá thu sốt cà chua"
+        ],
+        "support": 0.0448,
+        "count": 440
+      },
+      {
+        "itemset": [
+          "Canh chua cá dứa",
+          "Tôm cháy tỏi"
+        ],
+        "support": 0.0448,
+        "count": 440
+      },
+      {
+        "itemset": [
+          "Cá dứa kho tộ",
+          "Tôm rang muối"
+        ],
+        "support": 0.0448,
+        "count": 440
+      },
+      {
+        "itemset": [
+          "Giò heo nấu giả cầy",
+          "Tôm cháy tỏi"
+        ],
+        "support": 0.0448,
+        "count": 440
+      },
+      {
+        "itemset": [
+          "Cá chim hấp hong kong",
+          "Thịt rang cháy cạnh"
+        ],
+        "support": 0.0447,
+        "count": 439
+      },
+      {
+        "itemset": [
+          "Cá ngừ đại dương lúc lắc",
+          "Mực 1 nắng chiên nước mắm"
+        ],
+        "support": 0.0447,
+        "count": 439
+      },
+      {
+        "itemset": [
+          "Cá thu sốt cà chua",
+          "Giò heo nấu giả cầy"
+        ],
+        "support": 0.0447,
+        "count": 439
+      },
+      {
+        "itemset": [
+          "Rau rừng gia lai xào bò",
+          "Thịt rang cháy cạnh"
+        ],
+        "support": 0.0447,
+        "count": 439
+      },
+      {
+        "itemset": [
+          "Canh chua cá dứa",
+          "Đậu que xào bò"
+        ],
+        "support": 0.0446,
+        "count": 438
+      },
+      {
+        "itemset": [
+          "Canh hến (dắt) mồng tơi",
+          "Rau rừng gia lai xào bò"
+        ],
+        "support": 0.0446,
+        "count": 438
+      },
+      {
+        "itemset": [
+          "Canh chua cá bóp",
+          "Tôm rang muối"
+        ],
+        "support": 0.0445,
+        "count": 437
+      },
+      {
+        "itemset": [
+          "Cá dứa kho tộ",
+          "Gân bò xào cải chua"
+        ],
+        "support": 0.0445,
+        "count": 437
+      },
+      {
+        "itemset": [
+          "Cá ngừ đại dương lúc lắc",
+          "Salad cải mầm bò"
+        ],
+        "support": 0.0445,
+        "count": 437
+      },
+      {
+        "itemset": [
+          "Cá chim hấp hong kong",
+          "Rau rừng gia lai xào bò"
+        ],
+        "support": 0.0444,
+        "count": 436
+      },
+      {
+        "itemset": [
+          "Cá kho làng vũ đại",
+          "Lẩu ngót cá chim"
+        ],
+        "support": 0.0443,
+        "count": 435
+      },
+      {
+        "itemset": [
+          "Bò sốt nấm",
+          "Tôm rang muối"
+        ],
+        "support": 0.0442,
+        "count": 434
+      },
+      {
+        "itemset": [
+          "Canh chua cá bóp",
+          "Cá dứa kho tộ"
+        ],
+        "support": 0.0441,
+        "count": 433
+      },
+      {
+        "itemset": [
+          "Canh hến (dắt) mồng tơi",
+          "Thịt rang cháy cạnh"
+        ],
+        "support": 0.0441,
+        "count": 433
+      },
+      {
+        "itemset": [
+          "Lẩu riêu cua sườn sun",
+          "Mực 1 nắng chiên nước mắm"
+        ],
+        "support": 0.0441,
+        "count": 433
+      },
+      {
+        "itemset": [
+          "Mực 1 nắng chiên nước mắm",
+          "Salad cải mầm bò"
+        ],
+        "support": 0.0441,
+        "count": 433
+      },
+      {
+        "itemset": [
+          "Bò sốt tiêu đen",
+          "Cá bống mú chưng tương"
+        ],
+        "support": 0.0439,
+        "count": 431
+      },
+      {
+        "itemset": [
+          "Gỏi thái hải sản",
+          "Lẩu ngót cá chim"
+        ],
+        "support": 0.0439,
+        "count": 431
+      },
+      {
+        "itemset": [
+          "Canh hến (dắt) mồng tơi",
+          "Cá chim hấp hong kong"
+        ],
+        "support": 0.0438,
+        "count": 430
+      },
+      {
+        "itemset": [
+          "Salad cải mầm bò",
+          "Tôm càng hấp bia"
+        ],
+        "support": 0.0438,
+        "count": 430
+      },
+      {
+        "itemset": [
+          "Tôm cháy tỏi",
+          "Đậu que xào bò"
+        ],
+        "support": 0.0438,
+        "count": 430
+      },
+      {
+        "itemset": [
+          "Cá bống mú chưng tương",
+          "Lẩu vịt om sấu"
+        ],
+        "support": 0.0437,
+        "count": 429
+      },
+      {
+        "itemset": [
+          "Bò sốt nấm",
+          "Cá dứa kho tộ"
+        ],
+        "support": 0.0436,
+        "count": 428
+      },
+      {
+        "itemset": [
+          "Bắp bò ngâm nước mắm",
+          "Lẩu ngót cá chim"
+        ],
+        "support": 0.0436,
+        "count": 428
+      },
+      {
+        "itemset": [
+          "Bắp bò ngâm nước mắm",
+          "Tôm càng xanh rang muối"
+        ],
+        "support": 0.0435,
+        "count": 427
+      },
+      {
+        "itemset": [
+          "Canh hến (dắt) mồng tơi",
+          "Tôm chiên nước mắm"
+        ],
+        "support": 0.0435,
+        "count": 427
+      },
+      {
+        "itemset": [
+          "Giò heo nấu giả cầy",
+          "Đậu que xào bò"
+        ],
+        "support": 0.0435,
+        "count": 427
+      },
+      {
+        "itemset": [
+          "Lẩu vịt om sấu",
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "support": 0.0435,
+        "count": 427
+      },
+      {
+        "itemset": [
+          "Lẩu ngót cá chim",
+          "Tôm càng xanh rang muối"
+        ],
+        "support": 0.0433,
+        "count": 425
+      },
+      {
+        "itemset": [
+          "Bò sốt nấm",
+          "Canh chua cá bóp"
+        ],
+        "support": 0.0432,
+        "count": 424
+      },
+      {
+        "itemset": [
+          "Canh chua cá dứa",
+          "Giò heo nấu giả cầy"
+        ],
+        "support": 0.0432,
+        "count": 424
+      },
+      {
+        "itemset": [
+          "Thịt rang cháy cạnh",
+          "Tôm chiên nước mắm"
+        ],
+        "support": 0.0432,
+        "count": 424
+      },
+      {
+        "itemset": [
+          "Cá kho làng vũ đại",
+          "Gỏi thái hải sản"
+        ],
+        "support": 0.0431,
+        "count": 423
+      },
+      {
+        "itemset": [
+          "Bò sốt tiêu đen",
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "support": 0.043,
+        "count": 422
+      },
+      {
+        "itemset": [
+          "Cá bống mú chưng tương",
+          "Gỏi bò đồng quê"
+        ],
+        "support": 0.043,
+        "count": 422
+      },
+      {
+        "itemset": [
+          "Cá thu sốt cà chua",
+          "Đậu que xào bò"
+        ],
+        "support": 0.043,
+        "count": 422
+      },
+      {
+        "itemset": [
+          "Gỏi bò đồng quê",
+          "Lẩu vịt om sấu"
+        ],
+        "support": 0.0429,
+        "count": 421
+      },
+      {
+        "itemset": [
+          "Gỏi bò đồng quê",
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "support": 0.0429,
+        "count": 421
+      },
+      {
+        "itemset": [
+          "Cá kho làng vũ đại",
+          "Tôm càng xanh rang muối"
+        ],
+        "support": 0.0428,
+        "count": 420
+      },
+      {
+        "itemset": [
+          "Gỏi thái hải sản",
+          "Tôm càng xanh rang muối"
+        ],
+        "support": 0.0428,
+        "count": 420
+      },
+      {
+        "itemset": [
+          "Lẩu riêu cua sườn sun",
+          "Tôm càng hấp bia"
+        ],
+        "support": 0.0427,
+        "count": 419
+      },
+      {
+        "itemset": [
+          "Bò sốt tiêu đen",
+          "Gỏi bò đồng quê"
+        ],
+        "support": 0.0425,
+        "count": 417
+      },
+      {
+        "itemset": [
+          "Canh chua cá bóp",
+          "Gân bò xào cải chua"
+        ],
+        "support": 0.0424,
+        "count": 416
+      },
+      {
+        "itemset": [
+          "Gân bò xào cải chua",
+          "Tôm rang muối"
+        ],
+        "support": 0.0424,
+        "count": 416
+      },
+      {
+        "itemset": [
+          "Bò sốt nấm",
+          "Gân bò xào cải chua"
+        ],
+        "support": 0.0422,
+        "count": 414
+      },
+      {
+        "itemset": [
+          "Cá bống mú chưng tương",
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "support": 0.0422,
+        "count": 414
+      },
+      {
+        "itemset": [
+          "Bắp bò ngâm nước mắm",
+          "Gỏi thái hải sản"
+        ],
+        "support": 0.0421,
+        "count": 413
+      },
+      {
+        "itemset": [
+          "Giò heo nấu giả cầy",
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0352,
+        "count": 345
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Lẩu vịt om sấu"
+        ],
+        "support": 0.0348,
+        "count": 341
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Tôm cháy tỏi"
+        ],
+        "support": 0.0347,
+        "count": 340
+      },
+      {
+        "itemset": [
+          "Cá chim hấp hong kong",
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0342,
+        "count": 336
+      },
+      {
+        "itemset": [
+          "Canh chua cá dứa",
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0341,
+        "count": 335
+      },
+      {
+        "itemset": [
+          "Cá ngừ đại dương lúc lắc",
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0335,
+        "count": 329
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Thịt rang cháy cạnh"
+        ],
+        "support": 0.033,
+        "count": 324
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Đậu que xào bò"
+        ],
+        "support": 0.0329,
+        "count": 323
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Mực 1 nắng chiên nước mắm"
+        ],
+        "support": 0.0325,
+        "count": 319
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Tôm chiên nước mắm"
+        ],
+        "support": 0.0321,
+        "count": 315
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Tôm càng hấp bia"
+        ],
+        "support": 0.0321,
+        "count": 315
+      },
+      {
+        "itemset": [
+          "Bò sốt tiêu đen",
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.032,
+        "count": 314
+      },
+      {
+        "itemset": [
+          "Canh hến (dắt) mồng tơi",
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0319,
+        "count": 313
+      },
+      {
+        "itemset": [
+          "Cá thu sốt cà chua",
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0317,
+        "count": 311
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Salad cải mầm bò"
+        ],
+        "support": 0.0317,
+        "count": 311
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Lẩu riêu cua sườn sun"
+        ],
+        "support": 0.0316,
+        "count": 310
+      },
+      {
+        "itemset": [
+          "Gà chiên nước mắm",
+          "Tôm rang muối"
+        ],
+        "support": 0.0314,
+        "count": 308
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Gỏi bò đồng quê"
+        ],
+        "support": 0.0314,
+        "count": 308
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Rau rừng gia lai xào bò"
+        ],
+        "support": 0.0312,
+        "count": 306
+      },
+      {
+        "itemset": [
+          "Cá bống mú chưng tương",
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0306,
+        "count": 300
+      },
+      {
+        "itemset": [
+          "Gà hấp mắm nhĩ",
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "support": 0.0302,
+        "count": 296
+      },
+      {
+        "itemset": [
+          "Bò sốt nấm",
+          "Gà chiên nước mắm"
+        ],
+        "support": 0.0273,
+        "count": 268
+      },
+      {
+        "itemset": [
+          "Gà chiên nước mắm",
+          "Tôm càng hấp bia"
+        ],
+        "support": 0.0271,
+        "count": 266
+      },
+      {
+        "itemset": [
+          "Cá dứa kho tộ",
+          "Gà chiên nước mắm"
+        ],
+        "support": 0.027,
+        "count": 265
+      },
+      {
+        "itemset": [
+          "Gà hấp cải xanh",
+          "Rau rừng gia lai xào bò"
+        ],
+        "support": 0.027,
+        "count": 265
+      },
+      {
+        "itemset": [
+          "Gà chiên nước mắm",
+          "Rau rừng gia lai xào bò"
+        ],
+        "support": 0.0269,
+        "count": 264
+      },
+      {
+        "itemset": [
+          "Giò heo nấu giả cầy",
+          "Gà kho sả ớt"
+        ],
+        "support": 0.0268,
+        "count": 263
+      },
+      {
+        "itemset": [
+          "Gà chiên nước mắm",
+          "Mực 1 nắng chiên nước mắm"
+        ],
+        "support": 0.0268,
+        "count": 263
+      },
+      {
+        "itemset": [
+          "Gà hấp cải xanh",
+          "Lẩu riêu cua sườn sun"
+        ],
+        "support": 0.0265,
+        "count": 260
+      },
+      {
+        "itemset": [
+          "Gà kho sả ớt",
+          "Lẩu vịt om sấu"
+        ],
+        "support": 0.0265,
+        "count": 260
+      },
+      {
+        "itemset": [
+          "Cá chim hấp hong kong",
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.0264,
+        "count": 259
+      },
+      {
+        "itemset": [
+          "Cá dứa kho tộ",
+          "Gà kho sả ớt"
+        ],
+        "support": 0.0264,
+        "count": 259
+      },
+      {
+        "itemset": [
+          "Gà chiên nước mắm",
+          "Lẩu riêu cua sườn sun"
+        ],
+        "support": 0.0264,
+        "count": 259
+      },
+      {
+        "itemset": [
+          "Gà chiên nước mắm",
+          "Thịt rang cháy cạnh"
+        ],
+        "support": 0.0264,
+        "count": 259
+      },
+      {
+        "itemset": [
+          "Cá dứa kho tộ",
+          "Gà hấp mía"
+        ],
+        "support": 0.0263,
+        "count": 258
+      },
+      {
+        "itemset": [
+          "Cá ngừ đại dương lúc lắc",
+          "Gà chiên nước mắm"
+        ],
+        "support": 0.0263,
+        "count": 258
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Tôm rang muối"
+        ],
+        "support": 0.0263,
+        "count": 258
+      },
+      {
+        "itemset": [
+          "Gà chiên nước mắm",
+          "Salad cải mầm bò"
+        ],
+        "support": 0.0262,
+        "count": 257
+      },
+      {
+        "itemset": [
+          "Gà hấp cải xanh",
+          "Gỏi thái hải sản"
+        ],
+        "support": 0.0262,
+        "count": 257
+      },
+      {
+        "itemset": [
+          "Gà hấp cải xanh",
+          "Tôm chiên nước mắm"
+        ],
+        "support": 0.0262,
+        "count": 257
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Gỏi bò đồng quê"
+        ],
+        "support": 0.0262,
+        "count": 257
+      },
+      {
+        "itemset": [
+          "Gà kho sả ớt",
+          "Tôm rang muối"
+        ],
+        "support": 0.0262,
+        "count": 257
+      },
+      {
+        "itemset": [
+          "Cá bống mú chưng tương",
+          "Gà hấp mía"
+        ],
+        "support": 0.0261,
+        "count": 256
+      },
+      {
+        "itemset": [
+          "Cá thu sốt cà chua",
+          "Gà kho sả ớt"
+        ],
+        "support": 0.0261,
+        "count": 256
+      },
+      {
+        "itemset": [
+          "Gà hấp cải xanh",
+          "Lẩu ngót cá chim"
+        ],
+        "support": 0.0261,
+        "count": 256
+      },
+      {
+        "itemset": [
+          "Bắp bò ngâm nước mắm",
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.026,
+        "count": 255
+      },
+      {
+        "itemset": [
+          "Canh chua cá bóp",
+          "Gà kho sả ớt"
+        ],
+        "support": 0.0259,
+        "count": 254
+      },
+      {
+        "itemset": [
+          "Cá kho làng vũ đại",
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.0259,
+        "count": 254
+      },
+      {
+        "itemset": [
+          "Cá kho làng vũ đại",
+          "Gà kho sả ớt"
+        ],
+        "support": 0.0259,
+        "count": 254
+      },
+      {
+        "itemset": [
+          "Gà hấp cải xanh",
+          "Tôm càng hấp bia"
+        ],
+        "support": 0.0259,
+        "count": 254
+      },
+      {
+        "itemset": [
+          "Gà hấp cải xanh",
+          "Tôm càng xanh rang muối"
+        ],
+        "support": 0.0259,
+        "count": 254
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Gỏi thái hải sản"
+        ],
+        "support": 0.0258,
+        "count": 253
+      },
+      {
+        "itemset": [
+          "Bò sốt nấm",
+          "Gà hấp mía"
+        ],
+        "support": 0.0257,
+        "count": 252
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Lẩu ngót cá chim"
+        ],
+        "support": 0.0257,
+        "count": 252
+      },
+      {
+        "itemset": [
+          "Canh chua cá bóp",
+          "Gà chiên nước mắm"
+        ],
+        "support": 0.0256,
+        "count": 251
+      },
+      {
+        "itemset": [
+          "Gà chiên nước mắm",
+          "Tôm chiên nước mắm"
+        ],
+        "support": 0.0256,
+        "count": 251
+      },
+      {
+        "itemset": [
+          "Gà kho sả ớt",
+          "Đậu que xào bò"
+        ],
+        "support": 0.0256,
+        "count": 251
+      },
+      {
+        "itemset": [
+          "Bò sốt tiêu đen",
+          "Gà hấp mía"
+        ],
+        "support": 0.0255,
+        "count": 250
+      },
+      {
+        "itemset": [
+          "Cá kho làng vũ đại",
+          "Gà chiên nước mắm"
+        ],
+        "support": 0.0255,
+        "count": 250
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Gân bò xào cải chua"
+        ],
+        "support": 0.0255,
+        "count": 250
+      },
+      {
+        "itemset": [
+          "Gà kho sả ớt",
+          "Lẩu ngót cá chim"
+        ],
+        "support": 0.0255,
+        "count": 250
+      },
+      {
+        "itemset": [
+          "Bò sốt nấm",
+          "Gà kho sả ớt"
+        ],
+        "support": 0.0254,
+        "count": 249
+      },
+      {
+        "itemset": [
+          "Bắp bò ngâm nước mắm",
+          "Gà hấp mía"
+        ],
+        "support": 0.0254,
+        "count": 249
+      },
+      {
+        "itemset": [
+          "Gà hấp cải xanh",
+          "Tôm cháy tỏi"
+        ],
+        "support": 0.0254,
+        "count": 249
+      },
+      {
+        "itemset": [
+          "Gà kho sả ớt",
+          "Tôm cháy tỏi"
+        ],
+        "support": 0.0254,
+        "count": 249
+      },
+      {
+        "itemset": [
+          "Canh chua cá dứa",
+          "Gà kho sả ớt"
+        ],
+        "support": 0.0253,
+        "count": 248
+      },
+      {
+        "itemset": [
+          "Gà hấp cải xanh",
+          "Thịt rang cháy cạnh"
+        ],
+        "support": 0.0253,
+        "count": 248
+      },
+      {
+        "itemset": [
+          "Gà kho sả ớt",
+          "Salad cải mầm bò"
+        ],
+        "support": 0.0253,
+        "count": 248
+      },
+      {
+        "itemset": [
+          "Gà kho sả ớt",
+          "Tôm càng xanh rang muối"
+        ],
+        "support": 0.0253,
+        "count": 248
+      },
+      {
+        "itemset": [
+          "Canh chua cá bóp",
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.0252,
+        "count": 247
+      },
+      {
+        "itemset": [
+          "Canh hến (dắt) mồng tơi",
+          "Gà hấp mía"
+        ],
+        "support": 0.0252,
+        "count": 247
+      },
+      {
+        "itemset": [
+          "Cá ngừ đại dương lúc lắc",
+          "Gà kho sả ớt"
+        ],
+        "support": 0.0252,
+        "count": 247
+      },
+      {
+        "itemset": [
+          "Gà chiên nước mắm",
+          "Gỏi thái hải sản"
+        ],
+        "support": 0.0252,
+        "count": 247
+      },
+      {
+        "itemset": [
+          "Bò sốt nấm",
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.0251,
+        "count": 246
+      },
+      {
+        "itemset": [
+          "Bắp bò ngâm nước mắm",
+          "Gà kho sả ớt"
+        ],
+        "support": 0.0251,
+        "count": 246
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Lẩu vịt om sấu"
+        ],
+        "support": 0.0251,
+        "count": 246
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Tôm chiên nước mắm"
+        ],
+        "support": 0.0251,
+        "count": 246
+      },
+      {
+        "itemset": [
+          "Canh hến (dắt) mồng tơi",
+          "Gà chiên nước mắm"
+        ],
+        "support": 0.025,
+        "count": 245
+      },
+      {
+        "itemset": [
+          "Cá chim hấp hong kong",
+          "Gà chiên nước mắm"
+        ],
+        "support": 0.025,
+        "count": 245
+      },
+      {
+        "itemset": [
+          "Giò heo nấu giả cầy",
+          "Gà hấp mía"
+        ],
+        "support": 0.025,
+        "count": 245
+      },
+      {
+        "itemset": [
+          "Gà chiên nước mắm",
+          "Gân bò xào cải chua"
+        ],
+        "support": 0.025,
+        "count": 245
+      },
+      {
+        "itemset": [
+          "Gà chiên nước mắm",
+          "Lẩu vịt om sấu"
+        ],
+        "support": 0.025,
+        "count": 245
+      },
+      {
+        "itemset": [
+          "Gà hấp cải xanh",
+          "Đậu que xào bò"
+        ],
+        "support": 0.025,
+        "count": 245
+      },
+      {
+        "itemset": [
+          "Gà kho sả ớt",
+          "Gỏi bò đồng quê"
+        ],
+        "support": 0.025,
+        "count": 245
+      },
+      {
+        "itemset": [
+          "Cá ngừ đại dương lúc lắc",
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.0249,
+        "count": 244
+      },
+      {
+        "itemset": [
+          "Cá thu sốt cà chua",
+          "Gà hấp mía"
+        ],
+        "support": 0.0249,
+        "count": 244
+      },
+      {
+        "itemset": [
+          "Gà chiên nước mắm",
+          "Tôm càng xanh rang muối"
+        ],
+        "support": 0.0249,
+        "count": 244
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Thịt rang cháy cạnh"
+        ],
+        "support": 0.0249,
+        "count": 244
+      },
+      {
+        "itemset": [
+          "Canh chua cá bóp",
+          "Tôm chiên nước mắm"
+        ],
+        "support": 0.0248,
+        "count": 243
+      },
+      {
+        "itemset": [
+          "Cá thu sốt cà chua",
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.0248,
+        "count": 243
+      },
+      {
+        "itemset": [
+          "Giò heo nấu giả cầy",
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.0248,
+        "count": 243
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Tôm cháy tỏi"
+        ],
+        "support": 0.0248,
+        "count": 243
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Đậu que xào bò"
+        ],
+        "support": 0.0248,
+        "count": 243
+      },
+      {
+        "itemset": [
+          "Canh chua cá dứa",
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.0246,
+        "count": 241
+      },
+      {
+        "itemset": [
+          "Canh hến (dắt) mồng tơi",
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.0246,
+        "count": 241
+      },
+      {
+        "itemset": [
+          "Gà chiên nước mắm",
+          "Gỏi bò đồng quê"
+        ],
+        "support": 0.0246,
+        "count": 241
+      },
+      {
+        "itemset": [
+          "Bò sốt tiêu đen",
+          "Gà chiên nước mắm"
+        ],
+        "support": 0.0245,
+        "count": 240
+      },
+      {
+        "itemset": [
+          "Bò sốt tiêu đen",
+          "Gà kho sả ớt"
+        ],
+        "support": 0.0245,
+        "count": 240
+      },
+      {
+        "itemset": [
+          "Canh chua cá bóp",
+          "Gà hấp mía"
+        ],
+        "support": 0.0245,
+        "count": 240
+      },
+      {
+        "itemset": [
+          "Canh chua cá bóp",
+          "Đậu que xào bò"
+        ],
+        "support": 0.0245,
+        "count": 240
+      },
+      {
+        "itemset": [
+          "Gà hấp cải xanh",
+          "Gân bò xào cải chua"
+        ],
+        "support": 0.0245,
+        "count": 240
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Rau rừng gia lai xào bò"
+        ],
+        "support": 0.0245,
+        "count": 240
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "support": 0.0245,
+        "count": 240
+      },
+      {
+        "itemset": [
+          "Cá thu sốt cà chua",
+          "Rau rừng gia lai xào bò"
+        ],
+        "support": 0.0244,
+        "count": 239
+      },
+      {
+        "itemset": [
+          "Gà hấp mía",
+          "Tôm càng xanh rang muối"
+        ],
+        "support": 0.0244,
+        "count": 239
+      },
+      {
+        "itemset": [
+          "Gà kho sả ớt",
+          "Gỏi thái hải sản"
+        ],
+        "support": 0.0244,
+        "count": 239
+      },
+      {
+        "itemset": [
+          "Bò sốt tiêu đen",
+          "Rau rừng gia lai xào bò"
+        ],
+        "support": 0.0243,
+        "count": 238
+      },
+      {
+        "itemset": [
+          "Cá chim hấp hong kong",
+          "Gà hấp mía"
+        ],
+        "support": 0.0243,
+        "count": 238
+      },
+      {
+        "itemset": [
+          "Cá kho làng vũ đại",
+          "Lẩu vịt om sấu"
+        ],
+        "support": 0.0243,
+        "count": 238
+      },
+      {
+        "itemset": [
+          "Gà chiên nước mắm",
+          "Lẩu ngót cá chim"
+        ],
+        "support": 0.0243,
+        "count": 238
+      }
+    ],
+    "rules": [
+      {
+        "antecedent": [
+          "Cá bống mú chưng tương"
+        ],
+        "consequent": [
+          "Bò sốt tiêu đen"
+        ],
+        "support": 0.0439,
+        "confidence": 0.2906,
+        "lift": 1.8998,
+        "support_count": 431,
+        "antecedent_count": 1483,
+        "consequent_count": 1501
+      },
+      {
+        "antecedent": [
+          "Bò sốt tiêu đen"
+        ],
+        "consequent": [
+          "Cá bống mú chưng tương"
+        ],
+        "support": 0.0439,
+        "confidence": 0.2871,
+        "lift": 1.8998,
+        "support_count": 431,
+        "antecedent_count": 1501,
+        "consequent_count": 1483
+      },
+      {
+        "antecedent": [
+          "Salad cải mầm bò"
+        ],
+        "consequent": [
+          "Lẩu riêu cua sườn sun"
+        ],
+        "support": 0.0455,
+        "confidence": 0.2971,
+        "lift": 1.8956,
+        "support_count": 446,
+        "antecedent_count": 1501,
+        "consequent_count": 1538
+      },
+      {
+        "antecedent": [
+          "Lẩu riêu cua sườn sun"
+        ],
+        "consequent": [
+          "Salad cải mầm bò"
+        ],
+        "support": 0.0455,
+        "confidence": 0.29,
+        "lift": 1.8956,
+        "support_count": 446,
+        "antecedent_count": 1538,
+        "consequent_count": 1501
+      },
+      {
+        "antecedent": [
+          "Bắp bò ngâm nước mắm"
+        ],
+        "consequent": [
+          "Cá kho làng vũ đại"
+        ],
+        "support": 0.0463,
+        "confidence": 0.2963,
+        "lift": 1.8832,
+        "support_count": 454,
+        "antecedent_count": 1532,
+        "consequent_count": 1544
+      },
+      {
+        "antecedent": [
+          "Cá kho làng vũ đại"
+        ],
+        "consequent": [
+          "Bắp bò ngâm nước mắm"
+        ],
+        "support": 0.0463,
+        "confidence": 0.294,
+        "lift": 1.8832,
+        "support_count": 454,
+        "antecedent_count": 1544,
+        "consequent_count": 1532
+      },
+      {
+        "antecedent": [
+          "Cá chim hấp hong kong"
+        ],
+        "consequent": [
+          "Tôm chiên nước mắm"
+        ],
+        "support": 0.0457,
+        "confidence": 0.293,
+        "lift": 1.8705,
+        "support_count": 448,
+        "antecedent_count": 1529,
+        "consequent_count": 1537
+      },
+      {
+        "antecedent": [
+          "Tôm chiên nước mắm"
+        ],
+        "consequent": [
+          "Cá chim hấp hong kong"
+        ],
+        "support": 0.0457,
+        "confidence": 0.2915,
+        "lift": 1.8705,
+        "support_count": 448,
+        "antecedent_count": 1537,
+        "consequent_count": 1529
+      },
+      {
+        "antecedent": [
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "consequent": [
+          "Bò sốt tiêu đen"
+        ],
+        "support": 0.043,
+        "confidence": 0.2861,
+        "lift": 1.8702,
+        "support_count": 422,
+        "antecedent_count": 1475,
+        "consequent_count": 1501
+      },
+      {
+        "antecedent": [
+          "Bò sốt tiêu đen"
+        ],
+        "consequent": [
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "support": 0.043,
+        "confidence": 0.2811,
+        "lift": 1.8702,
+        "support_count": 422,
+        "antecedent_count": 1501,
+        "consequent_count": 1475
+      },
+      {
+        "antecedent": [
+          "Tôm càng hấp bia"
+        ],
+        "consequent": [
+          "Cá ngừ đại dương lúc lắc"
+        ],
+        "support": 0.0463,
+        "confidence": 0.2954,
+        "lift": 1.8699,
+        "support_count": 454,
+        "antecedent_count": 1537,
+        "consequent_count": 1550
+      },
+      {
+        "antecedent": [
+          "Cá ngừ đại dương lúc lắc"
+        ],
+        "consequent": [
+          "Tôm càng hấp bia"
+        ],
+        "support": 0.0463,
+        "confidence": 0.2929,
+        "lift": 1.8699,
+        "support_count": 454,
+        "antecedent_count": 1550,
+        "consequent_count": 1537
+      },
+      {
+        "antecedent": [
+          "Tôm chiên nước mắm"
+        ],
+        "consequent": [
+          "Rau rừng gia lai xào bò"
+        ],
+        "support": 0.0462,
+        "confidence": 0.2947,
+        "lift": 1.8633,
+        "support_count": 453,
+        "antecedent_count": 1537,
+        "consequent_count": 1552
+      },
+      {
+        "antecedent": [
+          "Rau rừng gia lai xào bò"
+        ],
+        "consequent": [
+          "Tôm chiên nước mắm"
+        ],
+        "support": 0.0462,
+        "confidence": 0.2919,
+        "lift": 1.8633,
+        "support_count": 453,
+        "antecedent_count": 1552,
+        "consequent_count": 1537
+      },
+      {
+        "antecedent": [
+          "Lẩu ngót cá chim"
+        ],
+        "consequent": [
+          "Tôm càng xanh rang muối"
+        ],
+        "support": 0.0433,
+        "confidence": 0.2843,
+        "lift": 1.8633,
+        "support_count": 425,
+        "antecedent_count": 1495,
+        "consequent_count": 1497
+      },
+      {
+        "antecedent": [
+          "Tôm càng xanh rang muối"
+        ],
+        "consequent": [
+          "Lẩu ngót cá chim"
+        ],
+        "support": 0.0433,
+        "confidence": 0.2839,
+        "lift": 1.8633,
+        "support_count": 425,
+        "antecedent_count": 1497,
+        "consequent_count": 1495
+      },
+      {
+        "antecedent": [
+          "Canh hến (dắt) mồng tơi"
+        ],
+        "consequent": [
+          "Thịt rang cháy cạnh"
+        ],
+        "support": 0.0441,
+        "confidence": 0.2889,
+        "lift": 1.861,
+        "support_count": 433,
+        "antecedent_count": 1499,
+        "consequent_count": 1523
+      },
+      {
+        "antecedent": [
+          "Thịt rang cháy cạnh"
+        ],
+        "consequent": [
+          "Canh hến (dắt) mồng tơi"
+        ],
+        "support": 0.0441,
+        "confidence": 0.2843,
+        "lift": 1.861,
+        "support_count": 433,
+        "antecedent_count": 1523,
+        "consequent_count": 1499
+      },
+      {
+        "antecedent": [
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "consequent": [
+          "Cá bống mú chưng tương"
+        ],
+        "support": 0.0422,
+        "confidence": 0.2807,
+        "lift": 1.8571,
+        "support_count": 414,
+        "antecedent_count": 1475,
+        "consequent_count": 1483
+      },
+      {
+        "antecedent": [
+          "Cá bống mú chưng tương"
+        ],
+        "consequent": [
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "support": 0.0422,
+        "confidence": 0.2792,
+        "lift": 1.8571,
+        "support_count": 414,
+        "antecedent_count": 1483,
+        "consequent_count": 1475
+      },
+      {
+        "antecedent": [
+          "Bò sốt tiêu đen"
+        ],
+        "consequent": [
+          "Lẩu vịt om sấu"
+        ],
+        "support": 0.045,
+        "confidence": 0.2945,
+        "lift": 1.8569,
+        "support_count": 442,
+        "antecedent_count": 1501,
+        "consequent_count": 1556
+      },
+      {
+        "antecedent": [
+          "Lẩu vịt om sấu"
+        ],
+        "consequent": [
+          "Bò sốt tiêu đen"
+        ],
+        "support": 0.045,
+        "confidence": 0.2841,
+        "lift": 1.8569,
+        "support_count": 442,
+        "antecedent_count": 1556,
+        "consequent_count": 1501
+      },
+      {
+        "antecedent": [
+          "Salad cải mầm bò"
+        ],
+        "consequent": [
+          "Mực 1 nắng chiên nước mắm"
+        ],
+        "support": 0.0441,
+        "confidence": 0.2885,
+        "lift": 1.8536,
+        "support_count": 433,
+        "antecedent_count": 1501,
+        "consequent_count": 1527
+      },
+      {
+        "antecedent": [
+          "Mực 1 nắng chiên nước mắm"
+        ],
+        "consequent": [
+          "Salad cải mầm bò"
+        ],
+        "support": 0.0441,
+        "confidence": 0.2836,
+        "lift": 1.8536,
+        "support_count": 433,
+        "antecedent_count": 1527,
+        "consequent_count": 1501
+      },
+      {
+        "antecedent": [
+          "Thịt rang cháy cạnh"
+        ],
+        "consequent": [
+          "Cá chim hấp hong kong"
+        ],
+        "support": 0.0447,
+        "confidence": 0.2882,
+        "lift": 1.8498,
+        "support_count": 439,
+        "antecedent_count": 1523,
+        "consequent_count": 1529
+      },
+      {
+        "antecedent": [
+          "Cá chim hấp hong kong"
+        ],
+        "consequent": [
+          "Thịt rang cháy cạnh"
+        ],
+        "support": 0.0447,
+        "confidence": 0.2871,
+        "lift": 1.8498,
+        "support_count": 439,
+        "antecedent_count": 1529,
+        "consequent_count": 1523
+      },
+      {
+        "antecedent": [
+          "Lẩu ngót cá chim"
+        ],
+        "consequent": [
+          "Cá kho làng vũ đại"
+        ],
+        "support": 0.0443,
+        "confidence": 0.291,
+        "lift": 1.8491,
+        "support_count": 435,
+        "antecedent_count": 1495,
+        "consequent_count": 1544
+      },
+      {
+        "antecedent": [
+          "Cá kho làng vũ đại"
+        ],
+        "consequent": [
+          "Lẩu ngót cá chim"
+        ],
+        "support": 0.0443,
+        "confidence": 0.2817,
+        "lift": 1.8491,
+        "support_count": 435,
+        "antecedent_count": 1544,
+        "consequent_count": 1495
+      },
+      {
+        "antecedent": [
+          "Mực 1 nắng chiên nước mắm"
+        ],
+        "consequent": [
+          "Tôm càng hấp bia"
+        ],
+        "support": 0.045,
+        "confidence": 0.2895,
+        "lift": 1.8479,
+        "support_count": 442,
+        "antecedent_count": 1527,
+        "consequent_count": 1537
+      },
+      {
+        "antecedent": [
+          "Tôm càng hấp bia"
+        ],
+        "consequent": [
+          "Mực 1 nắng chiên nước mắm"
+        ],
+        "support": 0.045,
+        "confidence": 0.2876,
+        "lift": 1.8479,
+        "support_count": 442,
+        "antecedent_count": 1537,
+        "consequent_count": 1527
+      },
+      {
+        "antecedent": [
+          "Canh hến (dắt) mồng tơi"
+        ],
+        "consequent": [
+          "Rau rừng gia lai xào bò"
+        ],
+        "support": 0.0446,
+        "confidence": 0.2922,
+        "lift": 1.8473,
+        "support_count": 438,
+        "antecedent_count": 1499,
+        "consequent_count": 1552
+      },
+      {
+        "antecedent": [
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "consequent": [
+          "Gỏi bò đồng quê"
+        ],
+        "support": 0.0429,
+        "confidence": 0.2854,
+        "lift": 1.8473,
+        "support_count": 421,
+        "antecedent_count": 1475,
+        "consequent_count": 1516
+      },
+      {
+        "antecedent": [
+          "Rau rừng gia lai xào bò"
+        ],
+        "consequent": [
+          "Canh hến (dắt) mồng tơi"
+        ],
+        "support": 0.0446,
+        "confidence": 0.2822,
+        "lift": 1.8473,
+        "support_count": 438,
+        "antecedent_count": 1552,
+        "consequent_count": 1499
+      },
+      {
+        "antecedent": [
+          "Gỏi bò đồng quê"
+        ],
+        "consequent": [
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "support": 0.0429,
+        "confidence": 0.2777,
+        "lift": 1.8473,
+        "support_count": 421,
+        "antecedent_count": 1516,
+        "consequent_count": 1475
+      },
+      {
+        "antecedent": [
+          "Lẩu ngót cá chim"
+        ],
+        "consequent": [
+          "Gỏi thái hải sản"
+        ],
+        "support": 0.0439,
+        "confidence": 0.2883,
+        "lift": 1.8464,
+        "support_count": 431,
+        "antecedent_count": 1495,
+        "consequent_count": 1532
+      },
+      {
+        "antecedent": [
+          "Gỏi thái hải sản"
+        ],
+        "consequent": [
+          "Lẩu ngót cá chim"
+        ],
+        "support": 0.0439,
+        "confidence": 0.2813,
+        "lift": 1.8464,
+        "support_count": 431,
+        "antecedent_count": 1532,
+        "consequent_count": 1495
+      },
+      {
+        "antecedent": [
+          "Salad cải mầm bò"
+        ],
+        "consequent": [
+          "Cá ngừ đại dương lúc lắc"
+        ],
+        "support": 0.0445,
+        "confidence": 0.2911,
+        "lift": 1.843,
+        "support_count": 437,
+        "antecedent_count": 1501,
+        "consequent_count": 1550
+      },
+      {
+        "antecedent": [
+          "Cá ngừ đại dương lúc lắc"
+        ],
+        "consequent": [
+          "Salad cải mầm bò"
+        ],
+        "support": 0.0445,
+        "confidence": 0.2819,
+        "lift": 1.843,
+        "support_count": 437,
+        "antecedent_count": 1550,
+        "consequent_count": 1501
+      },
+      {
+        "antecedent": [
+          "Cá bống mú chưng tương"
+        ],
+        "consequent": [
+          "Gỏi bò đồng quê"
+        ],
+        "support": 0.043,
+        "confidence": 0.2846,
+        "lift": 1.8417,
+        "support_count": 422,
+        "antecedent_count": 1483,
+        "consequent_count": 1516
+      },
+      {
+        "antecedent": [
+          "Gỏi bò đồng quê"
+        ],
+        "consequent": [
+          "Cá bống mú chưng tương"
+        ],
+        "support": 0.043,
+        "confidence": 0.2784,
+        "lift": 1.8417,
+        "support_count": 422,
+        "antecedent_count": 1516,
+        "consequent_count": 1483
+      },
+      {
+        "antecedent": [
+          "Gân bò xào cải chua"
+        ],
+        "consequent": [
+          "Cá dứa kho tộ"
+        ],
+        "support": 0.0445,
+        "confidence": 0.2875,
+        "lift": 1.8414,
+        "support_count": 437,
+        "antecedent_count": 1520,
+        "consequent_count": 1532
+      },
+      {
+        "antecedent": [
+          "Cá dứa kho tộ"
+        ],
+        "consequent": [
+          "Gân bò xào cải chua"
+        ],
+        "support": 0.0445,
+        "confidence": 0.2852,
+        "lift": 1.8414,
+        "support_count": 437,
+        "antecedent_count": 1532,
+        "consequent_count": 1520
+      },
+      {
+        "antecedent": [
+          "Canh hến (dắt) mồng tơi"
+        ],
+        "consequent": [
+          "Cá chim hấp hong kong"
+        ],
+        "support": 0.0438,
+        "confidence": 0.2869,
+        "lift": 1.8408,
+        "support_count": 430,
+        "antecedent_count": 1499,
+        "consequent_count": 1529
+      },
+      {
+        "antecedent": [
+          "Cá chim hấp hong kong"
+        ],
+        "consequent": [
+          "Canh hến (dắt) mồng tơi"
+        ],
+        "support": 0.0438,
+        "confidence": 0.2812,
+        "lift": 1.8408,
+        "support_count": 430,
+        "antecedent_count": 1529,
+        "consequent_count": 1499
+      },
+      {
+        "antecedent": [
+          "Cá thu sốt cà chua"
+        ],
+        "consequent": [
+          "Canh chua cá dứa"
+        ],
+        "support": 0.0448,
+        "confidence": 0.2885,
+        "lift": 1.8383,
+        "support_count": 440,
+        "antecedent_count": 1525,
+        "consequent_count": 1540
+      },
+      {
+        "antecedent": [
+          "Canh chua cá dứa"
+        ],
+        "consequent": [
+          "Cá thu sốt cà chua"
+        ],
+        "support": 0.0448,
+        "confidence": 0.2857,
+        "lift": 1.8383,
+        "support_count": 440,
+        "antecedent_count": 1540,
+        "consequent_count": 1525
+      },
+      {
+        "antecedent": [
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "consequent": [
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.0477,
+        "confidence": 0.3173,
+        "lift": 1.8345,
+        "support_count": 468,
+        "antecedent_count": 1475,
+        "consequent_count": 1697
+      },
+      {
+        "antecedent": [
+          "Gà hấp cải xanh"
+        ],
+        "consequent": [
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "support": 0.0477,
+        "confidence": 0.2758,
+        "lift": 1.8345,
+        "support_count": 468,
+        "antecedent_count": 1697,
+        "consequent_count": 1475
+      },
+      {
+        "antecedent": [
+          "Lẩu ngót cá chim"
+        ],
+        "consequent": [
+          "Bắp bò ngâm nước mắm"
+        ],
+        "support": 0.0436,
+        "confidence": 0.2863,
+        "lift": 1.8336,
+        "support_count": 428,
+        "antecedent_count": 1495,
+        "consequent_count": 1532
+      },
+      {
+        "antecedent": [
+          "Bắp bò ngâm nước mắm"
+        ],
+        "consequent": [
+          "Lẩu ngót cá chim"
+        ],
+        "support": 0.0436,
+        "confidence": 0.2794,
+        "lift": 1.8336,
+        "support_count": 428,
+        "antecedent_count": 1532,
+        "consequent_count": 1495
+      },
+      {
+        "antecedent": [
+          "Salad cải mầm bò"
+        ],
+        "consequent": [
+          "Tôm càng hấp bia"
+        ],
+        "support": 0.0438,
+        "confidence": 0.2865,
+        "lift": 1.8288,
+        "support_count": 430,
+        "antecedent_count": 1501,
+        "consequent_count": 1537
+      },
+      {
+        "antecedent": [
+          "Tôm càng hấp bia"
+        ],
+        "consequent": [
+          "Salad cải mầm bò"
+        ],
+        "support": 0.0438,
+        "confidence": 0.2798,
+        "lift": 1.8288,
+        "support_count": 430,
+        "antecedent_count": 1537,
+        "consequent_count": 1501
+      },
+      {
+        "antecedent": [
+          "Cá thu sốt cà chua"
+        ],
+        "consequent": [
+          "Giò heo nấu giả cầy"
+        ],
+        "support": 0.0447,
+        "confidence": 0.2879,
+        "lift": 1.827,
+        "support_count": 439,
+        "antecedent_count": 1525,
+        "consequent_count": 1546
+      },
+      {
+        "antecedent": [
+          "Giò heo nấu giả cầy"
+        ],
+        "consequent": [
+          "Cá thu sốt cà chua"
+        ],
+        "support": 0.0447,
+        "confidence": 0.284,
+        "lift": 1.827,
+        "support_count": 439,
+        "antecedent_count": 1546,
+        "consequent_count": 1525
+      },
+      {
+        "antecedent": [
+          "Tôm càng xanh rang muối"
+        ],
+        "consequent": [
+          "Bắp bò ngâm nước mắm"
+        ],
+        "support": 0.0435,
+        "confidence": 0.2852,
+        "lift": 1.8269,
+        "support_count": 427,
+        "antecedent_count": 1497,
+        "consequent_count": 1532
+      },
+      {
+        "antecedent": [
+          "Bắp bò ngâm nước mắm"
+        ],
+        "consequent": [
+          "Tôm càng xanh rang muối"
+        ],
+        "support": 0.0435,
+        "confidence": 0.2787,
+        "lift": 1.8269,
+        "support_count": 427,
+        "antecedent_count": 1532,
+        "consequent_count": 1497
+      },
+      {
+        "antecedent": [
+          "Đậu que xào bò"
+        ],
+        "consequent": [
+          "Canh chua cá dứa"
+        ],
+        "support": 0.0446,
+        "confidence": 0.2866,
+        "lift": 1.8264,
+        "support_count": 438,
+        "antecedent_count": 1528,
+        "consequent_count": 1540
+      },
+      {
+        "antecedent": [
+          "Canh chua cá dứa"
+        ],
+        "consequent": [
+          "Đậu que xào bò"
+        ],
+        "support": 0.0446,
+        "confidence": 0.2844,
+        "lift": 1.8264,
+        "support_count": 438,
+        "antecedent_count": 1540,
+        "consequent_count": 1528
+      },
+      {
+        "antecedent": [
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "consequent": [
+          "Lẩu vịt om sấu"
+        ],
+        "support": 0.0435,
+        "confidence": 0.2895,
+        "lift": 1.8255,
+        "support_count": 427,
+        "antecedent_count": 1475,
+        "consequent_count": 1556
+      },
+      {
+        "antecedent": [
+          "Lẩu vịt om sấu"
+        ],
+        "consequent": [
+          "Tôm càng cháy bơ tỏi"
+        ],
+        "support": 0.0435,
+        "confidence": 0.2744,
+        "lift": 1.8255,
+        "support_count": 427,
+        "antecedent_count": 1556,
+        "consequent_count": 1475
+      },
+      {
+        "antecedent": [
+          "Canh chua cá bóp"
+        ],
+        "consequent": [
+          "Cá dứa kho tộ"
+        ],
+        "support": 0.0441,
+        "confidence": 0.2849,
+        "lift": 1.8245,
+        "support_count": 433,
+        "antecedent_count": 1520,
+        "consequent_count": 1532
+      },
+      {
+        "antecedent": [
+          "Cá dứa kho tộ"
+        ],
+        "consequent": [
+          "Canh chua cá bóp"
+        ],
+        "support": 0.0441,
+        "confidence": 0.2826,
+        "lift": 1.8245,
+        "support_count": 433,
+        "antecedent_count": 1532,
+        "consequent_count": 1520
+      },
+      {
+        "antecedent": [
+          "Cá bống mú chưng tương"
+        ],
+        "consequent": [
+          "Lẩu vịt om sấu"
+        ],
+        "support": 0.0437,
+        "confidence": 0.2893,
+        "lift": 1.8242,
+        "support_count": 429,
+        "antecedent_count": 1483,
+        "consequent_count": 1556
+      },
+      {
+        "antecedent": [
+          "Lẩu vịt om sấu"
+        ],
+        "consequent": [
+          "Cá bống mú chưng tương"
+        ],
+        "support": 0.0437,
+        "confidence": 0.2757,
+        "lift": 1.8242,
+        "support_count": 429,
+        "antecedent_count": 1556,
+        "consequent_count": 1483
+      },
+      {
+        "antecedent": [
+          "Thịt rang cháy cạnh"
+        ],
+        "consequent": [
+          "Rau rừng gia lai xào bò"
+        ],
+        "support": 0.0447,
+        "confidence": 0.2882,
+        "lift": 1.8223,
+        "support_count": 439,
+        "antecedent_count": 1523,
+        "consequent_count": 1552
+      },
+      {
+        "antecedent": [
+          "Rau rừng gia lai xào bò"
+        ],
+        "consequent": [
+          "Thịt rang cháy cạnh"
+        ],
+        "support": 0.0447,
+        "confidence": 0.2829,
+        "lift": 1.8223,
+        "support_count": 439,
+        "antecedent_count": 1552,
+        "consequent_count": 1523
+      },
+      {
+        "antecedent": [
+          "Mực 1 nắng chiên nước mắm"
+        ],
+        "consequent": [
+          "Cá ngừ đại dương lúc lắc"
+        ],
+        "support": 0.0447,
+        "confidence": 0.2875,
+        "lift": 1.8199,
+        "support_count": 439,
+        "antecedent_count": 1527,
+        "consequent_count": 1550
+      },
+      {
+        "antecedent": [
+          "Cá ngừ đại dương lúc lắc"
+        ],
+        "consequent": [
+          "Mực 1 nắng chiên nước mắm"
+        ],
+        "support": 0.0447,
+        "confidence": 0.2832,
+        "lift": 1.8199,
+        "support_count": 439,
+        "antecedent_count": 1550,
+        "consequent_count": 1527
+      },
+      {
+        "antecedent": [
+          "Lẩu riêu cua sườn sun"
+        ],
+        "consequent": [
+          "Cá ngừ đại dương lúc lắc"
+        ],
+        "support": 0.045,
+        "confidence": 0.2874,
+        "lift": 1.8192,
+        "support_count": 442,
+        "antecedent_count": 1538,
+        "consequent_count": 1550
+      },
+      {
+        "antecedent": [
+          "Cá ngừ đại dương lúc lắc"
+        ],
+        "consequent": [
+          "Lẩu riêu cua sườn sun"
+        ],
+        "support": 0.045,
+        "confidence": 0.2852,
+        "lift": 1.8192,
+        "support_count": 442,
+        "antecedent_count": 1550,
+        "consequent_count": 1538
+      },
+      {
+        "antecedent": [
+          "Canh hến (dắt) mồng tơi"
+        ],
+        "consequent": [
+          "Tôm chiên nước mắm"
+        ],
+        "support": 0.0435,
+        "confidence": 0.2849,
+        "lift": 1.8185,
+        "support_count": 427,
+        "antecedent_count": 1499,
+        "consequent_count": 1537
+      },
+      {
+        "antecedent": [
+          "Tôm chiên nước mắm"
+        ],
+        "consequent": [
+          "Canh hến (dắt) mồng tơi"
+        ],
+        "support": 0.0435,
+        "confidence": 0.2778,
+        "lift": 1.8185,
+        "support_count": 427,
+        "antecedent_count": 1537,
+        "consequent_count": 1499
+      },
+      {
+        "antecedent": [
+          "Bò sốt nấm"
+        ],
+        "consequent": [
+          "Cá dứa kho tộ"
+        ],
+        "support": 0.0436,
+        "confidence": 0.2833,
+        "lift": 1.8142,
+        "support_count": 428,
+        "antecedent_count": 1511,
+        "consequent_count": 1532
+      },
+      {
+        "antecedent": [
+          "Cá dứa kho tộ"
+        ],
+        "consequent": [
+          "Bò sốt nấm"
+        ],
+        "support": 0.0436,
+        "confidence": 0.2794,
+        "lift": 1.8142,
+        "support_count": 428,
+        "antecedent_count": 1532,
+        "consequent_count": 1511
+      },
+      {
+        "antecedent": [
+          "Lẩu riêu cua sườn sun"
+        ],
+        "consequent": [
+          "Gà hấp mía"
+        ],
+        "support": 0.0493,
+        "confidence": 0.3147,
+        "lift": 1.8131,
+        "support_count": 484,
+        "antecedent_count": 1538,
+        "consequent_count": 1703
+      },
+      {
+        "antecedent": [
+          "Gà hấp mía"
+        ],
+        "consequent": [
+          "Lẩu riêu cua sườn sun"
+        ],
+        "support": 0.0493,
+        "confidence": 0.2842,
+        "lift": 1.8131,
+        "support_count": 484,
+        "antecedent_count": 1703,
+        "consequent_count": 1538
+      },
+      {
+        "antecedent": [
+          "Bò sốt nấm"
+        ],
+        "consequent": [
+          "Canh chua cá bóp"
+        ],
+        "support": 0.0432,
+        "confidence": 0.2806,
+        "lift": 1.8114,
+        "support_count": 424,
+        "antecedent_count": 1511,
+        "consequent_count": 1520
+      },
+      {
+        "antecedent": [
+          "Canh chua cá bóp"
+        ],
+        "consequent": [
+          "Bò sốt nấm"
+        ],
+        "support": 0.0432,
+        "confidence": 0.2789,
+        "lift": 1.8114,
+        "support_count": 424,
+        "antecedent_count": 1520,
+        "consequent_count": 1511
+      },
+      {
+        "antecedent": [
+          "Mực 1 nắng chiên nước mắm"
+        ],
+        "consequent": [
+          "Lẩu riêu cua sườn sun"
+        ],
+        "support": 0.0441,
+        "confidence": 0.2836,
+        "lift": 1.809,
+        "support_count": 433,
+        "antecedent_count": 1527,
+        "consequent_count": 1538
+      },
+      {
+        "antecedent": [
+          "Lẩu riêu cua sườn sun"
+        ],
+        "consequent": [
+          "Mực 1 nắng chiên nước mắm"
+        ],
+        "support": 0.0441,
+        "confidence": 0.2815,
+        "lift": 1.809,
+        "support_count": 433,
+        "antecedent_count": 1538,
+        "consequent_count": 1527
+      },
+      {
+        "antecedent": [
+          "Cá chim hấp hong kong"
+        ],
+        "consequent": [
+          "Rau rừng gia lai xào bò"
+        ],
+        "support": 0.0444,
+        "confidence": 0.2852,
+        "lift": 1.8028,
+        "support_count": 436,
+        "antecedent_count": 1529,
+        "consequent_count": 1552
+      },
+      {
+        "antecedent": [
+          "Rau rừng gia lai xào bò"
+        ],
+        "consequent": [
+          "Cá chim hấp hong kong"
+        ],
+        "support": 0.0444,
+        "confidence": 0.2809,
+        "lift": 1.8028,
+        "support_count": 436,
+        "antecedent_count": 1552,
+        "consequent_count": 1529
+      },
+      {
+        "antecedent": [
+          "Cá bống mú chưng tương"
+        ],
+        "consequent": [
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.0471,
+        "confidence": 0.3115,
+        "lift": 1.8013,
+        "support_count": 462,
+        "antecedent_count": 1483,
+        "consequent_count": 1697
+      },
+      {
+        "antecedent": [
+          "Gà hấp cải xanh"
+        ],
+        "consequent": [
+          "Cá bống mú chưng tương"
+        ],
+        "support": 0.0471,
+        "confidence": 0.2722,
+        "lift": 1.8013,
+        "support_count": 462,
+        "antecedent_count": 1697,
+        "consequent_count": 1483
+      },
+      {
+        "antecedent": [
+          "Mực 1 nắng chiên nước mắm"
+        ],
+        "consequent": [
+          "Gà hấp mía"
+        ],
+        "support": 0.0486,
+        "confidence": 0.3124,
+        "lift": 1.7998,
+        "support_count": 477,
+        "antecedent_count": 1527,
+        "consequent_count": 1703
+      },
+      {
+        "antecedent": [
+          "Gà hấp mía"
+        ],
+        "consequent": [
+          "Mực 1 nắng chiên nước mắm"
+        ],
+        "support": 0.0486,
+        "confidence": 0.2801,
+        "lift": 1.7998,
+        "support_count": 477,
+        "antecedent_count": 1703,
+        "consequent_count": 1527
+      },
+      {
+        "antecedent": [
+          "Bò sốt tiêu đen"
+        ],
+        "consequent": [
+          "Gỏi bò đồng quê"
+        ],
+        "support": 0.0425,
+        "confidence": 0.2778,
+        "lift": 1.7981,
+        "support_count": 417,
+        "antecedent_count": 1501,
+        "consequent_count": 1516
+      },
+      {
+        "antecedent": [
+          "Gỏi bò đồng quê"
+        ],
+        "consequent": [
+          "Bò sốt tiêu đen"
+        ],
+        "support": 0.0425,
+        "confidence": 0.2751,
+        "lift": 1.7981,
+        "support_count": 417,
+        "antecedent_count": 1516,
+        "consequent_count": 1501
+      },
+      {
+        "antecedent": [
+          "Tôm càng xanh rang muối"
+        ],
+        "consequent": [
+          "Gỏi thái hải sản"
+        ],
+        "support": 0.0428,
+        "confidence": 0.2806,
+        "lift": 1.7969,
+        "support_count": 420,
+        "antecedent_count": 1497,
+        "consequent_count": 1532
+      },
+      {
+        "antecedent": [
+          "Gỏi thái hải sản"
+        ],
+        "consequent": [
+          "Tôm càng xanh rang muối"
+        ],
+        "support": 0.0428,
+        "confidence": 0.2742,
+        "lift": 1.7969,
+        "support_count": 420,
+        "antecedent_count": 1532,
+        "consequent_count": 1497
+      },
+      {
+        "antecedent": [
+          "Rau rừng gia lai xào bò"
+        ],
+        "consequent": [
+          "Gà kho sả ớt"
+        ],
+        "support": 0.0486,
+        "confidence": 0.3073,
+        "lift": 1.7844,
+        "support_count": 477,
+        "antecedent_count": 1552,
+        "consequent_count": 1690
+      },
+      {
+        "antecedent": [
+          "Gà kho sả ớt"
+        ],
+        "consequent": [
+          "Rau rừng gia lai xào bò"
+        ],
+        "support": 0.0486,
+        "confidence": 0.2822,
+        "lift": 1.7844,
+        "support_count": 477,
+        "antecedent_count": 1690,
+        "consequent_count": 1552
+      },
+      {
+        "antecedent": [
+          "Tôm càng xanh rang muối"
+        ],
+        "consequent": [
+          "Cá kho làng vũ đại"
+        ],
+        "support": 0.0428,
+        "confidence": 0.2806,
+        "lift": 1.7829,
+        "support_count": 420,
+        "antecedent_count": 1497,
+        "consequent_count": 1544
+      },
+      {
+        "antecedent": [
+          "Cá kho làng vũ đại"
+        ],
+        "consequent": [
+          "Tôm càng xanh rang muối"
+        ],
+        "support": 0.0428,
+        "confidence": 0.272,
+        "lift": 1.7829,
+        "support_count": 420,
+        "antecedent_count": 1544,
+        "consequent_count": 1497
+      },
+      {
+        "antecedent": [
+          "Thịt rang cháy cạnh"
+        ],
+        "consequent": [
+          "Tôm chiên nước mắm"
+        ],
+        "support": 0.0432,
+        "confidence": 0.2784,
+        "lift": 1.7773,
+        "support_count": 424,
+        "antecedent_count": 1523,
+        "consequent_count": 1537
+      },
+      {
+        "antecedent": [
+          "Tôm chiên nước mắm"
+        ],
+        "consequent": [
+          "Thịt rang cháy cạnh"
+        ],
+        "support": 0.0432,
+        "confidence": 0.2759,
+        "lift": 1.7773,
+        "support_count": 424,
+        "antecedent_count": 1537,
+        "consequent_count": 1523
+      },
+      {
+        "antecedent": [
+          "Cá thu sốt cà chua"
+        ],
+        "consequent": [
+          "Đậu que xào bò"
+        ],
+        "support": 0.043,
+        "confidence": 0.2767,
+        "lift": 1.777,
+        "support_count": 422,
+        "antecedent_count": 1525,
+        "consequent_count": 1528
+      },
+      {
+        "antecedent": [
+          "Đậu que xào bò"
+        ],
+        "consequent": [
+          "Cá thu sốt cà chua"
+        ],
+        "support": 0.043,
+        "confidence": 0.2762,
+        "lift": 1.777,
+        "support_count": 422,
+        "antecedent_count": 1528,
+        "consequent_count": 1525
+      },
+      {
+        "antecedent": [
+          "Đậu que xào bò"
+        ],
+        "consequent": [
+          "Giò heo nấu giả cầy"
+        ],
+        "support": 0.0435,
+        "confidence": 0.2795,
+        "lift": 1.7736,
+        "support_count": 427,
+        "antecedent_count": 1528,
+        "consequent_count": 1546
+      },
+      {
+        "antecedent": [
+          "Giò heo nấu giả cầy"
+        ],
+        "consequent": [
+          "Đậu que xào bò"
+        ],
+        "support": 0.0435,
+        "confidence": 0.2762,
+        "lift": 1.7736,
+        "support_count": 427,
+        "antecedent_count": 1546,
+        "consequent_count": 1528
+      },
+      {
+        "antecedent": [
+          "Gỏi bò đồng quê"
+        ],
+        "consequent": [
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.0474,
+        "confidence": 0.3067,
+        "lift": 1.7735,
+        "support_count": 465,
+        "antecedent_count": 1516,
+        "consequent_count": 1697
+      },
+      {
+        "antecedent": [
+          "Gà hấp cải xanh"
+        ],
+        "consequent": [
+          "Gỏi bò đồng quê"
+        ],
+        "support": 0.0474,
+        "confidence": 0.274,
+        "lift": 1.7735,
+        "support_count": 465,
+        "antecedent_count": 1697,
+        "consequent_count": 1516
+      },
+      {
+        "antecedent": [
+          "Bò sốt nấm"
+        ],
+        "consequent": [
+          "Gân bò xào cải chua"
+        ],
+        "support": 0.0422,
+        "confidence": 0.274,
+        "lift": 1.7687,
+        "support_count": 414,
+        "antecedent_count": 1511,
+        "consequent_count": 1520
+      },
+      {
+        "antecedent": [
+          "Gân bò xào cải chua"
+        ],
+        "consequent": [
+          "Bò sốt nấm"
+        ],
+        "support": 0.0422,
+        "confidence": 0.2724,
+        "lift": 1.7687,
+        "support_count": 414,
+        "antecedent_count": 1520,
+        "consequent_count": 1511
+      },
+      {
+        "antecedent": [
+          "Tôm chiên nước mắm"
+        ],
+        "consequent": [
+          "Gà kho sả ớt"
+        ],
+        "support": 0.0477,
+        "confidence": 0.3045,
+        "lift": 1.7678,
+        "support_count": 468,
+        "antecedent_count": 1537,
+        "consequent_count": 1690
+      },
+      {
+        "antecedent": [
+          "Gà kho sả ớt"
+        ],
+        "consequent": [
+          "Tôm chiên nước mắm"
+        ],
+        "support": 0.0477,
+        "confidence": 0.2769,
+        "lift": 1.7678,
+        "support_count": 468,
+        "antecedent_count": 1690,
+        "consequent_count": 1537
+      },
+      {
+        "antecedent": [
+          "Canh chua cá bóp"
+        ],
+        "consequent": [
+          "Gân bò xào cải chua"
+        ],
+        "support": 0.0424,
+        "confidence": 0.2737,
+        "lift": 1.7667,
+        "support_count": 416,
+        "antecedent_count": 1520,
+        "consequent_count": 1520
+      },
+      {
+        "antecedent": [
+          "Gân bò xào cải chua"
+        ],
+        "consequent": [
+          "Canh chua cá bóp"
+        ],
+        "support": 0.0424,
+        "confidence": 0.2737,
+        "lift": 1.7667,
+        "support_count": 416,
+        "antecedent_count": 1520,
+        "consequent_count": 1520
+      },
+      {
+        "antecedent": [
+          "Salad cải mầm bò"
+        ],
+        "consequent": [
+          "Gà hấp mía"
+        ],
+        "support": 0.0469,
+        "confidence": 0.3065,
+        "lift": 1.7657,
+        "support_count": 460,
+        "antecedent_count": 1501,
+        "consequent_count": 1703
+      },
+      {
+        "antecedent": [
+          "Gà hấp mía"
+        ],
+        "consequent": [
+          "Salad cải mầm bò"
+        ],
+        "support": 0.0469,
+        "confidence": 0.2701,
+        "lift": 1.7657,
+        "support_count": 460,
+        "antecedent_count": 1703,
+        "consequent_count": 1501
+      },
+      {
+        "antecedent": [
+          "Bò sốt tiêu đen"
+        ],
+        "consequent": [
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.0466,
+        "confidence": 0.3045,
+        "lift": 1.7604,
+        "support_count": 457,
+        "antecedent_count": 1501,
+        "consequent_count": 1697
+      },
+      {
+        "antecedent": [
+          "Gà hấp cải xanh"
+        ],
+        "consequent": [
+          "Bò sốt tiêu đen"
+        ],
+        "support": 0.0466,
+        "confidence": 0.2693,
+        "lift": 1.7604,
+        "support_count": 457,
+        "antecedent_count": 1697,
+        "consequent_count": 1501
+      },
+      {
+        "antecedent": [
+          "Gỏi thái hải sản"
+        ],
+        "consequent": [
+          "Cá kho làng vũ đại"
+        ],
+        "support": 0.0431,
+        "confidence": 0.2761,
+        "lift": 1.7547,
+        "support_count": 423,
+        "antecedent_count": 1532,
+        "consequent_count": 1544
+      },
+      {
+        "antecedent": [
+          "Cá kho làng vũ đại"
+        ],
+        "consequent": [
+          "Gỏi thái hải sản"
+        ],
+        "support": 0.0431,
+        "confidence": 0.274,
+        "lift": 1.7547,
+        "support_count": 423,
+        "antecedent_count": 1544,
+        "consequent_count": 1532
+      },
+      {
+        "antecedent": [
+          "Canh hến (dắt) mồng tơi"
+        ],
+        "consequent": [
+          "Gà kho sả ớt"
+        ],
+        "support": 0.0462,
+        "confidence": 0.3022,
+        "lift": 1.7546,
+        "support_count": 453,
+        "antecedent_count": 1499,
+        "consequent_count": 1690
+      },
+      {
+        "antecedent": [
+          "Gà kho sả ớt"
+        ],
+        "consequent": [
+          "Canh hến (dắt) mồng tơi"
+        ],
+        "support": 0.0462,
+        "confidence": 0.268,
+        "lift": 1.7546,
+        "support_count": 453,
+        "antecedent_count": 1690,
+        "consequent_count": 1499
+      },
+      {
+        "antecedent": [
+          "Cá ngừ đại dương lúc lắc"
+        ],
+        "consequent": [
+          "Gà hấp mía"
+        ],
+        "support": 0.0481,
+        "confidence": 0.3045,
+        "lift": 1.7545,
+        "support_count": 472,
+        "antecedent_count": 1550,
+        "consequent_count": 1703
+      },
+      {
+        "antecedent": [
+          "Gà hấp mía"
+        ],
+        "consequent": [
+          "Cá ngừ đại dương lúc lắc"
+        ],
+        "support": 0.0481,
+        "confidence": 0.2772,
+        "lift": 1.7545,
+        "support_count": 472,
+        "antecedent_count": 1703,
+        "consequent_count": 1550
+      },
+      {
+        "antecedent": [
+          "Gỏi bò đồng quê"
+        ],
+        "consequent": [
+          "Lẩu vịt om sấu"
+        ],
+        "support": 0.0429,
+        "confidence": 0.2777,
+        "lift": 1.7512,
+        "support_count": 421,
+        "antecedent_count": 1516,
+        "consequent_count": 1556
+      },
+      {
+        "antecedent": [
+          "Lẩu vịt om sấu"
+        ],
+        "consequent": [
+          "Gỏi bò đồng quê"
+        ],
+        "support": 0.0429,
+        "confidence": 0.2706,
+        "lift": 1.7512,
+        "support_count": 421,
+        "antecedent_count": 1556,
+        "consequent_count": 1516
+      },
+      {
+        "antecedent": [
+          "Canh chua cá dứa"
+        ],
+        "consequent": [
+          "Giò heo nấu giả cầy"
+        ],
+        "support": 0.0432,
+        "confidence": 0.2753,
+        "lift": 1.7474,
+        "support_count": 424,
+        "antecedent_count": 1540,
+        "consequent_count": 1546
+      },
+      {
+        "antecedent": [
+          "Giò heo nấu giả cầy"
+        ],
+        "consequent": [
+          "Canh chua cá dứa"
+        ],
+        "support": 0.0432,
+        "confidence": 0.2743,
+        "lift": 1.7474,
+        "support_count": 424,
+        "antecedent_count": 1546,
+        "consequent_count": 1540
+      },
+      {
+        "antecedent": [
+          "Tôm càng hấp bia"
+        ],
+        "consequent": [
+          "Gà hấp mía"
+        ],
+        "support": 0.0473,
+        "confidence": 0.3019,
+        "lift": 1.7394,
+        "support_count": 464,
+        "antecedent_count": 1537,
+        "consequent_count": 1703
+      },
+      {
+        "antecedent": [
+          "Gà hấp mía"
+        ],
+        "consequent": [
+          "Tôm càng hấp bia"
+        ],
+        "support": 0.0473,
+        "confidence": 0.2725,
+        "lift": 1.7394,
+        "support_count": 464,
+        "antecedent_count": 1703,
+        "consequent_count": 1537
+      },
+      {
+        "antecedent": [
+          "Tôm càng hấp bia"
+        ],
+        "consequent": [
+          "Lẩu riêu cua sườn sun"
+        ],
+        "support": 0.0427,
+        "confidence": 0.2726,
+        "lift": 1.7392,
+        "support_count": 419,
+        "antecedent_count": 1537,
+        "consequent_count": 1538
+      },
+      {
+        "antecedent": [
+          "Lẩu riêu cua sườn sun"
+        ],
+        "consequent": [
+          "Tôm càng hấp bia"
+        ],
+        "support": 0.0427,
+        "confidence": 0.2724,
+        "lift": 1.7392,
+        "support_count": 419,
+        "antecedent_count": 1538,
+        "consequent_count": 1537
+      },
+      {
+        "antecedent": [
+          "Bắp bò ngâm nước mắm"
+        ],
+        "consequent": [
+          "Gỏi thái hải sản"
+        ],
+        "support": 0.0421,
+        "confidence": 0.2696,
+        "lift": 1.7266,
+        "support_count": 413,
+        "antecedent_count": 1532,
+        "consequent_count": 1532
+      },
+      {
+        "antecedent": [
+          "Gỏi thái hải sản"
+        ],
+        "consequent": [
+          "Bắp bò ngâm nước mắm"
+        ],
+        "support": 0.0421,
+        "confidence": 0.2696,
+        "lift": 1.7266,
+        "support_count": 413,
+        "antecedent_count": 1532,
+        "consequent_count": 1532
+      },
+      {
+        "antecedent": [
+          "Cá chim hấp hong kong"
+        ],
+        "consequent": [
+          "Gà kho sả ớt"
+        ],
+        "support": 0.046,
+        "confidence": 0.295,
+        "lift": 1.7125,
+        "support_count": 451,
+        "antecedent_count": 1529,
+        "consequent_count": 1690
+      },
+      {
+        "antecedent": [
+          "Gà kho sả ớt"
+        ],
+        "consequent": [
+          "Cá chim hấp hong kong"
+        ],
+        "support": 0.046,
+        "confidence": 0.2669,
+        "lift": 1.7125,
+        "support_count": 451,
+        "antecedent_count": 1690,
+        "consequent_count": 1529
+      },
+      {
+        "antecedent": [
+          "Thịt rang cháy cạnh"
+        ],
+        "consequent": [
+          "Gà kho sả ớt"
+        ],
+        "support": 0.0457,
+        "confidence": 0.2942,
+        "lift": 1.7078,
+        "support_count": 448,
+        "antecedent_count": 1523,
+        "consequent_count": 1690
+      },
+      {
+        "antecedent": [
+          "Gà kho sả ớt"
+        ],
+        "consequent": [
+          "Thịt rang cháy cạnh"
+        ],
+        "support": 0.0457,
+        "confidence": 0.2651,
+        "lift": 1.7078,
+        "support_count": 448,
+        "antecedent_count": 1690,
+        "consequent_count": 1523
+      },
+      {
+        "antecedent": [
+          "Lẩu vịt om sấu"
+        ],
+        "consequent": [
+          "Gà hấp cải xanh"
+        ],
+        "support": 0.0461,
+        "confidence": 0.2905,
+        "lift": 1.6796,
+        "support_count": 452,
+        "antecedent_count": 1556,
+        "consequent_count": 1697
+      },
+      {
+        "antecedent": [
+          "Gà hấp cải xanh"
+        ],
+        "consequent": [
+          "Lẩu vịt om sấu"
+        ],
+        "support": 0.0461,
+        "confidence": 0.2664,
+        "lift": 1.6796,
+        "support_count": 452,
+        "antecedent_count": 1697,
+        "consequent_count": 1556
+      },
+      {
+        "antecedent": [
+          "Canh chua cá bóp"
+        ],
+        "consequent": [
+          "Tôm rang muối"
+        ],
+        "support": 0.0445,
+        "confidence": 0.2875,
+        "lift": 1.6278,
+        "support_count": 437,
+        "antecedent_count": 1520,
+        "consequent_count": 1733
+      },
+      {
+        "antecedent": [
+          "Tôm rang muối"
+        ],
+        "consequent": [
+          "Canh chua cá bóp"
+        ],
+        "support": 0.0445,
+        "confidence": 0.2522,
+        "lift": 1.6278,
+        "support_count": 437,
+        "antecedent_count": 1733,
+        "consequent_count": 1520
+      },
+      {
+        "antecedent": [
+          "Bò sốt nấm"
+        ],
+        "consequent": [
+          "Tôm rang muối"
+        ],
+        "support": 0.0442,
+        "confidence": 0.2872,
+        "lift": 1.6262,
+        "support_count": 434,
+        "antecedent_count": 1511,
+        "consequent_count": 1733
+      },
+      {
+        "antecedent": [
+          "Tôm rang muối"
+        ],
+        "consequent": [
+          "Bò sốt nấm"
+        ],
+        "support": 0.0442,
+        "confidence": 0.2504,
+        "lift": 1.6262,
+        "support_count": 434,
+        "antecedent_count": 1733,
+        "consequent_count": 1511
+      },
+      {
+        "antecedent": [
+          "Cá dứa kho tộ"
+        ],
+        "consequent": [
+          "Tôm rang muối"
+        ],
+        "support": 0.0448,
+        "confidence": 0.2872,
+        "lift": 1.6261,
+        "support_count": 440,
+        "antecedent_count": 1532,
+        "consequent_count": 1733
+      },
+      {
+        "antecedent": [
+          "Tôm rang muối"
+        ],
+        "consequent": [
+          "Cá dứa kho tộ"
+        ],
+        "support": 0.0448,
+        "confidence": 0.2539,
+        "lift": 1.6261,
+        "support_count": 440,
+        "antecedent_count": 1733,
+        "consequent_count": 1532
+      },
+      {
+        "antecedent": [
+          "Cá thu sốt cà chua"
+        ],
+        "consequent": [
+          "Tôm cháy tỏi"
+        ],
+        "support": 0.0454,
+        "confidence": 0.2918,
+        "lift": 1.6067,
+        "support_count": 445,
+        "antecedent_count": 1525,
+        "consequent_count": 1782
+      },
+      {
+        "antecedent": [
+          "Tôm cháy tỏi"
+        ],
+        "consequent": [
+          "Gà chiên nước mắm"
+        ],
+        "support": 0.0574,
+        "confidence": 0.3159,
+        "lift": 1.6037,
+        "support_count": 563,
+        "antecedent_count": 1782,
+        "consequent_count": 1933
+      },
+      {
+        "antecedent": [
+          "Gà chiên nước mắm"
+        ],
+        "consequent": [
+          "Tôm cháy tỏi"
+        ],
+        "support": 0.0574,
+        "confidence": 0.2913,
+        "lift": 1.6037,
+        "support_count": 563,
+        "antecedent_count": 1933,
+        "consequent_count": 1782
+      },
+      {
+        "antecedent": [
+          "Canh chua cá dứa"
+        ],
+        "consequent": [
+          "Gà chiên nước mắm"
+        ],
+        "support": 0.0491,
+        "confidence": 0.313,
+        "lift": 1.5887,
+        "support_count": 482,
+        "antecedent_count": 1540,
+        "consequent_count": 1933
+      },
+      {
+        "antecedent": [
+          "Canh chua cá dứa"
+        ],
+        "consequent": [
+          "Tôm cháy tỏi"
+        ],
+        "support": 0.0448,
+        "confidence": 0.2857,
+        "lift": 1.5732,
+        "support_count": 440,
+        "antecedent_count": 1540,
+        "consequent_count": 1782
+      },
+      {
+        "antecedent": [
+          "Cá thu sốt cà chua"
+        ],
+        "consequent": [
+          "Gà chiên nước mắm"
+        ],
+        "support": 0.048,
+        "confidence": 0.3089,
+        "lift": 1.5677,
+        "support_count": 471,
+        "antecedent_count": 1525,
+        "consequent_count": 1933
+      },
+      {
+        "antecedent": [
+          "Giò heo nấu giả cầy"
+        ],
+        "consequent": [
+          "Tôm cháy tỏi"
+        ],
+        "support": 0.0448,
+        "confidence": 0.2846,
+        "lift": 1.5671,
+        "support_count": 440,
+        "antecedent_count": 1546,
+        "consequent_count": 1782
+      },
+      {
+        "antecedent": [
+          "Gân bò xào cải chua"
+        ],
+        "consequent": [
+          "Tôm rang muối"
+        ],
+        "support": 0.0424,
+        "confidence": 0.2737,
+        "lift": 1.5496,
+        "support_count": 416,
+        "antecedent_count": 1520,
+        "consequent_count": 1733
+      },
+      {
+        "antecedent": [
+          "Đậu que xào bò"
+        ],
+        "consequent": [
+          "Tôm cháy tỏi"
+        ],
+        "support": 0.0438,
+        "confidence": 0.2814,
+        "lift": 1.5495,
+        "support_count": 430,
+        "antecedent_count": 1528,
+        "consequent_count": 1782
+      },
+      {
+        "antecedent": [
+          "Đậu que xào bò"
+        ],
+        "consequent": [
+          "Gà chiên nước mắm"
+        ],
+        "support": 0.0475,
+        "confidence": 0.305,
+        "lift": 1.5481,
+        "support_count": 466,
+        "antecedent_count": 1528,
+        "consequent_count": 1933
+      },
+      {
+        "antecedent": [
+          "Gân bò xào cải chua"
+        ],
+        "consequent": [
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0552,
+        "confidence": 0.3566,
+        "lift": 1.4965,
+        "support_count": 542,
+        "antecedent_count": 1520,
+        "consequent_count": 2338
+      },
+      {
+        "antecedent": [
+          "Giò heo nấu giả cầy"
+        ],
+        "consequent": [
+          "Gà chiên nước mắm"
+        ],
+        "support": 0.0459,
+        "confidence": 0.2911,
+        "lift": 1.4775,
+        "support_count": 450,
+        "antecedent_count": 1546,
+        "consequent_count": 1933
+      },
+      {
+        "antecedent": [
+          "Gỏi thái hải sản"
+        ],
+        "consequent": [
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0546,
+        "confidence": 0.3499,
+        "lift": 1.4683,
+        "support_count": 536,
+        "antecedent_count": 1532,
+        "consequent_count": 2338
+      },
+      {
+        "antecedent": [
+          "Bắp bò ngâm nước mắm"
+        ],
+        "consequent": [
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0543,
+        "confidence": 0.3479,
+        "lift": 1.4601,
+        "support_count": 533,
+        "antecedent_count": 1532,
+        "consequent_count": 2338
+      },
+      {
+        "antecedent": [
+          "Canh chua cá bóp"
+        ],
+        "consequent": [
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0538,
+        "confidence": 0.3474,
+        "lift": 1.4578,
+        "support_count": 528,
+        "antecedent_count": 1520,
+        "consequent_count": 2338
+      },
+      {
+        "antecedent": [
+          "Cá kho làng vũ đại"
+        ],
+        "consequent": [
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0546,
+        "confidence": 0.3472,
+        "lift": 1.4569,
+        "support_count": 536,
+        "antecedent_count": 1544,
+        "consequent_count": 2338
+      },
+      {
+        "antecedent": [
+          "Tôm càng xanh rang muối"
+        ],
+        "consequent": [
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0522,
+        "confidence": 0.342,
+        "lift": 1.4354,
+        "support_count": 512,
+        "antecedent_count": 1497,
+        "consequent_count": 2338
+      },
+      {
+        "antecedent": [
+          "Cá dứa kho tộ"
+        ],
+        "consequent": [
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0531,
+        "confidence": 0.3401,
+        "lift": 1.4272,
+        "support_count": 521,
+        "antecedent_count": 1532,
+        "consequent_count": 2338
+      },
+      {
+        "antecedent": [
+          "Lẩu ngót cá chim"
+        ],
+        "consequent": [
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0509,
+        "confidence": 0.3338,
+        "lift": 1.4008,
+        "support_count": 499,
+        "antecedent_count": 1495,
+        "consequent_count": 2338
+      },
+      {
+        "antecedent": [
+          "Bò sốt nấm"
+        ],
+        "consequent": [
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0506,
+        "confidence": 0.3283,
+        "lift": 1.3776,
+        "support_count": 496,
+        "antecedent_count": 1511,
+        "consequent_count": 2338
+      },
+      {
+        "antecedent": [
+          "Tôm rang muối"
+        ],
+        "consequent": [
+          "Gà hấp mắm nhĩ"
+        ],
+        "support": 0.0542,
+        "confidence": 0.307,
+        "lift": 1.2883,
+        "support_count": 532,
+        "antecedent_count": 1733,
+        "consequent_count": 2338
+      }
+    ],
+    "stats": {
+      "min_support": 0.02,
+      "min_support_count": 197,
+      "min_confidence": 0.25,
+      "min_lift": 1.0,
+      "total_unique_items": 61,
+      "total_freq_itemsets": 559,
+      "total_rules": 161,
+      "covered_transactions": 9289,
+      "coverage_rate": 94.7,
+      "mean_transaction_size": 6.0,
+      "source_file": "set_menu_transactions_augmented.csv",
+      "runtime_ms": 3822.62
+    }
+  },
+  "summary": {
+    "source": "Set menu Cơm Niêu Việt Nam + dữ liệu tăng cường dẫn xuất có đánh dấu",
+    "transactions_count": 9812,
+    "original_transactions_count": 12,
+    "augmented_transactions_count": 9800,
+    "total_unique_items": 61,
+    "total_freq_itemsets": 559,
+    "total_rules": 161,
+    "min_support": 0.02,
+    "min_support_count": 197,
+    "min_confidence": 0.25,
+    "min_lift": 1.0,
+    "coverage_rate": 94.7,
+    "covered_transactions": 9289
+  }
+}
