@@ -59,7 +59,7 @@ export default function DashboardOverview() {
     Promise.all([
       getOverview().catch(() => null),
       getTopDishes(5).catch(() => ({ data: [] })),
-      getAssociationRules(0.04, 0.35).catch(() => ({ rules: [] })),
+      getAssociationRules(0.02, 0.25).catch(() => ({ rules: [] })),
       getRecommendationRate().catch(() => ({ rate: 0 })),
     ]).then(([o, t, ar, rr]) => {
       setOv(o);

@@ -42,7 +42,7 @@ def top_dishes(top_n: int = 10, db: Session = Depends(get_db)):
 
 
 @router.get("/association-rules")
-def assoc_rules(min_support: float = 0.04, min_confidence: float = 0.35, db: Session = Depends(get_db)):
+def assoc_rules(min_support: float = 0.02, min_confidence: float = 0.25, db: Session = Depends(get_db)):
     """Luật kết hợp từ giao dịch set menu thật của Cơm Niêu Việt Nam."""
     svc = AnalyticsService(db)
     return svc.get_association_rules(min_support, min_confidence)
@@ -56,7 +56,7 @@ def recommendation_rate():
 
     data_path = Path(__file__).parent.parent.parent / "database"
     miner = SetMenuAssociationMiner(data_path)
-    result = miner.run(min_support=0.04, min_confidence=0.35, min_lift=1.0)
+    result = miner.run(min_support=0.02, min_confidence=0.25, min_lift=1.0)
     itemsets = [set(row.get("itemset", [])) for row in result.get("frequent_itemsets", []) if len(row.get("itemset", [])) >= 2]
     transactions = [set(row.get("items", [])) for row in result.get("transactions_preview", [])]
 

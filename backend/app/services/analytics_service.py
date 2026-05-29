@@ -62,7 +62,7 @@ class AnalyticsService:
         return result
 
     # ===== 1. ASSOCIATION RULES — SET MENU =====
-    def get_association_rules(self, min_support=0.04, min_confidence=0.35, dish_type=None) -> Dict:
+    def get_association_rules(self, min_support=0.02, min_confidence=0.25, dish_type=None) -> Dict:
         """
         Trả luật kết hợp từ tập giao dịch set menu đã làm sạch.
         Endpoint cũ được giữ để các dashboard tổng quan/combo không bị gãy.

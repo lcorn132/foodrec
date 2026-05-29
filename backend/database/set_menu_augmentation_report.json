@@ -17,96 +17,96 @@
       "Derived rows are marked is_augmented = 1 and keep origin_transaction_id."
     ],
     "seed": 20260529,
-    "target_augmented_rows": 1200
+    "target_augmented_rows": 9800
   },
   "summary": {
     "original_transactions": 12,
-    "augmented_transactions": 1200,
-    "total_transactions": 1212,
+    "augmented_transactions": 9800,
+    "total_transactions": 9812,
     "unique_items": 61,
     "avg_items_per_transaction": 6.0,
-    "attempts": 2559
+    "attempts": 98646
   },
   "top_items": [
     {
       "item": "Gà hấp mắm nhĩ",
-      "transaction_count": 279
-    },
-    {
-      "item": "Tôm rang muối",
-      "transaction_count": 250
+      "transaction_count": 2338
     },
     {
       "item": "Gà chiên nước mắm",
-      "transaction_count": 243
+      "transaction_count": 1933
     },
     {
       "item": "Tôm cháy tỏi",
-      "transaction_count": 226
+      "transaction_count": 1782
     },
     {
-      "item": "Cá kho làng vũ đại",
-      "transaction_count": 181
-    },
-    {
-      "item": "Bắp bò ngâm nước mắm",
-      "transaction_count": 180
-    },
-    {
-      "item": "Lẩu vịt om sấu",
-      "transaction_count": 176
-    },
-    {
-      "item": "Tôm càng hấp bia",
-      "transaction_count": 167
-    },
-    {
-      "item": "Gà hấp cải xanh",
-      "transaction_count": 165
+      "item": "Tôm rang muối",
+      "transaction_count": 1733
     },
     {
       "item": "Gà hấp mía",
-      "transaction_count": 163
+      "transaction_count": 1703
     },
     {
-      "item": "Gân bò xào cải chua",
-      "transaction_count": 161
-    },
-    {
-      "item": "Thịt rang cháy cạnh",
-      "transaction_count": 159
-    },
-    {
-      "item": "Tôm chiên nước mắm",
-      "transaction_count": 157
-    },
-    {
-      "item": "Canh hến (dắt) mồng tơi",
-      "transaction_count": 157
-    },
-    {
-      "item": "Gỏi thái hải sản",
-      "transaction_count": 156
+      "item": "Gà hấp cải xanh",
+      "transaction_count": 1697
     },
     {
       "item": "Gà kho sả ớt",
-      "transaction_count": 154
+      "transaction_count": 1690
     },
     {
-      "item": "Tôm càng xanh rang muối",
-      "transaction_count": 153
+      "item": "Lẩu vịt om sấu",
+      "transaction_count": 1556
     },
     {
-      "item": "Gỏi bò đồng quê",
-      "transaction_count": 150
+      "item": "Rau rừng gia lai xào bò",
+      "transaction_count": 1552
     },
     {
-      "item": "Canh chua cá bóp",
-      "transaction_count": 148
+      "item": "Cá ngừ đại dương lúc lắc",
+      "transaction_count": 1550
     },
     {
-      "item": "Cá thu sốt cà chua",
-      "transaction_count": 148
+      "item": "Giò heo nấu giả cầy",
+      "transaction_count": 1546
+    },
+    {
+      "item": "Cá kho làng vũ đại",
+      "transaction_count": 1544
+    },
+    {
+      "item": "Canh chua cá dứa",
+      "transaction_count": 1540
+    },
+    {
+      "item": "Lẩu riêu cua sườn sun",
+      "transaction_count": 1538
+    },
+    {
+      "item": "Tôm chiên nước mắm",
+      "transaction_count": 1537
+    },
+    {
+      "item": "Tôm càng hấp bia",
+      "transaction_count": 1537
+    },
+    {
+      "item": "Cá dứa kho tộ",
+      "transaction_count": 1532
+    },
+    {
+      "item": "Gỏi thái hải sản",
+      "transaction_count": 1532
+    },
+    {
+      "item": "Bắp bò ngâm nước mắm",
+      "transaction_count": 1532
+    },
+    {
+      "item": "Cá chim hấp hong kong",
+      "transaction_count": 1529
     }
   ],
   "preview": [

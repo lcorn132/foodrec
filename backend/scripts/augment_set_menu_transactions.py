@@ -24,7 +24,7 @@ TRANSACTIONS_FILE = DB_DIR / "set_menu_transactions_clean.csv"
 AUGMENTED_TRANSACTIONS_FILE = DB_DIR / "set_menu_transactions_augmented.csv"
 AUGMENTATION_REPORT_FILE = DB_DIR / "set_menu_augmentation_report.json"
 
-TARGET_AUGMENTED_ROWS = 1200
+TARGET_AUGMENTED_ROWS = 9800
 RANDOM_SEED = 20260529
 
 

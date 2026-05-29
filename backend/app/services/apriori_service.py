@@ -165,7 +165,7 @@ class SetMenuAssociationMiner:
                 for item in items:
                     self.item_to_transactions[item].add(tx_id)
 
-    def run(self, min_support: float = 0.04, min_confidence: float = 0.35, min_lift: float = 1.0) -> dict:
+    def run(self, min_support: float = 0.02, min_confidence: float = 0.25, min_lift: float = 1.0) -> dict:
         freq_itemsets, n, min_count = _get_frequent_itemsets(self.transactions, min_support)
         rules = _generate_rules(freq_itemsets, n, min_confidence, min_lift)
 
@@ -224,7 +224,7 @@ class SetMenuAssociationMiner:
         if canonical is None:
             return []
 
-        result = self.run(min_support=0.04, min_confidence=0.35, min_lift=1.0)
+        result = self.run(min_support=0.02, min_confidence=0.25, min_lift=1.0)
         recs: dict[str, dict] = {}
         for rule in result["rules"]:
             antecedent = rule.get("antecedent", [])

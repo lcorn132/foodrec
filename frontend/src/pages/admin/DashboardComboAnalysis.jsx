@@ -41,7 +41,7 @@ export default function DashboardComboAnalysis() {
   useEffect(() => {
     setLoading(true);
     Promise.all([
-      getAssociationRules(0.04, 0.35).catch(() => ({ rules: [], total_transactions: 0 })),
+      getAssociationRules(0.02, 0.25).catch(() => ({ rules: [], total_transactions: 0 })),
       getRecommendationRate().catch(() => ({ rate: 0 })),
     ]).then(([ar, rr]) => {
       setRules(ar);

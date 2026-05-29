@@ -62,8 +62,8 @@ Phương pháp tăng cường:
 Quy mô sau tăng cường:
 
 - 12 giao dịch gốc.
-- 1.200 giao dịch tăng cường.
-- 1.212 giao dịch dùng cho Apriori.
+- 9.800 giao dịch tăng cường.
+- 9.812 giao dịch dùng cho Apriori.
 
 Dữ liệu tăng cường **không được mô tả là hóa đơn thật**; nó là dữ liệu dẫn xuất có kiểm soát từ nguồn thật để phục vụ khai phá dữ liệu.
 
@@ -108,15 +108,15 @@ Service chính:
 
 Thiết lập hiện tại:
 
-- `min_support = 0.04`
-- `min_confidence = 0.35`
+- `min_support = 0.02`
+- `min_confidence = 0.25`
 - `min_lift = 1.0`
 
 Kết quả hiện tại trên dữ liệu tăng cường:
 
-- 1.212 giao dịch.
-- 139 tập phổ biến.
-- 146 luật kết hợp trước khi giới hạn số dòng trả về dashboard.
+- 9.812 giao dịch.
+- 559 tập phổ biến.
+- 161 luật kết hợp trước khi giới hạn số dòng trả về dashboard.
 
 API:
 
