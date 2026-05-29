@@ -42,7 +42,7 @@ def top_dishes(top_n: int = 10, db: Session = Depends(get_db)):
 
 
 @router.get("/association-rules")
-def assoc_rules(min_support: float = 0.03, min_confidence: float = 0.2, db: Session = Depends(get_db)):
+def assoc_rules(min_support: float = 0.04, min_confidence: float = 0.35, db: Session = Depends(get_db)):
     """Luật kết hợp từ giao dịch set menu thật của Cơm Niêu Việt Nam."""
     svc = AnalyticsService(db)
     return svc.get_association_rules(min_support, min_confidence)
@@ -56,7 +56,7 @@ def recommendation_rate():
 
     data_path = Path(__file__).parent.parent.parent / "database"
     miner = SetMenuAssociationMiner(data_path)
-    result = miner.run(min_support=0.15, min_confidence=0.45, min_lift=1.0)
+    result = miner.run(min_support=0.04, min_confidence=0.35, min_lift=1.0)
     itemsets = [set(row.get("itemset", [])) for row in result.get("frequent_itemsets", []) if len(row.get("itemset", [])) >= 2]
     transactions = [set(row.get("items", [])) for row in result.get("transactions_preview", [])]
 
@@ -72,8 +72,8 @@ def recommendation_rate():
         "rate": round(covered / total * 100, 1) if total else 0,
         "total_orders": total,
         "orders_with_recs": covered,
-        "metric_label": "Tỷ lệ set menu có cặp món phổ biến",
-        "source": "set_menu_transactions_clean.csv",
+        "metric_label": "Tỷ lệ giao dịch có cặp món phổ biến",
+        "source": "set_menu_transactions_augmented.csv",
     }
 
 
@@ -113,7 +113,7 @@ def preprocessing_report_refresh():
     """Chạy lại pipeline và xóa cache"""
     global _preprocessing_cache
     data_path = Path(__file__).parent.parent.parent / "database"
-    _preprocessing_cache = run_preprocessing(data_path)
+    _preprocessing_cache = run_preprocessing(data_path, force=True)
     return _preprocessing_cache
 
 

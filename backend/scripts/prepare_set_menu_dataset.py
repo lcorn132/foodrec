@@ -289,6 +289,16 @@ def run() -> dict:
     write_clean_items(clean_items)
     write_transactions(transactions)
     write_report(report)
+    import importlib.util
+    import sys
+    augment_path = Path(__file__).with_name("augment_set_menu_transactions.py")
+    spec = importlib.util.spec_from_file_location("augment_set_menu_transactions", augment_path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError("Không thể nạp script augment_set_menu_transactions.py")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    report["augmentation"] = module.build_augmented_transactions()
     return report
 
 

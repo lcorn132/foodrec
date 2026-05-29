@@ -37,17 +37,35 @@ Quy mô dữ liệu thật hiện có:
 - 61 món unique dùng cho Apriori.
 - 12 giao dịch Apriori, mỗi giao dịch là một set menu thật.
 
-## Vì sao không tạo 1.000 giao dịch giả?
+## Tăng cường dữ liệu
 
-Vì yêu cầu hiện tại là dữ liệu phải đến từ Nhà hàng Cơm Niêu Việt Nam. Website công khai cho ta **set menu và món ăn**, nhưng không công bố lịch sử hóa đơn/POS của khách hàng. Nếu tự sinh 1.000 đơn hàng từ các món đó thì dữ liệu sẽ không còn là giao dịch thật.
+Vì website công khai cho ta **set menu và món ăn**, nhưng không công bố lịch sử hóa đơn/POS của khách hàng, repo tách rõ hai lớp dữ liệu:
 
-Do đó repo giữ nguyên nguyên tắc:
+- Giao dịch gốc: 12 set menu thật từ website Cơm Niêu Việt Nam.
+- Giao dịch tăng cường: dữ liệu dẫn xuất từ 12 set menu thật để tăng số lượng giao dịch cho Apriori.
 
-- Dữ liệu thật công khai: set menu từ Cơm Niêu Việt Nam.
-- Dữ liệu giao dịch Apriori: mỗi set menu là một giao dịch thật.
-- Dữ liệu mô phỏng như `orders.csv`, `ratings.csv`, `customers.csv` chỉ dùng để demo chức năng web, không dùng làm nguồn chính cho Apriori.
+File tăng cường:
 
-Nếu nhóm có file hóa đơn thật/POS/order log của nhà hàng, có thể đưa vào pipeline để tăng từ 12 giao dịch lên hàng trăm hoặc hàng nghìn giao dịch thật.
+- `backend/database/set_menu_transactions_augmented.csv`
+- `backend/database/set_menu_augmentation_report.json`
+- Script: `backend/scripts/augment_set_menu_transactions.py`
+
+Phương pháp tăng cường:
+
+1. Chỉ dùng các món đã xuất hiện trong set menu thật của Cơm Niêu Việt Nam.
+2. Giữ số món theo cấu trúc set gốc.
+3. Hoán đổi 1-3 món trong cùng vị trí món và cùng nhóm giá khi có thể.
+4. Không cho trùng món trong cùng một giao dịch.
+5. Giữ `origin_transaction_id` để biết giao dịch tăng cường dẫn xuất từ set nào.
+6. Đánh dấu `is_augmented = 0` cho giao dịch gốc, `is_augmented = 1` cho giao dịch tăng cường.
+
+Quy mô sau tăng cường:
+
+- 12 giao dịch gốc.
+- 1.200 giao dịch tăng cường.
+- 1.212 giao dịch dùng cho Apriori.
+
+Dữ liệu tăng cường **không được mô tả là hóa đơn thật**; nó là dữ liệu dẫn xuất có kiểm soát từ nguồn thật để phục vụ khai phá dữ liệu.
 
 ## Pipeline tiền xử lý
 
@@ -62,6 +80,8 @@ File đầu ra:
 - `backend/database/set_menu_items_clean.csv`
 - `backend/database/set_menu_transactions_clean.csv`
 - `backend/database/set_menu_preprocessing_report.json`
+- `backend/database/set_menu_transactions_augmented.csv`
+- `backend/database/set_menu_augmentation_report.json`
 
 Các bước xử lý:
 
@@ -85,6 +105,18 @@ Service chính:
 
 - `backend/app/services/apriori_service.py`
 - `backend/app/services/data_preprocessor.py`
+
+Thiết lập hiện tại:
+
+- `min_support = 0.04`
+- `min_confidence = 0.35`
+- `min_lift = 1.0`
+
+Kết quả hiện tại trên dữ liệu tăng cường:
+
+- 1.212 giao dịch.
+- 139 tập phổ biến.
+- 146 luật kết hợp trước khi giới hạn số dòng trả về dashboard.
 
 API:
 

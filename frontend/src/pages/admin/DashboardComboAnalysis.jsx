@@ -41,7 +41,7 @@ export default function DashboardComboAnalysis() {
   useEffect(() => {
     setLoading(true);
     Promise.all([
-      getAssociationRules(0.15, 0.6).catch(() => ({ rules: [], total_transactions: 0 })),
+      getAssociationRules(0.04, 0.35).catch(() => ({ rules: [], total_transactions: 0 })),
       getRecommendationRate().catch(() => ({ rate: 0 })),
     ]).then(([ar, rr]) => {
       setRules(ar);
@@ -64,14 +64,14 @@ export default function DashboardComboAnalysis() {
       <div>
         <h1 className="font-display text-2xl font-bold" style={{ color: "#3E2723" }}>Phân Tích Set Menu & Món Đi Kèm</h1>
         <p className="text-sm" style={{ color: "#8D6E63" }}>
-          Phân tích từ {rules?.total_transactions || 0} set menu công khai của Cơm Niêu Việt Nam, giúp tìm các món thường xuất hiện cùng nhau.
+          Phân tích từ {rules?.total_transactions || 0} giao dịch gồm set menu gốc và dữ liệu tăng cường dẫn xuất từ Cơm Niêu Việt Nam.
         </p>
       </div>
 
       <div className="bg-white rounded-2xl p-6" style={{ border: "1px solid #E8DDD4" }}>
         <h3 className="font-display text-lg font-bold mb-1" style={{ color: "#3E2723" }}>Top Cặp Món Phổ Biến Trong Set Menu</h3>
         <p className="text-[12px] mb-5" style={{ color: "#8D6E63" }}>
-          Tỷ lệ set menu có món B khi đã có món A.
+          Tỷ lệ giao dịch có món B khi đã có món A.
         </p>
         <BarChart data={chartData} />
       </div>
@@ -133,7 +133,7 @@ export default function DashboardComboAnalysis() {
           </div>
           <div>
             <p className="text-sm font-semibold" style={{ color: "#3E2723" }}>
-              {recRate?.orders_with_recs || 0} / {recRate?.total_orders || 0} set menu chứa cặp món phổ biến
+              {recRate?.orders_with_recs || 0} / {recRate?.total_orders || 0} giao dịch chứa cặp món phổ biến
             </p>
             <p className="text-[12px] mt-1" style={{ color: "#8D6E63" }}>
               Minh họa khả năng gợi ý từ luật kết hợp dựa trên các cặp món thường xuất hiện cùng nhau.

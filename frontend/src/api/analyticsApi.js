@@ -20,7 +20,7 @@ export async function getTopDishes(topN = 10) {
   return res.data;
 }
 
-export async function getAssociationRules(minSupport = 0.15, minConfidence = 0.6) {
+export async function getAssociationRules(minSupport = 0.04, minConfidence = 0.35) {
   const params = { min_support: minSupport, min_confidence: minConfidence };
   const res = await axiosClient.get("/analytics/association-rules", { params });
   return res.data;

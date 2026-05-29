@@ -62,7 +62,7 @@ class AnalyticsService:
         return result
 
     # ===== 1. ASSOCIATION RULES — SET MENU =====
-    def get_association_rules(self, min_support=0.15, min_confidence=0.60, dish_type=None) -> Dict:
+    def get_association_rules(self, min_support=0.04, min_confidence=0.35, dish_type=None) -> Dict:
         """
         Trả luật kết hợp từ tập giao dịch set menu đã làm sạch.
         Endpoint cũ được giữ để các dashboard tổng quan/combo không bị gãy.
@@ -104,8 +104,8 @@ class AnalyticsService:
             "total_transactions": result.get("transactions_count", 0),
             "min_support": min_support,
             "min_confidence": min_confidence,
-            "source": "set_menu_transactions_clean.csv",
-            "note": "Luật được khai phá từ set menu công khai, không dùng đơn hàng mô phỏng.",
+            "source": "set_menu_transactions_augmented.csv",
+            "note": "Luật được khai phá từ set menu Cơm Niêu Việt Nam và dữ liệu tăng cường dẫn xuất có đánh dấu.",
         }
 
     # ===== 2. CLASSIFICATION (Python thuần — Decision Tree đơn giản) =====

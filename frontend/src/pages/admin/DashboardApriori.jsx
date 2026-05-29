@@ -154,7 +154,7 @@ export default function DashboardApriori() {
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Apriori — Mối quan hệ giữa các món ăn</h1>
           <p className="mt-1 max-w-3xl text-sm text-slate-600">
-            Phân tích được xây dựng từ các set menu công khai. Mỗi set menu là một giao dịch, sau đó hệ thống tìm các món thường đồng xuất hiện và sinh luật kết hợp.
+            Phân tích từ set menu Cơm Niêu Việt Nam và dữ liệu tăng cường dẫn xuất có đánh dấu. Giao dịch gốc vẫn được giữ riêng để báo cáo rõ nguồn dữ liệu thật.
           </p>
         </div>
         <button
@@ -167,7 +167,7 @@ export default function DashboardApriori() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        <Card title="Số giao dịch" value={summary.transactions_count ?? 0} note="Set menu dùng để khai phá" icon="🧾" />
+        <Card title="Số giao dịch" value={summary.transactions_count ?? 0} note={`${summary.original_transactions_count ?? 0} gốc · ${summary.augmented_transactions_count ?? 0} tăng cường`} icon="🧾" />
         <Card title="Món unique" value={summary.total_unique_items ?? 0} note="Sau làm sạch và thu giảm" icon="🍽️" />
         <Card title="Tập phổ biến" value={summary.total_freq_itemsets ?? 0} note={`min_support = ${summary.min_support_count ?? 0} set`} icon="📦" />
         <Card title="Luật hợp lệ" value={summary.total_rules ?? 0} note={`min_conf = ${Math.round((summary.min_confidence || 0) * 100)}%`} icon="🔗" />
@@ -175,7 +175,7 @@ export default function DashboardApriori() {
 
       <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
         <div className="grid gap-3 md:grid-cols-4">
-          <Metric label="Ngưỡng support" value={`${((stats.min_support || 0) * 100).toFixed(0)}% / ${stats.min_support_count ?? 0} set`} />
+          <Metric label="Ngưỡng support" value={`${((stats.min_support || 0) * 100).toFixed(0)}% / ${stats.min_support_count ?? 0} giao dịch`} />
           <Metric label="Ngưỡng confidence" value={`${((stats.min_confidence || 0) * 100).toFixed(0)}%`} />
           <Metric label="Ngưỡng lift" value={stats.min_lift ?? "–"} />
           <Metric label="Kích thước giao dịch TB" value={stats.mean_transaction_size ?? "–"} />

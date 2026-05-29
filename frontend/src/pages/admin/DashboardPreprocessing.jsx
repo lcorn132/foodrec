@@ -68,6 +68,8 @@ export default function DashboardPreprocessing() {
   const cleaning = data.cleaning || {};
   const transformation = data.transformation || {};
   const reduction = data.reduction || {};
+  const augmentation = data.augmentation || {};
+  const augSummary = augmentation.summary || {};
   const tx = transformation.transactions || {};
 
   return (
@@ -76,7 +78,7 @@ export default function DashboardPreprocessing() {
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Tiền xử lý dữ liệu set menu</h1>
           <p className="mt-1 max-w-4xl text-sm text-slate-600">
-            Quy trình được cài đặt bằng code: dữ liệu thô → làm sạch → biến đổi thành giao dịch → thu giảm để phục vụ Apriori.
+            Quy trình được cài đặt bằng code: dữ liệu thô → làm sạch → biến đổi thành giao dịch → thu giảm → tăng cường dữ liệu cho Apriori.
           </p>
         </div>
         <button
@@ -116,7 +118,7 @@ export default function DashboardPreprocessing() {
         <Card title="Dòng dữ liệu thô" value={summary.raw_rows ?? 0} note="Các món/dòng mô tả set" icon="📥" />
         <Card title="Set menu" value={summary.set_menu_count ?? 0} note="Giao dịch gốc" icon="🧾" />
         <Card title="Item dùng khai phá" value={summary.mining_item_rows ?? 0} note={`${summary.unique_mining_items ?? 0} món unique`} icon="🍽️" />
-        <Card title="Giao dịch sạch" value={summary.transactions_count ?? 0} note={`${summary.avg_items_per_transaction ?? 0} món/set trung bình`} icon="🔗" />
+        <Card title="Giao dịch Apriori" value={summary.total_transactions_for_mining ?? summary.transactions_count ?? 0} note={`${summary.augmented_transactions_count ?? 0} dòng tăng cường`} icon="🔗" />
       </div>
 
       <Section
@@ -215,6 +217,50 @@ export default function DashboardPreprocessing() {
               </div>
             ))}
           </div>
+        </div>
+      </Section>
+
+      <Section
+        title="4. Tăng cường dữ liệu"
+        subtitle={augmentation.description}
+      >
+        <div className="grid gap-3 md:grid-cols-4">
+          <Card title="Giao dịch gốc" value={augSummary.original_transactions ?? 0} icon="🧾" />
+          <Card title="Giao dịch tăng cường" value={augSummary.augmented_transactions ?? 0} icon="🧬" />
+          <Card title="Tổng giao dịch" value={augSummary.total_transactions ?? 0} icon="📊" />
+          <Card title="Món unique" value={augSummary.unique_items ?? 0} icon="🍽️" />
+        </div>
+
+        <div className="mt-4 rounded-xl border border-indigo-100 bg-indigo-50 p-4">
+          <p className="text-sm font-bold text-indigo-950">{augmentation.method?.name}</p>
+          <p className="mt-1 text-sm text-indigo-900">{augmentation.method?.description}</p>
+          <div className="mt-3 grid gap-2 md:grid-cols-2">
+            {(augmentation.method?.constraints || []).map((item) => (
+              <p key={item} className="rounded-lg bg-white/70 px-3 py-2 text-xs text-indigo-900">{item}</p>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-4 space-y-3">
+          {(augmentation.preview || []).slice(0, 6).map((row) => (
+            <div key={row.transaction_id} className="rounded-xl border border-slate-200 p-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="text-sm font-bold text-slate-900">{row.transaction_id}</p>
+                <span className={`rounded-full px-2 py-0.5 text-[11px] font-bold ${Number(row.is_augmented) ? "bg-violet-50 text-violet-700 ring-1 ring-violet-100" : "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100"}`}>
+                  {Number(row.is_augmented) ? "Tăng cường" : "Gốc"}
+                </span>
+                {row.origin_transaction_id && <span className="text-xs text-slate-500">từ {row.origin_transaction_id}</span>}
+              </div>
+              <p className="mt-1 text-xs text-slate-500">{Number(row.price_vnd || 0).toLocaleString("vi-VN")}đ · {row.item_count} món · {row.augmentation_method}</p>
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {String(row.items || "").split("|").map((item) => item.trim()).filter(Boolean).map((item) => (
+                  <span key={`${row.transaction_id}-${item}`} className="rounded-full bg-slate-50 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-slate-100">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </Section>
 

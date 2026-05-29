@@ -42,7 +42,7 @@ function BarChartCombo({ data }) {
         })}
       </div>
       <p className="text-center mt-4 text-[11px]" style={{ color: "#8D6E63" }}>
-        Biểu đồ thể hiện tỷ lệ món thường được gọi cùng nhau trong cùng một đơn.
+        Biểu đồ thể hiện confidence của các cặp món trong dữ liệu Apriori.
       </p>
     </div>
   );
@@ -59,7 +59,7 @@ export default function DashboardOverview() {
     Promise.all([
       getOverview().catch(() => null),
       getTopDishes(5).catch(() => ({ data: [] })),
-      getAssociationRules(0.15, 0.6).catch(() => ({ rules: [] })),
+      getAssociationRules(0.04, 0.35).catch(() => ({ rules: [] })),
       getRecommendationRate().catch(() => ({ rate: 0 })),
     ]).then(([o, t, ar, rr]) => {
       setOv(o);
@@ -88,13 +88,13 @@ export default function DashboardOverview() {
         <StatCard icon="💰" value={formatCurrency(ov?.total_revenue || 0)} label="Doanh thu" sub="Đã ghi nhận" color="#16A34A" />
         <StatCard icon="📦" value={ov?.total_orders ?? 0} label="Đơn hàng" sub={`${ov?.completed_orders || 0} hoàn thành`} />
         <StatCard icon="🍽️" value={ov?.total_dishes ?? 0} label="Món trong thực đơn" sub="Đang bán" color="#3B82F6" />
-        <StatCard icon="🔗" value={`${recRate?.rate || 0}%`} label="Hiệu quả gợi ý" sub={`${recRate?.orders_with_recs || 0}/${recRate?.total_orders || 0} đơn`} color="#8B5CF6" />
+        <StatCard icon="🔗" value={`${recRate?.rate || 0}%`} label="Mức bao phủ luật" sub={`${recRate?.orders_with_recs || 0}/${recRate?.total_orders || 0} giao dịch`} color="#8B5CF6" />
       </div>
 
       <div className="bg-white rounded-2xl p-6" style={{ border: "1px solid #E8DDD4" }}>
-        <h3 className="font-display text-lg font-bold mb-1" style={{ color: "#3E2723" }}>Top 5 Cặp Món Được Gọi Cùng Nhau</h3>
+        <h3 className="font-display text-lg font-bold mb-1" style={{ color: "#3E2723" }}>Top 5 cặp món trong dữ liệu Apriori</h3>
         <p className="text-[12px] mb-5" style={{ color: "#8D6E63" }}>
-          Dựa trên {rules?.total_transactions || 0} đơn hàng có dữ liệu món ăn.
+          Dựa trên {rules?.total_transactions || 0} giao dịch gồm set menu thật và dữ liệu tăng cường.
         </p>
         <BarChartCombo data={comboChartData} />
       </div>

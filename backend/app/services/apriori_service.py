@@ -18,7 +18,7 @@ from pathlib import Path
 
 
 DEFAULT_DB_DIR = Path(__file__).resolve().parents[2] / "database"
-TRANSACTIONS_FILE = "set_menu_transactions_clean.csv"
+TRANSACTIONS_FILE = "set_menu_transactions_augmented.csv"
 
 _cache: dict = {}
 
@@ -139,7 +139,7 @@ class SetMenuAssociationMiner:
     def _load(self) -> None:
         path = self.data_path / TRANSACTIONS_FILE
         if not path.exists():
-            # Tạo dữ liệu sạch nếu chưa tồn tại.
+            # Tạo dữ liệu sạch và dữ liệu tăng cường nếu chưa tồn tại.
             from app.services.data_preprocessor import run_preprocessing
             run_preprocessing(self.data_path)
 
@@ -155,6 +155,9 @@ class SetMenuAssociationMiner:
                     "source_url": row.get("source_url", ""),
                     "items": items,
                     "item_count": len(items),
+                    "is_augmented": int(float(row.get("is_augmented", "0") or 0)),
+                    "origin_transaction_id": row.get("origin_transaction_id", row.get("transaction_id", "")),
+                    "augmentation_method": row.get("augmentation_method", ""),
                     "excluded_items": _parse_items(str(row.get("excluded_items", "")).replace(" | ", "|")),
                 })
                 self.transactions.append(items)
@@ -162,7 +165,7 @@ class SetMenuAssociationMiner:
                 for item in items:
                     self.item_to_transactions[item].add(tx_id)
 
-    def run(self, min_support: float = 0.15, min_confidence: float = 0.60, min_lift: float = 1.05) -> dict:
+    def run(self, min_support: float = 0.04, min_confidence: float = 0.35, min_lift: float = 1.0) -> dict:
         freq_itemsets, n, min_count = _get_frequent_itemsets(self.transactions, min_support)
         rules = _generate_rules(freq_itemsets, n, min_confidence, min_lift)
 
@@ -190,6 +193,8 @@ class SetMenuAssociationMiner:
 
         return {
             "transactions_count": n,
+            "original_transactions_count": sum(1 for row in self.transaction_rows if not row.get("is_augmented")),
+            "augmented_transactions_count": sum(1 for row in self.transaction_rows if row.get("is_augmented")),
             "transactions_preview": self.transaction_rows[:5],
             "single_item_supports": single_supports[:20],
             "frequent_itemsets": frequent_itemsets[:40],
@@ -203,6 +208,7 @@ class SetMenuAssociationMiner:
                 "total_freq_itemsets": len(freq_itemsets),
                 "total_rules": len(rules),
                 "mean_transaction_size": round(sum(len(tx) for tx in self.transactions) / n, 2) if n else 0,
+                "source_file": TRANSACTIONS_FILE,
             },
         }
 
@@ -218,7 +224,7 @@ class SetMenuAssociationMiner:
         if canonical is None:
             return []
 
-        result = self.run(min_support=0.15, min_confidence=0.45, min_lift=1.0)
+        result = self.run(min_support=0.04, min_confidence=0.35, min_lift=1.0)
         recs: dict[str, dict] = {}
         for rule in result["rules"]:
             antecedent = rule.get("antecedent", [])
@@ -260,8 +266,10 @@ class AprioriService:
         _cache = {
             "dish_association": association,
             "summary": {
-                "source": "12 set menu công khai từ website Cơm Niêu Việt Nam",
+                "source": "Set menu Cơm Niêu Việt Nam + dữ liệu tăng cường dẫn xuất có đánh dấu",
                 "transactions_count": association["transactions_count"],
+                "original_transactions_count": association["original_transactions_count"],
+                "augmented_transactions_count": association["augmented_transactions_count"],
                 "total_unique_items": association["stats"]["total_unique_items"],
                 "total_freq_itemsets": association["stats"]["total_freq_itemsets"],
                 "total_rules": association["stats"]["total_rules"],

@@ -1,0 +1,198 @@
+{
+  "generated_on": "2026-05-29",
+  "source": {
+    "original_transactions_file": "set_menu_transactions_clean.csv",
+    "clean_items_file": "set_menu_items_clean.csv",
+    "augmented_transactions_file": "set_menu_transactions_augmented.csv",
+    "note": "Augmented rows are derived from public Com Nieu Viet Nam set menus. They are not real historical orders."
+  },
+  "method": {
+    "name": "slot_price_tier_resampling",
+    "description": "For each public set menu, replace 1-3 dishes with dishes from the same menu position and the same price tier when possible.",
+    "constraints": [
+      "Only dishes appearing in the real Com Nieu Viet Nam set menu source are used.",
+      "Dish count per transaction follows the original set menu.",
+      "No duplicate dish within one augmented transaction.",
+      "Original public set menus are preserved and marked is_augmented = 0.",
+      "Derived rows are marked is_augmented = 1 and keep origin_transaction_id."
+    ],
+    "seed": 20260529,
+    "target_augmented_rows": 1200
+  },
+  "summary": {
+    "original_transactions": 12,
+    "augmented_transactions": 1200,
+    "total_transactions": 1212,
+    "unique_items": 61,
+    "avg_items_per_transaction": 6.0,
+    "attempts": 2559
+  },
+  "top_items": [
+    {
+      "item": "Gà hấp mắm nhĩ",
+      "transaction_count": 279
+    },
+    {
+      "item": "Tôm rang muối",
+      "transaction_count": 250
+    },
+    {
+      "item": "Gà chiên nước mắm",
+      "transaction_count": 243
+    },
+    {
+      "item": "Tôm cháy tỏi",
+      "transaction_count": 226
+    },
+    {
+      "item": "Cá kho làng vũ đại",
+      "transaction_count": 181
+    },
+    {
+      "item": "Bắp bò ngâm nước mắm",
+      "transaction_count": 180
+    },
+    {
+      "item": "Lẩu vịt om sấu",
+      "transaction_count": 176
+    },
+    {
+      "item": "Tôm càng hấp bia",
+      "transaction_count": 167
+    },
+    {
+      "item": "Gà hấp cải xanh",
+      "transaction_count": 165
+    },
+    {
+      "item": "Gà hấp mía",
+      "transaction_count": 163
+    },
+    {
+      "item": "Gân bò xào cải chua",
+      "transaction_count": 161
+    },
+    {
+      "item": "Thịt rang cháy cạnh",
+      "transaction_count": 159
+    },
+    {
+      "item": "Tôm chiên nước mắm",
+      "transaction_count": 157
+    },
+    {
+      "item": "Canh hến (dắt) mồng tơi",
+      "transaction_count": 157
+    },
+    {
+      "item": "Gỏi thái hải sản",
+      "transaction_count": 156
+    },
+    {
+      "item": "Gà kho sả ớt",
+      "transaction_count": 154
+    },
+    {
+      "item": "Tôm càng xanh rang muối",
+      "transaction_count": 153
+    },
+    {
+      "item": "Gỏi bò đồng quê",
+      "transaction_count": 150
+    },
+    {
+      "item": "Canh chua cá bóp",
+      "transaction_count": 148
+    },
+    {
+      "item": "Cá thu sốt cà chua",
+      "transaction_count": 148
+    }
+  ],
+  "preview": [
+    {
+      "transaction_id": "SM200_01",
+      "origin_transaction_id": "SM200_01",
+      "set_name": "Set menu 200.000đ /người (1)",
+      "price_vnd": "200000",
+      "price_tier": "budget",
+      "source_url": "https://comnieuvietnam.vn/products/set-menu-200-000d-nguoi-1",
+      "item_count": 6,
+      "items": "Cải thìa xào dầu hào | Gà rang gừng | Cá bống kho tộ | Tôm rim thịt | Mực chiên nước mắm | Canh cua cà pháo",
+      "is_augmented": 0,
+      "augmentation_method": "original_public_set_menu",
+      "replacement_count": 0,
+      "replaced_slots": ""
+    },
+    {
+      "transaction_id": "SM200_02",
+      "origin_transaction_id": "SM200_02",
+      "set_name": "Set menu 200.000đ /người (2)",
+      "price_vnd": "200000",
+      "price_tier": "budget",
+      "source_url": "https://comnieuvietnam.vn/products/set-menu-200-000d-nguoi-2",
+      "item_count": 6,
+      "items": "Đậu que xào lòng gà | Vịt kho gừng | Cá ngừ đại dương kho thơm | Thịt kho trứng | Tôm rang muối | Canh thát lát khổ qua",
+      "is_augmented": 0,
+      "augmentation_method": "original_public_set_menu",
+      "replacement_count": 0,
+      "replaced_slots": ""
+    },
+    {
+      "transaction_id": "SM200_03",
+      "origin_transaction_id": "SM200_03",
+      "set_name": "Set menu 200.000đ /người (3)",
+      "price_vnd": "200000",
+      "price_tier": "budget",
+      "source_url": "https://comnieuvietnam.vn/products/set-menu-200-000d-nguoi-3",
+      "item_count": 6,
+      "items": "Rau luộc thập cẩm kho quẹt | Gà chiên nước mắm | Tôm cháy tỏi | Thịt kho củ cải trắng | Cá ngừ đại dương sốt cà | Canh cá nấu riêu",
+      "is_augmented": 0,
+      "augmentation_method": "original_public_set_menu",
+      "replacement_count": 0,
+      "replaced_slots": ""
+    },
+    {
+      "transaction_id": "AUG0001",
+      "origin_transaction_id": "SM200_02",
+      "set_name": "Augmented from Set menu 200.000đ /người (2)",
+      "price_vnd": 200000,
+      "price_tier": "budget",
+      "source_url": "https://comnieuvietnam.vn/products/set-menu-200-000d-nguoi-2",
+      "item_count": 6,
+      "items": "Đậu que xào lòng gà | Gà chiên nước mắm | Cá ngừ đại dương kho thơm | Thịt kho trứng | Tôm rang muối | Canh thát lát khổ qua",
+      "is_augmented": 1,
+      "augmentation_method": "slot_price_tier_resampling",
+      "replacement_count": 1,
+      "replaced_slots": "2"
+    },
+    {
+      "transaction_id": "AUG0002",
+      "origin_transaction_id": "SM200_03",
+      "set_name": "Augmented from Set menu 200.000đ /người (3)",
+      "price_vnd": 200000,
+      "price_tier": "budget",
+      "source_url": "https://comnieuvietnam.vn/products/set-menu-200-000d-nguoi-3",
+      "item_count": 6,
+      "items": "Rau luộc thập cẩm kho quẹt | Gà chiên nước mắm | Tôm cháy tỏi | Thịt kho củ cải trắng | Cá ngừ đại dương sốt cà | Canh cua cà pháo",
+      "is_augmented": 1,
+      "augmentation_method": "slot_price_tier_resampling",
+      "replacement_count": 1,
+      "replaced_slots": "6"
+    },
+    {
+      "transaction_id": "AUG0003",
+      "origin_transaction_id": "SM250_01",
+      "set_name": "Augmented from Set menu 250.000đ /người (1)",
+      "price_vnd": 250000,
+      "price_tier": "standard",
+      "source_url": "https://comnieuvietnam.vn/products/set-menu-250-000d-nguoi-1",
+      "item_count": 6,
+      "items": "Gân bò xào cải chua | Gà hấp mắm nhĩ | Cá ngừ đại dương lúc lắc | Tôm càng hấp bia | Tôm rang muối | Lẩu riêu cua sườn sun",
+      "is_augmented": 1,
+      "augmentation_method": "slot_price_tier_resampling",
+      "replacement_count": 3,
+      "replaced_slots": "3 | 4 | 6"
+    }
+  ]
+}
