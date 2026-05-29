@@ -22,7 +22,7 @@ def get_recommendations_for_dish(dish_id: int, top_n: int = 10, db: Session = De
         d = db.query(Dish).filter(Dish.id == rec["dish_id"]).first()
         if d:
             result.append({"dish": d, "score": round(rec["score"], 3),
-                           "reason": "Dựa trên độ tương tự món và tín hiệu nguyên liệu"})
+                           "reason": "Dựa trên luật kết hợp set menu và độ tương tự món"})
     return {"recommendations": result}
 
 
@@ -39,7 +39,7 @@ def get_recommendations_for_cart(request: RecommendationRequest, db: Session = D
         d = db.query(Dish).filter(Dish.id == rec["dish_id"]).first()
         if d:
             result.append({"dish": d, "score": round(rec["score"], 3),
-                           "reason": "Gợi ý theo mức tương đồng với giỏ hàng"})
+                           "reason": "Thường xuất hiện cùng trong set menu"})
     return {"recommendations": result}
 
 

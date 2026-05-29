@@ -1,3 +1,13 @@
+"""
+Apriori cho đề tài: tìm mối quan hệ giữa các món ăn trong set menu nhà hàng.
+
+Nguồn giao dịch:
+- backend/database/set_menu_transactions_clean.csv
+- Mỗi dòng = 1 set menu = 1 transaction.
+- Trường `items` đã loại các item hiển nhiên/quá phổ biến như Cơm niêu,
+  Trái cây, Khăn lạnh, Trà đá để tránh luật tầm thường.
+"""
+
 from __future__ import annotations
 
 import csv
@@ -8,7 +18,7 @@ from pathlib import Path
 
 
 DEFAULT_DB_DIR = Path(__file__).resolve().parents[2] / "database"
-TRANSACTIONS_FILE = "openfoodfacts_ingredient_transactions_clean.csv"
+TRANSACTIONS_FILE = "set_menu_transactions_clean.csv"
 
 _cache: dict = {}
 
@@ -22,15 +32,19 @@ def _get_frequent_itemsets(transactions: list[list[str]], min_support: float) ->
     if n == 0:
         return {}, 0, 0
 
-    min_count = max(2, math.ceil(min_support * n))
+    min_count = max(1, math.ceil(min_support * n))
     tx_sets = [frozenset(tx) for tx in transactions]
 
     item_counts = Counter(item for tx in tx_sets for item in tx)
-    current = {frozenset([item]): count for item, count in item_counts.items() if count >= min_count}
+    current = {
+        frozenset([item]): count
+        for item, count in item_counts.items()
+        if count >= min_count
+    }
     all_freq: dict[frozenset[str], int] = dict(current)
 
     k = 2
-    while current and k <= 4:
+    while current:
         prev_itemsets = sorted(current.keys(), key=lambda s: tuple(sorted(s)))
         candidates: set[frozenset[str]] = set()
         for i in range(len(prev_itemsets)):
@@ -38,6 +52,7 @@ def _get_frequent_itemsets(transactions: list[list[str]], min_support: float) ->
                 union = prev_itemsets[i] | prev_itemsets[j]
                 if len(union) != k:
                     continue
+                # Prune theo nguyên lý Apriori: mọi tập con (k-1) phải phổ biến.
                 if all(frozenset(sub) in current for sub in combinations(union, k - 1)):
                     candidates.add(frozenset(union))
 
@@ -50,9 +65,17 @@ def _get_frequent_itemsets(transactions: list[list[str]], min_support: float) ->
                 if candidate.issubset(tx):
                     counts[candidate] += 1
 
-        current = {candidate: count for candidate, count in counts.items() if count >= min_count}
+        current = {
+            candidate: count
+            for candidate, count in counts.items()
+            if count >= min_count
+        }
         all_freq.update(current)
         k += 1
+
+        # Dữ liệu set menu nhỏ, nhưng giới hạn độ dài giúp dashboard gọn và chạy nhanh.
+        if k > 4:
+            break
 
     return all_freq, n, min_count
 
@@ -72,19 +95,23 @@ def _generate_rules(
             continue
         union_support = union_count / n_transactions
         ordered_items = sorted(itemset)
+
         for r in range(1, len(ordered_items)):
             for ant_tuple in combinations(ordered_items, r):
                 antecedent = frozenset(ant_tuple)
                 consequent = itemset - antecedent
                 if not consequent:
                     continue
+
                 ant_count = freq_itemsets.get(antecedent)
                 con_count = freq_itemsets.get(consequent)
                 if not ant_count or not con_count:
                     continue
+
                 confidence = union_count / ant_count
                 consequent_support = con_count / n_transactions
                 lift = confidence / consequent_support if consequent_support else 0
+
                 if confidence >= min_confidence and lift >= min_lift:
                     rules.append({
                         "antecedent": sorted(antecedent),
@@ -102,8 +129,6 @@ def _generate_rules(
 
 
 class SetMenuAssociationMiner:
-    """Backward-compatible name; mines ingredient transactions from real products."""
-
     def __init__(self, data_path: Path | None = None):
         self.data_path = Path(data_path) if data_path else DEFAULT_DB_DIR
         self.transaction_rows: list[dict] = []
@@ -114,6 +139,7 @@ class SetMenuAssociationMiner:
     def _load(self) -> None:
         path = self.data_path / TRANSACTIONS_FILE
         if not path.exists():
+            # Tạo dữ liệu sạch nếu chưa tồn tại.
             from app.services.data_preprocessor import run_preprocessing
             run_preprocessing(self.data_path)
 
@@ -122,21 +148,21 @@ class SetMenuAssociationMiner:
                 items = _parse_items(row.get("items", ""))
                 if len(items) < 2:
                     continue
-                tx_id = row.get("transaction_id", "")
                 self.transaction_rows.append({
-                    "transaction_id": tx_id,
-                    "set_name": row.get("product_name", ""),
-                    "main_category": row.get("main_category", ""),
-                    "source_url": row.get("source", "Open Food Facts"),
+                    "transaction_id": row.get("transaction_id", ""),
+                    "set_name": row.get("set_name", ""),
+                    "price_vnd": int(float(row.get("price_vnd", "0") or 0)),
+                    "source_url": row.get("source_url", ""),
                     "items": items,
                     "item_count": len(items),
-                    "excluded_items": [],
+                    "excluded_items": _parse_items(str(row.get("excluded_items", "")).replace(" | ", "|")),
                 })
                 self.transactions.append(items)
+                tx_id = row.get("transaction_id", "")
                 for item in items:
                     self.item_to_transactions[item].add(tx_id)
 
-    def run(self, min_support: float = 0.03, min_confidence: float = 0.25, min_lift: float = 1.05) -> dict:
+    def run(self, min_support: float = 0.15, min_confidence: float = 0.60, min_lift: float = 1.05) -> dict:
         freq_itemsets, n, min_count = _get_frequent_itemsets(self.transactions, min_support)
         rules = _generate_rules(freq_itemsets, n, min_confidence, min_lift)
 
@@ -165,9 +191,9 @@ class SetMenuAssociationMiner:
         return {
             "transactions_count": n,
             "transactions_preview": self.transaction_rows[:5],
-            "single_item_supports": single_supports[:30],
-            "frequent_itemsets": frequent_itemsets[:60],
-            "rules": rules[:80],
+            "single_item_supports": single_supports[:20],
+            "frequent_itemsets": frequent_itemsets[:40],
+            "rules": rules[:60],
             "stats": {
                 "min_support": min_support,
                 "min_support_count": min_count,
@@ -180,30 +206,30 @@ class SetMenuAssociationMiner:
             },
         }
 
-    def get_recommendations(self, ingredient_name: str, top_n: int = 8) -> list[dict]:
-        ingredient_name = str(ingredient_name or "").strip()
-        if not ingredient_name:
+    def get_recommendations(self, dish_name: str, top_n: int = 8) -> list[dict]:
+        dish_name = str(dish_name or "").strip()
+        if not dish_name:
             return []
         canonical = None
         for item in self.item_to_transactions:
-            if item.casefold() == ingredient_name.casefold():
+            if item.casefold() == dish_name.casefold():
                 canonical = item
                 break
         if canonical is None:
             return []
 
-        result = self.run(min_support=0.02, min_confidence=0.18, min_lift=1.0)
+        result = self.run(min_support=0.15, min_confidence=0.45, min_lift=1.0)
         recs: dict[str, dict] = {}
         for rule in result["rules"]:
             antecedent = rule.get("antecedent", [])
             consequent = rule.get("consequent", [])
+            # Người dùng chỉ nhập một món, vì vậy chỉ dùng các luật có vế trái đúng bằng món đó.
             if len(antecedent) != 1 or antecedent[0] != canonical:
                 continue
             for item in consequent:
                 if item == canonical:
                     continue
                 candidate = {
-                    "ingredient": item,
                     "dish": item,
                     "because": antecedent,
                     "confidence": rule["confidence"],
@@ -219,6 +245,8 @@ class SetMenuAssociationMiner:
 
 
 class AprioriService:
+    """Facade dùng cho API/dashboard."""
+
     def __init__(self, data_path: Path | None = None):
         self.data_path = Path(data_path) if data_path else DEFAULT_DB_DIR
         self.miner = SetMenuAssociationMiner(self.data_path)
@@ -232,7 +260,7 @@ class AprioriService:
         _cache = {
             "dish_association": association,
             "summary": {
-                "source": "Open Food Facts - giao dịch nguyên liệu từ sản phẩm thật",
+                "source": "12 set menu công khai từ website Cơm Niêu Việt Nam",
                 "transactions_count": association["transactions_count"],
                 "total_unique_items": association["stats"]["total_unique_items"],
                 "total_freq_itemsets": association["stats"]["total_freq_itemsets"],

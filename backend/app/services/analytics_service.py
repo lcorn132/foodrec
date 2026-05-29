@@ -61,11 +61,11 @@ class AnalyticsService:
             })
         return result
 
-    # ===== 1. ASSOCIATION RULES — REAL INGREDIENT TRANSACTIONS =====
+    # ===== 1. ASSOCIATION RULES — SET MENU =====
     def get_association_rules(self, min_support=0.15, min_confidence=0.60, dish_type=None) -> Dict:
         """
-        Trả luật kết hợp từ tập giao dịch nguyên liệu Open Food Facts đã làm sạch.
-        Endpoint cũ được giữ để các dashboard tổng quan không bị gãy.
+        Trả luật kết hợp từ tập giao dịch set menu đã làm sạch.
+        Endpoint cũ được giữ để các dashboard tổng quan/combo không bị gãy.
         """
         from pathlib import Path
         from app.services.apriori_service import SetMenuAssociationMiner
@@ -77,7 +77,7 @@ class AnalyticsService:
             min_lift=1.0,
         )
 
-        # Các màn hình tổng quan kỳ vọng antecedent/consequent là chuỗi, nên ta chuyển về dạng hiển thị.
+        # Các màn hình cũ kỳ vọng antecedent/consequent là chuỗi, nên ta chuyển về dạng hiển thị.
         display_rules = []
         for rule in result.get("rules", []):
             display_rules.append({
@@ -104,8 +104,8 @@ class AnalyticsService:
             "total_transactions": result.get("transactions_count", 0),
             "min_support": min_support,
             "min_confidence": min_confidence,
-            "source": "openfoodfacts_ingredient_transactions_clean.csv",
-            "note": "Luật được khai phá từ dữ liệu nguyên liệu thật của Open Food Facts, không dùng đơn hàng mô phỏng.",
+            "source": "set_menu_transactions_clean.csv",
+            "note": "Luật được khai phá từ set menu công khai, không dùng đơn hàng mô phỏng.",
         }
 
     # ===== 2. CLASSIFICATION (Python thuần — Decision Tree đơn giản) =====

@@ -42,21 +42,21 @@ def top_dishes(top_n: int = 10, db: Session = Depends(get_db)):
 
 
 @router.get("/association-rules")
-def assoc_rules(min_support: float = 0.03, min_confidence: float = 0.25, db: Session = Depends(get_db)):
-    """Luật kết hợp nguyên liệu từ dữ liệu sản phẩm thật đã tiền xử lý."""
+def assoc_rules(min_support: float = 0.03, min_confidence: float = 0.2, db: Session = Depends(get_db)):
+    """Luật kết hợp từ giao dịch set menu thật của Cơm Niêu Việt Nam."""
     svc = AnalyticsService(db)
     return svc.get_association_rules(min_support, min_confidence)
 
 
 @router.get("/recommendation-rate")
 def recommendation_rate():
-    """Tỷ lệ sản phẩm có chứa ít nhất một cặp nguyên liệu phổ biến."""
+    """Tỷ lệ set menu có chứa ít nhất một cặp món phổ biến dùng để sinh gợi ý."""
     from pathlib import Path
     from app.services.apriori_service import SetMenuAssociationMiner
 
     data_path = Path(__file__).parent.parent.parent / "database"
     miner = SetMenuAssociationMiner(data_path)
-    result = miner.run(min_support=0.03, min_confidence=0.25, min_lift=1.05)
+    result = miner.run(min_support=0.15, min_confidence=0.45, min_lift=1.0)
     itemsets = [set(row.get("itemset", [])) for row in result.get("frequent_itemsets", []) if len(row.get("itemset", [])) >= 2]
     transactions = [set(row.get("items", [])) for row in result.get("transactions_preview", [])]
 
@@ -72,8 +72,8 @@ def recommendation_rate():
         "rate": round(covered / total * 100, 1) if total else 0,
         "total_orders": total,
         "orders_with_recs": covered,
-        "metric_label": "Tỷ lệ sản phẩm có cặp nguyên liệu phổ biến",
-        "source": "openfoodfacts_ingredient_transactions_clean.csv",
+        "metric_label": "Tỷ lệ set menu có cặp món phổ biến",
+        "source": "set_menu_transactions_clean.csv",
     }
 
 
@@ -133,7 +133,7 @@ def _get_apriori():
 
 @router.get("/apriori/full")
 def apriori_full():
-    """Chạy Apriori trên dữ liệu giao dịch nguyên liệu thật đã làm sạch."""
+    """Chạy Apriori trên dữ liệu giao dịch set menu đã làm sạch."""
     return _get_apriori().run_full_analysis()
 
 @router.post("/apriori/refresh")
@@ -145,18 +145,5 @@ def apriori_refresh():
 
 @router.get("/apriori/dish-recommendations")
 def apriori_dish_recs(dish_name: str):
-    """Alias cũ: nhận tên nguyên liệu trong tham số dish_name để tránh gãy frontend cũ."""
-    return {"ingredient": dish_name, "recommendations": _get_apriori().get_dish_recommendations(dish_name)}
-
-@router.get("/apriori/ingredient-suggestions")
-def apriori_ing_suggestions(ingredients: str):
-    """Gợi ý nguyên liệu từ luật kết hợp."""
-    ing_list = [i.strip() for i in ingredients.split(",") if i.strip()]
-    suggestions = []
-    for ing in ing_list:
-        suggestions.extend(_get_apriori().get_dish_recommendations(ing))
-    return {
-        "ingredients": ing_list,
-        "suggestions": suggestions,
-        "message": "Gợi ý dựa trên luật kết hợp nguyên liệu từ Open Food Facts.",
-    }
+    """Gợi ý món ăn dựa trên tên món"""
+    return {"dish": dish_name, "recommendations": _get_apriori().get_dish_recommendations(dish_name)}
