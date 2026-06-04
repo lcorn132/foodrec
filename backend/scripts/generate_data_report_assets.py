@@ -173,7 +173,7 @@ def main() -> None:
     bar_chart(CHART_DIR / "02_preprocessing_funnel.svg", "Từ dữ liệu thô đến dữ liệu sạch", [("Dòng raw", raw_rows), ("Món sạch", len(dishes)), ("Dòng set menu parse", len(set_items)), ("Dòng gợi ý", len(similarity_rows))])
     hbar_chart(CHART_DIR / "03_category_distribution.svg", "Phân bố món sạch theo danh mục", category_counts.most_common())
     donut_chart(CHART_DIR / "04_price_range_distribution.svg", "Phân bố món theo mức giá", [(label, price_counts.get(label, 0)) for label in ["budget", "affordable", "moderate", "premium", "unknown"]])
-    hbar_chart(CHART_DIR / "05_kmeans_cluster_distribution.svg", "K-Means: số món trong từng cụm", cluster_counts.most_common())
+    hbar_chart(CHART_DIR / "05_kmeans_cluster_distribution.svg", "K-Means: 4 cụm cấu trúc mâm cơm Việt", cluster_counts.most_common())
     donut_chart(CHART_DIR / "06_similarity_score_distribution.svg", "Phân bố điểm gợi ý content-based", score_buckets.most_common())
 
     summary = {
@@ -213,10 +213,12 @@ def main() -> None:
                 "## 3. Gom cụm K-Means",
                 f"- Số cụm: **{vi_num(len(cluster_counts))}**.",
                 "- Thuộc tính gom cụm: giá, calories ước tính, cờ set menu, keyword one-hot.",
+                "- Diễn giải cụm theo cấu trúc mâm cơm Việt: món nền tảng, món mặn đưa cơm, món thanh mát và món tiệc/lẩu/ăn chơi.",
                 "",
-                "## 4. Gợi ý content-based",
-                f"- Số dòng gợi ý: **{vi_num(len(similarity_rows))}**.",
-                "- Đặc trưng gợi ý: danh mục, cụm K-Means, keyword từ tên/mô tả, độ gần giá.",
+                "## 4. Gợi ý món ăn",
+                f"- Số dòng gợi ý tương đồng: **{vi_num(len(similarity_rows))}**.",
+                "- Gợi ý chi tiết món: dùng content-based filtering theo danh mục, cụm K-Means, keyword từ tên/mô tả và độ gần giá.",
+                "- Gợi ý giỏ hàng: dùng ma trận logic phối cụm để hoàn thiện mâm cơm Việt.",
                 "- Không dùng hóa đơn sinh giả vì nhà hàng không công khai dữ liệu giao dịch thật.",
             ]
         ),

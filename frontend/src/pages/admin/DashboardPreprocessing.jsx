@@ -107,7 +107,7 @@ export default function DashboardPreprocessing() {
         <div>
           <h1 className="text-2xl font-bold text-slate-950">Quản lý dữ liệu và tiền xử lý</h1>
           <p className="mt-1 max-w-4xl text-sm text-slate-600">
-            Upload Excel raw, làm sạch thực đơn thật, gom cụm K-Means, tính gợi ý content-based và sinh biểu đồ báo cáo. Không dùng hóa đơn sinh giả.
+            Upload Excel raw, làm sạch thực đơn thật, gom cụm K-Means theo cấu trúc mâm cơm Việt, tính gợi ý tương đồng và sinh biểu đồ báo cáo. Không dùng hóa đơn sinh giả.
           </p>
         </div>
         <button onClick={loadStatus} className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">
@@ -162,7 +162,7 @@ export default function DashboardPreprocessing() {
         </div>
       </Section>
 
-      <Section title="2. Chạy xử lý và nạp dữ liệu lên web" subtitle="Pipeline sinh dữ liệu sạch, bảng gợi ý content-based, biểu đồ báo cáo và nạp dishes_clean.csv vào web.">
+      <Section title="2. Chạy xử lý và nạp dữ liệu lên web" subtitle="Pipeline sinh dữ liệu sạch, bảng gợi ý tương đồng, biểu đồ báo cáo và nạp dishes_clean.csv vào web.">
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div className="text-sm text-slate-600">
             Trạng thái processed:{" "}
@@ -179,8 +179,8 @@ export default function DashboardPreprocessing() {
           <Card title="Dòng dữ liệu thô" value={formatNumber(summary.raw_rows)} note="Đọc từ Excel raw" />
           <Card title="Món sạch" value={formatNumber(summary.clean_dishes)} note="Nạp lên web" />
           <Card title="Dòng set menu parse" value={formatNumber(summary.set_menu_items)} note="Từ mô tả thật" />
-          <Card title="Cụm K-Means" value={formatNumber(summary.kmeans_clusters)} note="Gom cụm món ăn" />
-          <Card title="Dòng gợi ý" value={formatNumber(summary.content_similarity_rows)} note="Content-based" />
+          <Card title="Cụm K-Means" value={formatNumber(summary.kmeans_clusters)} note="4 vai trò mâm cơm Việt" />
+          <Card title="Dòng gợi ý" value={formatNumber(summary.content_similarity_rows)} note="Tương đồng nội dung" />
         </div>
       </Section>
 
@@ -198,7 +198,7 @@ export default function DashboardPreprocessing() {
             </div>
           </div>
           <div className="rounded-lg border border-slate-200 p-4">
-            <h3 className="text-sm font-bold text-slate-900">Gợi ý content-based</h3>
+            <h3 className="text-sm font-bold text-slate-900">Gợi ý tương đồng</h3>
             <div className="mt-3 space-y-2">
               {similarityBuckets.map(([bucket, count]) => (
                 <div key={bucket} className="flex items-center justify-between gap-4 rounded-md bg-slate-50 px-3 py-2 text-sm">

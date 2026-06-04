@@ -10,10 +10,12 @@
 - Số dòng set menu parse từ mô tả thật: **118**.
 
 ## 3. Gom cụm K-Means
-- Số cụm: **5**.
+- Số cụm: **4**.
 - Thuộc tính gom cụm: giá, calories ước tính, cờ set menu, keyword one-hot.
+- Diễn giải cụm theo cấu trúc mâm cơm Việt: món nền tảng, món mặn đưa cơm, món thanh mát và món tiệc/lẩu/ăn chơi.
 
-## 4. Gợi ý content-based
-- Số dòng gợi ý: **952**.
-- Đặc trưng gợi ý: danh mục, cụm K-Means, keyword từ tên/mô tả, độ gần giá.
+## 4. Gợi ý món ăn
+- Số dòng gợi ý tương đồng: **952**.
+- Gợi ý chi tiết món: dùng content-based filtering theo danh mục, cụm K-Means, keyword từ tên/mô tả và độ gần giá.
+- Gợi ý giỏ hàng: dùng ma trận logic phối cụm để hoàn thiện mâm cơm Việt.
 - Không dùng hóa đơn sinh giả vì nhà hàng không công khai dữ liệu giao dịch thật.

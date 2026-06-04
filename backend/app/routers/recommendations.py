@@ -26,7 +26,7 @@ def get_recommendations_for_dish(dish_id: int, top_n: int = 10, db: Session = De
                 {
                     "dish": recommended,
                     "score": round(rec["score"], 3),
-                    "reason": "Dựa trên độ tương đồng nội dung, cụm K-Means, danh mục và mức giá",
+                    "reason": "Dựa trên món tương đồng trong cùng cụm K-Means, danh mục, keyword mô tả và mức giá",
                 }
             )
     return {"recommendations": result}
@@ -48,7 +48,7 @@ def get_recommendations_for_cart(request: RecommendationRequest, db: Session = D
                 {
                     "dish": dish,
                     "score": round(rec["score"], 3),
-                    "reason": "Phù hợp với các món hiện có trong giỏ theo content-based filtering",
+                    "reason": "Gợi ý hoàn thiện mâm cơm theo phối cụm món Việt",
                 }
             )
     return {"recommendations": result}

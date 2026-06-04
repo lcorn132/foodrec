@@ -85,34 +85,34 @@
   },
   "kmeans": {
     "clusters": {
-      "C4 - Cụm khách đoàn / món giá cao": 12,
-      "C0 - Cụm món nhậu đậm đà": 55,
-      "C3 - Cụm món thanh đạm": 34,
-      "C1 - Cụm món nhậu đậm đà": 11,
-      "C2 - Cụm khách đoàn / món giá cao": 7
+      "C3 - Cụm 4: Món tiệc/lẩu/ăn chơi": 25,
+      "C1 - Cụm 2: Món mặn đưa cơm": 62,
+      "C2 - Cụm 3: Món thanh mát (rau/canh)": 27,
+      "C0 - Cụm 1: Món nền tảng (cơm)": 5
     },
-    "cluster_count": 5
+    "cluster_count": 4
   },
   "content_based_recommendation": {
     "rows": 952,
     "score_buckets": {
-      "Rất cao": 641,
-      "Cao": 223,
-      "Trung bình": 74,
-      "Thấp": 14
+      "Rất cao": 583,
+      "Cao": 292,
+      "Trung bình": 53,
+      "Thấp": 24
     },
     "method": {
       "algorithm": "Content-Based Filtering",
       "features": [
         "category",
         "cluster_label",
+        "meal_role",
         "keywords",
         "price_vnd"
       ],
       "similarity": "weighted score: keyword Jaccard + same cluster + same category + price proximity",
       "recommendation_rows": 952,
       "top_n_per_dish": 8,
-      "note": "Không dùng hóa đơn sinh giả; hệ thống gợi ý từ thuộc tính thật của món ăn."
+      "note": "Không dùng hóa đơn sinh giả; hệ thống gợi ý từ thuộc tính thật của món ăn và tri thức phối mâm cơm Việt."
     }
   },
   "transactions": {

@@ -18,7 +18,7 @@ RAW_DIR = ROOT / "backend" / "database" / "raw"
 OUT_DIR = ROOT / "backend" / "database" / "processed"
 
 SEED = 20260604
-K_CLUSTERS = 5
+K_CLUSTERS = 4
 
 SERVICE_ITEMS = {
     "com nieu",
@@ -29,19 +29,26 @@ SERVICE_ITEMS = {
 }
 
 CATEGORY_LABELS = {
-    "mon-khai-vi": "MÃ³n khai vá»‹",
-    "mon-com-nieu": "CÆ¡m niÃªu",
-    "mon-dau-hu-trung": "MÃ³n Ä‘áº­u hÅ©/trá»©ng",
-    "mon-canh": "MÃ³n canh",
-    "mon-rau": "MÃ³n rau",
-    "mon-heo": "MÃ³n heo",
-    "mon-ca": "MÃ³n cÃ¡",
-    "mon-lau": "MÃ³n láº©u",
-    "mon-hai-san": "MÃ³n háº£i sáº£n",
-    "mon-ga-bo": "MÃ³n gÃ /bÃ²",
-    "mon-them": "MÃ³n thÃªm",
-    "menu-com-doan-du-lich": "Set menu Ä‘oÃ n",
-    "all": "Táº¥t cáº£ sáº£n pháº©m",
+    "mon-khai-vi": "Món khai vị",
+    "mon-com-nieu": "Cơm niêu",
+    "mon-dau-hu-trung": "Món đậu hũ/trứng",
+    "mon-canh": "Món canh",
+    "mon-rau": "Món rau",
+    "mon-heo": "Món heo",
+    "mon-ca": "Món cá",
+    "mon-lau": "Món lẩu",
+    "mon-hai-san": "Món hải sản",
+    "mon-ga-bo": "Món gà/bò",
+    "mon-them": "Món thêm",
+    "menu-com-doan-du-lich": "Set menu đoàn",
+    "all": "Tất cả sản phẩm",
+}
+
+MEAL_ROLES = {
+    "foundation": "Cụm 1: Món nền tảng (cơm)",
+    "savory": "Cụm 2: Món mặn đưa cơm",
+    "fresh": "Cụm 3: Món thanh mát (rau/canh)",
+    "feast": "Cụm 4: Món tiệc/lẩu/ăn chơi",
 }
 
 
@@ -62,12 +69,12 @@ def clean_text(text: Any) -> str:
     text = str(text).replace("\xa0", " ")
     text = re.sub(r"\s+", " ", text).strip()
     replacements = {
-        " Xáº¢ ": " Sáº¢ ",
-        "xáº£": "sáº£",
-        "ÄD": "Äáº I DÆ¯Æ NG",
-        "ÄAI DÆ¯Æ NG": "Äáº I DÆ¯Æ NG",
-        "PHÃš QUÃ”C": "PHÃš QUá»C",
-        "PhÃº QuÃ´c": "PhÃº Quá»‘c",
+        " XẢ ": " SẢ ",
+        "xả": "sả",
+        "ĐD": "ĐẠI DƯƠNG",
+        "ĐAI DƯƠNG": "ĐẠI DƯƠNG",
+        "PHÚ QUÔC": "PHÚ QUỐC",
+        "Phú Quôc": "Phú Quốc",
     }
     for old, new in replacements.items():
         text = text.replace(old, new)
@@ -83,7 +90,7 @@ def title_name(text: str) -> str:
 
 def parse_price(value: Any) -> int:
     raw = clean_text(value)
-    if not raw or "theo thá»i giÃ¡" in raw.casefold():
+    if not raw or "theo thời giá" in raw.casefold():
         return 0
     digits = re.sub(r"[^\d]", "", raw)
     return int(digits) if digits else 0
@@ -210,7 +217,7 @@ def estimate_calories(name: str, category: str, price: int, description: str) ->
     calories = 280
     rules = [
         (["lau"], 420),
-        (["com"], 360),
+        (["com nieu", "com dap", "com chien", "com trang"], 360),
         (["chien", "rang", "xao", "nuong", "quay"], 520),
         (["hap", "luoc", "canh", "salad", "rau"], 240),
         (["tom", "muc", "ca", "hai san"], 390),
@@ -219,7 +226,7 @@ def estimate_calories(name: str, category: str, price: int, description: str) ->
         (["nuoc", "tra", "dasani"], 60),
     ]
     for tokens, value in rules:
-        if any(token in text for token in tokens):
+        if any(has_term(text, token) for token in tokens):
             calories = max(calories, value)
     if price >= 300000:
         calories += 160
@@ -228,11 +235,20 @@ def estimate_calories(name: str, category: str, price: int, description: str) ->
     return calories
 
 
+def has_term(text: str, term: str) -> bool:
+    term = slug_text(term)
+    if not term:
+        return False
+    if " " in term:
+        return term in text
+    return re.search(rf"(?:^|\s){re.escape(term)}(?:\s|$)", text) is not None
+
+
 def dish_keywords(name: str, description: str) -> list[str]:
     text = slug_text(f"{name} {description}")
     keyword_groups = {
         "lau": ["lau"],
-        "com": ["com"],
+        "com": ["com nieu", "com dap", "com chien", "com trang"],
         "canh": ["canh", "sup"],
         "rau": ["rau", "salad"],
         "hai_san": ["tom", "muc", "oc", "hau", "ca", "hai san"],
@@ -243,7 +259,7 @@ def dish_keywords(name: str, description: str) -> list[str]:
     }
     found = []
     for label, tokens in keyword_groups.items():
-        if any(token in text for token in tokens):
+        if any(has_term(text, token) for token in tokens):
             found.append(label)
     return found
 
@@ -414,9 +430,23 @@ def kmeans_cluster(dishes: list[dict[str, Any]], k: int = K_CLUSTERS, iterations
     set_flags = [float(d["is_set_menu"]) for d in dishes]
     kw_matrix = one_hot_keywords(dishes, keyword_labels)
     vectors = []
+    role_scores_by_dish = {}
     for idx, dish in enumerate(dishes):
-        vectors.append([prices[idx], calories[idx], set_flags[idx] * 1.5] + kw_matrix[dish["dish_id"]])
-    centroids = [vectors[i] for i in random.sample(range(len(vectors)), min(k, len(vectors)))]
+        role_scores = score_meal_roles([dish])
+        role_scores_by_dish[dish["dish_id"]] = role_scores
+        role_features = [role_scores["foundation"] * 2.5, role_scores["savory"] * 2.5, role_scores["fresh"] * 2.5, role_scores["feast"] * 2.5]
+        vectors.append([prices[idx], calories[idx], set_flags[idx] * 1.5] + kw_matrix[dish["dish_id"]] + role_features)
+    selected: list[int] = []
+    for role in ["foundation", "savory", "fresh", "feast"][: min(k, len(vectors))]:
+        candidate = max(
+            (idx for idx in range(len(dishes)) if idx not in selected),
+            key=lambda idx: role_scores_by_dish[dishes[idx]["dish_id"]][role],
+        )
+        selected.append(candidate)
+    while len(selected) < min(k, len(vectors)):
+        candidate = random.choice([idx for idx in range(len(vectors)) if idx not in selected])
+        selected.append(candidate)
+    centroids = [vectors[i] for i in selected]
     assignments = [-1] * len(vectors)
     for _ in range(iterations):
         changed = False
@@ -447,36 +477,89 @@ def kmeans_cluster(dishes: list[dict[str, Any]], k: int = K_CLUSTERS, iterations
     for dish, cluster in zip(dishes, assignments):
         row = dict(dish)
         row["cluster_id"] = cluster
+        row["meal_role"] = summaries[cluster]["role"]
         row["cluster_label"] = f"C{cluster} - {summaries[cluster]['label']}"
         clustered.append(row)
     return clustered
 
 
+def score_meal_roles(members: list[dict[str, Any]]) -> dict[str, float]:
+    scores = {role: 0.0 for role in MEAL_ROLES}
+    for dish in members:
+        category = str(dish.get("category", ""))
+        name_key = str(dish.get("name_key", ""))
+        keywords = dish_keyword_set(dish)
+        price = int(dish.get("price_vnd") or 0)
+        is_set = int(dish.get("is_set_menu") or 0)
+
+        is_rice = category == "mon-com-nieu" or any(
+            has_term(name_key, term)
+            for term in ("com nieu", "com dap", "com chien", "com trang")
+        )
+        if is_rice:
+            scores["foundation"] += 3.5
+        if category in {"mon-heo", "mon-ca", "mon-ga-bo", "mon-dau-hu-trung"}:
+            scores["savory"] += 2.6
+        if {"thit", "hai_san", "chien_xao"} & keywords:
+            scores["savory"] += 1.5
+        if category in {"mon-canh", "mon-rau"}:
+            scores["fresh"] += 3.2
+        if {"canh", "rau", "thanh_dam"} & keywords:
+            scores["fresh"] += 1.7
+        if category in {"mon-lau", "mon-hai-san", "menu-com-doan-du-lich", "mon-khai-vi", "mon-them"}:
+            scores["feast"] += 2.6
+        if "lau" in keywords or is_set:
+            scores["feast"] += 2.5
+        if price >= 250000:
+            scores["feast"] += 1.1
+        if price < 80000 and category == "mon-them":
+            scores["feast"] += 0.7
+    return scores
+
+
+def assign_cluster_roles(cluster_members: dict[int, list[dict[str, Any]]]) -> dict[int, str]:
+    scored_pairs: list[tuple[float, int, str]] = []
+    role_scores = {cluster: score_meal_roles(members) for cluster, members in cluster_members.items()}
+    for cluster, scores in role_scores.items():
+        for role, score in scores.items():
+            scored_pairs.append((score, cluster, role))
+
+    assignments: dict[int, str] = {}
+    used_roles: set[str] = set()
+    for _, cluster, role in sorted(scored_pairs, reverse=True):
+        if cluster in assignments or role in used_roles:
+            continue
+        assignments[cluster] = role
+        used_roles.add(role)
+
+    remaining_roles = [role for role in MEAL_ROLES if role not in used_roles]
+    for cluster in sorted(cluster_members):
+        if cluster not in assignments:
+            assignments[cluster] = remaining_roles.pop(0) if remaining_roles else "savory"
+    return assignments
+
+
 def summarize_clusters(dishes: list[dict[str, Any]], assignments: list[int]) -> dict[int, dict[str, Any]]:
     summaries: dict[int, dict[str, Any]] = {}
+    cluster_members = {
+        cluster: [dish for dish, assn in zip(dishes, assignments) if assn == cluster]
+        for cluster in sorted(set(assignments))
+    }
+    role_assignments = assign_cluster_roles(cluster_members)
     for cluster in sorted(set(assignments)):
-        members = [dish for dish, assn in zip(dishes, assignments) if assn == cluster]
+        members = cluster_members[cluster]
         keyword_counts = Counter(keyword for dish in members for keyword in str(dish.get("keywords", "")).split("|") if keyword)
+        category_counts = Counter(dish.get("category_label") or dish.get("category") for dish in members)
         avg_price = sum(int(d["price_vnd"]) for d in members) / max(1, len(members))
-        set_ratio = sum(int(d["is_set_menu"]) for d in members) / max(1, len(members))
-        top_keywords = {kw for kw, _ in keyword_counts.most_common(3)}
-        if set_ratio > 0.35 or avg_price >= 280000:
-            label = "Cá»¥m khÃ¡ch Ä‘oÃ n / mÃ³n giÃ¡ cao"
-        elif "lau" in top_keywords:
-            label = "Cá»¥m láº©u vÃ  mÃ³n Äƒn gia Ä‘Ã¬nh"
-        elif "rau" in top_keywords or "canh" in top_keywords or "thanh_dam" in top_keywords:
-            label = "Cá»¥m mÃ³n thanh Ä‘áº¡m"
-        elif "hai_san" in top_keywords or "chien_xao" in top_keywords:
-            label = "Cá»¥m mÃ³n nháº­u Ä‘áº­m Ä‘Ã "
-        elif "do_uong_them" in top_keywords:
-            label = "Cá»¥m mÃ³n thÃªm / Ä‘á»“ uá»‘ng"
-        else:
-            label = "Cá»¥m mÃ³n chÃ­nh phá»• thÃ´ng"
+        role = role_assignments[cluster]
+        label = MEAL_ROLES[role]
         summaries[cluster] = {
             "cluster_id": cluster,
+            "role": role,
             "label": label,
             "size": len(members),
             "avg_price": round(avg_price),
+            "top_categories": "|".join(category for category, _ in category_counts.most_common(5)),
             "top_keywords": "|".join(keyword for keyword, _ in keyword_counts.most_common(5)),
         }
     return summaries
@@ -505,14 +588,14 @@ def content_similarity_recommendations(dishes: list[dict[str, Any]], top_n: int 
             score = keyword_score * 0.35 + same_cluster * 0.25 + same_category * 0.2 + price_score * 0.2
             reasons = []
             if same_cluster:
-                reasons.append("cÃ¹ng cá»¥m K-Means")
+                reasons.append("cùng cụm K-Means")
             if same_category:
-                reasons.append("cÃ¹ng danh má»¥c")
+                reasons.append("cùng danh mục")
             if keyword_score > 0:
-                reasons.append("trÃ¹ng tá»« khÃ³a mÃ³n")
+                reasons.append("trùng từ khóa món")
             if price_score >= 0.75:
-                reasons.append("má»©c giÃ¡ gáº§n nhau")
-            scored.append((score, target, reasons or ["tÆ°Æ¡ng Ä‘á»“ng ná»™i dung"]))
+                reasons.append("mức giá gần nhau")
+            scored.append((score, target, reasons or ["tương đồng nội dung"]))
         for rank, (score, target, reasons) in enumerate(sorted(scored, key=lambda item: item[0], reverse=True)[:top_n], start=1):
             rows.append(
                 {
@@ -573,25 +656,26 @@ def main() -> None:
             "unique_dishes": len(dishes),
             "set_menu_rows": len(set_transactions),
             "techniques": [
-                "Data Transformation: chuáº©n hÃ³a data2 tá»« chuá»—i tiá»n tá»‡ sang int",
-                "Feature Extraction: trÃ­ch category tá»« web_scraper_start_url",
-                "Text Cleaning: strip khoáº£ng tráº¯ng, chuáº©n hÃ³a lá»—i chÃ­nh táº£/tÃªn mÃ³n",
-                "Feature Engineering: Æ°á»›c tÃ­nh calories vÃ  keyword tá»« mÃ´ táº£/tÃªn mÃ³n",
+                "Data Transformation: chuẩn hóa data2 từ chuỗi tiền tệ sang int",
+                "Feature Extraction: trích category từ web_scraper_start_url",
+                "Text Cleaning: strip khoảng trắng, chuẩn hóa lỗi chính tả/tên món",
+                "Feature Engineering: ước tính calories và keyword từ mô tả/tên món",
             ],
         },
         "kmeans": {
-            "algorithm": "K-Means tá»± cÃ i Ä‘áº·t báº±ng Python thuáº§n",
+            "algorithm": "K-Means tự cài đặt bằng Python thuần",
             "k": K_CLUSTERS,
             "features": ["price_vnd", "estimated_calories", "is_set_menu", "keyword one-hot"],
+            "interpretation": "Diễn giải 4 cụm theo cấu trúc bữa ăn Việt: cơm - món mặn - rau/canh - tiệc/lẩu.",
             "clusters": list(cluster_summary.values()),
         },
         "content_based_recommendation": {
             "algorithm": "Content-Based Filtering",
-            "features": ["category", "cluster_label", "keywords", "price_vnd"],
+            "features": ["category", "cluster_label", "meal_role", "keywords", "price_vnd"],
             "similarity": "weighted score: keyword Jaccard + same cluster + same category + price proximity",
             "recommendation_rows": len(similarity_rows),
             "top_n_per_dish": 8,
-            "note": "KhÃ´ng dÃ¹ng hÃ³a Ä‘Æ¡n sinh giáº£; há»‡ thá»‘ng gá»£i Ã½ tá»« thuá»™c tÃ­nh tháº­t cá»§a mÃ³n Äƒn.",
+            "note": "Không dùng hóa đơn sinh giả; hệ thống gợi ý từ thuộc tính thật của món ăn và tri thức phối mâm cơm Việt.",
         },
         "outputs": {
             "processed_dir": str(OUT_DIR),

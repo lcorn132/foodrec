@@ -79,48 +79,50 @@
   },
   "kmeans": {
     "algorithm": "K-Means tự cài đặt bằng Python thuần",
-    "k": 5,
+    "k": 4,
     "features": [
       "price_vnd",
       "estimated_calories",
       "is_set_menu",
       "keyword one-hot"
     ],
+    "interpretation": "Diễn giải 4 cụm theo cấu trúc bữa ăn Việt: cơm - món mặn - rau/canh - tiệc/lẩu.",
     "clusters": [
       {
         "cluster_id": 0,
-        "label": "Cụm món nhậu đậm đà",
-        "size": 55,
-        "avg_price": 112000,
-        "top_keywords": "hai_san|chien_xao|do_uong_them|thit|thanh_dam"
+        "role": "foundation",
+        "label": "Cụm 1: Món nền tảng (cơm)",
+        "size": 5,
+        "avg_price": 54600,
+        "top_categories": "Cơm niêu|Món thêm",
+        "top_keywords": "com|hai_san|thanh_dam|rau|chien_xao"
       },
       {
         "cluster_id": 1,
-        "label": "Cụm món nhậu đậm đà",
-        "size": 11,
-        "avg_price": 44727,
-        "top_keywords": "hai_san|do_uong_them|com|thit|rau"
+        "role": "savory",
+        "label": "Cụm 2: Món mặn đưa cơm",
+        "size": 62,
+        "avg_price": 131081,
+        "top_categories": "Món cá|Món khai vị|Món heo|Món gà/bò|Món đậu hũ/trứng",
+        "top_keywords": "thit|thanh_dam|do_uong_them|hai_san|chien_xao"
       },
       {
         "cluster_id": 2,
-        "label": "Cụm khách đoàn / món giá cao",
-        "size": 7,
-        "avg_price": 414286,
-        "top_keywords": "hai_san|thit|do_uong_them|thanh_dam|lau"
+        "role": "fresh",
+        "label": "Cụm 3: Món thanh mát (rau/canh)",
+        "size": 27,
+        "avg_price": 118222,
+        "top_categories": "Món canh|Món rau",
+        "top_keywords": "thanh_dam|thit|do_uong_them|rau|hai_san"
       },
       {
         "cluster_id": 3,
-        "label": "Cụm món thanh đạm",
-        "size": 34,
-        "avg_price": 138088,
-        "top_keywords": "hai_san|thit|thanh_dam|do_uong_them|canh"
-      },
-      {
-        "cluster_id": 4,
-        "label": "Cụm khách đoàn / món giá cao",
-        "size": 12,
-        "avg_price": 283333,
-        "top_keywords": "com|hai_san|thit|do_uong_them|chien_xao"
+        "role": "feast",
+        "label": "Cụm 4: Món tiệc/lẩu/ăn chơi",
+        "size": 25,
+        "avg_price": 242200,
+        "top_categories": "Set menu đoàn|Món thêm|Món lẩu",
+        "top_keywords": "do_uong_them|hai_san|thit|thanh_dam|com"
       }
     ]
   },
@@ -129,13 +131,14 @@
     "features": [
       "category",
       "cluster_label",
+      "meal_role",
       "keywords",
       "price_vnd"
     ],
     "similarity": "weighted score: keyword Jaccard + same cluster + same category + price proximity",
     "recommendation_rows": 952,
     "top_n_per_dish": 8,
-    "note": "Không dùng hóa đơn sinh giả; hệ thống gợi ý từ thuộc tính thật của món ăn."
+    "note": "Không dùng hóa đơn sinh giả; hệ thống gợi ý từ thuộc tính thật của món ăn và tri thức phối mâm cơm Việt."
   },
   "outputs": {
     "processed_dir": "E:\\KPDL\\Nhom10_DoAn_v7_data_mining_rework\\foodrec\\backend\\database\\processed",

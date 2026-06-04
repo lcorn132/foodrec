@@ -1,19 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1150" height="720" viewBox="0 0 1150 720">
   <rect width="1150" height="720" fill="#fffaf3"/>
-  <text x="575.0" y="34" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#3b231c">K-Means: số món trong từng cụm</text>
-  <text x="346" y="130.055" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">C0 - Cụm món nhậu đậm đà</text>
-  <rect x="360" y="91.78" width="648.148148148148" height="66.55000000000001" rx="5" fill="#8B4513" opacity="0.9"/>
-  <text x="1018.148148148148" y="130.055" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">55</text>
-  <text x="346" y="251.055" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">C3 - Cụm món thanh đạm</text>
-  <rect x="360" y="212.78" width="400.67340067340064" height="66.55000000000001" rx="5" fill="#D89A00" opacity="0.9"/>
-  <text x="770.6734006734007" y="251.055" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">34</text>
-  <text x="346" y="372.05499999999995" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">C4 - Cụm khách đoàn / món giá cao</text>
-  <rect x="360" y="333.78" width="141.4141414141414" height="66.55000000000001" rx="5" fill="#2F855A" opacity="0.9"/>
-  <text x="511.4141414141414" y="372.05499999999995" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">12</text>
-  <text x="346" y="493.05499999999995" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">C1 - Cụm món nhậu đậm đà</text>
-  <rect x="360" y="454.78" width="129.62962962962962" height="66.55000000000001" rx="5" fill="#2563EB" opacity="0.9"/>
-  <text x="499.6296296296296" y="493.05499999999995" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">11</text>
-  <text x="346" y="614.055" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">C2 - Cụm khách đoàn / món giá cao</text>
-  <rect x="360" y="575.78" width="82.49158249158248" height="66.55000000000001" rx="5" fill="#7C3AED" opacity="0.9"/>
-  <text x="452.49158249158245" y="614.055" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">7</text>
+  <text x="575.0" y="34" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#3b231c">K-Means: 4 cụm cấu trúc mâm cơm Việt</text>
+  <text x="346" y="143.81875" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">C1 - Cụm 2: Món mặn đưa cơm</text>
+  <rect x="360" y="97.225" width="648.148148148148" height="83.1875" rx="5" fill="#8B4513" opacity="0.9"/>
+  <text x="1018.148148148148" y="143.81875" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">62</text>
+  <text x="346" y="295.06875" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">C2 - Cụm 3: Món thanh mát (rau/canh)</text>
+  <rect x="360" y="248.475" width="282.258064516129" height="83.1875" rx="5" fill="#D89A00" opacity="0.9"/>
+  <text x="652.258064516129" y="295.06875" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">27</text>
+  <text x="346" y="446.31875" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">C3 - Cụm 4: Món tiệc/lẩu/ăn chơi</text>
+  <rect x="360" y="399.725" width="261.35005973715647" height="83.1875" rx="5" fill="#2F855A" opacity="0.9"/>
+  <text x="631.3500597371565" y="446.31875" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">25</text>
+  <text x="346" y="597.56875" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">C0 - Cụm 1: Món nền tảng (cơm)</text>
+  <rect x="360" y="550.975" width="52.27001194743129" height="83.1875" rx="5" fill="#2563EB" opacity="0.9"/>
+  <text x="422.27001194743127" y="597.56875" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">5</text>
 </svg>

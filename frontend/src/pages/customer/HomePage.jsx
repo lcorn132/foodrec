@@ -9,9 +9,9 @@ import Loading from "../../components/Loading.jsx";
 
 const FEATURES = [
   { value: "119", label: "món ăn thật", note: "Từ thực đơn Cơm Niêu Việt Nam" },
-  { value: "0", label: "hóa đơn giả", note: "Không dùng dữ liệu giao dịch sinh" },
-  { value: "Content", label: "gợi ý món đi kèm", note: "Dựa trên thuộc tính món ăn" },
-  { value: "K-Means", label: "gom cụm món ăn", note: "Theo giá, mô tả và đặc trưng món" },
+  { value: "4", label: "cụm mâm cơm", note: "Cơm, món mặn, rau/canh, lẩu/tiệc" },
+  { value: "KNN", label: "món tương đồng", note: "Dựa trên mô tả, danh mục và mức giá" },
+  { value: "Context", label: "gợi ý theo bữa", note: "Ưu tiên cơm trưa hoặc lẩu/tiệc buổi tối" },
 ];
 
 export default function HomePage() {
@@ -58,8 +58,8 @@ export default function HomePage() {
               FoodRec
               <span className="block" style={{ color: "#F0C94D" }}>Cơm Niêu Việt Nam</span>
             </h1>
-            <p className="text-[17px] text-white/75 leading-relaxed mb-8 max-w-[560px]">
-              Ứng dụng sử dụng dữ liệu thực đơn thật, tiền xử lý dữ liệu, gom cụm món ăn và tính độ tương đồng nội dung để gợi ý món đi kèm phù hợp cho khách hàng.
+            <p className="text-[17px] text-white/75 leading-relaxed mb-8 max-w-[580px]">
+              Ứng dụng dùng dữ liệu thực đơn thật, tiền xử lý dữ liệu, gom cụm K-Means theo cấu trúc mâm cơm Việt và gợi ý món bằng tương đồng nội dung kết hợp logic phối món.
             </p>
             <div className="flex gap-4 flex-wrap">
               <button type="button" onClick={() => navigate("/menu")} className="btn-primary">
@@ -100,8 +100,8 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <span className="section-label">Thực đơn nổi bật</span>
             <h2 className="section-title">9 món được nạp từ dữ liệu sau tiền xử lý</h2>
-            <p className="text-base mt-3 max-w-[640px] mx-auto" style={{ color: "#8D6E63" }}>
-              Danh sách bên dưới lấy trực tiếp từ dữ liệu món ăn đã làm sạch và đang dùng cho hệ thống gợi ý.
+            <p className="text-base mt-3 max-w-[680px] mx-auto" style={{ color: "#8D6E63" }}>
+              Danh sách này lấy trực tiếp từ dữ liệu món ăn đã làm sạch. Hệ thống ưu tiên món phù hợp với ngữ cảnh bữa trưa hoặc bữa tối theo giờ Việt Nam.
             </p>
           </div>
 
@@ -140,7 +140,7 @@ export default function HomePage() {
           <span className="section-label">Quy trình dữ liệu</span>
           <h2 className="section-title">Tải dữ liệu, xử lý, sinh biểu đồ và nạp lên web</h2>
           <p className="mt-4 text-[15px] leading-relaxed" style={{ color: "#6D4C41" }}>
-            Admin có thể tải file Excel thực đơn thô, chạy pipeline để chuẩn hóa giá, trích xuất danh mục, làm sạch mô tả, gom cụm K-Means, tính điểm tương đồng content-based và sinh các biểu đồ đánh giá dữ liệu.
+            Admin có thể tải file Excel thực đơn thô, chạy pipeline để chuẩn hóa giá, trích xuất danh mục, làm sạch mô tả, gom cụm K-Means theo cấu trúc mâm cơm Việt, tính điểm tương đồng content-based và sinh các biểu đồ đánh giá dữ liệu.
           </p>
         </div>
       </section>

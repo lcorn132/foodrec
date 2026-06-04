@@ -48,13 +48,13 @@ export default function DashboardOverview() {
         <StatCard icon="💰" value={formatCurrency(overview?.total_revenue || 0)} label="Doanh thu" sub="Đã ghi nhận" color="#16A34A" />
         <StatCard icon="📦" value={overview?.total_orders ?? 0} label="Đơn hàng" sub={`${overview?.completed_orders || 0} hoàn thành`} />
         <StatCard icon="🍽️" value={overview?.total_dishes ?? 0} label="Món trong thực đơn" sub="Dữ liệu sạch" color="#3B82F6" />
-        <StatCard icon="🧠" value="Content" label="Hướng gợi ý" sub="Không hóa đơn giả" color="#8B5CF6" />
+        <StatCard icon="🧠" value="4 cụm" label="Hướng gợi ý" sub="Theo mâm cơm Việt" color="#8B5CF6" />
       </div>
 
       <div className="rounded-2xl bg-white p-6" style={{ border: "1px solid #E8DDD4" }}>
         <h3 className="font-display mb-1 text-lg font-bold" style={{ color: "#3E2723" }}>Hướng xử lý dữ liệu hiện tại</h3>
         <p className="text-[13px] leading-relaxed" style={{ color: "#8D6E63" }}>
-          Hệ thống sử dụng dữ liệu thực đơn thật, chuẩn hóa giá và mô tả, gom cụm K-Means rồi gợi ý món bằng content-based filtering dựa trên danh mục, cụm món, keyword và độ gần giá. Phần hóa đơn/giao dịch sinh giả đã được loại bỏ.
+          Hệ thống sử dụng dữ liệu thực đơn thật, chuẩn hóa giá và mô tả, gom cụm K-Means theo cấu trúc mâm cơm Việt rồi gợi ý món bằng tương đồng nội dung, phối cụm món và ngữ cảnh thời gian. Phần hóa đơn/giao dịch sinh giả đã được loại bỏ.
         </p>
       </div>
 
