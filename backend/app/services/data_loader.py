@@ -41,6 +41,13 @@ def load_csv_to_db(db: Session):
 
     print("Loading data from CSV files...")
     data_path = Path(__file__).parent.parent.parent / "database"
+    processed_dishes = data_path / "processed" / "dishes_clean.csv"
+    if processed_dishes.exists():
+        from app.services.data_pipeline_service import load_processed_dishes_to_db
+
+        result = load_processed_dishes_to_db(db, replace=False)
+        print(f"Loaded processed dishes: {result}")
+        return
 
     if not data_path.exists():
         print(f"WARNING: Missing data folder: {data_path}")

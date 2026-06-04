@@ -1,0 +1,953 @@
+﻿source_dish_id,source_name,recommended_dish_id,recommended_name,score,rank,reason,source_cluster,recommended_cluster
+D0108,Set menu 200.000đ /người (1),D0109,Set menu 200.000đ /người (2),1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0108,Set menu 200.000đ /người (1),D0111,Set menu 250.000đ /người (1),0.96,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0108,Set menu 200.000đ /người (1),D0112,Set menu 250.000đ /người (2),0.96,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0108,Set menu 200.000đ /người (1),D0110,Set menu 200.000đ /người (3),0.9562,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0108,Set menu 200.000đ /người (1),D0113,Set menu 250.000đ /người (3),0.9162,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0108,Set menu 200.000đ /người (1),D0115,Set menu 300.000đ /người (2),0.8458,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0108,Set menu 200.000đ /người (1),D0116,Set menu 300.000đ /người (3),0.8167,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0108,Set menu 200.000đ /người (1),D0114,Set menu 300.000đ /người (1),0.8021,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0109,Set menu 200.000đ /người (2),D0108,Set menu 200.000đ /người (1),1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0109,Set menu 200.000đ /người (2),D0111,Set menu 250.000đ /người (1),0.96,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0109,Set menu 200.000đ /người (2),D0112,Set menu 250.000đ /người (2),0.96,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0109,Set menu 200.000đ /người (2),D0110,Set menu 200.000đ /người (3),0.9562,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0109,Set menu 200.000đ /người (2),D0113,Set menu 250.000đ /người (3),0.9162,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0109,Set menu 200.000đ /người (2),D0115,Set menu 300.000đ /người (2),0.8458,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0109,Set menu 200.000đ /người (2),D0116,Set menu 300.000đ /người (3),0.8167,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0109,Set menu 200.000đ /người (2),D0114,Set menu 300.000đ /người (1),0.8021,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0110,Set menu 200.000đ /người (3),D0113,Set menu 250.000đ /người (3),0.96,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0110,Set menu 200.000đ /người (3),D0108,Set menu 200.000đ /người (1),0.9562,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0110,Set menu 200.000đ /người (3),D0109,Set menu 200.000đ /người (2),0.9562,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0110,Set menu 200.000đ /người (3),D0111,Set menu 250.000đ /người (1),0.9162,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0110,Set menu 200.000đ /người (3),D0112,Set menu 250.000đ /người (2),0.9162,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0110,Set menu 200.000đ /người (3),D0116,Set menu 300.000đ /người (3),0.8556,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0110,Set menu 200.000đ /người (3),D0115,Set menu 300.000đ /người (2),0.8167,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0110,Set menu 200.000đ /người (3),D0114,Set menu 300.000đ /người (1),0.7778,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0111,Set menu 250.000đ /người (1),D0112,Set menu 250.000đ /người (2),1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0111,Set menu 250.000đ /người (1),D0108,Set menu 200.000đ /người (1),0.96,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0111,Set menu 250.000đ /người (1),D0109,Set menu 200.000đ /người (2),0.96,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0111,Set menu 250.000đ /người (1),D0113,Set menu 250.000đ /người (3),0.9562,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0111,Set menu 250.000đ /người (1),D0110,Set menu 200.000đ /người (3),0.9162,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0111,Set menu 250.000đ /người (1),D0115,Set menu 300.000đ /người (2),0.8792,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0111,Set menu 250.000đ /người (1),D0116,Set menu 300.000đ /người (3),0.85,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0111,Set menu 250.000đ /người (1),D0114,Set menu 300.000đ /người (1),0.8354,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0112,Set menu 250.000đ /người (2),D0111,Set menu 250.000đ /người (1),1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0112,Set menu 250.000đ /người (2),D0108,Set menu 200.000đ /người (1),0.96,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0112,Set menu 250.000đ /người (2),D0109,Set menu 200.000đ /người (2),0.96,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0112,Set menu 250.000đ /người (2),D0113,Set menu 250.000đ /người (3),0.9562,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0112,Set menu 250.000đ /người (2),D0110,Set menu 200.000đ /người (3),0.9162,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0112,Set menu 250.000đ /người (2),D0115,Set menu 300.000đ /người (2),0.8792,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0112,Set menu 250.000đ /người (2),D0116,Set menu 300.000đ /người (3),0.85,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0112,Set menu 250.000đ /người (2),D0114,Set menu 300.000đ /người (1),0.8354,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0113,Set menu 250.000đ /người (3),D0110,Set menu 200.000đ /người (3),0.96,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0113,Set menu 250.000đ /người (3),D0111,Set menu 250.000đ /người (1),0.9562,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0113,Set menu 250.000đ /người (3),D0112,Set menu 250.000đ /người (2),0.9562,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0113,Set menu 250.000đ /người (3),D0108,Set menu 200.000đ /người (1),0.9162,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0113,Set menu 250.000đ /người (3),D0109,Set menu 200.000đ /người (2),0.9162,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0113,Set menu 250.000đ /người (3),D0116,Set menu 300.000đ /người (3),0.8889,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0113,Set menu 250.000đ /người (3),D0115,Set menu 300.000đ /người (2),0.85,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0113,Set menu 250.000đ /người (3),D0114,Set menu 300.000đ /người (1),0.8111,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0114,Set menu 300.000đ /người (1),D0117,Set menu 350.000đ /người (1),0.9714,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0114,Set menu 300.000đ /người (1),D0115,Set menu 300.000đ /người (2),0.95,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0114,Set menu 300.000đ /người (1),D0116,Set menu 300.000đ /người (3),0.9125,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0114,Set menu 300.000đ /người (1),D0119,Set menu 350.000đ /người (2),0.8714,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0114,Set menu 300.000đ /người (1),D0111,Set menu 250.000đ /người (1),0.8354,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0114,Set menu 300.000đ /người (1),D0112,Set menu 250.000đ /người (2),0.8354,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0114,Set menu 300.000đ /người (1),D0118,Set menu 450.000đ /người,0.8333,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0114,Set menu 300.000đ /người (1),D0113,Set menu 250.000đ /người (3),0.8111,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0115,Set menu 300.000đ /người (2),D0116,Set menu 300.000đ /người (3),0.9562,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0115,Set menu 300.000đ /người (2),D0114,Set menu 300.000đ /người (1),0.95,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0115,Set menu 300.000đ /người (2),D0117,Set menu 350.000đ /người (1),0.9214,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0115,Set menu 300.000đ /người (2),D0119,Set menu 350.000đ /người (2),0.9214,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0115,Set menu 300.000đ /người (2),D0118,Set menu 450.000đ /người,0.8833,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0115,Set menu 300.000đ /người (2),D0111,Set menu 250.000đ /người (1),0.8792,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0115,Set menu 300.000đ /người (2),D0112,Set menu 250.000đ /người (2),0.8792,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0115,Set menu 300.000đ /người (2),D0113,Set menu 250.000đ /người (3),0.85,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0116,Set menu 300.000đ /người (3),D0115,Set menu 300.000đ /người (2),0.9562,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0116,Set menu 300.000đ /người (3),D0114,Set menu 300.000đ /người (1),0.9125,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0116,Set menu 300.000đ /người (3),D0113,Set menu 250.000đ /người (3),0.8889,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0116,Set menu 300.000đ /người (3),D0117,Set menu 350.000đ /người (1),0.8839,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0116,Set menu 300.000đ /người (3),D0119,Set menu 350.000đ /người (2),0.8839,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0116,Set menu 300.000đ /người (3),D0110,Set menu 200.000đ /người (3),0.8556,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0116,Set menu 300.000đ /người (3),D0111,Set menu 250.000đ /người (1),0.85,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0116,Set menu 300.000đ /người (3),D0112,Set menu 250.000đ /người (2),0.85,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0117,Set menu 350.000đ /người (1),D0114,Set menu 300.000đ /người (1),0.9714,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0117,Set menu 350.000đ /người (1),D0115,Set menu 300.000đ /người (2),0.9214,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0117,Set menu 350.000đ /người (1),D0119,Set menu 350.000đ /người (2),0.9,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0117,Set menu 350.000đ /người (1),D0116,Set menu 300.000đ /người (3),0.8839,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0117,Set menu 350.000đ /người (1),D0118,Set menu 450.000đ /người,0.8556,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0117,Set menu 350.000đ /người (1),D0111,Set menu 250.000đ /người (1),0.8116,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0117,Set menu 350.000đ /người (1),D0112,Set menu 250.000đ /người (2),0.8116,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0117,Set menu 350.000đ /người (1),D0113,Set menu 250.000đ /người (3),0.7873,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0119,Set menu 350.000đ /người (2),D0118,Set menu 450.000đ /người,0.9556,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0119,Set menu 350.000đ /người (2),D0115,Set menu 300.000đ /người (2),0.9214,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0119,Set menu 350.000đ /người (2),D0117,Set menu 350.000đ /người (1),0.9,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0119,Set menu 350.000đ /người (2),D0116,Set menu 300.000đ /người (3),0.8839,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0119,Set menu 350.000đ /người (2),D0114,Set menu 300.000đ /người (1),0.8714,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0119,Set menu 350.000đ /người (2),D0111,Set menu 250.000đ /người (1),0.8116,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0119,Set menu 350.000đ /người (2),D0112,Set menu 250.000đ /người (2),0.8116,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0119,Set menu 350.000đ /người (2),D0113,Set menu 250.000đ /người (3),0.7873,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0118,Set menu 450.000đ /người,D0119,Set menu 350.000đ /người (2),0.9556,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0118,Set menu 450.000đ /người,D0115,Set menu 300.000đ /người (2),0.8833,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0118,Set menu 450.000đ /người,D0117,Set menu 350.000đ /người (1),0.8556,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0118,Set menu 450.000đ /người,D0116,Set menu 300.000đ /người (3),0.8458,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0118,Set menu 450.000đ /người,D0114,Set menu 300.000đ /người (1),0.8333,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0118,Set menu 450.000đ /người,D0111,Set menu 250.000đ /người (1),0.7799,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0118,Set menu 450.000đ /người,D0112,Set menu 250.000đ /người (2),0.7799,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0118,Set menu 450.000đ /người,D0108,Set menu 200.000đ /người (1),0.7576,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C4 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0039,Cá bóng cát kho tộ,D0045,Cá bớp kho tộ,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0039,Cá bóng cát kho tộ,D0049,Cá lóc biển hồ Cambodia chiên giòn,1.0,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0039,Cá bóng cát kho tộ,D0054,Khô cá lóc Cambodia,1.0,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0039,Cá bóng cát kho tộ,D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,0.9667,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0039,Cá bóng cát kho tộ,D0055,Cá linh chiên giòn,0.9187,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0039,Cá bóng cát kho tộ,D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,0.9079,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0039,Cá bóng cát kho tộ,D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,0.8765,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0039,Cá bóng cát kho tộ,D0048,Khô cá cơm cháy tỏi,0.8733,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0050,Cá bông lau kho tộ,D0052,Cá lăng sông kho tộ,0.9733,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0050,Cá bông lau kho tộ,D0038,Cá diếc: Kho tương bần/ chiên giòn,0.9562,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0050,Cá bông lau kho tộ,D0036,Cá kho làng Vũ Đại,0.9278,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0050,Cá bông lau kho tộ,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.9125,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0050,Cá bông lau kho tộ,D0046,Cá dứa biển kho tộ,0.8987,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0050,Cá bông lau kho tộ,D0047,Khô cá cơm rim ba rọi,0.8858,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0050,Cá bông lau kho tộ,D0041,Cá mú đỏ: Sốt cà/ Kho tộ/ Chưng tương,0.7829,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0050,Cá bông lau kho tộ,D0018,Canh cá nấu riêu,0.7562,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0045,Cá bớp kho tộ,D0039,Cá bóng cát kho tộ,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0045,Cá bớp kho tộ,D0049,Cá lóc biển hồ Cambodia chiên giòn,1.0,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0045,Cá bớp kho tộ,D0054,Khô cá lóc Cambodia,1.0,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0045,Cá bớp kho tộ,D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,0.9667,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0045,Cá bớp kho tộ,D0055,Cá linh chiên giòn,0.9187,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0045,Cá bớp kho tộ,D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,0.9079,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0045,Cá bớp kho tộ,D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,0.8765,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0045,Cá bớp kho tộ,D0048,Khô cá cơm cháy tỏi,0.8733,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0038,Cá diếc: Kho tương bần/ chiên giòn,D0050,Cá bông lau kho tộ,0.9562,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0038,Cá diếc: Kho tương bần/ chiên giòn,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.95,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0038,Cá diếc: Kho tương bần/ chiên giòn,D0046,Cá dứa biển kho tộ,0.9327,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0038,Cá diếc: Kho tương bần/ chiên giòn,D0052,Cá lăng sông kho tộ,0.9296,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0038,Cá diếc: Kho tương bần/ chiên giòn,D0047,Khô cá cơm rim ba rọi,0.9233,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0038,Cá diếc: Kho tương bần/ chiên giòn,D0036,Cá kho làng Vũ Đại,0.8889,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0038,Cá diếc: Kho tương bần/ chiên giòn,D0018,Canh cá nấu riêu,0.8,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0038,Cá diếc: Kho tương bần/ chiên giòn,D0041,Cá mú đỏ: Sốt cà/ Kho tộ/ Chưng tương,0.7391,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0053,Cá dứa 1 nắng Cần Giờ: Chiên/ Sốt cà,D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,0.9789,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0053,Cá dứa 1 nắng Cần Giờ: Chiên/ Sốt cà,D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,0.9417,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0053,Cá dứa 1 nắng Cần Giờ: Chiên/ Sốt cà,D0048,Khô cá cơm cháy tỏi,0.9368,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0053,Cá dứa 1 nắng Cần Giờ: Chiên/ Sốt cà,D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,0.8895,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0053,Cá dứa 1 nắng Cần Giờ: Chiên/ Sốt cà,D0039,Cá bóng cát kho tộ,0.8579,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0053,Cá dứa 1 nắng Cần Giờ: Chiên/ Sốt cà,D0045,Cá bớp kho tộ,0.8579,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0053,Cá dứa 1 nắng Cần Giờ: Chiên/ Sốt cà,D0049,Cá lóc biển hồ Cambodia chiên giòn,0.8579,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0053,Cá dứa 1 nắng Cần Giờ: Chiên/ Sốt cà,D0054,Khô cá lóc Cambodia,0.8579,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0046,Cá dứa biển kho tộ,D0036,Cá kho làng Vũ Đại,0.95,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0046,Cá dứa biển kho tộ,D0038,Cá diếc: Kho tương bần/ chiên giòn,0.9327,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0046,Cá dứa biển kho tộ,D0050,Cá bông lau kho tộ,0.8987,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0046,Cá dứa biển kho tộ,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.889,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0046,Cá dứa biển kho tộ,D0052,Cá lăng sông kho tộ,0.8752,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0046,Cá dứa biển kho tộ,D0047,Khô cá cơm rim ba rọi,0.8654,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0046,Cá dứa biển kho tộ,D0015,Canh chua cá mú nghệ,0.7789,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0046,Cá dứa biển kho tộ,D0014,Canh chua cá dứa,0.7562,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0041,Cá mú đỏ: Sốt cà/ Kho tộ/ Chưng tương,0.7934,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.7542,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0038,Cá diếc: Kho tương bần/ chiên giòn,0.7375,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0047,Khô cá cơm rim ba rọi,0.7292,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0046,Cá dứa biển kho tộ,0.7257,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0050,Cá bông lau kho tộ,0.725,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0036,Cá kho làng Vũ Đại,0.7056,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0052,Cá lăng sông kho tộ,0.7,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0053,Cá dứa 1 nắng Cần Giờ: Chiên/ Sốt cà,0.9789,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0048,Khô cá cơm cháy tỏi,0.9529,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,0.9206,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,0.8889,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0039,Cá bóng cát kho tộ,0.8765,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0045,Cá bớp kho tộ,0.8765,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0049,Cá lóc biển hồ Cambodia chiên giòn,0.8765,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0054,Khô cá lóc Cambodia,0.8765,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0036,Cá kho làng Vũ Đại,D0046,Cá dứa biển kho tộ,0.95,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0036,Cá kho làng Vũ Đại,D0050,Cá bông lau kho tộ,0.9278,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0036,Cá kho làng Vũ Đại,D0052,Cá lăng sông kho tộ,0.9056,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0036,Cá kho làng Vũ Đại,D0038,Cá diếc: Kho tương bần/ chiên giòn,0.8889,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0036,Cá kho làng Vũ Đại,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.85,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0036,Cá kho làng Vũ Đại,D0047,Khô cá cơm rim ba rọi,0.8278,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0036,Cá kho làng Vũ Đại,D0041,Cá mú đỏ: Sốt cà/ Kho tộ/ Chưng tương,0.795,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0036,Cá kho làng Vũ Đại,D0015,Canh chua cá mú nghệ,0.7506,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0052,Cá lăng sông kho tộ,D0050,Cá bông lau kho tộ,0.9733,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0052,Cá lăng sông kho tộ,D0038,Cá diếc: Kho tương bần/ chiên giòn,0.9296,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0052,Cá lăng sông kho tộ,D0047,Khô cá cơm rim ba rọi,0.9125,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0052,Cá lăng sông kho tộ,D0036,Cá kho làng Vũ Đại,0.9056,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0052,Cá lăng sông kho tộ,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.8858,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0052,Cá lăng sông kho tộ,D0046,Cá dứa biển kho tộ,0.8752,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0052,Cá lăng sông kho tộ,D0041,Cá mú đỏ: Sốt cà/ Kho tộ/ Chưng tương,0.7618,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0052,Cá lăng sông kho tộ,D0018,Canh cá nấu riêu,0.7296,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0055,Cá linh chiên giòn,D0039,Cá bóng cát kho tộ,0.9187,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0055,Cá linh chiên giòn,D0045,Cá bớp kho tộ,0.9187,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0055,Cá linh chiên giòn,D0049,Cá lóc biển hồ Cambodia chiên giòn,0.9187,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0055,Cá linh chiên giòn,D0054,Khô cá lóc Cambodia,0.9187,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0055,Cá linh chiên giòn,D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,0.8989,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0055,Cá linh chiên giòn,D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,0.8437,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0055,Cá linh chiên giòn,D0048,Khô cá cơm cháy tỏi,0.8369,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0055,Cá linh chiên giòn,D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,0.8047,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0049,Cá lóc biển hồ Cambodia chiên giòn,D0039,Cá bóng cát kho tộ,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0049,Cá lóc biển hồ Cambodia chiên giòn,D0045,Cá bớp kho tộ,1.0,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0049,Cá lóc biển hồ Cambodia chiên giòn,D0054,Khô cá lóc Cambodia,1.0,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0049,Cá lóc biển hồ Cambodia chiên giòn,D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,0.9667,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0049,Cá lóc biển hồ Cambodia chiên giòn,D0055,Cá linh chiên giòn,0.9187,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0049,Cá lóc biển hồ Cambodia chiên giòn,D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,0.9079,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0049,Cá lóc biển hồ Cambodia chiên giòn,D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,0.8765,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0049,Cá lóc biển hồ Cambodia chiên giòn,D0048,Khô cá cơm cháy tỏi,0.8733,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,D0053,Cá dứa 1 nắng Cần Giờ: Chiên/ Sốt cà,0.9417,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,0.9395,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,0.9206,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,D0039,Cá bóng cát kho tộ,0.9079,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,D0045,Cá bớp kho tộ,0.9079,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,D0049,Cá lóc biển hồ Cambodia chiên giòn,0.9079,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,D0054,Khô cá lóc Cambodia,0.9079,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,D0048,Khô cá cơm cháy tỏi,0.8785,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0041,Cá mú đỏ: Sốt cà/ Kho tộ/ Chưng tương,D0036,Cá kho làng Vũ Đại,0.795,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0041,Cá mú đỏ: Sốt cà/ Kho tộ/ Chưng tương,D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,0.7934,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0041,Cá mú đỏ: Sốt cà/ Kho tộ/ Chưng tương,D0050,Cá bông lau kho tộ,0.7829,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0041,Cá mú đỏ: Sốt cà/ Kho tộ/ Chưng tương,D0052,Cá lăng sông kho tộ,0.7618,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0041,Cá mú đỏ: Sốt cà/ Kho tộ/ Chưng tương,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.7579,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0041,Cá mú đỏ: Sốt cà/ Kho tộ/ Chưng tương,D0046,Cá dứa biển kho tộ,0.7456,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0041,Cá mú đỏ: Sốt cà/ Kho tộ/ Chưng tương,D0038,Cá diếc: Kho tương bần/ chiên giòn,0.7391,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0041,Cá mú đỏ: Sốt cà/ Kho tộ/ Chưng tương,D0047,Khô cá cơm rim ba rọi,0.7368,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,D0039,Cá bóng cát kho tộ,0.9667,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,D0045,Cá bớp kho tộ,0.9667,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,D0049,Cá lóc biển hồ Cambodia chiên giòn,0.9667,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,D0054,Khô cá lóc Cambodia,0.9667,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,0.9395,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,D0055,Cá linh chiên giòn,0.8989,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,D0053,Cá dứa 1 nắng Cần Giờ: Chiên/ Sốt cà,0.8895,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,0.8889,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0051,Cá thác lác chiên thì là,D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,0.8,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0051,Cá thác lác chiên thì là,D0055,Cá linh chiên giòn,0.75,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0051,Cá thác lác chiên thì là,D0039,Cá bóng cát kho tộ,0.75,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0051,Cá thác lác chiên thì là,D0045,Cá bớp kho tộ,0.75,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0051,Cá thác lác chiên thì là,D0049,Cá lóc biển hồ Cambodia chiên giòn,0.75,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0051,Cá thác lác chiên thì là,D0054,Khô cá lóc Cambodia,0.75,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0051,Cá thác lác chiên thì là,D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,0.75,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0051,Cá thác lác chiên thì là,D0048,Khô cá cơm cháy tỏi,0.7417,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0042,Cá thu: Kho tộ/ Sốt cà chua,D0047,Khô cá cơm rim ba rọi,0.9733,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0042,Cá thu: Kho tộ/ Sốt cà chua,D0038,Cá diếc: Kho tương bần/ chiên giòn,0.95,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0042,Cá thu: Kho tộ/ Sốt cà chua,D0050,Cá bông lau kho tộ,0.9125,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0042,Cá thu: Kho tộ/ Sốt cà chua,D0046,Cá dứa biển kho tộ,0.889,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0042,Cá thu: Kho tộ/ Sốt cà chua,D0052,Cá lăng sông kho tộ,0.8858,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0042,Cá thu: Kho tộ/ Sốt cà chua,D0036,Cá kho làng Vũ Đại,0.85,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0042,Cá thu: Kho tộ/ Sốt cà chua,D0024,Canh sườn non cải chua,0.7867,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0042,Cá thu: Kho tộ/ Sốt cà chua,D0041,Cá mú đỏ: Sốt cà/ Kho tộ/ Chưng tương,0.7579,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0048,Khô cá cơm cháy tỏi,D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,0.9529,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0048,Khô cá cơm cháy tỏi,D0053,Cá dứa 1 nắng Cần Giờ: Chiên/ Sốt cà,0.9368,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0048,Khô cá cơm cháy tỏi,D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,0.8785,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0048,Khô cá cơm cháy tỏi,D0039,Cá bóng cát kho tộ,0.8733,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0048,Khô cá cơm cháy tỏi,D0045,Cá bớp kho tộ,0.8733,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0048,Khô cá cơm cháy tỏi,D0049,Cá lóc biển hồ Cambodia chiên giòn,0.8733,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0048,Khô cá cơm cháy tỏi,D0054,Khô cá lóc Cambodia,0.8733,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0048,Khô cá cơm cháy tỏi,D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,0.8444,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0047,Khô cá cơm rim ba rọi,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.9733,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0047,Khô cá cơm rim ba rọi,D0038,Cá diếc: Kho tương bần/ chiên giòn,0.9233,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0047,Khô cá cơm rim ba rọi,D0052,Cá lăng sông kho tộ,0.9125,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0047,Khô cá cơm rim ba rọi,D0050,Cá bông lau kho tộ,0.8858,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0047,Khô cá cơm rim ba rọi,D0046,Cá dứa biển kho tộ,0.8654,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0047,Khô cá cơm rim ba rọi,D0036,Cá kho làng Vũ Đại,0.8278,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0047,Khô cá cơm rim ba rọi,D0024,Canh sườn non cải chua,0.7857,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0047,Khô cá cơm rim ba rọi,D0041,Cá mú đỏ: Sốt cà/ Kho tộ/ Chưng tương,0.7368,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0054,Khô cá lóc Cambodia,D0039,Cá bóng cát kho tộ,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0054,Khô cá lóc Cambodia,D0045,Cá bớp kho tộ,1.0,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0054,Khô cá lóc Cambodia,D0049,Cá lóc biển hồ Cambodia chiên giòn,1.0,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0054,Khô cá lóc Cambodia,D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,0.9667,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0054,Khô cá lóc Cambodia,D0055,Cá linh chiên giòn,0.9187,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0054,Khô cá lóc Cambodia,D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,0.9079,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0054,Khô cá lóc Cambodia,D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,0.8765,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0054,Khô cá lóc Cambodia,D0048,Khô cá cơm cháy tỏi,0.8733,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0018,Canh cá nấu riêu,D0024,Canh sườn non cải chua,0.9367,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0018,Canh cá nấu riêu,D0015,Canh chua cá mú nghệ,0.9141,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0018,Canh cá nấu riêu,D0013,Canh chua cá bớp,0.9,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0018,Canh cá nấu riêu,D0016,Canh gà lá giang,0.8992,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0018,Canh cá nấu riêu,D0020,Canh sườn nấu sấu,0.8992,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0018,Canh cá nấu riêu,D0019,Canh hến thì là,0.8967,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0018,Canh cá nấu riêu,D0014,Canh chua cá dứa,0.889,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0018,Canh cá nấu riêu,D0017,Canh khổ qua chả cá thác lác,0.8867,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0012,Canh chua cá bông lau,D0013,Canh chua cá bớp,0.9437,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0012,Canh chua cá bông lau,D0014,Canh chua cá dứa,0.9327,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0012,Canh chua cá bông lau,D0011,Canh chua cá mú đỏ,0.9141,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0012,Canh chua cá bông lau,D0022,Canh chua cá lăng,0.8992,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0012,Canh chua cá bông lau,D0018,Canh cá nấu riêu,0.8833,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0012,Canh chua cá bông lau,D0015,Canh chua cá mú nghệ,0.8801,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0012,Canh chua cá bông lau,D0016,Canh gà lá giang,0.87,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0012,Canh chua cá bông lau,D0020,Canh sườn nấu sấu,0.87,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0013,Canh chua cá bớp,D0014,Canh chua cá dứa,0.9882,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0013,Canh chua cá bớp,D0011,Canh chua cá mú đỏ,0.9684,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0013,Canh chua cá bớp,D0012,Canh chua cá bông lau,0.9437,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0013,Canh chua cá bớp,D0022,Canh chua cá lăng,0.925,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0013,Canh chua cá bớp,D0015,Canh chua cá mú nghệ,0.9247,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0013,Canh chua cá bớp,D0018,Canh cá nấu riêu,0.9,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0013,Canh chua cá bớp,D0016,Canh gà lá giang,0.8875,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0013,Canh chua cá bớp,D0019,Canh hến thì là,0.8875,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0014,Canh chua cá dứa,D0013,Canh chua cá bớp,0.9882,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0014,Canh chua cá dứa,D0011,Canh chua cá mú đỏ,0.9789,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0014,Canh chua cá dứa,D0015,Canh chua cá mú nghệ,0.9352,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0014,Canh chua cá dứa,D0012,Canh chua cá bông lau,0.9327,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0014,Canh chua cá dứa,D0022,Canh chua cá lăng,0.9147,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0014,Canh chua cá dứa,D0018,Canh cá nấu riêu,0.889,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0014,Canh chua cá dứa,D0019,Canh hến thì là,0.8794,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0014,Canh chua cá dứa,D0016,Canh gà lá giang,0.8772,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0022,Canh chua cá lăng,D0016,Canh gà lá giang,0.95,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0022,Canh chua cá lăng,D0020,Canh sườn nấu sấu,0.95,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0022,Canh chua cá lăng,D0017,Canh khổ qua chả cá thác lác,0.9417,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0022,Canh chua cá lăng,D0013,Canh chua cá bớp,0.925,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0022,Canh chua cá lăng,D0014,Canh chua cá dứa,0.9147,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0022,Canh chua cá lăng,D0010,Canh chua + cà pháo,0.9071,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0022,Canh chua cá lăng,D0024,Canh sườn non cải chua,0.9,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0022,Canh chua cá lăng,D0012,Canh chua cá bông lau,0.8992,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0015,Canh chua cá mú nghệ,D0011,Canh chua cá mú đỏ,0.9562,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0015,Canh chua cá mú nghệ,D0014,Canh chua cá dứa,0.9352,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0015,Canh chua cá mú nghệ,D0013,Canh chua cá bớp,0.9247,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0015,Canh chua cá mú nghệ,D0018,Canh cá nấu riêu,0.9141,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0015,Canh chua cá mú nghệ,D0016,Canh gà lá giang,0.9036,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0015,Canh chua cá mú nghệ,D0020,Canh sườn nấu sấu,0.9036,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0015,Canh chua cá mú nghệ,D0012,Canh chua cá bông lau,0.8801,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0015,Canh chua cá mú nghệ,D0010,Canh chua + cà pháo,0.872,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0011,Canh chua cá mú đỏ,D0014,Canh chua cá dứa,0.9789,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0011,Canh chua cá mú đỏ,D0013,Canh chua cá bớp,0.9684,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0011,Canh chua cá mú đỏ,D0015,Canh chua cá mú nghệ,0.9562,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0011,Canh chua cá mú đỏ,D0012,Canh chua cá bông lau,0.9141,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0011,Canh chua cá mú đỏ,D0022,Canh chua cá lăng,0.8974,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0011,Canh chua cá mú đỏ,D0018,Canh cá nấu riêu,0.8704,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0011,Canh chua cá mú đỏ,D0019,Canh hến thì là,0.8658,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0011,Canh chua cá mú đỏ,D0016,Canh gà lá giang,0.8599,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0010,Canh chua + cà pháo,D0016,Canh gà lá giang,0.9571,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0010,Canh chua + cà pháo,D0020,Canh sườn nấu sấu,0.9571,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0010,Canh chua + cà pháo,D0022,Canh chua cá lăng,0.9071,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0010,Canh chua + cà pháo,D0024,Canh sườn non cải chua,0.9071,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0010,Canh chua + cà pháo,D0015,Canh chua cá mú nghệ,0.872,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0010,Canh chua + cà pháo,D0019,Canh hến thì là,0.8687,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0010,Canh chua + cà pháo,D0018,Canh cá nấu riêu,0.8592,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0010,Canh chua + cà pháo,D0017,Canh khổ qua chả cá thác lác,0.8571,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0016,Canh gà lá giang,D0020,Canh sườn nấu sấu,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0016,Canh gà lá giang,D0010,Canh chua + cà pháo,0.9571,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0016,Canh gà lá giang,D0022,Canh chua cá lăng,0.95,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0016,Canh gà lá giang,D0024,Canh sườn non cải chua,0.95,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0016,Canh gà lá giang,D0015,Canh chua cá mú nghệ,0.9036,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0016,Canh gà lá giang,D0017,Canh khổ qua chả cá thác lác,0.9,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0016,Canh gà lá giang,D0018,Canh cá nấu riêu,0.8992,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0016,Canh gà lá giang,D0013,Canh chua cá bớp,0.8875,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0019,Canh hến thì là,D0021,Canh tép nấu bầu,0.9618,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0019,Canh hến thì là,D0017,Canh khổ qua chả cá thác lác,0.8988,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0019,Canh hến thì là,D0018,Canh cá nấu riêu,0.8967,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0019,Canh hến thì là,D0013,Canh chua cá bớp,0.8875,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0019,Canh hến thì là,D0014,Canh chua cá dứa,0.8794,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0019,Canh hến thì là,D0010,Canh chua + cà pháo,0.8687,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0019,Canh hến thì là,D0011,Canh chua cá mú đỏ,0.8658,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0019,Canh hến thì là,D0012,Canh chua cá bông lau,0.8592,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0017,Canh khổ qua chả cá thác lác,D0022,Canh chua cá lăng,0.9417,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0017,Canh khổ qua chả cá thác lác,D0024,Canh sườn non cải chua,0.9417,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0017,Canh khổ qua chả cá thác lác,D0016,Canh gà lá giang,0.9,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0017,Canh khổ qua chả cá thác lác,D0020,Canh sườn nấu sấu,0.9,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0017,Canh khổ qua chả cá thác lác,D0019,Canh hến thì là,0.8988,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0017,Canh khổ qua chả cá thác lác,D0018,Canh cá nấu riêu,0.8867,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0017,Canh khổ qua chả cá thác lác,D0013,Canh chua cá bớp,0.875,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0017,Canh khổ qua chả cá thác lác,D0021,Canh tép nấu bầu,0.8688,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0020,Canh sườn nấu sấu,D0016,Canh gà lá giang,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0020,Canh sườn nấu sấu,D0010,Canh chua + cà pháo,0.9571,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0020,Canh sườn nấu sấu,D0022,Canh chua cá lăng,0.95,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0020,Canh sườn nấu sấu,D0024,Canh sườn non cải chua,0.95,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0020,Canh sườn nấu sấu,D0015,Canh chua cá mú nghệ,0.9036,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0020,Canh sườn nấu sấu,D0017,Canh khổ qua chả cá thác lác,0.9,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0020,Canh sườn nấu sấu,D0018,Canh cá nấu riêu,0.8992,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0020,Canh sườn nấu sấu,D0013,Canh chua cá bớp,0.8875,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0024,Canh sườn non cải chua,D0016,Canh gà lá giang,0.95,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0024,Canh sườn non cải chua,D0020,Canh sườn nấu sấu,0.95,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0024,Canh sườn non cải chua,D0017,Canh khổ qua chả cá thác lác,0.9417,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0024,Canh sườn non cải chua,D0018,Canh cá nấu riêu,0.9367,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0024,Canh sườn non cải chua,D0010,Canh chua + cà pháo,0.9071,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0024,Canh sườn non cải chua,D0022,Canh chua cá lăng,0.9,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0024,Canh sườn non cải chua,D0015,Canh chua cá mú nghệ,0.8599,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0024,Canh sườn non cải chua,D0019,Canh hến thì là,0.8571,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0021,Canh tép nấu bầu,D0019,Canh hến thì là,0.9618,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0021,Canh tép nấu bầu,D0017,Canh khổ qua chả cá thác lác,0.8688,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0021,Canh tép nấu bầu,D0018,Canh cá nấu riêu,0.8687,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0021,Canh tép nấu bầu,D0013,Canh chua cá bớp,0.8613,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0021,Canh tép nấu bầu,D0014,Canh chua cá dứa,0.8547,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0021,Canh tép nấu bầu,D0011,Canh chua cá mú đỏ,0.8437,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0021,Canh tép nấu bầu,D0012,Canh chua cá bông lau,0.8312,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0021,Canh tép nấu bầu,D0010,Canh chua + cà pháo,0.8306,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0023,Ốc om chuối đậu,D0034,Thịt đông dưa chua,0.4853,1,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0023,Ốc om chuối đậu,D0017,Canh khổ qua chả cá thác lác,0.4567,2,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C3 - Cụm món thanh đạm
+D0023,Ốc om chuối đậu,D0018,Canh cá nấu riêu,0.45,3,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C3 - Cụm món thanh đạm
+D0023,Ốc om chuối đậu,D0022,Canh chua cá lăng,0.445,4,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C3 - Cụm món thanh đạm
+D0023,Ốc om chuối đậu,D0024,Canh sườn non cải chua,0.445,5,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C3 - Cụm món thanh đạm
+D0023,Ốc om chuối đậu,D0105,Nước ngọt,0.445,6,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0023,Ốc om chuối đậu,D0012,Canh chua cá bông lau,0.4438,7,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C3 - Cụm món thanh đạm
+D0023,Ốc om chuối đậu,D0107,Nước suối Dasani,0.4383,8,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0001,Cơm niêu,D0101,Kho quẹt thêm,0.6625,1,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0001,Cơm niêu,D0102,Rau sống thêm,0.6333,2,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0001,Cơm niêu,D0084,Trứng chiên hành,0.6,3,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0001,Cơm niêu,D0030,Sườn non rim mặn,0.5837,4,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0001,Cơm niêu,D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,0.575,5,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0001,Cơm niêu,D0025,Ba rọi luộc + cà pháo,0.5731,6,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0001,Cơm niêu,D0032,Sườn heo rang muối,0.5714,7,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0001,Cơm niêu,D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,0.5688,8,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0002,Cơm niêu đập,D0082,Đậu hũ sốt cà chua,0.7333,1,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0002,Cơm niêu đập,D0003,Cơm niêu cháy,0.6275,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0002,Cơm niêu đập,D0034,Thịt đông dưa chua,0.6024,3,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0002,Cơm niêu đập,D0077,Rau sống sốt cà chua trứng,0.5583,4,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0002,Cơm niêu đập,D0105,Nước ngọt,0.5,5,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0002,Cơm niêu đập,D0001,Cơm niêu,0.475,6,cùng danh mục; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0002,Cơm niêu đập,D0107,Nước suối Dasani,0.475,7,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0002,Cơm niêu đập,D0104,Mì/ Bún thêm,0.4125,8,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0003,Cơm niêu cháy,D0002,Cơm niêu đập,0.6275,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0003,Cơm niêu cháy,D0001,Cơm niêu,0.4167,2,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0003,Cơm niêu cháy,D0104,Mì/ Bún thêm,0.4167,3,cùng cụm K-Means; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0003,Cơm niêu cháy,D0105,Nước ngọt,0.4167,4,cùng cụm K-Means; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0003,Cơm niêu cháy,D0082,Đậu hũ sốt cà chua,0.3975,5,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0003,Cơm niêu cháy,D0077,Rau sống sốt cà chua trứng,0.38,6,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0003,Cơm niêu cháy,D0106,Bia,0.3625,7,cùng cụm K-Means,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0003,Cơm niêu cháy,D0107,Nước suối Dasani,0.3611,8,cùng cụm K-Means,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0081,Đậu hũ chiên giòn,D0085,Trứng chiên lá mơ,0.86,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0081,Đậu hũ chiên giòn,D0083,Đậu hũ sốt thịt bằm,0.8314,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0081,Đậu hũ chiên giòn,D0086,Mì xào hải sản,0.8314,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0081,Đậu hũ chiên giòn,D0084,Trứng chiên hành,0.825,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0081,Đậu hũ chiên giòn,D0087,Chả mực Hạ Long,0.68,5,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0081,Đậu hũ chiên giòn,D0092,Hến xúc bánh đa,0.6473,6,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0081,Đậu hũ chiên giòn,D0091,Tép đồng xào khế,0.6473,7,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0081,Đậu hũ chiên giòn,D0058,Gà ta rang muối,0.6125,8,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0082,Đậu hũ sốt cà chua,D0002,Cơm niêu đập,0.7333,1,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0082,Đậu hũ sốt cà chua,D0083,Đậu hũ sốt thịt bằm,0.6514,2,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0082,Đậu hũ sốt cà chua,D0034,Thịt đông dưa chua,0.6473,3,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0082,Đậu hũ sốt cà chua,D0084,Trứng chiên hành,0.6333,4,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0082,Đậu hũ sốt cà chua,D0077,Rau sống sốt cà chua trứng,0.625,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0082,Đậu hũ sốt cà chua,D0085,Trứng chiên lá mơ,0.575,6,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0082,Đậu hũ sốt cà chua,D0081,Đậu hũ chiên giòn,0.54,7,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0082,Đậu hũ sốt cà chua,D0105,Nước ngọt,0.475,8,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0083,Đậu hũ sốt thịt bằm,D0084,Trứng chiên hành,0.9131,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0083,Đậu hũ sốt thịt bằm,D0085,Trứng chiên lá mơ,0.8548,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0083,Đậu hũ sốt thịt bằm,D0081,Đậu hũ chiên giòn,0.8314,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0083,Đậu hũ sốt thịt bằm,D0086,Mì xào hải sản,0.8,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0083,Đậu hũ sốt thịt bằm,D0048,Khô cá cơm cháy tỏi,0.7077,5,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0083,Đậu hũ sốt thịt bằm,D0060,Gân bò xào cải chua,0.7077,6,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0083,Đậu hũ sốt thịt bằm,D0030,Sườn non rim mặn,0.699,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0083,Đậu hũ sốt thịt bằm,D0091,Tép đồng xào khế,0.6873,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0086,Mì xào hải sản,D0085,Trứng chiên lá mơ,0.8548,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0086,Mì xào hải sản,D0081,Đậu hũ chiên giòn,0.8314,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0086,Mì xào hải sản,D0084,Trứng chiên hành,0.8214,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0086,Mì xào hải sản,D0083,Đậu hũ sốt thịt bằm,0.8,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0086,Mì xào hải sản,D0098,Mì xào hải sản,0.7077,5,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0086,Mì xào hải sản,D0095,Salad cải mầm: Trứng/ Bò,0.699,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0086,Mì xào hải sản,D0071,Khổ qua: Xào trứng/ Xào bò,0.699,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0086,Mì xào hải sản,D0092,Hến xúc bánh đa,0.6873,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0084,Trứng chiên hành,D0085,Trứng chiên lá mơ,0.9417,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0084,Trứng chiên hành,D0083,Đậu hũ sốt thịt bằm,0.9131,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0084,Trứng chiên hành,D0081,Đậu hũ chiên giòn,0.825,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0084,Trứng chiên hành,D0086,Mì xào hải sản,0.8214,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0084,Trứng chiên hành,D0070,Rau lang: Xào tỏi/ Xào bò,0.75,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0084,Trứng chiên hành,D0069,Rau muống: Xào tỏi/ Xào bò,0.75,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0084,Trứng chiên hành,D0100,Cơm chiên rau củ,0.75,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0084,Trứng chiên hành,D0030,Sườn non rim mặn,0.7348,8,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0085,Trứng chiên lá mơ,D0084,Trứng chiên hành,0.9417,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0085,Trứng chiên lá mơ,D0081,Đậu hũ chiên giòn,0.86,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0085,Trứng chiên lá mơ,D0083,Đậu hũ sốt thịt bằm,0.8548,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0085,Trứng chiên lá mơ,D0086,Mì xào hải sản,0.8548,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0085,Trứng chiên lá mơ,D0070,Rau lang: Xào tỏi/ Xào bò,0.7,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0085,Trứng chiên lá mơ,D0069,Rau muống: Xào tỏi/ Xào bò,0.7,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0085,Trứng chiên lá mơ,D0100,Cơm chiên rau củ,0.7,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0085,Trứng chiên lá mơ,D0030,Sườn non rim mặn,0.6765,8,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0065,Bò lúc lắc,D0061,Cải mầm đá Sapa xào bò,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0065,Bò lúc lắc,D0062,Bò xào hành cần,0.95,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0065,Bò lúc lắc,D0064,Rau rừng Gia Lai xào bò,0.9353,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0065,Bò lúc lắc,D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,0.91,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0065,Bò lúc lắc,D0063,Măng trúc yên tử xào bò,0.8853,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0065,Bò lúc lắc,D0060,Gân bò xào cải chua,0.8733,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0065,Bò lúc lắc,D0058,Gà ta rang muối,0.81,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0065,Bò lúc lắc,D0039,Cá bóng cát kho tộ,0.8,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0062,Bò xào hành cần,D0064,Rau rừng Gia Lai xào bò,0.9853,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0062,Bò xào hành cần,D0065,Bò lúc lắc,0.95,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0062,Bò xào hành cần,D0061,Cải mầm đá Sapa xào bò,0.95,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0062,Bò xào hành cần,D0063,Măng trúc yên tử xào bò,0.927,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0062,Bò xào hành cần,D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,0.86,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0062,Bò xào hành cần,D0058,Gà ta rang muối,0.8433,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0062,Bò xào hành cần,D0060,Gân bò xào cải chua,0.8233,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0062,Bò xào hành cần,D0090,Miến xào thịt ghẹ,0.8,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0061,Cải mầm đá Sapa xào bò,D0065,Bò lúc lắc,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0061,Cải mầm đá Sapa xào bò,D0062,Bò xào hành cần,0.95,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0061,Cải mầm đá Sapa xào bò,D0064,Rau rừng Gia Lai xào bò,0.9353,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0061,Cải mầm đá Sapa xào bò,D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,0.91,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0061,Cải mầm đá Sapa xào bò,D0063,Măng trúc yên tử xào bò,0.8853,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0061,Cải mầm đá Sapa xào bò,D0060,Gân bò xào cải chua,0.8733,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0061,Cải mầm đá Sapa xào bò,D0058,Gà ta rang muối,0.81,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0061,Cải mầm đá Sapa xào bò,D0039,Cá bóng cát kho tộ,0.8,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0059,Gà hấp lá chanh,D0004,Lẩu riêu cua bắp bò,0.6778,1,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0059,Gà hấp lá chanh,D0005,Lẩu gà lá giang,0.6679,2,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0059,Gà hấp lá chanh,D0006,Lẩu cá lăng nấu măng chua,0.6433,3,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0059,Gà hấp lá chanh,D0008,Lẩu cá chạch quế om chuối đậu,0.6395,4,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0059,Gà hấp lá chanh,D0009,Lẩu gà ác tiềm thuốc bắc,0.62,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0059,Gà hấp lá chanh,D0007,Lẩu cá bóp: Măng chua/ Nấu ngót,0.5885,6,cùng cụm K-Means; trùng từ khóa món,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0059,Gà hấp lá chanh,D0063,Măng trúc yên tử xào bò,0.5572,7,cùng danh mục; trùng từ khóa món,C2 - Cụm khách đoàn / món giá cao,C0 - Cụm món nhậu đậm đà
+D0059,Gà hấp lá chanh,D0062,Bò xào hành cần,0.5167,8,cùng danh mục; trùng từ khóa món,C2 - Cụm khách đoàn / món giá cao,C0 - Cụm món nhậu đậm đà
+D0057,Gà ta chiên nước mắm,D0019,Canh hến thì là,0.7833,1,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0057,Gà ta chiên nước mắm,D0021,Canh tép nấu bầu,0.7483,2,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0057,Gà ta chiên nước mắm,D0017,Canh khổ qua chả cá thác lác,0.7131,3,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0057,Gà ta chiên nước mắm,D0038,Cá diếc: Kho tương bần/ chiên giòn,0.71,4,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0057,Gà ta chiên nước mắm,D0018,Canh cá nấu riêu,0.71,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0057,Gà ta chiên nước mắm,D0013,Canh chua cá bớp,0.7,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0057,Gà ta chiên nước mắm,D0027,Ba rọi rang cháy cạnh,0.6983,7,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0057,Gà ta chiên nước mắm,D0028,Thịt kho tiêu,0.6983,8,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,D0060,Gân bò xào cải chua,0.9263,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,D0063,Măng trúc yên tử xào bò,0.9143,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,D0065,Bò lúc lắc,0.91,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,D0061,Cải mầm đá Sapa xào bò,0.91,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,D0058,Gà ta rang muối,0.8833,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,D0064,Rau rừng Gia Lai xào bò,0.8727,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,D0062,Bò xào hành cần,0.86,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,D0025,Ba rọi luộc + cà pháo,0.7846,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0058,Gà ta rang muối,D0060,Gân bò xào cải chua,0.9146,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0058,Gà ta rang muối,D0063,Măng trúc yên tử xào bò,0.9027,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0058,Gà ta rang muối,D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,0.8833,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0058,Gà ta rang muối,D0064,Rau rừng Gia Lai xào bò,0.856,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0058,Gà ta rang muối,D0062,Bò xào hành cần,0.8433,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0058,Gà ta rang muối,D0065,Bò lúc lắc,0.81,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0058,Gà ta rang muối,D0061,Cải mầm đá Sapa xào bò,0.81,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0058,Gà ta rang muối,D0088,Lườn ngỗng sốt chanh dây,0.76,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0060,Gân bò xào cải chua,D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,0.9263,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0060,Gân bò xào cải chua,D0058,Gà ta rang muối,0.9146,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0060,Gân bò xào cải chua,D0065,Bò lúc lắc,0.8733,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0060,Gân bò xào cải chua,D0061,Cải mầm đá Sapa xào bò,0.8733,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0060,Gân bò xào cải chua,D0063,Măng trúc yên tử xào bò,0.8704,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0060,Gân bò xào cải chua,D0064,Rau rừng Gia Lai xào bò,0.8371,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0060,Gân bò xào cải chua,D0062,Bò xào hành cần,0.8233,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0060,Gân bò xào cải chua,D0048,Khô cá cơm cháy tỏi,0.8,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0063,Măng trúc yên tử xào bò,D0064,Rau rừng Gia Lai xào bò,0.9417,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0063,Măng trúc yên tử xào bò,D0062,Bò xào hành cần,0.927,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0063,Măng trúc yên tử xào bò,D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,0.9143,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0063,Măng trúc yên tử xào bò,D0058,Gà ta rang muối,0.9027,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0063,Măng trúc yên tử xào bò,D0065,Bò lúc lắc,0.8853,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0063,Măng trúc yên tử xào bò,D0061,Cải mầm đá Sapa xào bò,0.8853,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0063,Măng trúc yên tử xào bò,D0060,Gân bò xào cải chua,0.8704,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0063,Măng trúc yên tử xào bò,D0031,Sườn xào chua ngọt,0.7986,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0064,Rau rừng Gia Lai xào bò,D0062,Bò xào hành cần,0.9853,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0064,Rau rừng Gia Lai xào bò,D0063,Măng trúc yên tử xào bò,0.9417,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0064,Rau rừng Gia Lai xào bò,D0065,Bò lúc lắc,0.9353,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0064,Rau rừng Gia Lai xào bò,D0061,Cải mầm đá Sapa xào bò,0.9353,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0064,Rau rừng Gia Lai xào bò,D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,0.8727,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0064,Rau rừng Gia Lai xào bò,D0058,Gà ta rang muối,0.856,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0064,Rau rừng Gia Lai xào bò,D0060,Gân bò xào cải chua,0.8371,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0064,Rau rừng Gia Lai xào bò,D0090,Miến xào thịt ghẹ,0.7853,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,0.8875,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,D0080,Ốc bưu xào chuối đậu,0.8708,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,D0099,Cơm chiên hải sản,0.7867,3,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,D0039,Cá bóng cát kho tộ,0.75,4,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,D0045,Cá bớp kho tộ,0.75,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,D0049,Cá lóc biển hồ Cambodia chiên giòn,0.75,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,D0054,Khô cá lóc Cambodia,0.75,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,D0065,Bò lúc lắc,0.75,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0080,Ốc bưu xào chuối đậu,D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,0.8833,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0080,Ốc bưu xào chuối đậu,D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,0.8708,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0080,Ốc bưu xào chuối đậu,D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,0.7175,3,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0080,Ốc bưu xào chuối đậu,D0092,Hến xúc bánh đa,0.7112,4,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0080,Ốc bưu xào chuối đậu,D0031,Sườn xào chua ngọt,0.705,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0080,Ốc bưu xào chuối đậu,D0089,Nem ghẹ Phú Quốc,0.705,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0080,Ốc bưu xào chuối đậu,D0063,Măng trúc yên tử xào bò,0.7038,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0080,Ốc bưu xào chuối đậu,D0087,Chả mực Hạ Long,0.7,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,0.8875,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,D0080,Ốc bưu xào chuối đậu,0.8833,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,D0032,Sườn heo rang muối,0.775,3,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,0.7684,4,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,D0025,Ba rọi luộc + cà pháo,0.7625,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,0.75,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,D0039,Cá bóng cát kho tộ,0.7375,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,D0045,Cá bớp kho tộ,0.7375,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0025,Ba rọi luộc + cà pháo,D0032,Sườn heo rang muối,0.9857,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0025,Ba rọi luộc + cà pháo,D0030,Sườn non rim mặn,0.9369,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0025,Ba rọi luộc + cà pháo,D0031,Sườn xào chua ngọt,0.9274,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0025,Ba rọi luộc + cà pháo,D0033,Giò heo giả cầy,0.8869,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0025,Ba rọi luộc + cà pháo,D0035,Giò thủ,0.8869,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0025,Ba rọi luộc + cà pháo,D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,0.7846,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0025,Ba rọi luộc + cà pháo,D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,0.7625,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0025,Ba rọi luộc + cà pháo,D0048,Khô cá cơm cháy tỏi,0.7417,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0026,Ba rọi luộc + tôm chua,D0029,Thịt kho mắm ruốc,0.8669,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0026,Ba rọi luộc + tôm chua,D0027,Ba rọi rang cháy cạnh,0.7869,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0026,Ba rọi luộc + tôm chua,D0028,Thịt kho tiêu,0.7869,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0026,Ba rọi luộc + tôm chua,D0097,Tai heo ngâm nước mắm,0.7857,4,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0026,Ba rọi luộc + tôm chua,D0096,Bắp bò ngâm nước mắm,0.7733,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0026,Ba rọi luộc + tôm chua,D0017,Canh khổ qua chả cá thác lác,0.7157,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0026,Ba rọi luộc + tôm chua,D0094,Salad cải mầm cá ngừ,0.7033,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0026,Ba rọi luộc + tôm chua,D0076,Mầm đá luộc chấm trứng,0.6992,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0027,Ba rọi rang cháy cạnh,D0028,Thịt kho tiêu,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0027,Ba rọi rang cháy cạnh,D0029,Thịt kho mắm ruốc,0.9,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0027,Ba rọi rang cháy cạnh,D0026,Ba rọi luộc + tôm chua,0.7869,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0027,Ba rọi rang cháy cạnh,D0021,Canh tép nấu bầu,0.75,4,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0027,Ba rọi rang cháy cạnh,D0038,Cá diếc: Kho tương bần/ chiên giòn,0.7187,5,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0027,Ba rọi rang cháy cạnh,D0018,Canh cá nấu riêu,0.7187,6,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0027,Ba rọi rang cháy cạnh,D0019,Canh hến thì là,0.7118,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0027,Ba rọi rang cháy cạnh,D0030,Sườn non rim mặn,0.7,8,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C0 - Cụm món nhậu đậm đà
+D0033,Giò heo giả cầy,D0035,Giò thủ,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0033,Giò heo giả cầy,D0030,Sườn non rim mặn,0.95,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0033,Giò heo giả cầy,D0025,Ba rọi luộc + cà pháo,0.8869,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0033,Giò heo giả cầy,D0032,Sườn heo rang muối,0.8771,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0033,Giò heo giả cầy,D0031,Sườn xào chua ngọt,0.8271,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0033,Giò heo giả cầy,D0055,Cá linh chiên giòn,0.8,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0033,Giò heo giả cầy,D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,0.8,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0033,Giò heo giả cầy,D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,0.8,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0035,Giò thủ,D0033,Giò heo giả cầy,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0035,Giò thủ,D0030,Sườn non rim mặn,0.95,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0035,Giò thủ,D0025,Ba rọi luộc + cà pháo,0.8869,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0035,Giò thủ,D0032,Sườn heo rang muối,0.8771,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0035,Giò thủ,D0031,Sườn xào chua ngọt,0.8271,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0035,Giò thủ,D0055,Cá linh chiên giòn,0.8,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0035,Giò thủ,D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,0.8,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0035,Giò thủ,D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,0.8,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0032,Sườn heo rang muối,D0025,Ba rọi luộc + cà pháo,0.9857,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0032,Sườn heo rang muối,D0031,Sườn xào chua ngọt,0.9417,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0032,Sườn heo rang muối,D0030,Sườn non rim mặn,0.9271,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0032,Sườn heo rang muối,D0033,Giò heo giả cầy,0.8771,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0032,Sườn heo rang muối,D0035,Giò thủ,0.8771,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0032,Sườn heo rang muối,D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,0.775,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0032,Sườn heo rang muối,D0056,Gà ta: Kho gừng/ Xào sả ớt/ Kho nghệ,0.7714,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0032,Sườn heo rang muối,D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,0.7474,8,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0030,Sườn non rim mặn,D0033,Giò heo giả cầy,0.95,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0030,Sườn non rim mặn,D0035,Giò thủ,0.95,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0030,Sườn non rim mặn,D0025,Ba rọi luộc + cà pháo,0.9369,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0030,Sườn non rim mặn,D0032,Sườn heo rang muối,0.9271,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0030,Sườn non rim mặn,D0031,Sườn xào chua ngọt,0.8688,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0030,Sườn non rim mặn,D0055,Cá linh chiên giòn,0.75,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0030,Sườn non rim mặn,D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,0.75,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0030,Sườn non rim mặn,D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,0.75,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0031,Sườn xào chua ngọt,D0032,Sườn heo rang muối,0.9417,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0031,Sườn xào chua ngọt,D0025,Ba rọi luộc + cà pháo,0.9274,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0031,Sườn xào chua ngọt,D0030,Sườn non rim mặn,0.8688,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0031,Sườn xào chua ngọt,D0033,Giò heo giả cầy,0.8271,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0031,Sườn xào chua ngọt,D0035,Giò thủ,0.8271,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0031,Sườn xào chua ngọt,D0089,Nem ghẹ Phú Quốc,0.8,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0031,Sườn xào chua ngọt,D0063,Măng trúc yên tử xào bò,0.7986,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0031,Sườn xào chua ngọt,D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,0.7867,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0029,Thịt kho mắm ruốc,D0027,Ba rọi rang cháy cạnh,0.9,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0029,Thịt kho mắm ruốc,D0028,Thịt kho tiêu,0.9,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0029,Thịt kho mắm ruốc,D0026,Ba rọi luộc + tôm chua,0.8669,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0029,Thịt kho mắm ruốc,D0030,Sườn non rim mặn,0.6917,4,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C0 - Cụm món nhậu đậm đà
+D0029,Thịt kho mắm ruốc,D0067,Rau tập tàng luộc,0.6833,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0029,Thịt kho mắm ruốc,D0047,Khô cá cơm rim ba rọi,0.6786,6,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0029,Thịt kho mắm ruốc,D0024,Canh sườn non cải chua,0.6688,7,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0029,Thịt kho mắm ruốc,D0010,Canh chua + cà pháo,0.6618,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0028,Thịt kho tiêu,D0027,Ba rọi rang cháy cạnh,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0028,Thịt kho tiêu,D0029,Thịt kho mắm ruốc,0.9,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0028,Thịt kho tiêu,D0026,Ba rọi luộc + tôm chua,0.7869,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0028,Thịt kho tiêu,D0021,Canh tép nấu bầu,0.75,4,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0028,Thịt kho tiêu,D0038,Cá diếc: Kho tương bần/ chiên giòn,0.7187,5,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0028,Thịt kho tiêu,D0018,Canh cá nấu riêu,0.7187,6,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0028,Thịt kho tiêu,D0019,Canh hến thì là,0.7118,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0028,Thịt kho tiêu,D0030,Sườn non rim mặn,0.7,8,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C0 - Cụm món nhậu đậm đà
+D0034,Thịt đông dưa chua,D0082,Đậu hũ sốt cà chua,0.6473,1,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0034,Thịt đông dưa chua,D0029,Thịt kho mắm ruốc,0.61,2,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C3 - Cụm món thanh đạm
+D0034,Thịt đông dưa chua,D0002,Cơm niêu đập,0.6024,3,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0034,Thịt đông dưa chua,D0026,Ba rọi luộc + tôm chua,0.5994,4,cùng danh mục; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C3 - Cụm món thanh đạm
+D0034,Thịt đông dưa chua,D0030,Sườn non rim mặn,0.575,5,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0034,Thịt đông dưa chua,D0027,Ba rọi rang cháy cạnh,0.55,6,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C3 - Cụm món thanh đạm
+D0034,Thịt đông dưa chua,D0033,Giò heo giả cầy,0.55,7,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0034,Thịt đông dưa chua,D0035,Giò thủ,0.55,8,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,D0089,Nem ghẹ Phú Quốc,0.9867,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,D0090,Miến xào thịt ghẹ,0.9417,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,D0088,Lườn ngỗng sốt chanh dây,0.93,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,D0095,Salad cải mầm: Trứng/ Bò,0.8603,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,D0087,Chả mực Hạ Long,0.86,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,D0098,Mì xào hải sản,0.8567,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,D0092,Hến xúc bánh đa,0.8487,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,D0091,Tép đồng xào khế,0.8487,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0096,Bắp bò ngâm nước mắm,D0097,Tai heo ngâm nước mắm,0.9867,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0096,Bắp bò ngâm nước mắm,D0094,Salad cải mầm cá ngừ,0.93,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0096,Bắp bò ngâm nước mắm,D0026,Ba rọi luộc + tôm chua,0.7733,3,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0096,Bắp bò ngâm nước mắm,D0017,Canh khổ qua chả cá thác lác,0.7167,4,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0096,Bắp bò ngâm nước mắm,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.6833,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0096,Bắp bò ngâm nước mắm,D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,0.68,6,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C0 - Cụm món nhậu đậm đà
+D0096,Bắp bò ngâm nước mắm,D0076,Mầm đá luộc chấm trứng,0.6767,7,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0096,Bắp bò ngâm nước mắm,D0068,Rau thập cẩm luộc kho quẹt,0.6767,8,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0087,Chả mực Hạ Long,D0088,Lườn ngỗng sốt chanh dây,0.9125,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0087,Chả mực Hạ Long,D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,0.86,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0087,Chả mực Hạ Long,D0089,Nem ghẹ Phú Quốc,0.8467,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0087,Chả mực Hạ Long,D0098,Mì xào hải sản,0.8333,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0087,Chả mực Hạ Long,D0092,Hến xúc bánh đa,0.8312,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0087,Chả mực Hạ Long,D0091,Tép đồng xào khế,0.8312,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0087,Chả mực Hạ Long,D0090,Miến xào thịt ghẹ,0.825,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0087,Chả mực Hạ Long,D0095,Salad cải mầm: Trứng/ Bò,0.7437,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0092,Hến xúc bánh đa,D0095,Salad cải mầm: Trứng/ Bò,0.8833,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0092,Hến xúc bánh đa,D0098,Mì xào hải sản,0.8669,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0092,Hến xúc bánh đa,D0091,Tép đồng xào khế,0.86,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0092,Hến xúc bánh đa,D0089,Nem ghẹ Phú Quốc,0.8571,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0092,Hến xúc bánh đa,D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,0.8487,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0092,Hến xúc bánh đa,D0087,Chả mực Hạ Long,0.8312,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0092,Hến xúc bánh đa,D0090,Miến xào thịt ghẹ,0.802,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0092,Hến xúc bánh đa,D0088,Lườn ngỗng sốt chanh dây,0.7787,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0088,Lườn ngỗng sốt chanh dây,D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,0.93,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0088,Lườn ngỗng sốt chanh dây,D0091,Tép đồng xào khế,0.9187,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0088,Lườn ngỗng sốt chanh dây,D0089,Nem ghẹ Phú Quốc,0.9167,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0088,Lườn ngỗng sốt chanh dây,D0087,Chả mực Hạ Long,0.9125,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0088,Lườn ngỗng sốt chanh dây,D0090,Miến xào thịt ghẹ,0.8833,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0088,Lườn ngỗng sốt chanh dây,D0095,Salad cải mầm: Trứng/ Bò,0.802,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0088,Lườn ngỗng sốt chanh dây,D0098,Mì xào hải sản,0.7983,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0088,Lườn ngỗng sốt chanh dây,D0092,Hến xúc bánh đa,0.7787,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0098,Mì xào hải sản,D0090,Miến xào thịt ghẹ,0.915,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0098,Mì xào hải sản,D0095,Salad cải mầm: Trứng/ Bò,0.8786,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0098,Mì xào hải sản,D0089,Nem ghẹ Phú Quốc,0.869,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0098,Mì xào hải sản,D0092,Hến xúc bánh đa,0.8669,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0098,Mì xào hải sản,D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,0.8567,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0098,Mì xào hải sản,D0087,Chả mực Hạ Long,0.8333,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0098,Mì xào hải sản,D0088,Lườn ngỗng sốt chanh dây,0.7983,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0098,Mì xào hải sản,D0091,Tép đồng xào khế,0.7619,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0090,Miến xào thịt ghẹ,D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,0.9417,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0090,Miến xào thịt ghẹ,D0089,Nem ghẹ Phú Quốc,0.9283,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0090,Miến xào thịt ghẹ,D0095,Salad cải mầm: Trứng/ Bò,0.9187,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0090,Miến xào thịt ghẹ,D0098,Mì xào hải sản,0.915,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0090,Miến xào thịt ghẹ,D0088,Lườn ngỗng sốt chanh dây,0.8833,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0090,Miến xào thịt ghẹ,D0087,Chả mực Hạ Long,0.825,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0090,Miến xào thịt ghẹ,D0092,Hến xúc bánh đa,0.802,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0090,Miến xào thịt ghẹ,D0091,Tép đồng xào khế,0.802,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0089,Nem ghẹ Phú Quốc,D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,0.9867,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0089,Nem ghẹ Phú Quốc,D0090,Miến xào thịt ghẹ,0.9283,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0089,Nem ghẹ Phú Quốc,D0088,Lườn ngỗng sốt chanh dây,0.9167,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0089,Nem ghẹ Phú Quốc,D0098,Mì xào hải sản,0.869,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0089,Nem ghẹ Phú Quốc,D0095,Salad cải mầm: Trứng/ Bò,0.8688,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0089,Nem ghẹ Phú Quốc,D0092,Hến xúc bánh đa,0.8571,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0089,Nem ghẹ Phú Quốc,D0091,Tép đồng xào khế,0.8571,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0089,Nem ghẹ Phú Quốc,D0087,Chả mực Hạ Long,0.8467,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0094,Salad cải mầm cá ngừ,D0096,Bắp bò ngâm nước mắm,0.93,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0094,Salad cải mầm cá ngừ,D0097,Tai heo ngâm nước mắm,0.9167,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0094,Salad cải mầm cá ngừ,D0076,Mầm đá luộc chấm trứng,0.7467,3,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0094,Salad cải mầm cá ngừ,D0068,Rau thập cẩm luộc kho quẹt,0.7467,4,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0094,Salad cải mầm cá ngừ,D0022,Canh chua cá lăng,0.7283,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0094,Salad cải mầm cá ngừ,D0067,Rau tập tàng luộc,0.7187,6,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0094,Salad cải mầm cá ngừ,D0026,Ba rọi luộc + tôm chua,0.7033,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0094,Salad cải mầm cá ngừ,D0090,Miến xào thịt ghẹ,0.6917,8,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C0 - Cụm món nhậu đậm đà
+D0095,Salad cải mầm: Trứng/ Bò,D0090,Miến xào thịt ghẹ,0.9187,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0095,Salad cải mầm: Trứng/ Bò,D0092,Hến xúc bánh đa,0.8833,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0095,Salad cải mầm: Trứng/ Bò,D0091,Tép đồng xào khế,0.8833,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0095,Salad cải mầm: Trứng/ Bò,D0098,Mì xào hải sản,0.8786,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0095,Salad cải mầm: Trứng/ Bò,D0089,Nem ghẹ Phú Quốc,0.8688,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0095,Salad cải mầm: Trứng/ Bò,D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,0.8603,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0095,Salad cải mầm: Trứng/ Bò,D0088,Lườn ngỗng sốt chanh dây,0.802,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0095,Salad cải mầm: Trứng/ Bò,D0071,Khổ qua: Xào trứng/ Xào bò,0.8,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0097,Tai heo ngâm nước mắm,D0096,Bắp bò ngâm nước mắm,0.9867,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0097,Tai heo ngâm nước mắm,D0094,Salad cải mầm cá ngừ,0.9167,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0097,Tai heo ngâm nước mắm,D0026,Ba rọi luộc + tôm chua,0.7857,3,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0097,Tai heo ngâm nước mắm,D0017,Canh khổ qua chả cá thác lác,0.73,4,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0097,Tai heo ngâm nước mắm,D0076,Mầm đá luộc chấm trứng,0.6871,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0097,Tai heo ngâm nước mắm,D0068,Rau thập cẩm luộc kho quẹt,0.6871,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0097,Tai heo ngâm nước mắm,D0022,Canh chua cá lăng,0.6833,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0097,Tai heo ngâm nước mắm,D0024,Canh sườn non cải chua,0.6833,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0091,Tép đồng xào khế,D0088,Lườn ngỗng sốt chanh dây,0.9187,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0091,Tép đồng xào khế,D0095,Salad cải mầm: Trứng/ Bò,0.8833,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0091,Tép đồng xào khế,D0092,Hến xúc bánh đa,0.86,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0091,Tép đồng xào khế,D0089,Nem ghẹ Phú Quốc,0.8571,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0091,Tép đồng xào khế,D0093,Đậu hũ non thịt ghẹ nướng giấy bạc,0.8487,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0091,Tép đồng xào khế,D0087,Chả mực Hạ Long,0.8312,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0091,Tép đồng xào khế,D0090,Miến xào thịt ghẹ,0.802,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0091,Tép đồng xào khế,D0098,Mì xào hải sản,0.7619,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0007,Lẩu cá bóp: Măng chua/ Nấu ngót,D0006,Lẩu cá lăng nấu măng chua,0.9231,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0007,Lẩu cá bóp: Măng chua/ Nấu ngót,D0005,Lẩu gà lá giang,0.9,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0007,Lẩu cá bóp: Măng chua/ Nấu ngót,D0004,Lẩu riêu cua bắp bò,0.8846,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0007,Lẩu cá bóp: Măng chua/ Nấu ngót,D0008,Lẩu cá chạch quế om chuối đậu,0.8587,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0007,Lẩu cá bóp: Măng chua/ Nấu ngót,D0009,Lẩu gà ác tiềm thuốc bắc,0.8231,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0007,Lẩu cá bóp: Măng chua/ Nấu ngót,D0059,Gà hấp lá chanh,0.5885,6,cùng cụm K-Means; trùng từ khóa món,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0007,Lẩu cá bóp: Măng chua/ Nấu ngót,D0116,Set menu 300.000đ /người (3),0.4216,7,trùng từ khóa món,C2 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0007,Lẩu cá bóp: Măng chua/ Nấu ngót,D0118,Set menu 450.000đ /người,0.3918,8,trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0008,Lẩu cá chạch quế om chuối đậu,D0005,Lẩu gà lá giang,0.8636,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0008,Lẩu cá chạch quế om chuối đậu,D0007,Lẩu cá bóp: Măng chua/ Nấu ngót,0.8587,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0008,Lẩu cá chạch quế om chuối đậu,D0004,Lẩu riêu cua bắp bò,0.853,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0008,Lẩu cá chạch quế om chuối đậu,D0006,Lẩu cá lăng nấu măng chua,0.8376,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0008,Lẩu cá chạch quế om chuối đậu,D0009,Lẩu gà ác tiềm thuốc bắc,0.8189,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0008,Lẩu cá chạch quế om chuối đậu,D0059,Gà hấp lá chanh,0.6395,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0008,Lẩu cá chạch quế om chuối đậu,D0115,Set menu 300.000đ /người (2),0.4204,7,trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0008,Lẩu cá chạch quế om chuối đậu,D0117,Set menu 350.000đ /người (1),0.403,8,trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0006,Lẩu cá lăng nấu măng chua,D0005,Lẩu gà lá giang,0.9733,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0006,Lẩu cá lăng nấu măng chua,D0004,Lẩu riêu cua bắp bò,0.9556,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0006,Lẩu cá lăng nấu măng chua,D0007,Lẩu cá bóp: Măng chua/ Nấu ngót,0.9231,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0006,Lẩu cá lăng nấu măng chua,D0009,Lẩu gà ác tiềm thuốc bắc,0.8833,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0006,Lẩu cá lăng nấu măng chua,D0008,Lẩu cá chạch quế om chuối đậu,0.8376,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0006,Lẩu cá lăng nấu măng chua,D0059,Gà hấp lá chanh,0.6433,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0006,Lẩu cá lăng nấu măng chua,D0117,Set menu 350.000đ /người (1),0.4056,7,trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0006,Lẩu cá lăng nấu măng chua,D0116,Set menu 300.000đ /người (3),0.3958,8,trùng từ khóa món,C2 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0009,Lẩu gà ác tiềm thuốc bắc,D0006,Lẩu cá lăng nấu măng chua,0.8833,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0009,Lẩu gà ác tiềm thuốc bắc,D0005,Lẩu gà lá giang,0.8567,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0009,Lẩu gà ác tiềm thuốc bắc,D0004,Lẩu riêu cua bắp bò,0.8389,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0009,Lẩu gà ác tiềm thuốc bắc,D0007,Lẩu cá bóp: Măng chua/ Nấu ngót,0.8231,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0009,Lẩu gà ác tiềm thuốc bắc,D0008,Lẩu cá chạch quế om chuối đậu,0.8189,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0009,Lẩu gà ác tiềm thuốc bắc,D0059,Gà hấp lá chanh,0.62,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0009,Lẩu gà ác tiềm thuốc bắc,D0118,Set menu 450.000đ /người,0.4333,7,trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0009,Lẩu gà ác tiềm thuốc bắc,D0117,Set menu 350.000đ /người (1),0.3889,8,trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0005,Lẩu gà lá giang,D0004,Lẩu riêu cua bắp bò,0.9795,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0005,Lẩu gà lá giang,D0006,Lẩu cá lăng nấu măng chua,0.9733,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0005,Lẩu gà lá giang,D0007,Lẩu cá bóp: Măng chua/ Nấu ngót,0.9,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0005,Lẩu gà lá giang,D0008,Lẩu cá chạch quế om chuối đậu,0.8636,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0005,Lẩu gà lá giang,D0009,Lẩu gà ác tiềm thuốc bắc,0.8567,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0005,Lẩu gà lá giang,D0059,Gà hấp lá chanh,0.6679,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0005,Lẩu gà lá giang,D0117,Set menu 350.000đ /người (1),0.4295,7,trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0005,Lẩu gà lá giang,D0116,Set menu 300.000đ /người (3),0.4163,8,trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0004,Lẩu riêu cua bắp bò,D0005,Lẩu gà lá giang,0.9795,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0004,Lẩu riêu cua bắp bò,D0006,Lẩu cá lăng nấu măng chua,0.9556,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0004,Lẩu riêu cua bắp bò,D0007,Lẩu cá bóp: Măng chua/ Nấu ngót,0.8846,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0004,Lẩu riêu cua bắp bò,D0008,Lẩu cá chạch quế om chuối đậu,0.853,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0004,Lẩu riêu cua bắp bò,D0009,Lẩu gà ác tiềm thuốc bắc,0.8389,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0004,Lẩu riêu cua bắp bò,D0059,Gà hấp lá chanh,0.6778,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C2 - Cụm khách đoàn / món giá cao
+D0004,Lẩu riêu cua bắp bò,D0117,Set menu 350.000đ /người (1),0.45,7,trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0004,Lẩu riêu cua bắp bò,D0116,Set menu 300.000đ /người (3),0.4339,8,trùng từ khóa món; mức giá gần nhau,C2 - Cụm khách đoàn / món giá cao,C4 - Cụm khách đoàn / món giá cao
+D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,D0075,Cải thìa sốt dầu hào,1.0,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,D0066,Rau rừng Gia Lai: Xào tỏi/ Xào bò,1.0,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,D0071,Khổ qua: Xào trứng/ Xào bò,0.95,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,D0070,Rau lang: Xào tỏi/ Xào bò,0.9348,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,D0069,Rau muống: Xào tỏi/ Xào bò,0.9348,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,D0072,Mướp xào lòng gà,0.9,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,D0055,Cá linh chiên giòn,0.8,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,D0075,Cải thìa sốt dầu hào,1.0,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,D0066,Rau rừng Gia Lai: Xào tỏi/ Xào bò,1.0,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,D0071,Khổ qua: Xào trứng/ Xào bò,0.95,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,D0070,Rau lang: Xào tỏi/ Xào bò,0.9348,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,D0069,Rau muống: Xào tỏi/ Xào bò,0.9348,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,D0072,Mướp xào lòng gà,0.9,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,D0055,Cá linh chiên giòn,0.8,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0075,Cải thìa sốt dầu hào,D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0075,Cải thìa sốt dầu hào,D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,1.0,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0075,Cải thìa sốt dầu hào,D0066,Rau rừng Gia Lai: Xào tỏi/ Xào bò,1.0,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0075,Cải thìa sốt dầu hào,D0071,Khổ qua: Xào trứng/ Xào bò,0.95,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0075,Cải thìa sốt dầu hào,D0070,Rau lang: Xào tỏi/ Xào bò,0.9348,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0075,Cải thìa sốt dầu hào,D0069,Rau muống: Xào tỏi/ Xào bò,0.9348,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0075,Cải thìa sốt dầu hào,D0072,Mướp xào lòng gà,0.9,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0075,Cải thìa sốt dầu hào,D0055,Cá linh chiên giòn,0.8,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0071,Khổ qua: Xào trứng/ Xào bò,D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,0.95,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0071,Khổ qua: Xào trứng/ Xào bò,D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,0.95,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0071,Khổ qua: Xào trứng/ Xào bò,D0075,Cải thìa sốt dầu hào,0.95,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0071,Khổ qua: Xào trứng/ Xào bò,D0066,Rau rừng Gia Lai: Xào tỏi/ Xào bò,0.95,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0071,Khổ qua: Xào trứng/ Xào bò,D0072,Mướp xào lòng gà,0.9417,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0071,Khổ qua: Xào trứng/ Xào bò,D0070,Rau lang: Xào tỏi/ Xào bò,0.8848,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0071,Khổ qua: Xào trứng/ Xào bò,D0069,Rau muống: Xào tỏi/ Xào bò,0.8848,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0071,Khổ qua: Xào trứng/ Xào bò,D0095,Salad cải mầm: Trứng/ Bò,0.8,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0076,Mầm đá luộc chấm trứng,D0068,Rau thập cẩm luộc kho quẹt,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0076,Mầm đá luộc chấm trứng,D0067,Rau tập tàng luộc,0.9618,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0076,Mầm đá luộc chấm trứng,D0094,Salad cải mầm cá ngừ,0.7467,3,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0076,Mầm đá luộc chấm trứng,D0010,Canh chua + cà pháo,0.7,4,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0076,Mầm đá luộc chấm trứng,D0026,Ba rọi luộc + tôm chua,0.6992,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0076,Mầm đá luộc chấm trứng,D0022,Canh chua cá lăng,0.6988,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0076,Mầm đá luộc chấm trứng,D0097,Tai heo ngâm nước mắm,0.6871,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0076,Mầm đá luộc chấm trứng,D0096,Bắp bò ngâm nước mắm,0.6767,8,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0072,Mướp xào lòng gà,D0071,Khổ qua: Xào trứng/ Xào bò,0.9417,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0072,Mướp xào lòng gà,D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,0.9,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0072,Mướp xào lòng gà,D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,0.9,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0072,Mướp xào lòng gà,D0075,Cải thìa sốt dầu hào,0.9,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0072,Mướp xào lòng gà,D0066,Rau rừng Gia Lai: Xào tỏi/ Xào bò,0.9,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0072,Mướp xào lòng gà,D0070,Rau lang: Xào tỏi/ Xào bò,0.8348,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0072,Mướp xào lòng gà,D0069,Rau muống: Xào tỏi/ Xào bò,0.8348,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0072,Mướp xào lòng gà,D0030,Sườn non rim mặn,0.7417,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0070,Rau lang: Xào tỏi/ Xào bò,D0069,Rau muống: Xào tỏi/ Xào bò,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0070,Rau lang: Xào tỏi/ Xào bò,D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,0.9348,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0070,Rau lang: Xào tỏi/ Xào bò,D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,0.9348,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0070,Rau lang: Xào tỏi/ Xào bò,D0075,Cải thìa sốt dầu hào,0.9348,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0070,Rau lang: Xào tỏi/ Xào bò,D0066,Rau rừng Gia Lai: Xào tỏi/ Xào bò,0.9348,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0070,Rau lang: Xào tỏi/ Xào bò,D0071,Khổ qua: Xào trứng/ Xào bò,0.8848,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0070,Rau lang: Xào tỏi/ Xào bò,D0072,Mướp xào lòng gà,0.8348,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0070,Rau lang: Xào tỏi/ Xào bò,D0100,Cơm chiên rau củ,0.8,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0069,Rau muống: Xào tỏi/ Xào bò,D0070,Rau lang: Xào tỏi/ Xào bò,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0069,Rau muống: Xào tỏi/ Xào bò,D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,0.9348,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0069,Rau muống: Xào tỏi/ Xào bò,D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,0.9348,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0069,Rau muống: Xào tỏi/ Xào bò,D0075,Cải thìa sốt dầu hào,0.9348,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0069,Rau muống: Xào tỏi/ Xào bò,D0066,Rau rừng Gia Lai: Xào tỏi/ Xào bò,0.9348,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0069,Rau muống: Xào tỏi/ Xào bò,D0071,Khổ qua: Xào trứng/ Xào bò,0.8848,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0069,Rau muống: Xào tỏi/ Xào bò,D0072,Mướp xào lòng gà,0.8348,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0069,Rau muống: Xào tỏi/ Xào bò,D0100,Cơm chiên rau củ,0.8,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0066,Rau rừng Gia Lai: Xào tỏi/ Xào bò,D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0066,Rau rừng Gia Lai: Xào tỏi/ Xào bò,D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,1.0,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0066,Rau rừng Gia Lai: Xào tỏi/ Xào bò,D0075,Cải thìa sốt dầu hào,1.0,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0066,Rau rừng Gia Lai: Xào tỏi/ Xào bò,D0071,Khổ qua: Xào trứng/ Xào bò,0.95,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0066,Rau rừng Gia Lai: Xào tỏi/ Xào bò,D0070,Rau lang: Xào tỏi/ Xào bò,0.9348,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0066,Rau rừng Gia Lai: Xào tỏi/ Xào bò,D0069,Rau muống: Xào tỏi/ Xào bò,0.9348,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0066,Rau rừng Gia Lai: Xào tỏi/ Xào bò,D0072,Mướp xào lòng gà,0.9,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0066,Rau rừng Gia Lai: Xào tỏi/ Xào bò,D0055,Cá linh chiên giòn,0.8,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0077,Rau sống sốt cà chua trứng,D0070,Rau lang: Xào tỏi/ Xào bò,0.65,1,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0077,Rau sống sốt cà chua trứng,D0069,Rau muống: Xào tỏi/ Xào bò,0.65,2,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0077,Rau sống sốt cà chua trứng,D0082,Đậu hũ sốt cà chua,0.625,3,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0077,Rau sống sốt cà chua trứng,D0074,Đậu hà lan: Luộc/ Xào tỏi/ Xào bò,0.5848,4,cùng danh mục; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0077,Rau sống sốt cà chua trứng,D0073,Đậu que: Xào tỏi/ Xào bò/ Xào lòng gà,0.5848,5,cùng danh mục; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0077,Rau sống sốt cà chua trứng,D0075,Cải thìa sốt dầu hào,0.5848,6,cùng danh mục; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0077,Rau sống sốt cà chua trứng,D0066,Rau rừng Gia Lai: Xào tỏi/ Xào bò,0.5848,7,cùng danh mục; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0077,Rau sống sốt cà chua trứng,D0067,Rau tập tàng luộc,0.5682,8,cùng danh mục; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C3 - Cụm món thanh đạm
+D0067,Rau tập tàng luộc,D0076,Mầm đá luộc chấm trứng,0.9618,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0067,Rau tập tàng luộc,D0068,Rau thập cẩm luộc kho quẹt,0.9618,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0067,Rau tập tàng luộc,D0094,Salad cải mầm cá ngừ,0.7187,3,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0067,Rau tập tàng luộc,D0071,Khổ qua: Xào trứng/ Xào bò,0.6917,4,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C0 - Cụm món nhậu đậm đà
+D0067,Rau tập tàng luộc,D0029,Thịt kho mắm ruốc,0.6833,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0067,Rau tập tàng luộc,D0022,Canh chua cá lăng,0.6688,6,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0067,Rau tập tàng luộc,D0026,Ba rọi luộc + tôm chua,0.6669,7,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0067,Rau tập tàng luộc,D0010,Canh chua + cà pháo,0.6618,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0068,Rau thập cẩm luộc kho quẹt,D0076,Mầm đá luộc chấm trứng,1.0,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0068,Rau thập cẩm luộc kho quẹt,D0067,Rau tập tàng luộc,0.9618,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0068,Rau thập cẩm luộc kho quẹt,D0094,Salad cải mầm cá ngừ,0.7467,3,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0068,Rau thập cẩm luộc kho quẹt,D0010,Canh chua + cà pháo,0.7,4,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0068,Rau thập cẩm luộc kho quẹt,D0026,Ba rọi luộc + tôm chua,0.6992,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0068,Rau thập cẩm luộc kho quẹt,D0022,Canh chua cá lăng,0.6988,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0068,Rau thập cẩm luộc kho quẹt,D0097,Tai heo ngâm nước mắm,0.6871,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0068,Rau thập cẩm luộc kho quẹt,D0096,Bắp bò ngâm nước mắm,0.6767,8,cùng cụm K-Means; trùng từ khóa món,C3 - Cụm món thanh đạm,C3 - Cụm món thanh đạm
+D0106,Bia,D0104,Mì/ Bún thêm,0.5437,1,cùng cụm K-Means; cùng danh mục,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0106,Bia,D0105,Nước ngọt,0.5437,2,cùng cụm K-Means; cùng danh mục,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0106,Bia,D0107,Nước suối Dasani,0.5125,3,cùng cụm K-Means; cùng danh mục,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0106,Bia,D0103,Khăn lạnh,0.4688,4,cùng cụm K-Means; cùng danh mục,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0106,Bia,D0002,Cơm niêu đập,0.41,5,cùng cụm K-Means; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0106,Bia,D0003,Cơm niêu cháy,0.3625,6,cùng cụm K-Means,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0106,Bia,D0082,Đậu hũ sốt cà chua,0.3567,7,cùng cụm K-Means,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0106,Bia,D0077,Rau sống sốt cà chua trứng,0.3567,8,cùng cụm K-Means,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0099,Cơm chiên hải sản,D0100,Cơm chiên rau củ,0.8357,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0099,Cơm chiên hải sản,D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,0.7867,2,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0099,Cơm chiên hải sản,D0101,Kho quẹt thêm,0.7786,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0099,Cơm chiên hải sản,D0102,Rau sống thêm,0.7411,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0099,Cơm chiên hải sản,D0039,Cá bóng cát kho tộ,0.7367,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0099,Cơm chiên hải sản,D0045,Cá bớp kho tộ,0.7367,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0099,Cơm chiên hải sản,D0049,Cá lóc biển hồ Cambodia chiên giòn,0.7367,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0099,Cơm chiên hải sản,D0054,Khô cá lóc Cambodia,0.7367,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0100,Cơm chiên rau củ,D0101,Kho quẹt thêm,0.8667,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0100,Cơm chiên rau củ,D0099,Cơm chiên hải sản,0.8357,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0100,Cơm chiên rau củ,D0102,Rau sống thêm,0.8229,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0100,Cơm chiên rau củ,D0070,Rau lang: Xào tỏi/ Xào bò,0.8,4,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0100,Cơm chiên rau củ,D0069,Rau muống: Xào tỏi/ Xào bò,0.8,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0100,Cơm chiên rau củ,D0084,Trứng chiên hành,0.75,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0100,Cơm chiên rau củ,D0055,Cá linh chiên giòn,0.7348,7,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0100,Cơm chiên rau củ,D0033,Giò heo giả cầy,0.7348,8,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0103,Khăn lạnh,D0107,Nước suối Dasani,0.51,1,cùng cụm K-Means; cùng danh mục,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0103,Khăn lạnh,D0104,Mì/ Bún thêm,0.49,2,cùng cụm K-Means; cùng danh mục,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0103,Khăn lạnh,D0105,Nước ngọt,0.49,3,cùng cụm K-Means; cùng danh mục,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0103,Khăn lạnh,D0106,Bia,0.4688,4,cùng cụm K-Means; cùng danh mục,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0103,Khăn lạnh,D0003,Cơm niêu cháy,0.2833,5,cùng cụm K-Means,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0103,Khăn lạnh,D0002,Cơm niêu đập,0.265,6,cùng cụm K-Means,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0103,Khăn lạnh,D0082,Đậu hũ sốt cà chua,0.26,7,cùng cụm K-Means,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0103,Khăn lạnh,D0077,Rau sống sốt cà chua trứng,0.26,8,cùng cụm K-Means,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0101,Kho quẹt thêm,D0102,Rau sống thêm,0.9562,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0101,Kho quẹt thêm,D0100,Cơm chiên rau củ,0.8667,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0101,Kho quẹt thêm,D0099,Cơm chiên hải sản,0.7786,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0101,Kho quẹt thêm,D0070,Rau lang: Xào tỏi/ Xào bò,0.6667,4,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0101,Kho quẹt thêm,D0069,Rau muống: Xào tỏi/ Xào bò,0.6667,5,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0101,Kho quẹt thêm,D0001,Cơm niêu,0.6625,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0101,Kho quẹt thêm,D0055,Cá linh chiên giòn,0.6449,7,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0101,Kho quẹt thêm,D0033,Giò heo giả cầy,0.6449,8,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0104,Mì/ Bún thêm,D0105,Nước ngọt,0.825,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0104,Mì/ Bún thêm,D0107,Nước suối Dasani,0.7583,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0104,Mì/ Bún thêm,D0106,Bia,0.5437,3,cùng cụm K-Means; cùng danh mục,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0104,Mì/ Bún thêm,D0103,Khăn lạnh,0.49,4,cùng cụm K-Means; cùng danh mục,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0104,Mì/ Bún thêm,D0003,Cơm niêu cháy,0.4167,5,cùng cụm K-Means; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0104,Mì/ Bún thêm,D0002,Cơm niêu đập,0.4125,6,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0104,Mì/ Bún thêm,D0034,Thịt đông dưa chua,0.4004,7,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0104,Mì/ Bún thêm,D0101,Kho quẹt thêm,0.4,8,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0105,Nước ngọt,D0107,Nước suối Dasani,0.9333,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0105,Nước ngọt,D0104,Mì/ Bún thêm,0.825,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0105,Nước ngọt,D0106,Bia,0.5437,3,cùng cụm K-Means; cùng danh mục,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0105,Nước ngọt,D0034,Thịt đông dưa chua,0.517,4,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0105,Nước ngọt,D0002,Cơm niêu đập,0.5,5,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0105,Nước ngọt,D0103,Khăn lạnh,0.49,6,cùng cụm K-Means; cùng danh mục,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0105,Nước ngọt,D0082,Đậu hũ sốt cà chua,0.475,7,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0105,Nước ngọt,D0101,Kho quẹt thêm,0.45,8,cùng danh mục; trùng từ khóa món; mức giá gần nhau,C1 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0107,Nước suối Dasani,D0105,Nước ngọt,0.9333,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0107,Nước suối Dasani,D0104,Mì/ Bún thêm,0.7583,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0107,Nước suối Dasani,D0106,Bia,0.5125,3,cùng cụm K-Means; cùng danh mục,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0107,Nước suối Dasani,D0103,Khăn lạnh,0.51,4,cùng cụm K-Means; cùng danh mục,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0107,Nước suối Dasani,D0034,Thịt đông dưa chua,0.5058,5,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0107,Nước suối Dasani,D0002,Cơm niêu đập,0.475,6,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0107,Nước suối Dasani,D0082,Đậu hũ sốt cà chua,0.4583,7,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0107,Nước suối Dasani,D0023,Ốc om chuối đậu,0.4383,8,cùng cụm K-Means; trùng từ khóa món,C1 - Cụm món nhậu đậm đà,C1 - Cụm món nhậu đậm đà
+D0102,Rau sống thêm,D0101,Kho quẹt thêm,0.9562,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0102,Rau sống thêm,D0100,Cơm chiên rau củ,0.8229,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0102,Rau sống thêm,D0099,Cơm chiên hải sản,0.7411,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0102,Rau sống thêm,D0001,Cơm niêu,0.6333,4,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0102,Rau sống thêm,D0070,Rau lang: Xào tỏi/ Xào bò,0.6229,5,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0102,Rau sống thêm,D0069,Rau muống: Xào tỏi/ Xào bò,0.6229,6,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0102,Rau sống thêm,D0055,Cá linh chiên giòn,0.6012,7,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà
+D0102,Rau sống thêm,D0033,Giò heo giả cầy,0.6012,8,cùng cụm K-Means; trùng từ khóa món,C0 - Cụm món nhậu đậm đà,C0 - Cụm món nhậu đậm đà

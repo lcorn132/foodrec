@@ -1,0 +1,130 @@
+{
+  "raw": {
+    "files": 13,
+    "rows": 238,
+    "file_rows": [
+      [
+        "raw.xlsx",
+        119
+      ],
+      [
+        "raw_1.xlsx",
+        12
+      ],
+      [
+        "raw_10.xlsx",
+        10
+      ],
+      [
+        "raw_11.xlsx",
+        9
+      ],
+      [
+        "raw_12.xlsx",
+        12
+      ],
+      [
+        "raw_2.xlsx",
+        3
+      ],
+      [
+        "raw_3.xlsx",
+        6
+      ],
+      [
+        "raw_4.xlsx",
+        15
+      ],
+      [
+        "raw_5.xlsx",
+        12
+      ],
+      [
+        "raw_6.xlsx",
+        11
+      ],
+      [
+        "raw_7.xlsx",
+        20
+      ],
+      [
+        "raw_8.xlsx",
+        6
+      ],
+      [
+        "raw_9.xlsx",
+        3
+      ]
+    ]
+  },
+  "preprocessing": {
+    "clean_dishes": 119,
+    "unique_categories": 12,
+    "set_menu_items": 118,
+    "category_counts": {
+      "Set menu đoàn": 12,
+      "Món cá": 20,
+      "Món canh": 15,
+      "Cơm niêu": 3,
+      "Món đậu hũ/trứng": 6,
+      "Món gà/bò": 10,
+      "Món hải sản": 3,
+      "Món heo": 11,
+      "Món khai vị": 12,
+      "Món lẩu": 6,
+      "Món rau": 12,
+      "Món thêm": 9
+    },
+    "price_range_counts": {
+      "moderate": 40,
+      "premium": 13,
+      "affordable": 45,
+      "unknown": 1,
+      "budget": 20
+    }
+  },
+  "kmeans": {
+    "clusters": {
+      "C4 - Cụm khách đoàn / món giá cao": 12,
+      "C0 - Cụm món nhậu đậm đà": 55,
+      "C3 - Cụm món thanh đạm": 34,
+      "C1 - Cụm món nhậu đậm đà": 11,
+      "C2 - Cụm khách đoàn / món giá cao": 7
+    },
+    "cluster_count": 5
+  },
+  "content_based_recommendation": {
+    "rows": 952,
+    "score_buckets": {
+      "Rất cao": 641,
+      "Cao": 223,
+      "Trung bình": 74,
+      "Thấp": 14
+    },
+    "method": {
+      "algorithm": "Content-Based Filtering",
+      "features": [
+        "category",
+        "cluster_label",
+        "keywords",
+        "price_vnd"
+      ],
+      "similarity": "weighted score: keyword Jaccard + same cluster + same category + price proximity",
+      "recommendation_rows": 952,
+      "top_n_per_dish": 8,
+      "note": "Không dùng hóa đơn sinh giả; hệ thống gợi ý từ thuộc tính thật của món ăn."
+    }
+  },
+  "transactions": {
+    "status": "removed",
+    "reason": "Không có hóa đơn công khai thật nên không dùng dữ liệu giao dịch sinh giả."
+  },
+  "charts": [
+    "01_raw_rows_by_file.svg",
+    "02_preprocessing_funnel.svg",
+    "03_category_distribution.svg",
+    "04_price_range_distribution.svg",
+    "05_kmeans_cluster_distribution.svg",
+    "06_similarity_score_distribution.svg"
+  ]
+}

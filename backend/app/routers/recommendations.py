@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
+
 from app.database import get_db
 from app.models.models import Dish
 from app.schemas.schemas import RecommendationRequest
@@ -19,10 +20,15 @@ def get_recommendations_for_dish(dish_id: int, top_n: int = 10, db: Session = De
 
     result = []
     for rec in recommendations:
-        d = db.query(Dish).filter(Dish.id == rec["dish_id"]).first()
-        if d:
-            result.append({"dish": d, "score": round(rec["score"], 3),
-                           "reason": "Dựa trên luật kết hợp set menu và độ tương tự món"})
+        recommended = db.query(Dish).filter(Dish.id == rec["dish_id"]).first()
+        if recommended:
+            result.append(
+                {
+                    "dish": recommended,
+                    "score": round(rec["score"], 3),
+                    "reason": "Dựa trên độ tương đồng nội dung, cụm K-Means, danh mục và mức giá",
+                }
+            )
     return {"recommendations": result}
 
 
@@ -36,10 +42,15 @@ def get_recommendations_for_cart(request: RecommendationRequest, db: Session = D
 
     result = []
     for rec in recommendations:
-        d = db.query(Dish).filter(Dish.id == rec["dish_id"]).first()
-        if d:
-            result.append({"dish": d, "score": round(rec["score"], 3),
-                           "reason": "Thường xuất hiện cùng trong set menu"})
+        dish = db.query(Dish).filter(Dish.id == rec["dish_id"]).first()
+        if dish:
+            result.append(
+                {
+                    "dish": dish,
+                    "score": round(rec["score"], 3),
+                    "reason": "Phù hợp với các món hiện có trong giỏ theo content-based filtering",
+                }
+            )
     return {"recommendations": result}
 
 
@@ -49,8 +60,8 @@ def get_trending(top_n: int = 10, db: Session = Depends(get_db)):
     trending = service.get_trending_dishes(top_n)
 
     result = []
-    for t in trending:
-        d = db.query(Dish).filter(Dish.id == t["dish_id"]).first()
-        if d:
-            result.append({"dish": d, "avg_rating": t["avg_rating"], "total_ratings": t["total_ratings"]})
+    for item in trending:
+        dish = db.query(Dish).filter(Dish.id == item["dish_id"]).first()
+        if dish:
+            result.append({"dish": dish, "avg_rating": item["avg_rating"], "total_ratings": item["total_ratings"]})
     return {"trending": result}

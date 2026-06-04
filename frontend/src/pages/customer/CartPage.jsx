@@ -5,6 +5,7 @@ import { Minus, Plus, Trash2 } from "lucide-react";
 
 import Header from "../../components/Header.jsx";
 import Footer from "../../components/Footer.jsx";
+import DishImage from "../../components/DishImage.jsx";
 import PageHero from "../../components/PageHero.jsx";
 import RecommendationList from "../../components/RecommendationList.jsx";
 import { useCart } from "../../context/CartContext.jsx";
@@ -98,11 +99,7 @@ export default function CartPage() {
                     {/* Image */}
                     <div className="w-[120px] h-[100px] flex-shrink-0 rounded-xl flex items-center justify-center"
                          style={{ background: 'linear-gradient(135deg, #EFEBE9, #FDF3D7)' }}>
-                      {item.image_url ? (
-                        <img src={item.image_url} alt={item.name} className="w-full h-full object-cover rounded-xl" loading="lazy" />
-                      ) : (
-                        <span className="text-5xl">{emoji}</span>
-                      )}
+                      <DishImage src={item.image_url} alt={item.name} rounded="rounded-xl" />
                     </div>
 
                     {/* Info */}

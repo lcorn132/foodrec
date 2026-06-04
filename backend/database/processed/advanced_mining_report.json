@@ -1,0 +1,146 @@
+{
+  "raw_menu_preprocessing": {
+    "raw_files": [
+      {
+        "file": "comnieuvietnam-vn-2026-06-04.xlsx",
+        "rows": 119,
+        "size_bytes": 340067
+      },
+      {
+        "file": "comnieuvietnam-vn-2026-06-04_1.xlsx",
+        "rows": 12,
+        "size_bytes": 33409
+      },
+      {
+        "file": "comnieuvietnam-vn-2026-06-04_10.xlsx",
+        "rows": 10,
+        "size_bytes": 28417
+      },
+      {
+        "file": "comnieuvietnam-vn-2026-06-04_11.xlsx",
+        "rows": 9,
+        "size_bytes": 19536
+      },
+      {
+        "file": "comnieuvietnam-vn-2026-06-04_12.xlsx",
+        "rows": 12,
+        "size_bytes": 34121
+      },
+      {
+        "file": "comnieuvietnam-vn-2026-06-04_2.xlsx",
+        "rows": 3,
+        "size_bytes": 11660
+      },
+      {
+        "file": "comnieuvietnam-vn-2026-06-04_3.xlsx",
+        "rows": 6,
+        "size_bytes": 19881
+      },
+      {
+        "file": "comnieuvietnam-vn-2026-06-04_4.xlsx",
+        "rows": 15,
+        "size_bytes": 40583
+      },
+      {
+        "file": "comnieuvietnam-vn-2026-06-04_5.xlsx",
+        "rows": 12,
+        "size_bytes": 36706
+      },
+      {
+        "file": "comnieuvietnam-vn-2026-06-04_6.xlsx",
+        "rows": 11,
+        "size_bytes": 33726
+      },
+      {
+        "file": "comnieuvietnam-vn-2026-06-04_7.xlsx",
+        "rows": 20,
+        "size_bytes": 51263
+      },
+      {
+        "file": "comnieuvietnam-vn-2026-06-04_8.xlsx",
+        "rows": 6,
+        "size_bytes": 20021
+      },
+      {
+        "file": "comnieuvietnam-vn-2026-06-04_9.xlsx",
+        "rows": 3,
+        "size_bytes": 14960
+      }
+    ],
+    "raw_rows": 238,
+    "unique_dishes": 119,
+    "set_menu_rows": 12,
+    "techniques": [
+      "Data Transformation: chuẩn hóa data2 từ chuỗi tiền tệ sang int",
+      "Feature Extraction: trích category từ web_scraper_start_url",
+      "Text Cleaning: strip khoảng trắng, chuẩn hóa lỗi chính tả/tên món",
+      "Feature Engineering: ước tính calories và keyword từ mô tả/tên món"
+    ]
+  },
+  "kmeans": {
+    "algorithm": "K-Means tự cài đặt bằng Python thuần",
+    "k": 5,
+    "features": [
+      "price_vnd",
+      "estimated_calories",
+      "is_set_menu",
+      "keyword one-hot"
+    ],
+    "clusters": [
+      {
+        "cluster_id": 0,
+        "label": "Cụm món nhậu đậm đà",
+        "size": 55,
+        "avg_price": 112000,
+        "top_keywords": "hai_san|chien_xao|do_uong_them|thit|thanh_dam"
+      },
+      {
+        "cluster_id": 1,
+        "label": "Cụm món nhậu đậm đà",
+        "size": 11,
+        "avg_price": 44727,
+        "top_keywords": "hai_san|do_uong_them|com|thit|rau"
+      },
+      {
+        "cluster_id": 2,
+        "label": "Cụm khách đoàn / món giá cao",
+        "size": 7,
+        "avg_price": 414286,
+        "top_keywords": "hai_san|thit|do_uong_them|thanh_dam|lau"
+      },
+      {
+        "cluster_id": 3,
+        "label": "Cụm món thanh đạm",
+        "size": 34,
+        "avg_price": 138088,
+        "top_keywords": "hai_san|thit|thanh_dam|do_uong_them|canh"
+      },
+      {
+        "cluster_id": 4,
+        "label": "Cụm khách đoàn / món giá cao",
+        "size": 12,
+        "avg_price": 283333,
+        "top_keywords": "com|hai_san|thit|do_uong_them|chien_xao"
+      }
+    ]
+  },
+  "content_based_recommendation": {
+    "algorithm": "Content-Based Filtering",
+    "features": [
+      "category",
+      "cluster_label",
+      "keywords",
+      "price_vnd"
+    ],
+    "similarity": "weighted score: keyword Jaccard + same cluster + same category + price proximity",
+    "recommendation_rows": 952,
+    "top_n_per_dish": 8,
+    "note": "Không dùng hóa đơn sinh giả; hệ thống gợi ý từ thuộc tính thật của món ăn."
+  },
+  "outputs": {
+    "processed_dir": "E:\\KPDL\\Nhom10_DoAn_v7_data_mining_rework\\foodrec\\backend\\database\\processed",
+    "dishes_clean": "dishes_clean.csv",
+    "set_menu_items": "set_menu_items_clean.csv",
+    "content_similarity": "content_similarity_recommendations.csv"
+  }
+}

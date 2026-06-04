@@ -19,7 +19,7 @@ def get_dishes(
     limit: int = 12,
     db: Session = Depends(get_db)
 ):
-    query = db.query(Dish)
+    query = db.query(Dish).filter(Dish.is_active == 1)
     
     # 1. Lọc theo Danh mục
     if category: 
@@ -40,7 +40,7 @@ def get_dishes(
     page = max(page, 1)
     limit = max(1, min(limit, 200))
     skip = (page - 1) * limit
-    items = query.offset(skip).limit(limit).all()
+    items = query.order_by(Dish.sort_order.asc(), Dish.id.asc()).offset(skip).limit(limit).all()
     total_pages = (total + limit - 1) // limit if total else 1
 
     return {

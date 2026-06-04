@@ -1,5 +1,5 @@
-import { NavLink, Outlet } from "react-router-dom";
 import { useState } from "react";
+import { NavLink, Outlet } from "react-router-dom";
 
 const NAV = [
   {
@@ -13,8 +13,6 @@ const NAV = [
     section: "Báo cáo",
     items: [
       { to: "/dashboard", label: "Tổng quan", icon: "📊", end: true },
-      { to: "/dashboard/combo-analysis", label: "Phân tích set menu", icon: "🔗" },
-      { to: "/dashboard/apriori", label: "Luật kết hợp", icon: "🔍" },
       { to: "/dashboard/preprocessing", label: "Dữ liệu", icon: "⚙️" },
     ],
   },
@@ -22,18 +20,18 @@ const NAV = [
 
 export default function DashboardLayout() {
   const [collapsed, setCollapsed] = useState(false);
-  const w = collapsed ? 72 : 270;
+  const width = collapsed ? 72 : 270;
 
   return (
     <div className="min-h-dvh flex" style={{ background: "#FFFAF3" }}>
       <aside
-        className="flex-shrink-0 flex flex-col fixed top-0 left-0 h-dvh z-50 overflow-y-auto overflow-x-hidden transition-all duration-300"
-        style={{ width: w, background: "linear-gradient(180deg, #3E2723 0%, #2C1810 100%)" }}
+        className="fixed left-0 top-0 z-50 flex h-dvh flex-shrink-0 flex-col overflow-y-auto overflow-x-hidden transition-all duration-300"
+        style={{ width, background: "linear-gradient(180deg, #3E2723 0%, #2C1810 100%)" }}
       >
-        <div className="px-4 py-4 flex items-center gap-3 flex-shrink-0" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="flex flex-shrink-0 items-center gap-3 px-4 py-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
           <button
             type="button"
-            className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0 cursor-pointer"
+            className="flex h-10 w-10 flex-shrink-0 cursor-pointer items-center justify-center rounded-xl text-xl"
             style={{ background: "#E6B422", boxShadow: "0 4px 12px rgba(230,180,34,0.3)", border: "none" }}
             onClick={() => setCollapsed(!collapsed)}
             title={collapsed ? "Mở menu" : "Thu gọn menu"}
@@ -42,34 +40,34 @@ export default function DashboardLayout() {
           </button>
           {!collapsed && (
             <div className="overflow-hidden">
-              <div className="font-display text-lg font-bold text-white leading-tight whitespace-nowrap">
+              <div className="font-display whitespace-nowrap text-lg font-bold leading-tight text-white">
                 Food<span style={{ color: "#F0C94D" }}>Rec</span>
               </div>
-              <div className="text-[9px] font-bold uppercase tracking-widest whitespace-nowrap" style={{ color: "rgba(255,255,255,0.25)" }}>
+              <div className="whitespace-nowrap text-[9px] font-bold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.25)" }}>
                 Trang quản trị
               </div>
             </div>
           )}
         </div>
 
-        <nav className="flex-1 py-3 px-2">
-          {NAV.map((sec) => (
-            <div key={sec.section}>
+        <nav className="flex-1 px-2 py-3">
+          {NAV.map((section) => (
+            <div key={section.section}>
               {!collapsed && (
-                <div className="px-3 py-2 mt-3 first:mt-0 text-[9px] font-bold uppercase tracking-[2px]" style={{ color: "rgba(255,255,255,0.2)" }}>
-                  {sec.section}
+                <div className="mt-3 px-3 py-2 text-[9px] font-bold uppercase tracking-[2px] first:mt-0" style={{ color: "rgba(255,255,255,0.2)" }}>
+                  {section.section}
                 </div>
               )}
-              {sec.items.map((item) => (
+              {section.items.map((item) => (
                 <NavLink
                   key={item.to}
                   to={item.to}
                   end={item.end}
-                  className={({ isActive }) => `flex items-center gap-3 px-3 py-2.5 rounded-xl text-[13px] font-medium transition-all no-underline my-0.5 ${isActive ? "text-white" : "text-white/40 hover:text-white/80 hover:bg-white/5"}`}
-                  style={({ isActive }) => isActive ? { background: "rgba(230,180,34,0.15)", borderLeft: "3px solid #E6B422" } : {}}
+                  className={({ isActive }) => `my-0.5 flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium no-underline transition-all ${isActive ? "text-white" : "text-white/40 hover:bg-white/5 hover:text-white/80"}`}
+                  style={({ isActive }) => (isActive ? { background: "rgba(230,180,34,0.15)", borderLeft: "3px solid #E6B422" } : {})}
                   title={collapsed ? item.label : undefined}
                 >
-                  <span className="text-base flex-shrink-0">{item.icon}</span>
+                  <span className="flex-shrink-0 text-base">{item.icon}</span>
                   {!collapsed && <span className="truncate">{item.label}</span>}
                 </NavLink>
               ))}
@@ -77,24 +75,27 @@ export default function DashboardLayout() {
           ))}
         </nav>
 
-        <div className="px-2 pb-3 flex-shrink-0" style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-          <NavLink to="/" className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-[12px] font-medium text-white/30 hover:text-white/60 hover:bg-white/5 transition-all no-underline">
-            <span>🌐</span>{!collapsed && "Về trang khách hàng"}
+        <div className="flex-shrink-0 px-2 pb-3" style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+          <NavLink to="/" className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-[12px] font-medium text-white/30 no-underline transition-all hover:bg-white/5 hover:text-white/60">
+            <span>🌐</span>
+            {!collapsed && "Về trang khách hàng"}
           </NavLink>
         </div>
       </aside>
 
-      <main className="flex-1 min-h-dvh transition-all duration-300" style={{ marginLeft: w }}>
-        <div className="sticky top-0 z-40 px-8 py-3 flex items-center justify-between bg-white/90 backdrop-blur-lg" style={{ borderBottom: "1px solid #E8DDD4" }}>
+      <main className="min-h-dvh flex-1 transition-all duration-300" style={{ marginLeft: width }}>
+        <div className="sticky top-0 z-40 flex items-center justify-between bg-white/90 px-8 py-3 backdrop-blur-lg" style={{ borderBottom: "1px solid #E8DDD4" }}>
           <div>
             <h2 className="font-display text-base font-bold" style={{ color: "#3E2723" }}>FoodRec - Trang quản trị</h2>
-            <p className="text-[11px]" style={{ color: "#8D6E63" }}>Quản lý thực đơn, đơn hàng và báo cáo</p>
+            <p className="text-[11px]" style={{ color: "#8D6E63" }}>Quản lý thực đơn, đơn hàng và báo cáo dữ liệu</p>
           </div>
-          <div className="text-[11px] font-semibold px-3 py-1.5 rounded-full" style={{ background: "#DCFCE7", color: "#16A34A" }}>
+          <div className="rounded-full px-3 py-1.5 text-[11px] font-semibold" style={{ background: "#DCFCE7", color: "#16A34A" }}>
             Đang hoạt động
           </div>
         </div>
-        <div className="p-6 lg:p-8"><Outlet /></div>
+        <div className="p-6 lg:p-8">
+          <Outlet />
+        </div>
       </main>
     </div>
   );

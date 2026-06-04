@@ -1,227 +1,54 @@
-# 🍜 Hướng dẫn cài đặt & chạy FoodRec v3
-## Nhóm 10 — Đồ án Khai phá dữ liệu
+# Hướng dẫn cài đặt FoodRec
 
----
+## Backend
 
-## 📋 Yêu cầu hệ thống
-
-- **Python** 3.10+ → https://python.org/downloads
-- **Node.js** 18+ → https://nodejs.org
-- **PostgreSQL** 15+ → https://postgresql.org/download
-  - Hoặc dùng pgAdmin (có giao diện)
-  - Hoặc bỏ qua PostgreSQL, dùng SQLite (không cần cài gì thêm)
-
----
-
-## 🚀 CÁCH 1: Dùng SQLite (đơn giản nhất, không cần cài PostgreSQL)
-
-### Bước 1: Giải nén project
-```
-Giải nén file Nhom10_DoAn_v3.zip ra thư mục bất kỳ
-```
-
-### Bước 2: Chạy Backend
 ```bash
-# Mở Terminal/CMD, cd vào thư mục backend
-cd project-v3/backend
-
-# Sửa file .env → đổi DATABASE_URL thành SQLite
-# Mở file .env bằng Notepad/VS Code, sửa thành:
-# DATABASE_URL=sqlite:///./app.db
-# (comment dòng postgresql, bỏ comment dòng sqlite)
-
-# Cài thư viện Python
+cd backend
 pip install -r requirements.txt
-
-# Chạy server
-python -m uvicorn app.main:app --reload --port 8000
+uvicorn app.main:app --reload
 ```
 
-Nếu thành công sẽ thấy:
-```
-INFO:     Uvicorn running on http://0.0.0.0:8000
-Loading data from CSV files...
-  Loading dishes...
-  Loading customers...
-  Loading orders...
-  Loading ratings...
-Data loaded: dữ liệu web + dữ liệu demo phụ trợ.
-Pipeline set menu: 12 giao dịch sạch sẵn sàng cho Apriori
-```
+API mặc định:
 
-Kiểm tra: mở trình duyệt → http://localhost:8000/docs → thấy Swagger UI
+- `http://localhost:8000`
+- Swagger docs: `http://localhost:8000/docs`
 
-### Bước 3: Chạy Frontend
+## Frontend
+
 ```bash
-# Mở Terminal/CMD MỚI (giữ nguyên terminal backend)
-cd project-v3/frontend
-
-# Cài thư viện Node
+cd frontend
 npm install
-
-# Chạy
 npm run dev
 ```
 
-Nếu thành công:
-```
-VITE v5.x.x ready in xxx ms
-➜ Local: http://localhost:5173/
-```
+Frontend mặc định:
 
-### Bước 4: Mở trình duyệt
-- **Trang khách hàng:** http://localhost:5173
-- **Dashboard KPDL:** http://localhost:5173/dashboard
+- `http://localhost:5173`
 
----
+## Pipeline dữ liệu
 
-## 🐘 CÁCH 2: Dùng PostgreSQL (đầy đủ, chuyên nghiệp hơn)
+Chạy bằng script:
 
-### Bước 1: Cài PostgreSQL
-- Windows: Download tại https://postgresql.org/download/windows
-  - Trong quá trình cài, nhớ mật khẩu cho user "postgres"
-  - Port mặc định: 5432
-- Mac: `brew install postgresql@15`
-- Linux: `sudo apt install postgresql`
-
-### Bước 2: Tạo database
 ```bash
-# Cách 1: Dùng command line
-psql -U postgres
-# Nhập mật khẩu
-CREATE DATABASE foodrec;
-\q
-
-# Cách 2: Dùng pgAdmin
-# Mở pgAdmin → Click phải vào "Databases" → Create → Database
-# Đặt tên: foodrec → Save
+python backend/scripts/run_advanced_pipeline.py
+python backend/scripts/generate_data_report_assets.py
 ```
 
-### Bước 3: Cấu hình .env
-Mở file `project-v3/backend/.env`, sửa:
-```
-DATABASE_URL=postgresql://postgres:MẬT_KHẨU_CỦA_BẠN@localhost:5432/foodrec
-```
-Thay `MẬT_KHẨU_CỦA_BẠN` bằng mật khẩu PostgreSQL đã đặt khi cài.
+Hoặc chạy trực tiếp trên web:
 
-### Bước 4-5-6: Giống Cách 1 (Bước 2, 3, 4)
+- `http://localhost:5173/dashboard/preprocessing`
 
----
+## Cấu trúc dữ liệu
 
-## 🔍 Kiểm tra mọi thứ hoạt động
+- Raw Excel: `backend/database/raw/`
+- Processed data: `backend/database/processed/`
+- Biểu đồ: `backend/database/processed/report_assets/charts/`
 
-### Test Backend API:
-Mở http://localhost:8000/docs và thử:
-1. `GET /api/dishes` → Trả về danh sách món cho website
-2. `GET /api/analytics/overview` → Phải trả về thống kê
-3. `GET /api/analytics/preprocessing-report` → Trả về báo cáo làm sạch dữ liệu set menu
-4. `GET /api/analytics/apriori/full` → Trả về tập phổ biến và luật kết hợp
+## Hướng thuật toán
 
-### Test Frontend:
-1. http://localhost:5173 → Trang chủ FoodRec
-2. http://localhost:5173/menu → Thực đơn (load từ API)
-3. http://localhost:5173/login → Đăng nhập (nhập SĐT bất kỳ)
-4. http://localhost:5173/dashboard → Dashboard KPDL (sidebar riêng)
-5. http://localhost:5173/dashboard/preprocessing → Tiền xử lý dữ liệu
-6. http://localhost:5173/dashboard/apriori → Luật kết hợp Apriori
-7. http://localhost:5173/dashboard/clustering → Phân cụm K-Means
+- Làm sạch dữ liệu thực đơn thật.
+- Trích đặc trưng từ tên món, mô tả, giá, danh mục.
+- Gom cụm món ăn bằng K-Means.
+- Gợi ý món bằng content-based filtering.
 
-### Test đăng nhập:
-- Nhập SĐT bất kỳ → Gửi OTP → Nhập mã OTP: `000000` (6 số 0) → Đăng nhập
-
-### Test đặt hàng:
-1. Vào Menu → Chọn món → Thêm giỏ hàng
-2. Vào Giỏ hàng → Đặt hàng ngay
-3. Điền địa chỉ → Chọn phương thức thanh toán → Xác nhận
-4. Đơn hàng được lưu vào DB thật
-
----
-
-## ❗ Xử lý lỗi thường gặp
-
-### Lỗi: "pip install psycopg2-binary thất bại"
-→ Nếu dùng SQLite thì không cần psycopg2. Xóa dòng `psycopg2-binary` trong requirements.txt
-
-### Lỗi: "Module not found: app.xxx"
-→ Đảm bảo đang cd đúng thư mục `project-v3/backend` trước khi chạy uvicorn
-
-### Lỗi: "CORS error" trên frontend
-→ Đảm bảo backend đang chạy trên port 8000
-
-### Lỗi: "npm install thất bại"
-→ Kiểm tra Node.js version: `node -v` (cần >= 18)
-
-### Lỗi: "Cannot connect to PostgreSQL"
-→ Kiểm tra PostgreSQL service đang chạy
-→ Kiểm tra mật khẩu trong .env đúng chưa
-→ Hoặc chuyển sang SQLite cho nhanh
-
-### Lỗi: "sklearn not found"
-```bash
-pip install scikit-learn scipy mlxtend
-```
-
----
-
-## 📁 Cấu trúc thư mục
-
-```
-project-v3/
-├── README.md
-├── backend/
-│   ├── .env                          ← Cấu hình DB
-│   ├── requirements.txt              ← Thư viện Python
-│   ├── database/                     ← Dữ liệu ứng dụng + dữ liệu set menu
-│   │   ├── set_menu_items_raw.csv    ← Dữ liệu thô thu thập từ set menu
-│   │   ├── set_menu_items_clean.csv  ← Item sau làm sạch
-│   │   ├── set_menu_transactions_clean.csv ← Giao dịch Apriori
-│   │   ├── set_menu_preprocessing_report.json ← Báo cáo xử lý
-│   │   ├── menu_expanded.csv         ← Danh mục món cho website
-│   │   ├── customers.csv, orders.csv, ratings.csv ← Dữ liệu demo phụ trợ
-│   └── app/
-│       ├── main.py                   ← Entry point
-│       ├── database.py               ← Kết nối DB
-│       ├── models/models.py          ← 4 tables: Dish, Customer, Order, Rating
-│       ├── routers/
-│       │   ├── auth.py               ← Đăng ký/Đăng nhập OTP
-│       │   ├── dishes.py             ← CRUD món ăn
-│       │   ├── orders.py             ← Đặt hàng + Checkout
-│       │   ├── recommendations.py    ← Gợi ý (Hybrid)
-│       │   └── analytics.py          ← Dashboard API (4 KPDL)
-│       ├── services/
-│       │   ├── data_loader.py        ← Load CSV → DB
-│       │   ├── recommendation_service.py ← Thuật toán gợi ý
-│       │   ├── apriori_service.py    ← Luật kết hợp từ set menu
-│       │   ├── data_preprocessor.py  ← Báo cáo làm sạch dữ liệu
-│       │   └── analytics_service.py  ← Dashboard phụ trợ
-│       └── schemas/schemas.py        ← Pydantic models
-│
-└── frontend/
-    ├── package.json
-    ├── tailwind.config.js
-    ├── vite.config.js
-    └── src/
-        ├── App.jsx                   ← Routes (tách customer vs dashboard)
-        ├── api/
-        │   ├── axios.js
-        │   ├── dishesApi.js
-        │   ├── recommendationsApi.js
-        │   └── analyticsApi.js       ← Gọi API analytics
-        ├── layouts/
-        │   └── DashboardLayout.jsx   ← Layout sidebar cho dashboard
-        ├── components/               ← Header, Footer, DishCard, Loading...
-        └── pages/
-            ├── HomePage.jsx          ← Trang chủ
-            ├── MenuPage.jsx          ← Thực đơn
-            ├── DishDetailPage.jsx    ← Chi tiết món
-            ├── CartPage.jsx          ← Giỏ hàng
-            ├── CheckoutPage.jsx      ← Thanh toán
-            ├── LoginPage.jsx         ← Đăng nhập OTP
-            ├── RegisterPage.jsx      ← Đăng ký
-            ├── DashboardOverview.jsx ← Tổng quan
-            ├── DashboardPreprocessing.jsx ← Tiền xử lý dữ liệu
-            ├── DashboardApriori.jsx ← Luật kết hợp
-            ├── DashboardClassification.jsx ← Phân lớp
-            ├── DashboardClustering.jsx   ← Phân cụm
-            └── DashboardCorrelation.jsx  ← Tương quan & Hồi quy
-```
+Không dùng hóa đơn/giao dịch sinh giả.

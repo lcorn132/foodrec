@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { ShoppingCart } from "lucide-react";
+import { Link, useParams } from "react-router-dom";
+import { ExternalLink, ShoppingCart } from "lucide-react";
 
 import { getDishById } from "../../api/dishesApi.js";
 import { getRecommendationsForDish } from "../../api/recommendationsApi.js";
@@ -9,21 +9,10 @@ import Footer from "../../components/Footer.jsx";
 import PageHero from "../../components/PageHero.jsx";
 import Loading from "../../components/Loading.jsx";
 import RecommendationList from "../../components/RecommendationList.jsx";
+import DishImage from "../../components/DishImage.jsx";
 import { useCart } from "../../context/CartContext.jsx";
 import { showToast } from "../../components/Toast.jsx";
 import { formatCurrency } from "../../utils/format.js";
-
-const categoryEmojis = {
-  "Khai vị": "🥩",
-  Rau: "🥬",
-  Bò: "🥩",
-  Heo: "🐷",
-  "Gà / Vịt": "🍗",
-  "Hải sản": "🦐",
-  Lẩu: "🍲",
-  Cơm: "🍚",
-  "Tráng miệng": "🍮",
-};
 
 const PRICE_RANGE_LABELS = {
   budget: "Bình dân",
@@ -44,19 +33,21 @@ export default function DishDetailPage() {
 
   useEffect(() => {
     let alive = true;
+
     async function run() {
       setLoadingDish(true);
       setErrorDish("");
       setRecs(null);
       setQty(1);
+
       try {
         const data = await getDishById(id);
         if (!alive) return;
         setDish(data);
-      } catch (e) {
+      } catch (error) {
         if (!alive) return;
         setDish(null);
-        setErrorDish(e?.response?.data?.message || e?.message || "Không thể tải thông tin món ăn.");
+        setErrorDish(error?.message || "Không thể tải thông tin món ăn.");
         setLoadingDish(false);
         return;
       } finally {
@@ -69,16 +60,17 @@ export default function DishDetailPage() {
         const items = Array.isArray(recData) ? recData : recData?.recommendations ?? recData?.items ?? [];
         setRecs(items);
       } catch {
-        if (!alive) return;
-        setRecs([]);
+        if (alive) setRecs([]);
       }
     }
+
     run();
-    return () => { alive = false; };
+    return () => {
+      alive = false;
+    };
   }, [id]);
 
-  const cat = dish?.category ?? "";
-  const emoji = categoryEmojis[cat] ?? "🍽️";
+  const category = dish?.category ?? "";
   const canAdd = Boolean(dish?.id);
 
   return (
@@ -86,6 +78,8 @@ export default function DishDetailPage() {
       <Header />
 
       <PageHero
+        title={dish?.name || "Chi tiết món ăn"}
+        subtitle={category || "Thông tin món ăn từ dữ liệu thực đơn đã tiền xử lý"}
         breadcrumbs={[
           { label: "Trang chủ", href: "/" },
           { label: "Thực đơn", href: "/menu" },
@@ -106,24 +100,25 @@ export default function DishDetailPage() {
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div
-              className="relative rounded-3xl overflow-hidden aspect-[4/3] flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg, #EFEBE9, #FDF3D7)", border: "1px solid #E8DDD4" }}
+              className="relative rounded-3xl overflow-hidden aspect-[4/3]"
+              style={{ background: "#F7EFE4", border: "1px solid #E8DDD4" }}
             >
-              <div className="absolute inset-4 rounded-2xl pointer-events-none z-[1]" style={{ border: "1px solid rgba(230,180,34,0.25)" }} />
-              <div className="absolute top-6 left-6 flex gap-2 z-[2]">
-                {cat && (
-                  <span className="text-[12px] font-bold px-3.5 py-1.5 rounded-full text-white" style={{ background: "rgba(62,39,35,0.85)", backdropFilter: "blur(8px)" }}>
-                    {cat}
-                  </span>
-                )}
-              </div>
-              <span className="text-[120px] animate-bounce-in">{emoji}</span>
+              <DishImage src={dish?.image_url} alt={dish?.name} />
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/45 to-transparent pointer-events-none" />
+              {category && (
+                <span
+                  className="absolute top-6 left-6 text-[12px] font-bold px-3.5 py-1.5 rounded-full text-white"
+                  style={{ background: "rgba(62,39,35,0.85)", backdropFilter: "blur(8px)" }}
+                >
+                  {category}
+                </span>
+              )}
             </div>
 
             <div className="py-2 space-y-5">
-              {cat && (
-                <div className="inline-flex text-[12px] font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider" style={{ background: "#FDF3D7", color: "#D4A017" }}>
-                  {cat}
+              {category && (
+                <div className="inline-flex text-[12px] font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider" style={{ background: "#FDF3D7", color: "#B88900" }}>
+                  {category}
                 </div>
               )}
 
@@ -133,7 +128,7 @@ export default function DishDetailPage() {
 
               <div className="flex items-center justify-between px-6 py-5 rounded-2xl" style={{ background: "linear-gradient(135deg, #FDF6EC, #FDF3D7)", border: "1px solid #FAE8B0" }}>
                 <div>
-                  <div className="text-[13px] font-medium" style={{ color: "#8D6E63" }}>Giá</div>
+                  <div className="text-[13px] font-medium" style={{ color: "#8D6E63" }}>Giá bán</div>
                   <div className="font-display text-[32px] font-bold" style={{ color: "#3E2723" }}>
                     {formatCurrency(dish?.price)}
                   </div>
@@ -141,7 +136,7 @@ export default function DishDetailPage() {
                 {dish?.price_range && (
                   <div className="text-right">
                     <div className="text-[12px]" style={{ color: "#8D6E63" }}>Mức giá</div>
-                    <div className="text-sm font-semibold" style={{ color: "#D4A017" }}>
+                    <div className="text-sm font-semibold" style={{ color: "#B88900" }}>
                       {PRICE_RANGE_LABELS[dish.price_range] ?? dish.price_range}
                     </div>
                   </div>
@@ -162,18 +157,18 @@ export default function DishDetailPage() {
                 <div className="flex items-center rounded-xl overflow-hidden" style={{ border: "2px solid #E8DDD4" }}>
                   <button
                     type="button"
-                    onClick={() => setQty((q) => Math.max(1, q - 1))}
+                    onClick={() => setQty((value) => Math.max(1, value - 1))}
                     className="w-11 h-12 flex items-center justify-center text-lg font-bold cursor-pointer transition-colors hover:bg-brown-50"
                     style={{ color: "#6D4C41", background: "transparent", border: "none" }}
                   >
-                    −
+                    -
                   </button>
                   <div className="w-12 h-12 flex items-center justify-center text-base font-bold" style={{ color: "#3E2723", borderLeft: "1px solid #E8DDD4", borderRight: "1px solid #E8DDD4" }}>
                     {qty}
                   </div>
                   <button
                     type="button"
-                    onClick={() => setQty((q) => Math.min(20, q + 1))}
+                    onClick={() => setQty((value) => Math.min(20, value + 1))}
                     className="w-11 h-12 flex items-center justify-center text-lg font-bold cursor-pointer transition-colors hover:bg-brown-50"
                     style={{ color: "#6D4C41", background: "transparent", border: "none" }}
                   >
@@ -185,10 +180,10 @@ export default function DishDetailPage() {
                   type="button"
                   disabled={!canAdd}
                   onClick={() => {
-                    for (let i = 0; i < qty; i++) {
+                    for (let index = 0; index < qty; index += 1) {
                       addToCart({ id: dish.id, name: dish.name, price: dish.price, image_url: dish.image_url });
                     }
-                    showToast(`Đã thêm ${qty} × ${dish.name} vào giỏ hàng`);
+                    showToast(`Đã thêm ${qty} x ${dish.name} vào giỏ hàng`);
                   }}
                   className="flex-1 flex items-center justify-center gap-2.5 py-3.5 rounded-xl text-base font-bold cursor-pointer transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
                   style={{ background: "linear-gradient(135deg, #E6B422, #D4A017)", color: "#3E2723", border: "none", boxShadow: "0 4px 16px rgba(230,180,34,0.35)" }}
@@ -197,11 +192,24 @@ export default function DishDetailPage() {
                   Thêm vào giỏ hàng
                 </button>
               </div>
+
+              {dish?.source_url && (
+                <Link
+                  to={dish.source_url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold no-underline"
+                  style={{ color: "#8D6E63" }}
+                >
+                  Xem nguồn dữ liệu món ăn
+                  <ExternalLink className="w-4 h-4" />
+                </Link>
+              )}
             </div>
           </div>
         )}
 
-        <RecommendationList title="Món Tương Tự" recommendations={recs} />
+        <RecommendationList title="Món gợi ý đi kèm" recommendations={recs} />
       </main>
 
       <Footer minimal />

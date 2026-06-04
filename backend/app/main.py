@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import Base, SessionLocal, engine, ensure_database_schema
 from app.models.models import Dish, Customer, Order, Rating
-from app.routers import dishes, orders, recommendations, auth, analytics, ratings
+from app.routers import dishes, orders, recommendations, auth, analytics, ratings, data_pipeline
 from app.services.data_loader import load_csv_to_db
 
 Base.metadata.create_all(bind=engine)
@@ -30,6 +30,7 @@ app.include_router(orders.router)
 app.include_router(ratings.router)
 app.include_router(recommendations.router)
 app.include_router(analytics.router)
+app.include_router(data_pipeline.router)
 
 
 @app.on_event("startup")

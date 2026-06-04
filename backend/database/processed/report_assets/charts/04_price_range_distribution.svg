@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+  <rect width="900" height="560" fill="#fffaf3"/>
+  <text x="450.0" y="34" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#3b231c">Phân bố món theo mức giá</text>
+  <path d="M 320.0 150.0 A 150 150 0 0 1 450.5587706864329 226.1460400733487" fill="none" stroke="#8B4513" stroke-width="58"/>
+  <path d="M 450.5587706864329 226.1460400733487 A 150 150 0 0 1 277.0497726316831 443.7194418616002" fill="none" stroke="#D89A00" stroke-width="58"/>
+  <path d="M 277.0497726316831 443.7194418616002 A 150 150 0 0 1 218.94565345301643 189.14866241690112" fill="none" stroke="#2F855A" stroke-width="58"/>
+  <path d="M 218.94565345301643 189.14866241690112 A 150 150 0 0 1 312.0836979304306 150.20903845176994" fill="none" stroke="#2563EB" stroke-width="58"/>
+  <path d="M 312.0836979304306 150.20903845176994 A 150 150 0 0 1 320.0 150.0" fill="none" stroke="#7C3AED" stroke-width="58"/>
+  <text x="320" y="292" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#3b231c">119</text>
+  <text x="320" y="325" text-anchor="middle" font-family="Arial" font-size="15" fill="#6b554a">tổng số</text>
+  <rect x="575" y="172" width="24" height="24" rx="4" fill="#8B4513"/>
+  <text x="612" y="190" font-family="Arial" font-size="16" font-weight="700" fill="#3b231c">budget: 20</text>
+  <text x="612" y="212" font-family="Arial" font-size="13" fill="#6b554a">16.8%</text>
+  <rect x="575" y="230" width="24" height="24" rx="4" fill="#D89A00"/>
+  <text x="612" y="248" font-family="Arial" font-size="16" font-weight="700" fill="#3b231c">affordable: 45</text>
+  <text x="612" y="270" font-family="Arial" font-size="13" fill="#6b554a">37.8%</text>
+  <rect x="575" y="288" width="24" height="24" rx="4" fill="#2F855A"/>
+  <text x="612" y="306" font-family="Arial" font-size="16" font-weight="700" fill="#3b231c">moderate: 40</text>
+  <text x="612" y="328" font-family="Arial" font-size="13" fill="#6b554a">33.6%</text>
+  <rect x="575" y="346" width="24" height="24" rx="4" fill="#2563EB"/>
+  <text x="612" y="364" font-family="Arial" font-size="16" font-weight="700" fill="#3b231c">premium: 13</text>
+  <text x="612" y="386" font-family="Arial" font-size="13" fill="#6b554a">10.9%</text>
+  <rect x="575" y="404" width="24" height="24" rx="4" fill="#7C3AED"/>
+  <text x="612" y="422" font-family="Arial" font-size="16" font-weight="700" fill="#3b231c">unknown: 1</text>
+  <text x="612" y="444" font-family="Arial" font-size="13" fill="#6b554a">0.8%</text>
+</svg>

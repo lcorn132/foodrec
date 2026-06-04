@@ -13,6 +13,7 @@ class DishBase(BaseModel):
     tags: Optional[str] = None
     description: Optional[str] = None
     image_url: Optional[str] = None
+    source_url: Optional[str] = None
 
 class DishCreate(DishBase):
     pass
@@ -27,6 +28,7 @@ class DishUpdate(BaseModel):
     tags: Optional[str] = None
     description: Optional[str] = None
     image_url: Optional[str] = None
+    source_url: Optional[str] = None
     is_active: Optional[int] = None
 
 class DishResponse(DishBase):

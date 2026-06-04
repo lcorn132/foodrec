@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { CheckCircle2 } from "lucide-react";
 import Header from "../../components/Header.jsx";
 import Footer from "../../components/Footer.jsx";
+import DishImage from "../../components/DishImage.jsx";
 import PageHero from "../../components/PageHero.jsx";
 import { useCart } from "../../context/CartContext.jsx";
 import { formatCurrency } from "../../utils/format.js";
@@ -220,7 +221,7 @@ export default function CheckoutPage() {
                 {items.map(item => (
                   <div key={item.id} className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "#EFEBE9", border: "1px solid #E8DDD4" }}>
-                      {item.image_url ? <img src={item.image_url} alt={item.name} className="w-full h-full object-cover rounded-lg" /> : '🍽️'}
+                      <DishImage src={item.image_url} alt={item.name} rounded="rounded-lg" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="text-sm font-semibold truncate" style={{ color: "#3E2723" }}>{item.name}</div>

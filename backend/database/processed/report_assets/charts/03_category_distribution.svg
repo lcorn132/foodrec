@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1150" height="720" viewBox="0 0 1150 720">
+  <rect width="1150" height="720" fill="#fffaf3"/>
+  <text x="575.0" y="34" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#3b231c">Phân bố món sạch theo danh mục</text>
+  <text x="346" y="97.93958333333333" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">Món cá</text>
+  <rect x="360" y="79.075" width="648.1481481481482" height="27.729166666666668" rx="5" fill="#8B4513" opacity="0.9"/>
+  <text x="1018.1481481481482" y="97.93958333333333" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">20</text>
+  <text x="346" y="148.35625" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">Món canh</text>
+  <rect x="360" y="129.49166666666665" width="486.1111111111111" height="27.729166666666668" rx="5" fill="#D89A00" opacity="0.9"/>
+  <text x="856.1111111111111" y="148.35625" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">15</text>
+  <text x="346" y="198.77291666666665" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">Set menu đoàn</text>
+  <rect x="360" y="179.9083333333333" width="388.88888888888886" height="27.729166666666668" rx="5" fill="#2F855A" opacity="0.9"/>
+  <text x="758.8888888888889" y="198.77291666666665" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">12</text>
+  <text x="346" y="249.18958333333333" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">Món khai vị</text>
+  <rect x="360" y="230.325" width="388.88888888888886" height="27.729166666666668" rx="5" fill="#2563EB" opacity="0.9"/>
+  <text x="758.8888888888889" y="249.18958333333333" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">12</text>
+  <text x="346" y="299.60624999999993" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">Món rau</text>
+  <rect x="360" y="280.7416666666666" width="388.88888888888886" height="27.729166666666668" rx="5" fill="#7C3AED" opacity="0.9"/>
+  <text x="758.8888888888889" y="299.60624999999993" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">12</text>
+  <text x="346" y="350.0229166666666" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">Món heo</text>
+  <rect x="360" y="331.1583333333333" width="356.48148148148147" height="27.729166666666668" rx="5" fill="#DC2626" opacity="0.9"/>
+  <text x="726.4814814814815" y="350.0229166666666" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">11</text>
+  <text x="346" y="400.4395833333333" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">Món gà/bò</text>
+  <rect x="360" y="381.575" width="324.0740740740741" height="27.729166666666668" rx="5" fill="#0F766E" opacity="0.9"/>
+  <text x="694.0740740740741" y="400.4395833333333" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">10</text>
+  <text x="346" y="450.85624999999993" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">Món thêm</text>
+  <rect x="360" y="431.9916666666666" width="291.66666666666663" height="27.729166666666668" rx="5" fill="#EA580C" opacity="0.9"/>
+  <text x="661.6666666666666" y="450.85624999999993" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">9</text>
+  <text x="346" y="501.2729166666666" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">Món đậu hũ/trứng</text>
+  <rect x="360" y="482.4083333333333" width="194.44444444444443" height="27.729166666666668" rx="5" fill="#8B4513" opacity="0.9"/>
+  <text x="564.4444444444445" y="501.2729166666666" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">6</text>
+  <text x="346" y="551.6895833333334" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">Món lẩu</text>
+  <rect x="360" y="532.825" width="194.44444444444443" height="27.729166666666668" rx="5" fill="#D89A00" opacity="0.9"/>
+  <text x="564.4444444444445" y="551.6895833333334" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">6</text>
+  <text x="346" y="602.10625" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">Cơm niêu</text>
+  <rect x="360" y="583.2416666666667" width="97.22222222222221" height="27.729166666666668" rx="5" fill="#2F855A" opacity="0.9"/>
+  <text x="467.22222222222223" y="602.10625" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">3</text>
+  <text x="346" y="652.5229166666667" text-anchor="end" font-family="Arial" font-size="14" fill="#3b231c">Món hải sản</text>
+  <rect x="360" y="633.6583333333333" width="97.22222222222221" height="27.729166666666668" rx="5" fill="#2563EB" opacity="0.9"/>
+  <text x="467.22222222222223" y="652.5229166666667" font-family="Arial" font-size="13" font-weight="700" fill="#2d1b16">3</text>
+</svg>
