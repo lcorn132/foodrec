@@ -209,7 +209,7 @@ export default function DishDetailPage() {
           </div>
         )}
 
-        <RecommendationList title="Món gợi ý đi kèm" recommendations={recs} />
+        <RecommendationList title="Có thể bạn cũng thích" recommendations={recs} />
       </main>
 
       <Footer minimal />

@@ -1,11 +1,10 @@
 /**
- * [V6] DashboardDishes — CRUD Thực đơn
+ * [V6] DashboardDishes — CRUD món ăn
  * - Upload ảnh từ máy tính (Base64) thay URL
  * - formatCurrency chuẩn
  */
 import { useEffect, useRef, useState } from "react";
-import { getDishes } from "../../api/dishesApi";
-import { createDish, updateDish, deleteDish } from "../../api/userApi";
+import { getUploadedDishes } from "../../api/dishesApi";
 import Loading from "../../components/Loading";
 import { formatCurrency } from "../../utils/format";
 
@@ -91,7 +90,7 @@ export default function DashboardDishes() {
 
   const load = () => {
     setLoading(true);
-    getDishes({ limit: 200 }).then(r => setDishes(Array.isArray(r) ? r : r?.items || []))
+    getUploadedDishes().then(r => setDishes(Array.isArray(r) ? r : r?.items || []))
       .catch(() => setDishes([])).finally(() => setLoading(false));
   };
   useEffect(() => { load(); }, []);
@@ -101,6 +100,7 @@ export default function DashboardDishes() {
     if (catFilter && d.category !== catFilter) return false;
     return true;
   });
+  const categoryOptions = Array.from(new Set(dishes.map(d => d.category).filter(Boolean))).sort((a, b) => a.localeCompare(b, "vi"));
 
   const openAdd = () => { setForm(EMPTY); setImagePreview(null); setModal("add"); };
   const openEdit = (d) => { setForm({ ...d }); setImagePreview(d.image_url || null); setModal(d); };
@@ -121,36 +121,25 @@ export default function DashboardDishes() {
   };
 
   const handleSave = async () => {
-    if (!form.name?.trim()) { alert("Vui lòng nhập tên món"); return; }
-    try {
-      const cleanForm = { ...form };
-      delete cleanForm.dish_type;
-      delete cleanForm.ingredients;
-      delete cleanForm.detailed_ingredients;
-      delete cleanForm.tags;
-      const payload = { ...cleanForm, price: Number(form.price) || 0 };
-      if (modal === "add") await createDish(payload);
-      else await updateDish(modal.id, payload);
-      close(); load();
-    } catch {}
+    alert("Dữ liệu món ăn được lấy từ file upload. Hãy upload file mới và chạy pipeline để thay đổi danh sách món.");
   };
 
   const handleDelete = async (id) => {
-    if (!confirm("Xóa món ăn này?")) return;
-    await deleteDish(id).catch(() => {}); load();
+    alert("Dữ liệu món ăn được lấy từ file upload. Hãy upload file mới và chạy pipeline để thay đổi danh sách món.");
   };
 
-  if (loading) return <Loading label="Đang tải thực đơn..." />;
+  if (loading) return <Loading label="Đang tải món ăn..." />;
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between flex-wrap gap-4">
         <div>
-          <h1 className="font-display text-2xl font-bold" style={{ color: "#3E2723" }}>🍽️ Quản Lý Thực Đơn</h1>
-          <p className="text-sm" style={{ color: "#8D6E63" }}>{dishes.length} món trong thực đơn</p>
+          <h1 className="font-display text-2xl font-bold" style={{ color: "#3E2723" }}>🍽️ Quản Lý Món Ăn</h1>
+          <p className="text-sm" style={{ color: "#8D6E63" }}>{dishes.length} món ăn đang quản lý</p>
         </div>
-        <button onClick={openAdd} className="px-5 py-2.5 rounded-xl text-sm font-bold cursor-pointer"
-          style={{ background: "linear-gradient(135deg, #E6B422, #D4A017)", color: "#3E2723", border: "none" }}>➕ Thêm món mới</button>
+        <div className="rounded-xl px-4 py-2 text-xs font-bold" style={{ background: "#FDF3D7", color: "#8D6E63" }}>
+          Nguồn: dữ liệu upload đã xử lý
+        </div>
       </div>
 
       <div className="flex gap-3 flex-wrap">
@@ -158,14 +147,14 @@ export default function DashboardDishes() {
           className="flex-1 min-w-[200px] px-4 py-2.5 rounded-xl text-sm outline-none" style={{ border: "1.5px solid #E8DDD4", background: "white" }} />
         <select value={catFilter} onChange={e => setCatFilter(e.target.value)} className="px-3 py-2.5 rounded-xl text-sm" style={{ border: "1.5px solid #E8DDD4" }}>
           <option value="">Tất cả danh mục</option>
-          {CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
+          {categoryOptions.map(c => <option key={c} value={c}>{c}</option>)}
         </select>
       </div>
 
       <div className="overflow-x-auto bg-white rounded-2xl" style={{ border: "1px solid #E8DDD4" }}>
         <table className="w-full text-sm" style={{ borderCollapse: "separate", borderSpacing: 0 }}>
           <thead><tr>
-            {["ID", "Tên món", "Danh mục", "Giá", ""].map(h =>
+            {["ID", "Tên món", "Danh mục", "Giá", "Nguồn"].map(h =>
               <th key={h} className="text-left text-[11px] font-bold uppercase tracking-wider px-3 py-2.5" style={{ color: "#4E342E", background: "#FDF6EC", borderBottom: "2px solid #E8DDD4" }}>{h}</th>)}
           </tr></thead>
           <tbody>
@@ -176,10 +165,13 @@ export default function DashboardDishes() {
                 <td className="px-3 py-2.5" style={{ color: "#5D4037", borderBottom: "1px solid #EFEBE9" }}>{d.category}</td>
                 <td className="px-3 py-2.5 font-bold" style={{ color: "#D4A017", borderBottom: "1px solid #EFEBE9" }}>{formatCurrency(d.price)}</td>
                 <td className="px-3 py-2.5" style={{ borderBottom: "1px solid #EFEBE9" }}>
-                  <div className="flex gap-1.5">
-                    <button onClick={() => openEdit(d)} className="text-[11px] font-semibold px-2 py-1 rounded cursor-pointer" style={{ background: "#DBEAFE", color: "#3B82F6", border: "none" }}>✏️</button>
-                    <button onClick={() => handleDelete(d.id)} className="text-[11px] font-semibold px-2 py-1 rounded cursor-pointer" style={{ background: "#FEE2E2", color: "#EF4444", border: "none" }}>🗑️</button>
-                  </div>
+                  {d.source_url ? (
+                    <a href={d.source_url} target="_blank" rel="noreferrer" className="text-[11px] font-semibold hover:underline" style={{ color: "#3B82F6" }}>
+                      Xem nguồn
+                    </a>
+                  ) : (
+                    <span className="text-[11px]" style={{ color: "#A1887F" }}>File upload</span>
+                  )}
                 </td>
               </tr>
             ))}

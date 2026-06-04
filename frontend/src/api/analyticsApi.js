@@ -19,3 +19,8 @@ export async function getTopDishes(topN = 10) {
   const res = await axiosClient.get("/analytics/top-dishes", { params: { top_n: topN } });
   return res.data;
 }
+
+export async function getPipelineStatus() {
+  const res = await axiosClient.get("/data-pipeline/status");
+  return res.data;
+}

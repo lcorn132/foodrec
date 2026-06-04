@@ -156,6 +156,13 @@ def main() -> None:
     raw_file_rows = [(item["file"].replace("comnieuvietnam-vn-2026-06-04", "raw"), int(item["rows"])) for item in raw_files]
     category_counts = Counter(row["category_label"] for row in dishes)
     price_counts = Counter(row["price_range"] for row in dishes)
+    price_labels = {
+        "budget": "Bình dân",
+        "affordable": "Vừa phải",
+        "moderate": "Trung bình",
+        "premium": "Cao cấp",
+        "unknown": "Chưa rõ",
+    }
     cluster_counts = Counter(row["cluster_label"] for row in dishes)
     score_buckets = Counter()
     for row in similarity_rows:
@@ -172,7 +179,7 @@ def main() -> None:
     bar_chart(CHART_DIR / "01_raw_rows_by_file.svg", "Dữ liệu gốc: số dòng theo file Excel", raw_file_rows, rotate=True)
     bar_chart(CHART_DIR / "02_preprocessing_funnel.svg", "Từ dữ liệu thô đến dữ liệu sạch", [("Dòng raw", raw_rows), ("Món sạch", len(dishes)), ("Dòng set menu parse", len(set_items)), ("Dòng gợi ý", len(similarity_rows))])
     hbar_chart(CHART_DIR / "03_category_distribution.svg", "Phân bố món sạch theo danh mục", category_counts.most_common())
-    donut_chart(CHART_DIR / "04_price_range_distribution.svg", "Phân bố món theo mức giá", [(label, price_counts.get(label, 0)) for label in ["budget", "affordable", "moderate", "premium", "unknown"]])
+    donut_chart(CHART_DIR / "04_price_range_distribution.svg", "Phân bố món theo mức giá", [(price_labels[label], price_counts.get(label, 0)) for label in ["budget", "affordable", "moderate", "premium", "unknown"]])
     hbar_chart(CHART_DIR / "05_kmeans_cluster_distribution.svg", "K-Means: 4 cụm cấu trúc mâm cơm Việt", cluster_counts.most_common())
     donut_chart(CHART_DIR / "06_similarity_score_distribution.svg", "Phân bố điểm gợi ý content-based", score_buckets.most_common())
 
@@ -183,7 +190,7 @@ def main() -> None:
             "unique_categories": len(category_counts),
             "set_menu_items": len(set_items),
             "category_counts": dict(category_counts),
-            "price_range_counts": dict(price_counts),
+            "price_range_counts": {price_labels.get(label, label): count for label, count in price_counts.items()},
         },
         "kmeans": {"clusters": dict(cluster_counts), "cluster_count": len(cluster_counts)},
         "content_based_recommendation": {

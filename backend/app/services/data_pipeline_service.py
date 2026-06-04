@@ -87,10 +87,38 @@ def chart_files() -> list[dict[str, Any]]:
         {
             "name": path.name,
             "size": path.stat().st_size,
+            "modified": path.stat().st_mtime,
             "url": f"/api/data-pipeline/charts/{path.name}",
         }
         for path in sorted(CHART_DIR.glob("*.svg"))
     ]
+
+
+def processed_dishes() -> list[dict[str, Any]]:
+    rows = _read_csv(PROCESSED_DIR / "dishes_clean.csv")
+    dishes = []
+    for index, row in enumerate(rows, start=1):
+        dish_id = _safe_text(row.get("dish_id")) or str(index)
+        dishes.append(
+            {
+                "id": dish_id,
+                "dish_id": dish_id,
+                "name": _safe_text(row.get("name")),
+                "category": _safe_text(row.get("category_label") or row.get("category")),
+                "category_key": _safe_text(row.get("category")),
+                "dish_type": _safe_text(row.get("cluster_label") or row.get("meal_role")),
+                "price": _safe_int(row.get("price_vnd")),
+                "price_range": _safe_text(row.get("price_range")),
+                "ingredients": _safe_text(row.get("keywords")),
+                "description": _safe_text(row.get("description")),
+                "image_url": _safe_text(row.get("image_url")),
+                "source_url": _safe_text(row.get("source_url")),
+                "source_files": _safe_text(row.get("source_files")),
+                "is_set_menu": _safe_int(row.get("is_set_menu")),
+                "sort_order": index,
+            }
+        )
+    return dishes
 
 
 def pipeline_status() -> dict[str, Any]:

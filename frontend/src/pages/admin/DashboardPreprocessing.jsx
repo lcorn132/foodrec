@@ -59,6 +59,7 @@ export default function DashboardPreprocessing() {
     const formData = new FormData();
     files.forEach((file) => formData.append("files", file));
     setUploading(true);
+    setRunning(false);
     setMessage("");
     try {
       await axios.post(`/data-pipeline/upload?clear_existing=${clearExisting}`, formData, {
@@ -66,12 +67,18 @@ export default function DashboardPreprocessing() {
         timeout: 120_000,
       });
       setFiles([]);
-      setMessage("Đã upload dữ liệu raw. Bạn có thể chạy xử lý.");
-      await loadStatus();
+      setUploading(false);
+      setRunning(true);
+      setMessage("Đã upload dữ liệu raw. Đang chạy pipeline để sinh lại biểu đồ...");
+      const res = await axios.post("/data-pipeline/run?load_to_db=true", null, { timeout: 180_000 });
+      setStatus(res.data);
+      const loaded = res.data?.db_load?.loaded ?? 0;
+      setMessage(`Đã upload, xử lý và sinh lại biểu đồ từ dữ liệu mới. Đã nạp ${formatNumber(loaded)} món sạch vào web.`);
     } catch (error) {
-      setMessage(error.message || "Upload thất bại.");
+      setMessage(error.message || "Upload hoặc pipeline xử lý thất bại.");
     } finally {
       setUploading(false);
+      setRunning(false);
     }
   };
 
@@ -216,7 +223,7 @@ export default function DashboardPreprocessing() {
           <div className="grid gap-5 xl:grid-cols-2">
             {charts.map((chart) => (
               <figure key={chart.name} className="rounded-lg border border-slate-200 bg-white p-3">
-                <img src={`${API_ORIGIN}${chart.url}`} alt={chart.name} className="w-full rounded-md bg-white" />
+                <img src={`${API_ORIGIN}${chart.url}?v=${chart.modified || chart.size || ""}`} alt={chart.name} className="w-full rounded-md bg-white" />
                 <figcaption className="mt-2 text-xs font-medium text-slate-500">{chart.name}</figcaption>
               </figure>
             ))}

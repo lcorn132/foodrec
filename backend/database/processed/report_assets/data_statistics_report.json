@@ -76,11 +76,11 @@
       "Món thêm": 9
     },
     "price_range_counts": {
-      "moderate": 40,
-      "premium": 13,
-      "affordable": 45,
-      "unknown": 1,
-      "budget": 20
+      "Trung bình": 40,
+      "Cao cấp": 13,
+      "Vừa phải": 45,
+      "Chưa rõ": 1,
+      "Bình dân": 20
     }
   },
   "kmeans": {

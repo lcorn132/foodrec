@@ -6,7 +6,7 @@ const NAV = [
     section: "Quản lý",
     items: [
       { to: "/dashboard/orders", label: "Quản lý đơn hàng", icon: "📦" },
-      { to: "/dashboard/dishes-manage", label: "Quản lý thực đơn", icon: "🍽️" },
+      { to: "/dashboard/dishes-manage", label: "Quản lý món ăn", icon: "🍽️" },
     ],
   },
   {
@@ -87,7 +87,7 @@ export default function DashboardLayout() {
         <div className="sticky top-0 z-40 flex items-center justify-between bg-white/90 px-8 py-3 backdrop-blur-lg" style={{ borderBottom: "1px solid #E8DDD4" }}>
           <div>
             <h2 className="font-display text-base font-bold" style={{ color: "#3E2723" }}>FoodRec - Trang quản trị</h2>
-            <p className="text-[11px]" style={{ color: "#8D6E63" }}>Quản lý thực đơn, đơn hàng và báo cáo dữ liệu</p>
+            <p className="text-[11px]" style={{ color: "#8D6E63" }}>Quản lý món ăn, đơn hàng và báo cáo dữ liệu</p>
           </div>
           <div className="rounded-full px-3 py-1.5 text-[11px] font-semibold" style={{ background: "#DCFCE7", color: "#16A34A" }}>
             Đang hoạt động

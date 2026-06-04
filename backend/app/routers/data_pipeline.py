@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.services.data_pipeline_service import (
     pipeline_status,
+    processed_dishes,
     resolve_chart_path,
     run_processing_pipeline,
     save_uploaded_files,
@@ -20,6 +21,13 @@ router = APIRouter(prefix="/api/data-pipeline", tags=["Data Pipeline"])
 def status():
     """Trạng thái dữ liệu raw/processed, thống kê và danh sách biểu đồ."""
     return pipeline_status()
+
+
+@router.get("/dishes")
+def uploaded_dishes():
+    """Danh sách món ăn đọc trực tiếp từ dishes_clean.csv của lần upload/pipeline mới nhất."""
+    dishes = processed_dishes()
+    return {"items": dishes, "total": len(dishes), "source": "processed/dishes_clean.csv"}
 
 
 @router.post("/upload")

@@ -5,6 +5,11 @@ export async function getDishes(params = {}) {
   return res.data;
 }
 
+export async function getUploadedDishes() {
+  const res = await axiosClient.get("/data-pipeline/dishes");
+  return res.data;
+}
+
 export async function getDishById(id) {
   const res = await axiosClient.get(`/dishes/${id}`);
   return res.data;

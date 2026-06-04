@@ -244,7 +244,7 @@ export default function CartPage() {
         )}
 
         {/* Recommendations */}
-        <RecommendationList title="Món Bạn Có Thể Thích" recommendations={recs} />
+        <RecommendationList title="Gợi ý phối món đi kèm" recommendations={recs} />
       </main>
 
       <Footer minimal />

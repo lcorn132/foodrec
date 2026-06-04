@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 
-import { getOverview, getTopDishes } from "../../api/analyticsApi";
+import { getOverview, getPipelineStatus, getTopDishes } from "../../api/analyticsApi";
 import Loading from "../../components/Loading";
 import { formatCurrency } from "../../utils/format";
+
+const API_ORIGIN = (import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api").replace(/\/api\/?$/, "");
 
 function StatCard({ icon, value, label, sub, color = "#E6B422" }) {
   return (
@@ -19,19 +21,26 @@ function StatCard({ icon, value, label, sub, color = "#E6B422" }) {
 
 export default function DashboardOverview() {
   const [overview, setOverview] = useState(null);
+  const [pipelineStatus, setPipelineStatus] = useState(null);
   const [topDishes, setTopDishes] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     Promise.all([
       getOverview().catch(() => null),
+      getPipelineStatus().catch(() => null),
       getTopDishes(5).catch(() => ({ data: [] })),
-    ]).then(([overviewData, topData]) => {
+    ]).then(([overviewData, pipelineData, topData]) => {
       setOverview(overviewData);
+      setPipelineStatus(pipelineData);
       setTopDishes(topData?.data || []);
       setLoading(false);
     });
   }, []);
+
+  const summary = pipelineStatus?.summary || {};
+  const charts = pipelineStatus?.charts || [];
+  const clusterCount = summary.kmeans_clusters ?? 0;
 
   if (loading) return <Loading label="Đang tải dữ liệu tổng quan..." />;
 
@@ -40,15 +49,41 @@ export default function DashboardOverview() {
       <div>
         <h1 className="font-display text-2xl font-bold" style={{ color: "#3E2723" }}>Tổng quan</h1>
         <p className="text-sm" style={{ color: "#8D6E63" }}>
-          Theo dõi thực đơn, đơn hàng và dữ liệu món ăn đã tiền xử lý.
+          Theo dõi món ăn, đơn hàng và dữ liệu đã tiền xử lý.
         </p>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <StatCard icon="💰" value={formatCurrency(overview?.total_revenue || 0)} label="Doanh thu" sub="Đã ghi nhận" color="#16A34A" />
         <StatCard icon="📦" value={overview?.total_orders ?? 0} label="Đơn hàng" sub={`${overview?.completed_orders || 0} hoàn thành`} />
-        <StatCard icon="🍽️" value={overview?.total_dishes ?? 0} label="Món trong thực đơn" sub="Dữ liệu sạch" color="#3B82F6" />
-        <StatCard icon="🧠" value="4 cụm" label="Hướng gợi ý" sub="Theo mâm cơm Việt" color="#8B5CF6" />
+        <StatCard icon="🍽️" value={overview?.total_dishes ?? 0} label="Món ăn" sub="Dữ liệu sạch" color="#3B82F6" />
+        <StatCard icon="🧠" value={`${clusterCount} cụm`} label="Hướng gợi ý" sub={`${summary.content_similarity_rows || 0} dòng gợi ý`} color="#8B5CF6" />
+      </div>
+
+      <div className="rounded-2xl bg-white p-6" style={{ border: "1px solid #E8DDD4" }}>
+        <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h3 className="font-display text-lg font-bold" style={{ color: "#3E2723" }}>Biểu đồ dữ liệu</h3>
+            <p className="text-[13px]" style={{ color: "#8D6E63" }}>
+              Sinh từ lần upload và chạy pipeline mới nhất.
+            </p>
+          </div>
+          <span className="text-xs font-semibold" style={{ color: "#8D6E63" }}>{summary.clean_dishes || 0} món sạch</span>
+        </div>
+        {charts.length ? (
+          <div className="grid gap-4 xl:grid-cols-2">
+            {charts.slice(0, 4).map((chart) => (
+              <figure key={chart.name} className="rounded-xl p-3" style={{ border: "1px solid #EFEBE9" }}>
+                <img src={`${API_ORIGIN}${chart.url}?v=${chart.modified || chart.size || ""}`} alt={chart.name} className="w-full rounded-lg bg-white" />
+                <figcaption className="mt-2 text-xs font-semibold" style={{ color: "#8D6E63" }}>{chart.name}</figcaption>
+              </figure>
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-xl px-4 py-8 text-center text-sm" style={{ background: "#FDF8F3", color: "#8D6E63" }}>
+            Chưa có biểu đồ. Upload dữ liệu và chạy pipeline để dashboard tự cập nhật.
+          </div>
+        )}
       </div>
 
       <div className="rounded-2xl bg-white p-6" style={{ border: "1px solid #E8DDD4" }}>
