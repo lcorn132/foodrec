@@ -35,14 +35,43 @@ function cartReducer(state, action) {
         items: state.items.map((i) => ((i.cartKey || String(i.id)) === cartKey ? { ...i, qty: nextQty } : i)),
       };
     }
+    case "UPDATE_VARIANT": {
+      const { cartKey, nextItem } = action.payload;
+      const nextKey = nextItem.cartKey || String(nextItem.id);
+      const current = state.items.find((i) => (i.cartKey || String(i.id)) === String(cartKey));
+      if (!current) return state;
+
+      const merged = state.items.find((i) => (i.cartKey || String(i.id)) === nextKey);
+      if (merged && nextKey !== String(cartKey)) {
+        return {
+          ...state,
+          items: state.items
+            .filter((i) => (i.cartKey || String(i.id)) !== String(cartKey))
+            .map((i) => ((i.cartKey || String(i.id)) === nextKey ? { ...i, qty: i.qty + current.qty } : i)),
+        };
+      }
+
+      return {
+        ...state,
+        items: state.items.map((i) =>
+          (i.cartKey || String(i.id)) === String(cartKey)
+            ? { ...i, ...nextItem, qty: current.qty }
+            : i,
+        ),
+      };
+    }
     case "CLEAR":
-      return { ...state, items: [] };
+      return { ...state, items: [], voucher: null };
+    case "SET_VOUCHER":
+      return { ...state, voucher: action.payload };
+    case "CLEAR_VOUCHER":
+      return { ...state, voucher: null };
     default:
       return state;
   }
 }
 
-const initialState = { items: [] };
+const initialState = { items: [], voucher: null };
 
 export function CartProvider({ children }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
@@ -53,19 +82,28 @@ export function CartProvider({ children }) {
       (sum, i) => sum + (Number(i.price) || 0) * i.qty,
       0,
     );
+    const discountAmount = Math.min(Number(state.voucher?.discount_amount || 0), totalAmount);
+    const payableAmount = Math.max(totalAmount - discountAmount, 0);
     return {
       items: state.items,
+      voucher: state.voucher,
       count,
       getTotalItems: () => count,
       getTotalAmount: () => totalAmount,
+      getDiscountAmount: () => discountAmount,
+      getPayableAmount: () => payableAmount,
       addToCart: (dish) => dispatch({ type: "ADD", payload: dish }),
       removeFromCart: (id) => dispatch({ type: "REMOVE", payload: id }),
       setQty: (id, qty) => dispatch({ type: "SET_QTY", payload: { id, qty } }),
       updateQuantity: (id, qty) =>
         dispatch({ type: "SET_QTY", payload: { id, qty } }),
+      updateVariant: (cartKey, nextItem) =>
+        dispatch({ type: "UPDATE_VARIANT", payload: { cartKey, nextItem } }),
+      setVoucher: (voucher) => dispatch({ type: "SET_VOUCHER", payload: voucher }),
+      clearVoucher: () => dispatch({ type: "CLEAR_VOUCHER" }),
       clearCart: () => dispatch({ type: "CLEAR" }),
     };
-  }, [state.items]);
+  }, [state.items, state.voucher]);
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }

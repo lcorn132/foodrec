@@ -49,6 +49,8 @@ class Order(Base):
     note = Column(Text, nullable=True)
     customer_name = Column(String(100), nullable=True)
     customer_phone = Column(String(20), nullable=True)
+    voucher_code = Column(String(40), nullable=True)
+    discount_amount = Column(Integer, default=0)
 
 
 class Rating(Base):
@@ -61,3 +63,22 @@ class Rating(Base):
     rating_date = Column(DateTime, default=datetime.utcnow)
     admin_reply = Column(Text, nullable=True)
     reply_date = Column(DateTime, nullable=True)
+
+
+class Voucher(Base):
+    __tablename__ = "vouchers"
+    id = Column(Integer, primary_key=True, index=True)
+    code = Column(String(40), nullable=False, unique=True, index=True)
+    name = Column(String(120), nullable=False)
+    description = Column(Text, nullable=True)
+    discount_type = Column(String(20), default="percent")  # percent, fixed
+    discount_value = Column(Integer, default=0)
+    min_order_amount = Column(Integer, default=0)
+    max_discount_amount = Column(Integer, nullable=True)
+    applies_to = Column(String(50), default="all")
+    usage_limit = Column(Integer, nullable=True)
+    used_count = Column(Integer, default=0)
+    is_active = Column(Integer, default=1)
+    starts_at = Column(DateTime, nullable=True)
+    ends_at = Column(DateTime, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)

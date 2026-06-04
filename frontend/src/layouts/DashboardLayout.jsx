@@ -7,6 +7,7 @@ const NAV = [
     items: [
       { to: "/dashboard/orders", label: "Quản lý đơn hàng", icon: "📦" },
       { to: "/dashboard/dishes-manage", label: "Quản lý món ăn", icon: "🍽️" },
+      { to: "/dashboard/vouchers", label: "Quản lý voucher", icon: "🏷️" },
     ],
   },
   {

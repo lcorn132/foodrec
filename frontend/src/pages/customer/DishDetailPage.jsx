@@ -13,6 +13,7 @@ import DishImage from "../../components/DishImage.jsx";
 import { useCart } from "../../context/CartContext.jsx";
 import { showToast } from "../../components/Toast.jsx";
 import { formatCurrency } from "../../utils/format.js";
+import { makeCartDish, parseDishVariants } from "../../utils/dishVariants.js";
 
 const PRICE_RANGE_LABELS = {
   budget: "Bình dân",
@@ -20,21 +21,6 @@ const PRICE_RANGE_LABELS = {
   moderate: "Trung bình",
   premium: "Cao cấp",
 };
-
-function parseDishVariants(name = "") {
-  const parts = String(name).split(":");
-  if (parts.length < 2 || !parts.slice(1).join(":").includes("/")) {
-    return { baseName: name, options: [] };
-  }
-  const baseName = parts[0].trim();
-  const options = parts
-    .slice(1)
-    .join(":")
-    .split("/")
-    .map((item) => item.trim())
-    .filter(Boolean);
-  return { baseName: baseName || name, options };
-}
 
 export default function DishDetailPage() {
   const { id } = useParams();
@@ -231,19 +217,11 @@ export default function DishDetailPage() {
                   type="button"
                   disabled={!canAdd}
                   onClick={() => {
-                    const cartName = selectedVariant ? `${variantInfo.baseName} - ${selectedVariant}` : dish.name;
-                    const cartKey = selectedVariant ? `${dish.id}:${selectedVariant}` : String(dish.id);
+                    const cartDish = makeCartDish(dish, selectedVariant);
                     for (let index = 0; index < qty; index += 1) {
-                      addToCart({
-                        id: dish.id,
-                        cartKey,
-                        name: cartName,
-                        variant: selectedVariant,
-                        price: dish.price,
-                        image_url: dish.image_url,
-                      });
+                      addToCart(cartDish);
                     }
-                    showToast(`Đã thêm ${qty} x ${cartName} vào giỏ hàng`);
+                    showToast(`Đã thêm ${qty} x ${cartDish.name} vào giỏ hàng`);
                   }}
                   className="flex-1 flex items-center justify-center gap-2.5 py-3.5 rounded-xl text-base font-bold cursor-pointer transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
                   style={{ background: "linear-gradient(135deg, #E6B422, #D4A017)", color: "#3E2723", border: "none", boxShadow: "0 4px 16px rgba(230,180,34,0.35)" }}

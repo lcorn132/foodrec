@@ -9,6 +9,15 @@ from app.services.recommendation_service import RecommendationService
 router = APIRouter(prefix="/api/recommendations", tags=["Recommendations"])
 
 
+def _display_score(score: float, strategy: str = "") -> float:
+    raw = max(float(score or 0), 0.0)
+    if strategy == "cross_cluster_mapping":
+        normalized = 0.72 + min(raw / 3.0, 1.0) * 0.23
+    else:
+        normalized = 0.68 + min(raw / 1.35, 1.0) * 0.27
+    return round(min(normalized, 0.97), 3)
+
+
 @router.post("/for-dish/{dish_id}")
 def get_recommendations_for_dish(dish_id: int, top_n: int = 10, db: Session = Depends(get_db)):
     dish = db.query(Dish).filter(Dish.id == dish_id).first()
@@ -22,12 +31,13 @@ def get_recommendations_for_dish(dish_id: int, top_n: int = 10, db: Session = De
     for rec in recommendations:
         recommended = db.query(Dish).filter(Dish.id == rec["dish_id"]).first()
         if recommended:
+            strategy = rec.get("strategy", "intra_cluster_knn")
             result.append(
                 {
                     "dish": recommended,
-                    "score": round(rec["score"], 3),
+                    "score": _display_score(rec["score"], strategy),
                     "reason": "Hợp khẩu vị với món bạn đang xem, dễ gọi thêm để bữa ăn tròn vị hơn.",
-                    "strategy": rec.get("strategy", "intra_cluster_knn"),
+                    "strategy": strategy,
                 }
             )
     return {"recommendations": result}
@@ -45,12 +55,13 @@ def get_recommendations_for_cart(request: RecommendationRequest, db: Session = D
     for rec in recommendations:
         dish = db.query(Dish).filter(Dish.id == rec["dish_id"]).first()
         if dish:
+            strategy = rec.get("strategy", "cross_cluster_mapping")
             result.append(
                 {
                     "dish": dish,
-                    "score": round(rec["score"], 3),
+                    "score": _display_score(rec["score"], strategy),
                     "reason": "Món đi kèm giúp giỏ hàng cân bằng vị và hấp dẫn hơn.",
-                    "strategy": rec.get("strategy", "cross_cluster_mapping"),
+                    "strategy": strategy,
                 }
             )
     return {"recommendations": result}

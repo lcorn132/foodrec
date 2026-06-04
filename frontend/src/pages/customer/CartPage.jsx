@@ -10,6 +10,9 @@ import PageHero from "../../components/PageHero.jsx";
 import RecommendationList from "../../components/RecommendationList.jsx";
 import { useCart } from "../../context/CartContext.jsx";
 import { getRecommendationsForCart } from "../../api/recommendationsApi.js";
+import { getActiveVouchers, validateVoucher } from "../../api/vouchersApi.js";
+import { makeCartDish, parseDishVariants } from "../../utils/dishVariants.js";
+import { showToast } from "../../components/Toast.jsx";
 
 
 const categoryEmojis = {
@@ -21,17 +24,28 @@ export default function CartPage() {
   const navigate = useNavigate();
   const {
     items,
+    voucher,
     updateQuantity,
+    updateVariant,
     removeFromCart,
     getTotalItems,
     getTotalAmount,
+    getDiscountAmount,
+    getPayableAmount,
+    setVoucher,
+    clearVoucher,
   } = useCart();
 
   const [recs, setRecs] = useState(null);
+  const [availableVouchers, setAvailableVouchers] = useState([]);
+  const [voucherMessage, setVoucherMessage] = useState("");
+  const [applyingVoucher, setApplyingVoucher] = useState(false);
 
   const dishIds = useMemo(() => items.map((i) => i.id), [items]);
   const totalItems = getTotalItems();
   const totalAmount = getTotalAmount();
+  const discountAmount = getDiscountAmount();
+  const payableAmount = getPayableAmount();
 
   useEffect(() => {
     let alive = true;
@@ -51,6 +65,47 @@ export default function CartPage() {
     run();
     return () => { alive = false; };
   }, [dishIds]);
+
+  useEffect(() => {
+    if (voucher && totalAmount < (voucher.voucher?.min_order_amount || 0)) {
+      clearVoucher();
+      setVoucherMessage("Mã giảm giá đã được gỡ vì đơn hàng không còn đạt mức tối thiểu.");
+    }
+  }, [totalAmount, voucher, clearVoucher]);
+
+  useEffect(() => {
+    let alive = true;
+    async function loadVouchers() {
+      try {
+        const data = await getActiveVouchers(totalAmount);
+        if (alive) setAvailableVouchers(data.items || []);
+      } catch {
+        if (alive) setAvailableVouchers([]);
+      }
+    }
+    loadVouchers();
+    return () => { alive = false; };
+  }, [totalAmount]);
+
+  const applyVoucher = async (code) => {
+    setApplyingVoucher(true);
+    setVoucherMessage("");
+    try {
+      const data = await validateVoucher({
+        code,
+        subtotal: totalAmount,
+        items: items.map((item) => ({ id: item.id, qty: item.qty, price: item.price })),
+      });
+      setVoucher(data);
+      setVoucherMessage(`${data.voucher.name}: giảm ${formatCurrency(data.discount_amount)} cho đơn này.`);
+      showToast(`Đã áp dụng mã ${data.voucher.code}`);
+    } catch (error) {
+      clearVoucher();
+      setVoucherMessage(error?.message || "Mã giảm giá không hợp lệ.");
+    } finally {
+      setApplyingVoucher(false);
+    }
+  };
 
   return (
     <div className="min-h-dvh" style={{ background: '#FFFAF3' }}>
@@ -89,7 +144,8 @@ export default function CartPage() {
             {/* Items */}
             <div className="space-y-4">
               {items.map((item) => {
-                const emoji = '🍽️';
+                const parsedVariants = item.variantOptions?.length ? { baseName: item.baseName || item.name, options: item.variantOptions } : parseDishVariants(item.name);
+                const canChangeVariant = parsedVariants.options.length > 1;
                 return (
                   <div
                     key={item.cartKey || item.id}
@@ -113,6 +169,29 @@ export default function CartPage() {
                             <div className="mt-1 text-xs font-semibold" style={{ color: '#B88900' }}>
                               Kiểu chế biến: {item.variant}
                             </div>
+                          )}
+                          {canChangeVariant && (
+                            <select
+                              value={item.variant || parsedVariants.options[0]}
+                              onChange={(event) => {
+                                const nextItem = makeCartDish(
+                                  {
+                                    id: item.id,
+                                    name: `${parsedVariants.baseName}: ${parsedVariants.options.join("/")}`,
+                                    price: item.price,
+                                    image_url: item.image_url,
+                                  },
+                                  event.target.value,
+                                );
+                                updateVariant(item.cartKey || item.id, nextItem);
+                              }}
+                              className="mt-2 rounded-lg px-3 py-2 text-xs font-semibold outline-none"
+                              style={{ border: '1px solid #E8DDD4', color: '#5D4037', background: '#FFF7E6' }}
+                            >
+                              {parsedVariants.options.map((option) => (
+                                <option key={option} value={option}>{option}</option>
+                              ))}
+                            </select>
                           )}
                         </div>
                         <button
@@ -190,13 +269,19 @@ export default function CartPage() {
                     <span style={{ color: '#8D6E63' }}>Phí giao hàng</span>
                     <span className="font-semibold" style={{ color: '#16A34A' }}>Miễn phí</span>
                   </div>
+                  {discountAmount > 0 && (
+                    <div className="flex justify-between text-sm">
+                      <span style={{ color: '#8D6E63' }}>Giảm giá {voucher?.voucher?.code ? `(${voucher.voucher.code})` : ''}</span>
+                      <span className="font-semibold" style={{ color: '#16A34A' }}>-{formatCurrency(discountAmount)}</span>
+                    </div>
+                  )}
 
                   <div className="h-px my-2" style={{ background: '#E8DDD4' }} />
 
                   <div className="flex justify-between items-center">
                     <span className="text-base font-semibold" style={{ color: '#3E2723' }}>Tổng cộng</span>
                     <span className="font-display text-2xl font-bold" style={{ color: '#D4A017' }}>
-                      {formatCurrency(totalAmount)}
+                      {formatCurrency(payableAmount)}
                     </span>
                   </div>
                 </div>
@@ -216,21 +301,47 @@ export default function CartPage() {
                 </button>
 
                 {/* Promo */}
-                <div className="flex gap-2 mt-4">
-                  <input
-                    placeholder="Nhập mã giảm giá..."
-                    className="flex-1 px-3.5 py-2.5 rounded-lg text-[13px] outline-none transition-all"
-                    style={{ border: '1.5px solid #E8DDD4', fontFamily: 'Be Vietnam Pro, sans-serif' }}
-                    onFocus={(e) => { e.target.style.borderColor = '#E6B422'; e.target.style.boxShadow = '0 0 0 3px rgba(230,180,34,0.12)'; }}
-                    onBlur={(e) => { e.target.style.borderColor = '#E8DDD4'; e.target.style.boxShadow = 'none'; }}
-                  />
-                  <button
-                    className="px-4 py-2.5 rounded-lg text-[13px] font-semibold text-white cursor-pointer transition-colors"
-                    style={{ background: '#4E342E', border: 'none', fontFamily: 'Be Vietnam Pro, sans-serif' }}
-                  >
-                    Áp dụng
-                  </button>
+                <div className="mt-5 space-y-2">
+                  <div className="text-sm font-bold" style={{ color: '#3E2723' }}>Ưu đãi dành cho bạn</div>
+                  {availableVouchers.length ? availableVouchers.map((item) => {
+                    const selected = voucher?.voucher?.code === item.code;
+                    return (
+                      <button
+                        key={item.code}
+                        type="button"
+                        disabled={!item.eligible || applyingVoucher}
+                        onClick={() => applyVoucher(item.code)}
+                        className="w-full rounded-xl p-3 text-left transition-all disabled:cursor-not-allowed disabled:opacity-70"
+                        style={{
+                          background: selected ? '#FDF3D7' : '#FFFDF8',
+                          border: selected ? '2px solid #E6B422' : '1px solid #E8DDD4',
+                        }}
+                      >
+                        <div className="flex items-start justify-between gap-3">
+                          <div>
+                            <div className="text-sm font-bold" style={{ color: '#3E2723' }}>{item.name}</div>
+                            <div className="mt-1 text-xs leading-relaxed" style={{ color: '#8D6E63' }}>{item.description || item.message}</div>
+                          </div>
+                          <span className="rounded-full px-2.5 py-1 text-[11px] font-bold" style={{ background: item.eligible ? '#DCFCE7' : '#FDF3D7', color: item.eligible ? '#16A34A' : '#B88900' }}>
+                            {item.eligible ? item.short_hint : 'Sắp dùng được'}
+                          </span>
+                        </div>
+                        {!item.eligible && (
+                          <div className="mt-2 text-[12px] font-semibold" style={{ color: '#B45309' }}>{item.message}</div>
+                        )}
+                      </button>
+                    );
+                  }) : (
+                    <div className="rounded-xl px-3 py-4 text-center text-sm" style={{ background: '#FDF8F3', color: '#8D6E63' }}>
+                      Hiện chưa có ưu đãi đang bật.
+                    </div>
+                  )}
                 </div>
+                {voucherMessage && (
+                  <div className="mt-2 text-[12px] font-medium" style={{ color: voucher ? '#16A34A' : '#B45309' }}>
+                    {voucherMessage}
+                  </div>
+                )}
 
                 {/* Trust */}
                 <div className="flex justify-center gap-6 mt-5 pt-4" style={{ borderTop: '1px solid #E8DDD4' }}>

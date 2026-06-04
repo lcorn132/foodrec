@@ -3,10 +3,30 @@ from collections import Counter
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.database import get_db
-from app.models.models import Dish, Order, Customer
+from app.models.models import Dish, Order, Customer, Voucher
 from app.schemas.schemas import CheckoutRequest, OrderStatusUpdate
 
 router = APIRouter(prefix="/api/orders", tags=["Orders"])
+
+
+def _normalize_code(code: str) -> str:
+    return "".join(str(code or "").upper().split())
+
+
+def _voucher_discount(voucher: Voucher, subtotal: int) -> int:
+    if not voucher or not int(voucher.is_active or 0):
+        return 0
+    if subtotal < int(voucher.min_order_amount or 0):
+        return 0
+    if voucher.usage_limit is not None and int(voucher.used_count or 0) >= int(voucher.usage_limit):
+        return 0
+    if (voucher.discount_type or "percent") == "fixed":
+        discount = int(voucher.discount_value or 0)
+    else:
+        discount = round(subtotal * max(min(int(voucher.discount_value or 0), 100), 0) / 100)
+    if voucher.max_discount_amount:
+        discount = min(discount, int(voucher.max_discount_amount))
+    return max(0, min(discount, subtotal))
 
 
 def _order_dishes(db: Session, dish_ids):
@@ -40,16 +60,27 @@ def checkout(req: CheckoutRequest, db: Session = Depends(get_db)):
             dish_ids_flat.append(str(item["id"]))
         total += (item.get("price", 0) or 0) * item.get("qty", 1)
 
+    voucher_code = _normalize_code(req.voucher_code)
+    discount_amount = 0
+    if voucher_code:
+        voucher = db.query(Voucher).filter(Voucher.code == voucher_code).first()
+        discount_amount = _voucher_discount(voucher, total)
+        if discount_amount <= 0:
+            voucher_code = None
+        elif voucher:
+            voucher.used_count = int(voucher.used_count or 0) + 1
+
     order = Order(
         customer_id=customer_id, order_date=datetime.utcnow(),
-        dish_ids=",".join(dish_ids_flat), total_amount=total, status="pending",
+        dish_ids=",".join(dish_ids_flat), total_amount=max(total - discount_amount, 0), status="pending",
         payment_method=req.payment_method, address=req.address, note=req.note or "",
         customer_name=req.customer_name, customer_phone=req.customer_phone,
+        voucher_code=voucher_code, discount_amount=discount_amount,
     )
     db.add(order)
     db.commit()
     db.refresh(order)
-    return {"message": "Order placed", "order_id": order.id, "total_amount": total, "status": "pending"}
+    return {"message": "Order placed", "order_id": order.id, "total_amount": order.total_amount, "discount_amount": discount_amount, "status": "pending"}
 
 
 @router.get("/")
@@ -71,6 +102,7 @@ def list_orders(status: str = None, limit: int = 100, db: Session = Depends(get_
             "dish_names": dish_names, "total_amount": o.total_amount,
             "status": o.status, "payment_method": o.payment_method,
             "address": o.address, "note": o.note,
+            "voucher_code": o.voucher_code, "discount_amount": o.discount_amount or 0,
         })
     return {"orders": result, "total": len(result)}
 

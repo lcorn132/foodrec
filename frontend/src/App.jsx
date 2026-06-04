@@ -17,6 +17,7 @@ import DashboardOverview from "./pages/admin/DashboardOverview";
 import DashboardOrders from "./pages/admin/DashboardOrders";
 import DashboardDishes from "./pages/admin/DashboardDishes";
 import DashboardPreprocessing from "./pages/admin/DashboardPreprocessing";
+import DashboardVouchers from "./pages/admin/DashboardVouchers";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path="preprocessing" element={<DashboardPreprocessing />} />
             <Route path="orders" element={<DashboardOrders />} />
             <Route path="dishes-manage" element={<DashboardDishes />} />
+            <Route path="vouchers" element={<DashboardVouchers />} />
           </Route>
         </Routes>
       </BrowserRouter>

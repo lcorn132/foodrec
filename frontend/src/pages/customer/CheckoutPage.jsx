@@ -35,7 +35,7 @@ const Field = ({ label, required, error, children }) => (
 
 export default function CheckoutPage() {
   const navigate = useNavigate();
-  const { items, getTotalItems, getTotalAmount, clearCart } = useCart();
+  const { items, voucher, getTotalItems, getTotalAmount, getDiscountAmount, clearCart } = useCart();
   
   // Lấy user từ localStorage một cách an toàn
   const user = (() => { try { return JSON.parse(localStorage.getItem("foodrec_user")); } catch { return null; } })();
@@ -55,8 +55,9 @@ export default function CheckoutPage() {
 
   // Tính toán giỏ hàng (Chỉ có ý nghĩa khi chưa đặt hàng)
   const totalAmount = getTotalAmount();
+  const discountAmount = getDiscountAmount();
   const shippingFee = totalAmount >= 300000 ? 0 : 25000;
-  const grandTotal = totalAmount + shippingFee;
+  const grandTotal = Math.max(totalAmount - discountAmount, 0) + shippingFee;
 
   // [V6] Validate & Gọi API đặt hàng
   const handlePlaceOrder = async () => {
@@ -88,6 +89,7 @@ export default function CheckoutPage() {
       note: note,
       customer_name: customerName, 
       customer_phone: customerPhone,
+      voucher_code: voucher?.voucher?.code || null,
     });
 
       const orderId = res.data?.order_id || Math.floor(Math.random() * 90000 + 10000);
@@ -95,7 +97,7 @@ export default function CheckoutPage() {
       // Chụp hình lại tổng tiền (grandTotal) lưu vào state trước khi xóa giỏ hàng
       setOrderResult({
         id: orderId,
-        total: grandTotal
+        total: res.data?.total_amount ?? grandTotal
       });
       
       // Bây giờ xóa giỏ hàng thì màn hình thành công vẫn giữ được số tiền đúng
@@ -219,7 +221,7 @@ export default function CheckoutPage() {
               </h3>
               <div className="space-y-3 mb-5 max-h-[280px] overflow-y-auto pr-2 custom-scrollbar">
                 {items.map(item => (
-                  <div key={item.id} className="flex items-center gap-3">
+                  <div key={item.cartKey || item.id} className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "#EFEBE9", border: "1px solid #E8DDD4" }}>
                       <DishImage src={item.image_url} alt={item.name} rounded="rounded-lg" />
                     </div>
@@ -234,6 +236,12 @@ export default function CheckoutPage() {
 
               <div className="space-y-3 py-4" style={{ borderTop: "1px dashed #E8DDD4", borderBottom: "1px dashed #E8DDD4" }}>
                 <div className="flex justify-between text-sm font-medium"><span style={{ color: "#8D6E63" }}>Tạm tính</span><span style={{ color: "#4E342E" }}>{formatCurrency(totalAmount)}</span></div>
+                {discountAmount > 0 && (
+                  <div className="flex justify-between text-sm font-medium">
+                    <span style={{ color: "#8D6E63" }}>Giảm giá {voucher?.voucher?.code ? `(${voucher.voucher.code})` : ""}</span>
+                    <span style={{ color: "#16A34A" }}>-{formatCurrency(discountAmount)}</span>
+                  </div>
+                )}
                 <div className="flex justify-between text-sm font-medium"><span style={{ color: "#8D6E63" }}>Phí giao hàng</span>
                   {shippingFee === 0 ? <span style={{ color: "#16A34A" }}>Miễn phí</span> : <span style={{ color: "#4E342E" }}>{formatCurrency(shippingFee)}</span>}
                 </div>

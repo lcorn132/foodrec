@@ -70,10 +70,26 @@ def ensure_database_schema():
             "note": "TEXT",
             "customer_name": "VARCHAR(100)",
             "customer_phone": "VARCHAR(20)",
+            "voucher_code": "VARCHAR(40)",
+            "discount_amount": "INTEGER DEFAULT 0",
         },
         "ratings": {
             "admin_reply": "TEXT",
             "reply_date": "TIMESTAMP",
+        },
+        "vouchers": {
+            "description": "TEXT",
+            "discount_type": "VARCHAR(20) DEFAULT 'percent'",
+            "discount_value": "INTEGER DEFAULT 0",
+            "min_order_amount": "INTEGER DEFAULT 0",
+            "max_discount_amount": "INTEGER",
+            "applies_to": "VARCHAR(50) DEFAULT 'all'",
+            "usage_limit": "INTEGER",
+            "used_count": "INTEGER DEFAULT 0",
+            "is_active": "INTEGER DEFAULT 1",
+            "starts_at": "TIMESTAMP",
+            "ends_at": "TIMESTAMP",
+            "created_at": "TIMESTAMP",
         },
     }
 

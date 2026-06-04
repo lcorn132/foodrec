@@ -64,6 +64,7 @@ class CheckoutRequest(BaseModel):
     note: Optional[str] = ""
     customer_name: Optional[str] = None
     customer_phone: Optional[str] = None
+    voucher_code: Optional[str] = None
 
 class OrderStatusUpdate(BaseModel):
     status: str  # pending, confirmed, cooking, delivering, completed, cancelled
