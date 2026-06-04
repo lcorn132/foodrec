@@ -76,29 +76,29 @@
       "Món thêm": 9
     },
     "price_range_counts": {
-      "Trung bình": 40,
-      "Cao cấp": 13,
-      "Vừa phải": 45,
-      "Chưa rõ": 1,
-      "Bình dân": 20
+      "Trung bÃ¬nh": 40,
+      "Cao cáº¥p": 13,
+      "Vá»«a pháº£i": 45,
+      "ChÆ°a rÃµ": 1,
+      "BÃ¬nh dÃ¢n": 20
     }
   },
   "kmeans": {
     "clusters": {
-      "C3 - Cụm 4: Món tiệc/lẩu/ăn chơi": 25,
-      "C1 - Cụm 2: Món mặn đưa cơm": 62,
-      "C2 - Cụm 3: Món thanh mát (rau/canh)": 27,
-      "C0 - Cụm 1: Món nền tảng (cơm)": 5
+      "C4 - Cụm 4: Món tiệc/lẩu/ăn chơi": 25,
+      "C2 - Cụm 2: Món mặn đưa cơm": 62,
+      "C3 - Cụm 3: Món thanh mát (rau/canh)": 27,
+      "C1 - Cụm 1: Món nền tảng (cơm)": 5
     },
     "cluster_count": 4
   },
   "content_based_recommendation": {
     "rows": 952,
     "score_buckets": {
-      "Rất cao": 583,
+      "Ráº¥t cao": 583,
       "Cao": 292,
-      "Trung bình": 53,
-      "Thấp": 24
+      "Trung bÃ¬nh": 53,
+      "Tháº¥p": 24
     },
     "method": {
       "algorithm": "Content-Based Filtering",
@@ -117,7 +117,7 @@
   },
   "transactions": {
     "status": "removed",
-    "reason": "Không có hóa đơn công khai thật nên không dùng dữ liệu giao dịch sinh giả."
+    "reason": "KhÃ´ng cÃ³ hÃ³a Ä‘Æ¡n cÃ´ng khai tháº­t nÃªn khÃ´ng dÃ¹ng dá»¯ liá»‡u giao dá»‹ch sinh giáº£."
   },
   "charts": [
     "01_raw_rows_by_file.svg",

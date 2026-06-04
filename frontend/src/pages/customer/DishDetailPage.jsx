@@ -79,7 +79,7 @@ export default function DishDetailPage() {
 
       <PageHero
         title={dish?.name || "Chi tiết món ăn"}
-        subtitle={category || "Thông tin món ăn từ dữ liệu thực đơn đã tiền xử lý"}
+        subtitle={category || "Thông tin món ăn và gợi ý món phù hợp"}
         breadcrumbs={[
           { label: "Trang chủ", href: "/" },
           { label: "Thực đơn", href: "/menu" },
@@ -201,7 +201,7 @@ export default function DishDetailPage() {
                   className="inline-flex items-center gap-2 text-sm font-semibold no-underline"
                   style={{ color: "#8D6E63" }}
                 >
-                  Xem nguồn dữ liệu món ăn
+                  Xem thêm thông tin món ăn
                   <ExternalLink className="w-4 h-4" />
                 </Link>
               )}

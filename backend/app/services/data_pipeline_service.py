@@ -8,7 +8,7 @@ from typing import Any
 
 from sqlalchemy.orm import Session
 
-from app.models.models import Dish
+from app.models.models import Dish, Order, Rating
 
 
 DATABASE_DIR = Path(__file__).resolve().parents[2] / "database"
@@ -98,11 +98,13 @@ def processed_dishes() -> list[dict[str, Any]]:
     rows = _read_csv(PROCESSED_DIR / "dishes_clean.csv")
     dishes = []
     for index, row in enumerate(rows, start=1):
-        dish_id = _safe_text(row.get("dish_id")) or str(index)
+        source_dish_id = _safe_text(row.get("dish_id")) or str(index)
+        dish_id = _dish_id(source_dish_id, index)
         dishes.append(
             {
                 "id": dish_id,
                 "dish_id": dish_id,
+                "source_dish_id": source_dish_id,
                 "name": _safe_text(row.get("name")),
                 "category": _safe_text(row.get("category_label") or row.get("category")),
                 "category_key": _safe_text(row.get("category")),
@@ -183,6 +185,8 @@ def load_processed_dishes_to_db(db: Session, replace: bool = True) -> dict[str, 
         return {"loaded": 0, "source": str(dishes_path), "status": "missing_or_empty"}
 
     if replace:
+        db.query(Rating).delete()
+        db.query(Order).delete()
         db.query(Dish).delete()
         db.commit()
 

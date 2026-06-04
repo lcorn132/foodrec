@@ -119,7 +119,7 @@ export default function MenuPage() {
 
       <PageHero
         title="Thực đơn"
-        subtitle="Dữ liệu món ăn thật từ Cơm Niêu Việt Nam, đã được tiền xử lý và nạp lên hệ thống."
+        subtitle="Những món Việt quen thuộc cho bữa trưa, bữa tối gia đình và các buổi gặp mặt."
         breadcrumbs={[
           { label: "Trang chủ", href: "/" },
           { label: "Thực đơn" },

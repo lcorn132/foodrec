@@ -11,11 +11,11 @@ ensure_database_schema()
 
 app = FastAPI(
     title="FoodRec API",
-    description="Hệ thống gợi ý thực đơn — Đồ án KPDL",
+    description="API dat mon va goi y mon an FoodRec",
     version="3.0.0"
 )
 
-# Cho phép tất cả origins — phù hợp cho demo/đồ án
+# Cho phep frontend production va local dev truy cap API.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

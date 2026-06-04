@@ -4,6 +4,7 @@
  * - formatCurrency chuẩn
  */
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { getUploadedDishes } from "../../api/dishesApi";
 import Loading from "../../components/Loading";
 import { formatCurrency } from "../../utils/format";
@@ -154,7 +155,7 @@ export default function DashboardDishes() {
       <div className="overflow-x-auto bg-white rounded-2xl" style={{ border: "1px solid #E8DDD4" }}>
         <table className="w-full text-sm" style={{ borderCollapse: "separate", borderSpacing: 0 }}>
           <thead><tr>
-            {["ID", "Tên món", "Danh mục", "Giá", "Nguồn"].map(h =>
+            {["ID", "Tên món", "Danh mục", "Giá", "Trang khách", "Nguồn"].map(h =>
               <th key={h} className="text-left text-[11px] font-bold uppercase tracking-wider px-3 py-2.5" style={{ color: "#4E342E", background: "#FDF6EC", borderBottom: "2px solid #E8DDD4" }}>{h}</th>)}
           </tr></thead>
           <tbody>
@@ -164,6 +165,11 @@ export default function DashboardDishes() {
                 <td className="px-3 py-2.5 font-semibold" style={{ color: "#3E2723", borderBottom: "1px solid #EFEBE9" }}>{d.name}</td>
                 <td className="px-3 py-2.5" style={{ color: "#5D4037", borderBottom: "1px solid #EFEBE9" }}>{d.category}</td>
                 <td className="px-3 py-2.5 font-bold" style={{ color: "#D4A017", borderBottom: "1px solid #EFEBE9" }}>{formatCurrency(d.price)}</td>
+                <td className="px-3 py-2.5" style={{ borderBottom: "1px solid #EFEBE9" }}>
+                  <Link to={`/dish/${d.id}`} className="text-[11px] font-semibold hover:underline" style={{ color: "#16A34A" }}>
+                    Xem trên web
+                  </Link>
+                </td>
                 <td className="px-3 py-2.5" style={{ borderBottom: "1px solid #EFEBE9" }}>
                   {d.source_url ? (
                     <a href={d.source_url} target="_blank" rel="noreferrer" className="text-[11px] font-semibold hover:underline" style={{ color: "#3B82F6" }}>

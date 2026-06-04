@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Clock, MapPin, Phone, Sparkles, Utensils } from "lucide-react";
 
 import { getTrending } from "../../api/recommendationsApi.js";
 import Header from "../../components/Header.jsx";
@@ -7,16 +8,15 @@ import Footer from "../../components/Footer.jsx";
 import DishCard from "../../components/DishCard.jsx";
 import Loading from "../../components/Loading.jsx";
 
-const FEATURES = [
-  { value: "119", label: "món ăn thật", note: "Từ thực đơn Cơm Niêu Việt Nam" },
-  { value: "4", label: "cụm mâm cơm", note: "Cơm, món mặn, rau/canh, lẩu/tiệc" },
-  { value: "KNN", label: "món tương đồng", note: "Dựa trên mô tả, danh mục và mức giá" },
-  { value: "Context", label: "gợi ý theo bữa", note: "Ưu tiên cơm trưa hoặc lẩu/tiệc buổi tối" },
+const HIGHLIGHTS = [
+  { icon: Utensils, title: "Mâm cơm Việt trọn vị", text: "Cơm niêu, món mặn, rau canh và lẩu được phối hợp hài hòa cho từng bữa ăn." },
+  { icon: Sparkles, title: "Gợi ý theo khẩu vị", text: "Đề xuất món phù hợp với món bạn đang xem, giỏ hàng và thời điểm dùng bữa." },
+  { icon: Clock, title: "Phục vụ 10:00 - 22:00", text: "Sẵn sàng cho bữa trưa nhanh, bữa tối gia đình hoặc những buổi gặp mặt ấm cúng." },
 ];
 
 export default function HomePage() {
   const navigate = useNavigate();
-  const [trending, setTrending] = useState([]);
+  const [featured, setFeatured] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -30,7 +30,7 @@ export default function HomePage() {
       try {
         const data = await getTrending(9);
         const items = data.trending ? data.trending.map((item) => item.dish) : [];
-        if (alive) setTrending(items);
+        if (alive) setFeatured(items);
       } catch (err) {
         if (alive) setError(err?.message || "Không thể tải danh sách món ăn nổi bật.");
       } finally {
@@ -44,65 +44,78 @@ export default function HomePage() {
     };
   }, []);
 
+  const heroDish = featured[0];
+
   return (
     <div className="min-h-dvh" style={{ background: "#FFFAF3" }}>
       <Header />
 
-      <section className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #3E2723 0%, #4E342E 55%, #5D4037 100%)" }}>
-        <div className="max-w-[1200px] mx-auto px-6 py-20 lg:py-24 grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[13px] font-semibold mb-5" style={{ background: "rgba(230,180,34,0.15)", border: "1px solid rgba(230,180,34,0.3)", color: "#F0C94D" }}>
-              Hệ thống gợi ý thực đơn dựa trên khai phá dữ liệu
+      <section className="relative overflow-hidden" style={{ background: "#2F1B16" }}>
+        {heroDish?.image_url && (
+          <img
+            src={heroDish.image_url}
+            alt={heroDish.name}
+            className="absolute inset-0 h-full w-full object-cover opacity-45"
+            loading="eager"
+            referrerPolicy="no-referrer"
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#2F1B16] via-[#2F1B16]/82 to-[#2F1B16]/35" />
+        <div className="relative max-w-[1200px] mx-auto px-6 min-h-[650px] flex items-center">
+          <div className="max-w-[680px] py-20">
+            <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold mb-5" style={{ background: "rgba(230,180,34,0.16)", color: "#F5D680", border: "1px solid rgba(245,214,128,0.25)" }}>
+              Cơm niêu ấm nóng mỗi ngày
             </div>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-[56px] font-bold text-white leading-[1.15] mb-5">
-              FoodRec
-              <span className="block" style={{ color: "#F0C94D" }}>Cơm Niêu Việt Nam</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-[58px] font-extrabold text-white leading-tight mb-5">
+              Bữa cơm Việt chỉn chu cho gia đình và bạn bè
             </h1>
-            <p className="text-[17px] text-white/75 leading-relaxed mb-8 max-w-[580px]">
-              Ứng dụng dùng dữ liệu thực đơn thật, tiền xử lý dữ liệu, gom cụm K-Means theo cấu trúc mâm cơm Việt và gợi ý món bằng tương đồng nội dung kết hợp logic phối món.
+            <p className="text-lg text-white/80 leading-relaxed mb-8">
+              Chọn món nhanh, phối món thông minh và đặt bữa ăn phù hợp cho trưa văn phòng, tối gia đình hoặc những dịp sum họp.
             </p>
-            <div className="flex gap-4 flex-wrap">
+            <div className="flex flex-wrap gap-4">
               <button type="button" onClick={() => navigate("/menu")} className="btn-primary">
-                Xem thực đơn
+                Xem món hôm nay
               </button>
-              <button type="button" onClick={() => navigate("/dashboard/preprocessing")} className="btn-outline">
-                Xem xử lý dữ liệu
+              <button type="button" onClick={() => navigate("/cart")} className="btn-outline">
+                Xem giỏ hàng
               </button>
             </div>
-          </div>
-
-          <div className="rounded-3xl overflow-hidden min-h-[360px] bg-white/10" style={{ border: "1px solid rgba(255,255,255,0.12)", backdropFilter: "blur(16px)" }}>
-            {trending[0]?.image_url ? (
-              <img src={trending[0].image_url} alt={trending[0].name} className="w-full h-[360px] object-cover" loading="eager" referrerPolicy="no-referrer" />
-            ) : (
-              <div className="h-[360px] flex items-center justify-center text-white/70">
-                Đang tải hình ảnh thực đơn...
-              </div>
-            )}
           </div>
         </div>
       </section>
 
       <section className="px-6 py-8" style={{ background: "#FDF6EC", borderBottom: "1px solid #E8DDD4" }}>
-        <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {FEATURES.map((item) => (
-            <div key={item.label} className="bg-white rounded-2xl p-5" style={{ border: "1px solid #E8DDD4" }}>
-              <div className="font-display text-3xl font-bold mb-1" style={{ color: "#3E2723" }}>{item.value}</div>
-              <div className="text-sm font-bold" style={{ color: "#5D4037" }}>{item.label}</div>
-              <div className="text-xs mt-1 leading-relaxed" style={{ color: "#8D6E63" }}>{item.note}</div>
-            </div>
-          ))}
+        <div className="max-w-[1200px] mx-auto grid gap-4 md:grid-cols-3">
+          {HIGHLIGHTS.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div key={item.title} className="bg-white rounded-xl p-5 flex gap-4" style={{ border: "1px solid #E8DDD4" }}>
+                <div className="h-11 w-11 rounded-lg flex items-center justify-center shrink-0" style={{ background: "#FDF3D7", color: "#B8860B" }}>
+                  <Icon className="h-5 w-5" />
+                </div>
+                <div>
+                  <h2 className="text-base font-bold" style={{ color: "#3E2723" }}>{item.title}</h2>
+                  <p className="mt-1 text-sm leading-relaxed" style={{ color: "#8D6E63" }}>{item.text}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      <section className="py-20 px-6" style={{ background: "#FFFAF3" }}>
+      <section className="py-18 px-6" style={{ background: "#FFFAF3" }}>
         <div className="max-w-[1200px] mx-auto">
-          <div className="text-center mb-12">
-            <span className="section-label">Thực đơn nổi bật</span>
-            <h2 className="section-title">9 món được nạp từ dữ liệu sau tiền xử lý</h2>
-            <p className="text-base mt-3 max-w-[680px] mx-auto" style={{ color: "#8D6E63" }}>
-              Danh sách này lấy trực tiếp từ dữ liệu món ăn đã làm sạch. Hệ thống ưu tiên món phù hợp với ngữ cảnh bữa trưa hoặc bữa tối theo giờ Việt Nam.
-            </p>
+          <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <span className="section-label">Món được gợi ý</span>
+              <h2 className="section-title">Phù hợp cho bữa ăn hiện tại</h2>
+              <p className="text-base mt-3 max-w-[680px]" style={{ color: "#8D6E63" }}>
+                Danh sách món được ưu tiên theo thời điểm trong ngày và các lựa chọn đang được quan tâm.
+              </p>
+            </div>
+            <button type="button" onClick={() => navigate("/menu")} className="btn-dark">
+              Xem tất cả món
+            </button>
           </div>
 
           {loading ? (
@@ -114,34 +127,43 @@ export default function HomePage() {
               <div className="text-sm font-semibold text-rose-800">Có lỗi xảy ra</div>
               <div className="mt-1 text-sm text-rose-700">{error}</div>
             </div>
-          ) : trending.length === 0 ? (
+          ) : featured.length === 0 ? (
             <div className="rounded-2xl border-2 border-dashed p-8 text-center bg-white" style={{ borderColor: "#E8DDD4" }}>
-              <div className="text-sm font-semibold" style={{ color: "#3E2723" }}>Chưa có dữ liệu món ăn</div>
-              <div className="mt-1 text-sm" style={{ color: "#8D6E63" }}>Hãy chạy pipeline ở trang quản lý dữ liệu.</div>
+              <div className="text-sm font-semibold" style={{ color: "#3E2723" }}>Nhà hàng đang cập nhật món</div>
+              <div className="mt-1 text-sm" style={{ color: "#8D6E63" }}>Vui lòng quay lại sau ít phút.</div>
             </div>
           ) : (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {trending.map((dish) => (
+              {featured.map((dish) => (
                 <DishCard key={dish.id ?? dish.dish_id} dish={dish} />
               ))}
             </div>
           )}
-
-          <div className="text-center mt-10">
-            <button type="button" onClick={() => navigate("/menu")} className="btn-primary">
-              Xem tất cả thực đơn
-            </button>
-          </div>
         </div>
       </section>
 
-      <section className="py-20 px-6" style={{ background: "#FDF6EC" }}>
-        <div className="max-w-[980px] mx-auto text-center">
-          <span className="section-label">Quy trình dữ liệu</span>
-          <h2 className="section-title">Tải dữ liệu, xử lý, sinh biểu đồ và nạp lên web</h2>
-          <p className="mt-4 text-[15px] leading-relaxed" style={{ color: "#6D4C41" }}>
-            Admin có thể tải file Excel thực đơn thô, chạy pipeline để chuẩn hóa giá, trích xuất danh mục, làm sạch mô tả, gom cụm K-Means theo cấu trúc mâm cơm Việt, tính điểm tương đồng content-based và sinh các biểu đồ đánh giá dữ liệu.
-          </p>
+      <section className="px-6 py-16" style={{ background: "#FDF6EC" }}>
+        <div className="max-w-[1200px] mx-auto grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+          <div>
+            <span className="section-label">Đặt bàn và giao món</span>
+            <h2 className="section-title">Một bữa cơm ngon bắt đầu từ lựa chọn đúng món</h2>
+            <p className="mt-4 text-[15px] leading-relaxed" style={{ color: "#6D4C41" }}>
+              Bạn có thể chọn món lẻ, thêm vào giỏ hàng và để hệ thống gợi ý món đi kèm giúp bữa ăn cân bằng hơn.
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl p-6 space-y-4" style={{ border: "1px solid #E8DDD4" }}>
+            <div className="flex items-center gap-3 text-sm" style={{ color: "#5D4037" }}>
+              <Phone className="h-5 w-5" style={{ color: "#D4A017" }} />
+              <span className="font-semibold">0941 855 234</span>
+            </div>
+            <div className="flex items-center gap-3 text-sm" style={{ color: "#5D4037" }}>
+              <MapPin className="h-5 w-5" style={{ color: "#D4A017" }} />
+              <span>Phục vụ tại TP. Hồ Chí Minh</span>
+            </div>
+            <button type="button" onClick={() => navigate("/menu")} className="btn-primary w-full justify-center">
+              Bắt đầu chọn món
+            </button>
+          </div>
         </div>
       </section>
 

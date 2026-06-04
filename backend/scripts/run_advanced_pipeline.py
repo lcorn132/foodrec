@@ -51,6 +51,13 @@ MEAL_ROLES = {
     "feast": "Cụm 4: Món tiệc/lẩu/ăn chơi",
 }
 
+ROLE_CLUSTER_CODES = {
+    "foundation": "C1",
+    "savory": "C2",
+    "fresh": "C3",
+    "feast": "C4",
+}
+
 
 def strip_accents(text: str) -> str:
     text = unicodedata.normalize("NFD", text)
@@ -478,7 +485,7 @@ def kmeans_cluster(dishes: list[dict[str, Any]], k: int = K_CLUSTERS, iterations
         row = dict(dish)
         row["cluster_id"] = cluster
         row["meal_role"] = summaries[cluster]["role"]
-        row["cluster_label"] = f"C{cluster} - {summaries[cluster]['label']}"
+        row["cluster_label"] = f"{ROLE_CLUSTER_CODES[row['meal_role']]} - {summaries[cluster]['label']}"
         clustered.append(row)
     return clustered
 

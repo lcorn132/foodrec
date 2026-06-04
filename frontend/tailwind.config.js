@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ['"Playfair Display"', 'Georgia', 'serif'],
+        display: ['"Be Vietnam Pro"', 'Arial', 'sans-serif'],
         body: ['"Be Vietnam Pro"', 'sans-serif'],
       },
       colors: {
