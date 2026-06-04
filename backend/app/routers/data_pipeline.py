@@ -66,9 +66,9 @@ def run_pipeline(
 
 @router.get("/charts/{filename}")
 def chart(filename: str):
-    """Trả về file biểu đồ SVG đã sinh từ dữ liệu processed."""
+    """Trả về file biểu đồ PNG nếu pipeline có sinh file ảnh."""
     try:
         path = resolve_chart_path(filename)
     except FileNotFoundError as exc:
         raise HTTPException(status_code=404, detail="Không tìm thấy biểu đồ.") from exc
-    return FileResponse(path, media_type="image/svg+xml")
+    return FileResponse(path, media_type="image/png")

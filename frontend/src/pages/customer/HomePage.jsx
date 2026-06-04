@@ -7,6 +7,7 @@ import Header from "../../components/Header.jsx";
 import Footer from "../../components/Footer.jsx";
 import DishCard from "../../components/DishCard.jsx";
 import Loading from "../../components/Loading.jsx";
+import heroBackground from "../../assets/hero-foodrec.png";
 
 const HIGHLIGHTS = [
   { icon: Utensils, title: "Mâm cơm Việt trọn vị", text: "Cơm niêu, món mặn, rau canh và lẩu được phối hợp hài hòa cho từng bữa ăn." },
@@ -44,22 +45,18 @@ export default function HomePage() {
     };
   }, []);
 
-  const heroDish = featured[0];
-
   return (
     <div className="min-h-dvh" style={{ background: "#FFFAF3" }}>
       <Header />
 
       <section className="relative overflow-hidden" style={{ background: "#2F1B16" }}>
-        {heroDish?.image_url && (
-          <img
-            src={heroDish.image_url}
-            alt={heroDish.name}
-            className="absolute inset-0 h-full w-full object-cover opacity-45"
-            loading="eager"
-            referrerPolicy="no-referrer"
-          />
-        )}
+        <img
+          src={heroBackground}
+          alt=""
+          className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover opacity-60"
+          loading="eager"
+          aria-hidden="true"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-[#2F1B16] via-[#2F1B16]/82 to-[#2F1B16]/35" />
         <div className="relative max-w-[1200px] mx-auto px-6 min-h-[650px] flex items-center">
           <div className="max-w-[680px] py-20">

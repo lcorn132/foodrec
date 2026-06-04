@@ -10,7 +10,7 @@ Thư mục này chứa dữ liệu sau tiền xử lý theo hướng mới: ch�
 - `advanced_mining_report.json`: báo cáo kỹ thuật dạng JSON cho pipeline.
 - `report_assets/data_statistics_report.md`: nội dung thống kê ngắn cho báo cáo.
 - `report_assets/data_statistics_report.json`: thống kê dạng JSON cho web admin.
-- `report_assets/charts/*.svg`: biểu đồ dữ liệu gốc, dữ liệu sạch, phân bố danh mục, mức giá, 4 cụm K-Means và điểm gợi ý.
+- `report_assets/data_statistics_report.json`: thống kê và dữ liệu biểu đồ để dashboard render trực tiếp bằng HTML/CSS.
 
 ## Hướng Kỹ Thuật
 

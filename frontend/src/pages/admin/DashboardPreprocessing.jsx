@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import axios from "../../api/axios";
-
-const API_ORIGIN = (import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api").replace(/\/api\/?$/, "");
+import DynamicCharts from "../../components/admin/DynamicCharts.jsx";
 
 function formatNumber(value) {
   return Number(value || 0).toLocaleString("vi-VN");
@@ -99,8 +98,8 @@ export default function DashboardPreprocessing() {
 
   const summary = status?.summary || {};
   const rawFiles = status?.raw_files || [];
-  const charts = status?.charts || [];
   const stats = status?.statistics || {};
+  const chartData = stats?.chart_data || [];
   const clusterRows = useMemo(() => Object.entries(stats?.kmeans?.clusters || {}), [stats]);
   const similarityBuckets = useMemo(() => Object.entries(stats?.content_based_recommendation?.score_buckets || {}), [stats]);
 
@@ -218,16 +217,9 @@ export default function DashboardPreprocessing() {
         </div>
       </Section>
 
-      <Section title="4. Biểu đồ báo cáo" subtitle="Các biểu đồ được backend sinh sau khi chạy pipeline, lưu trong processed/report_assets/charts.">
-        {charts.length ? (
-          <div className="grid gap-5 xl:grid-cols-2">
-            {charts.map((chart) => (
-              <figure key={chart.name} className="rounded-lg border border-slate-200 bg-white p-3">
-                <img src={`${API_ORIGIN}${chart.url}?v=${chart.modified || chart.size || ""}`} alt={chart.name} className="w-full rounded-md bg-white" />
-                <figcaption className="mt-2 text-xs font-medium text-slate-500">{chart.name}</figcaption>
-              </figure>
-            ))}
-          </div>
+      <Section title="4. Biểu đồ báo cáo" subtitle="Các biểu đồ được vẽ tự động từ dữ liệu thống kê mới nhất sau khi chạy pipeline.">
+        {chartData.length ? (
+          <DynamicCharts charts={chartData} />
         ) : (
           <div className="rounded-lg bg-slate-50 p-8 text-center text-sm text-slate-500">
             Chưa có biểu đồ. Hãy chạy pipeline sau khi upload dữ liệu.

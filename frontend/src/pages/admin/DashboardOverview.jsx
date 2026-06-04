@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 
 import { getOverview, getPipelineStatus, getTopDishes } from "../../api/analyticsApi";
 import Loading from "../../components/Loading";
+import DynamicCharts from "../../components/admin/DynamicCharts.jsx";
 import { formatCurrency } from "../../utils/format";
-
-const API_ORIGIN = (import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api").replace(/\/api\/?$/, "");
 
 function StatCard({ icon, value, label, sub, color = "#E6B422" }) {
   return (
@@ -39,7 +38,7 @@ export default function DashboardOverview() {
   }, []);
 
   const summary = pipelineStatus?.summary || {};
-  const charts = pipelineStatus?.charts || [];
+  const chartData = pipelineStatus?.statistics?.chart_data || [];
   const clusterCount = summary.kmeans_clusters ?? 0;
 
   if (loading) return <Loading label="Đang tải dữ liệu tổng quan..." />;
@@ -70,15 +69,8 @@ export default function DashboardOverview() {
           </div>
           <span className="text-xs font-semibold" style={{ color: "#8D6E63" }}>{summary.clean_dishes || 0} món sạch</span>
         </div>
-        {charts.length ? (
-          <div className="grid gap-4 xl:grid-cols-2">
-            {charts.slice(0, 4).map((chart) => (
-              <figure key={chart.name} className="rounded-xl p-3" style={{ border: "1px solid #EFEBE9" }}>
-                <img src={`${API_ORIGIN}${chart.url}?v=${chart.modified || chart.size || ""}`} alt={chart.name} className="w-full rounded-lg bg-white" />
-                <figcaption className="mt-2 text-xs font-semibold" style={{ color: "#8D6E63" }}>{chart.name}</figcaption>
-              </figure>
-            ))}
-          </div>
+        {chartData.length ? (
+          <DynamicCharts charts={chartData} limit={4} />
         ) : (
           <div className="rounded-xl px-4 py-8 text-center text-sm" style={{ background: "#FDF8F3", color: "#8D6E63" }}>
             Chưa có biểu đồ. Upload dữ liệu và chạy pipeline để dashboard tự cập nhật.

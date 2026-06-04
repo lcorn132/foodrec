@@ -6,30 +6,33 @@ function cartReducer(state, action) {
   switch (action.type) {
     case "ADD": {
       const dish = action.payload;
-      const existing = state.items.find((i) => i.id === dish.id);
+      const cartKey = dish.cartKey || String(dish.id);
+      const item = { ...dish, cartKey };
+      const existing = state.items.find((i) => (i.cartKey || String(i.id)) === cartKey);
       if (existing) {
         return {
           ...state,
           items: state.items.map((i) =>
-            i.id === dish.id ? { ...i, qty: i.qty + 1 } : i,
+            (i.cartKey || String(i.id)) === cartKey ? { ...i, qty: i.qty + 1 } : i,
           ),
         };
       }
-      return { ...state, items: [...state.items, { ...dish, qty: 1 }] };
+      return { ...state, items: [...state.items, { ...item, qty: 1 }] };
     }
     case "REMOVE": {
-      const id = action.payload;
-      return { ...state, items: state.items.filter((i) => i.id !== id) };
+      const cartKey = action.payload;
+      return { ...state, items: state.items.filter((i) => (i.cartKey || String(i.id)) !== String(cartKey)) };
     }
     case "SET_QTY": {
       const { id, qty } = action.payload;
+      const cartKey = String(id);
       const nextQty = Number.isFinite(qty) ? qty : 1;
       if (nextQty <= 0) {
-        return { ...state, items: state.items.filter((i) => i.id !== id) };
+        return { ...state, items: state.items.filter((i) => (i.cartKey || String(i.id)) !== cartKey) };
       }
       return {
         ...state,
-        items: state.items.map((i) => (i.id === id ? { ...i, qty: nextQty } : i)),
+        items: state.items.map((i) => ((i.cartKey || String(i.id)) === cartKey ? { ...i, qty: nextQty } : i)),
       };
     }
     case "CLEAR":
@@ -72,4 +75,3 @@ export function useCart() {
   if (!ctx) throw new Error("useCart must be used within CartProvider");
   return ctx;
 }
-

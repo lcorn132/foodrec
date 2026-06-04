@@ -92,7 +92,7 @@ export default function CartPage() {
                 const emoji = '🍽️';
                 return (
                   <div
-                    key={item.id}
+                    key={item.cartKey || item.id}
                     className="flex gap-5 bg-white rounded-2xl p-5 transition-all duration-300 hover:shadow-lg"
                     style={{ border: '1px solid #E8DDD4' }}
                   >
@@ -105,12 +105,19 @@ export default function CartPage() {
                     {/* Info */}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-3 mb-2">
-                        <h3 className="font-display text-lg font-semibold leading-tight" style={{ color: '#3E2723' }}>
-                          {item.name}
-                        </h3>
+                        <div>
+                          <h3 className="font-display text-lg font-semibold leading-tight" style={{ color: '#3E2723' }}>
+                            {item.name}
+                          </h3>
+                          {item.variant && (
+                            <div className="mt-1 text-xs font-semibold" style={{ color: '#B88900' }}>
+                              Kiểu chế biến: {item.variant}
+                            </div>
+                          )}
+                        </div>
                         <button
                           type="button"
-                          onClick={() => removeFromCart(item.id)}
+                          onClick={() => removeFromCart(item.cartKey || item.id)}
                           className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[13px] font-semibold transition-colors cursor-pointer"
                           style={{ background: 'transparent', border: 'none', color: '#8D6E63' }}
                           onMouseEnter={(e) => { e.currentTarget.style.background = '#FEE2E2'; e.currentTarget.style.color = '#DC2626'; }}
@@ -130,7 +137,7 @@ export default function CartPage() {
                         <div className="flex items-center rounded-lg overflow-hidden" style={{ border: '2px solid #E8DDD4' }}>
                           <button
                             type="button"
-                            onClick={() => updateQuantity(item.id, item.qty - 1)}
+                            onClick={() => updateQuantity(item.cartKey || item.id, item.qty - 1)}
                             className="w-9 h-9 flex items-center justify-center cursor-pointer transition-colors hover:bg-brown-50"
                             style={{ background: 'transparent', border: 'none', color: '#6D4C41' }}
                           >
@@ -142,7 +149,7 @@ export default function CartPage() {
                           </div>
                           <button
                             type="button"
-                            onClick={() => updateQuantity(item.id, item.qty + 1)}
+                            onClick={() => updateQuantity(item.cartKey || item.id, item.qty + 1)}
                             className="w-9 h-9 flex items-center justify-center cursor-pointer transition-colors hover:bg-brown-50"
                             style={{ background: 'transparent', border: 'none', color: '#6D4C41' }}
                           >
@@ -244,7 +251,7 @@ export default function CartPage() {
         )}
 
         {/* Recommendations */}
-        <RecommendationList title="Gợi ý phối món đi kèm" recommendations={recs} />
+        <RecommendationList title="Gợi ý phối món đi kèm" recommendations={recs} showAddButton />
       </main>
 
       <Footer minimal />

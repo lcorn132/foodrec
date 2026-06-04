@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
+import { ShoppingCart } from "lucide-react";
 
 import { formatCurrency } from "../utils/format";
 import Loading from "./Loading.jsx";
 import DishImage from "./DishImage.jsx";
+import { useCart } from "../context/CartContext.jsx";
+import { showToast } from "./Toast.jsx";
 
 function toPercent(score) {
   const n = typeof score === "number" ? score : Number(score);
@@ -11,7 +14,8 @@ function toPercent(score) {
   return Math.round(Math.max(0, Math.min(100, pct)));
 }
 
-export default function RecommendationList({ recommendations, title = "Món ăn bạn có thể thích" }) {
+export default function RecommendationList({ recommendations, title = "Món ăn bạn có thể thích", showAddButton = false }) {
+  const { addToCart } = useCart();
   const isLoading = recommendations == null;
 
   return (
@@ -43,6 +47,12 @@ export default function RecommendationList({ recommendations, title = "Món ăn 
             const category = dish?.category_name ?? dish?.category ?? "Thực đơn";
             const id = dish?.dish_id ?? dish?.id;
             const name = dish?.dish_name ?? dish?.name ?? "Món ăn";
+            const handleAdd = (event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              addToCart({ id, name, price: dish?.price, image_url: dish?.image_url });
+              showToast(`Đã thêm ${name} vào giỏ hàng`);
+            };
 
             return (
               <Link
@@ -88,6 +98,18 @@ export default function RecommendationList({ recommendations, title = "Món ăn 
                     <div className="mt-2.5 px-3 py-2 rounded-lg text-[12px] leading-relaxed" style={{ background: "#FDF3D7", color: "#5D4037", border: "1px solid #FAE8B0" }}>
                       {reason}
                     </div>
+                  )}
+
+                  {showAddButton && (
+                    <button
+                      type="button"
+                      onClick={handleAdd}
+                      className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-bold transition-transform hover:-translate-y-0.5"
+                      style={{ background: "linear-gradient(135deg, #E6B422, #D4A017)", color: "#3E2723", border: "none" }}
+                    >
+                      <ShoppingCart className="h-4 w-4" />
+                      Thêm món
+                    </button>
                   )}
                 </div>
               </Link>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ExternalLink, ShoppingCart } from "lucide-react";
+import { Check, ExternalLink, ShoppingCart } from "lucide-react";
 
 import { getDishById } from "../../api/dishesApi.js";
 import { getRecommendationsForDish } from "../../api/recommendationsApi.js";
@@ -21,6 +21,21 @@ const PRICE_RANGE_LABELS = {
   premium: "Cao cấp",
 };
 
+function parseDishVariants(name = "") {
+  const parts = String(name).split(":");
+  if (parts.length < 2 || !parts.slice(1).join(":").includes("/")) {
+    return { baseName: name, options: [] };
+  }
+  const baseName = parts[0].trim();
+  const options = parts
+    .slice(1)
+    .join(":")
+    .split("/")
+    .map((item) => item.trim())
+    .filter(Boolean);
+  return { baseName: baseName || name, options };
+}
+
 export default function DishDetailPage() {
   const { id } = useParams();
   const { addToCart } = useCart();
@@ -30,6 +45,7 @@ export default function DishDetailPage() {
   const [errorDish, setErrorDish] = useState("");
   const [recs, setRecs] = useState(null);
   const [qty, setQty] = useState(1);
+  const [selectedVariant, setSelectedVariant] = useState("");
 
   useEffect(() => {
     let alive = true;
@@ -70,6 +86,12 @@ export default function DishDetailPage() {
     };
   }, [id]);
 
+  const variantInfo = parseDishVariants(dish?.name);
+
+  useEffect(() => {
+    setSelectedVariant(variantInfo.options[0] || "");
+  }, [dish?.name]);
+
   const category = dish?.category ?? "";
   const canAdd = Boolean(dish?.id);
 
@@ -78,12 +100,12 @@ export default function DishDetailPage() {
       <Header />
 
       <PageHero
-        title={dish?.name || "Chi tiết món ăn"}
+        title={variantInfo.baseName || "Chi tiết món ăn"}
         subtitle={category || "Thông tin món ăn và gợi ý món phù hợp"}
         breadcrumbs={[
           { label: "Trang chủ", href: "/" },
           { label: "Thực đơn", href: "/menu" },
-          { label: dish?.name ?? "Chi tiết món" },
+          { label: variantInfo.baseName || dish?.name || "Chi tiết món" },
         ]}
       />
 
@@ -123,7 +145,7 @@ export default function DishDetailPage() {
               )}
 
               <h1 className="font-display text-3xl sm:text-4xl font-bold leading-tight" style={{ color: "#3E2723" }}>
-                {dish?.name}
+                {variantInfo.baseName}
               </h1>
 
               <div className="flex items-center justify-between px-6 py-5 rounded-2xl" style={{ background: "linear-gradient(135deg, #FDF6EC, #FDF3D7)", border: "1px solid #FAE8B0" }}>
@@ -153,6 +175,35 @@ export default function DishDetailPage() {
                 <p className="text-sm" style={{ color: "#8D6E63" }}>Chưa có mô tả cho món ăn này.</p>
               )}
 
+              {variantInfo.options.length > 1 && (
+                <div className="space-y-2">
+                  <div className="text-sm font-bold" style={{ color: "#3E2723" }}>
+                    Chọn kiểu chế biến
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {variantInfo.options.map((option) => {
+                      const active = selectedVariant === option;
+                      return (
+                        <button
+                          key={option}
+                          type="button"
+                          onClick={() => setSelectedVariant(option)}
+                          className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold transition-all"
+                          style={{
+                            background: active ? "#3E2723" : "#FFF7E6",
+                            border: active ? "1px solid #3E2723" : "1px solid #FAE8B0",
+                            color: active ? "#FFFFFF" : "#5D4037",
+                          }}
+                        >
+                          {active && <Check className="h-4 w-4" />}
+                          {option}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
               <div className="flex gap-3 items-center flex-wrap">
                 <div className="flex items-center rounded-xl overflow-hidden" style={{ border: "2px solid #E8DDD4" }}>
                   <button
@@ -180,10 +231,19 @@ export default function DishDetailPage() {
                   type="button"
                   disabled={!canAdd}
                   onClick={() => {
+                    const cartName = selectedVariant ? `${variantInfo.baseName} - ${selectedVariant}` : dish.name;
+                    const cartKey = selectedVariant ? `${dish.id}:${selectedVariant}` : String(dish.id);
                     for (let index = 0; index < qty; index += 1) {
-                      addToCart({ id: dish.id, name: dish.name, price: dish.price, image_url: dish.image_url });
+                      addToCart({
+                        id: dish.id,
+                        cartKey,
+                        name: cartName,
+                        variant: selectedVariant,
+                        price: dish.price,
+                        image_url: dish.image_url,
+                      });
                     }
-                    showToast(`Đã thêm ${qty} x ${dish.name} vào giỏ hàng`);
+                    showToast(`Đã thêm ${qty} x ${cartName} vào giỏ hàng`);
                   }}
                   className="flex-1 flex items-center justify-center gap-2.5 py-3.5 rounded-xl text-base font-bold cursor-pointer transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
                   style={{ background: "linear-gradient(135deg, #E6B422, #D4A017)", color: "#3E2723", border: "none", boxShadow: "0 4px 16px rgba(230,180,34,0.35)" }}

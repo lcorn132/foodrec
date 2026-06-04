@@ -86,11 +86,12 @@ def chart_files() -> list[dict[str, Any]]:
     return [
         {
             "name": path.name,
+            "title": path.stem.replace("_", " ").title(),
             "size": path.stat().st_size,
             "modified": path.stat().st_mtime,
             "url": f"/api/data-pipeline/charts/{path.name}",
         }
-        for path in sorted(CHART_DIR.glob("*.svg"))
+        for path in sorted(CHART_DIR.glob("*.png"))
     ]
 
 
@@ -220,6 +221,6 @@ def load_processed_dishes_to_db(db: Session, replace: bool = True) -> dict[str, 
 def resolve_chart_path(filename: str) -> Path:
     safe_name = Path(filename).name
     path = CHART_DIR / safe_name
-    if not path.exists() or path.suffix.lower() != ".svg":
+    if not path.exists() or path.suffix.lower() != ".png":
         raise FileNotFoundError(safe_name)
     return path

@@ -76,11 +76,11 @@
       "Món thêm": 9
     },
     "price_range_counts": {
-      "Trung bÃ¬nh": 40,
-      "Cao cáº¥p": 13,
-      "Vá»«a pháº£i": 45,
-      "ChÆ°a rÃµ": 1,
-      "BÃ¬nh dÃ¢n": 20
+      "Trung bình": 40,
+      "Cao cấp": 13,
+      "Vừa phải": 45,
+      "Chưa rõ": 1,
+      "Bình dân": 20
     }
   },
   "kmeans": {
@@ -95,10 +95,10 @@
   "content_based_recommendation": {
     "rows": 952,
     "score_buckets": {
-      "Ráº¥t cao": 583,
+      "Rất cao": 583,
       "Cao": 292,
-      "Trung bÃ¬nh": 53,
-      "Tháº¥p": 24
+      "Trung bình": 53,
+      "Thấp": 24
     },
     "method": {
       "algorithm": "Content-Based Filtering",
@@ -117,14 +117,219 @@
   },
   "transactions": {
     "status": "removed",
-    "reason": "KhÃ´ng cÃ³ hÃ³a Ä‘Æ¡n cÃ´ng khai tháº­t nÃªn khÃ´ng dÃ¹ng dá»¯ liá»‡u giao dá»‹ch sinh giáº£."
+    "reason": "Không có hóa đơn công khai thật nên không dùng dữ liệu giao dịch sinh giả."
   },
-  "charts": [
-    "01_raw_rows_by_file.svg",
-    "02_preprocessing_funnel.svg",
-    "03_category_distribution.svg",
-    "04_price_range_distribution.svg",
-    "05_kmeans_cluster_distribution.svg",
-    "06_similarity_score_distribution.svg"
+  "charts": [],
+  "chart_data": [
+    {
+      "id": "raw_rows_by_file",
+      "type": "bar",
+      "title": "Dữ liệu gốc theo file Excel",
+      "data": [
+        {
+          "label": "raw.xlsx",
+          "value": 119
+        },
+        {
+          "label": "raw_1.xlsx",
+          "value": 12
+        },
+        {
+          "label": "raw_10.xlsx",
+          "value": 10
+        },
+        {
+          "label": "raw_11.xlsx",
+          "value": 9
+        },
+        {
+          "label": "raw_12.xlsx",
+          "value": 12
+        },
+        {
+          "label": "raw_2.xlsx",
+          "value": 3
+        },
+        {
+          "label": "raw_3.xlsx",
+          "value": 6
+        },
+        {
+          "label": "raw_4.xlsx",
+          "value": 15
+        },
+        {
+          "label": "raw_5.xlsx",
+          "value": 12
+        },
+        {
+          "label": "raw_6.xlsx",
+          "value": 11
+        },
+        {
+          "label": "raw_7.xlsx",
+          "value": 20
+        },
+        {
+          "label": "raw_8.xlsx",
+          "value": 6
+        },
+        {
+          "label": "raw_9.xlsx",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "preprocessing_funnel",
+      "type": "bar",
+      "title": "Từ dữ liệu thô đến dữ liệu sạch",
+      "data": [
+        {
+          "label": "Dòng raw",
+          "value": 238
+        },
+        {
+          "label": "Món sạch",
+          "value": 119
+        },
+        {
+          "label": "Dòng set menu",
+          "value": 118
+        },
+        {
+          "label": "Dòng gợi ý",
+          "value": 952
+        }
+      ]
+    },
+    {
+      "id": "category_distribution",
+      "type": "horizontal_bar",
+      "title": "Phân bổ món theo danh mục",
+      "data": [
+        {
+          "label": "Món cá",
+          "value": 20
+        },
+        {
+          "label": "Món canh",
+          "value": 15
+        },
+        {
+          "label": "Set menu đoàn",
+          "value": 12
+        },
+        {
+          "label": "Món khai vị",
+          "value": 12
+        },
+        {
+          "label": "Món rau",
+          "value": 12
+        },
+        {
+          "label": "Món heo",
+          "value": 11
+        },
+        {
+          "label": "Món gà/bò",
+          "value": 10
+        },
+        {
+          "label": "Món thêm",
+          "value": 9
+        },
+        {
+          "label": "Món đậu hũ/trứng",
+          "value": 6
+        },
+        {
+          "label": "Món lẩu",
+          "value": 6
+        },
+        {
+          "label": "Cơm niêu",
+          "value": 3
+        },
+        {
+          "label": "Món hải sản",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "price_range_distribution",
+      "type": "donut",
+      "title": "Phân bổ món theo mức giá",
+      "data": [
+        {
+          "label": "Bình dân",
+          "value": 20
+        },
+        {
+          "label": "Vừa phải",
+          "value": 45
+        },
+        {
+          "label": "Trung bình",
+          "value": 40
+        },
+        {
+          "label": "Cao cấp",
+          "value": 13
+        },
+        {
+          "label": "Chưa rõ",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "kmeans_cluster_distribution",
+      "type": "horizontal_bar",
+      "title": "Phân bổ cụm món ăn",
+      "data": [
+        {
+          "label": "C2 - Cụm 2: Món mặn đưa cơm",
+          "value": 62
+        },
+        {
+          "label": "C3 - Cụm 3: Món thanh mát (rau/canh)",
+          "value": 27
+        },
+        {
+          "label": "C4 - Cụm 4: Món tiệc/lẩu/ăn chơi",
+          "value": 25
+        },
+        {
+          "label": "C1 - Cụm 1: Món nền tảng (cơm)",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": "similarity_score_distribution",
+      "type": "donut",
+      "title": "Độ phù hợp của gợi ý",
+      "data": [
+        {
+          "label": "Rất cao",
+          "value": 583
+        },
+        {
+          "label": "Cao",
+          "value": 292
+        },
+        {
+          "label": "Trung bình",
+          "value": 53
+        },
+        {
+          "label": "Thấp",
+          "value": 24
+        }
+      ]
+    }
   ]
 }
