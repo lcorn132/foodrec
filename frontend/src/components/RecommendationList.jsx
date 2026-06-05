@@ -7,6 +7,12 @@ import DishImage from "./DishImage.jsx";
 import { useCart } from "../context/CartContext.jsx";
 import { showToast } from "./Toast.jsx";
 
+function shortReason(strategy, fallback) {
+  if (strategy === "cross_cluster_mapping") return "Đi kèm rất hợp mâm này";
+  if (strategy === "intra_cluster_knn") return "Hợp vị với món đang xem";
+  return fallback || "Đáng thử cho bữa ăn này";
+}
+
 function toPercent(score) {
   const n = typeof score === "number" ? score : Number(score);
   if (!Number.isFinite(n)) return null;
@@ -43,7 +49,7 @@ export default function RecommendationList({ recommendations, title = "Món ăn 
           {recommendations.map((rec, index) => {
             const dish = rec?.dish ?? rec;
             const pct = toPercent(rec?.score);
-            const reason = rec?.reason;
+            const reason = shortReason(rec?.strategy, rec?.reason);
             const category = dish?.category_name ?? dish?.category ?? "Thực đơn";
             const id = dish?.dish_id ?? dish?.id;
             const name = dish?.dish_name ?? dish?.name ?? "Món ăn";
@@ -58,7 +64,7 @@ export default function RecommendationList({ recommendations, title = "Món ăn 
               <Link
                 key={id ?? index}
                 to={`/dish/${id}`}
-                className="flex-shrink-0 w-[280px] sm:w-[300px] group block rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 no-underline"
+                className="group flex w-[280px] flex-shrink-0 flex-col overflow-hidden rounded-2xl no-underline transition-all duration-300 hover:-translate-y-1 sm:w-[300px]"
                 style={{
                   scrollSnapAlign: "start",
                   background: "white",
@@ -88,15 +94,16 @@ export default function RecommendationList({ recommendations, title = "Món ăn 
                   </div>
                 </div>
 
-                <div className="p-4">
-                  <div className="text-[12px] font-bold uppercase tracking-wide mb-1.5" style={{ color: "#B88900" }}>{category}</div>
-                  <h3 className="font-display text-[16px] font-semibold leading-tight mb-1.5 group-hover:text-gold-600 transition-colors line-clamp-2" style={{ color: "#3E2723" }}>
+                <div className="flex min-h-[205px] flex-1 flex-col p-4">
+                  <div className="mb-1.5 text-[12px] font-bold uppercase tracking-wide" style={{ color: "#B88900" }}>{category}</div>
+                  <h3 className="font-display min-h-[44px] text-[16px] font-semibold leading-snug transition-colors group-hover:text-gold-600 line-clamp-2" style={{ color: "#3E2723" }}>
                     {name}
                   </h3>
 
                   {reason && (
-                    <div className="mt-2.5 px-3 py-2 rounded-lg text-[12px] leading-relaxed" style={{ background: "#FDF3D7", color: "#5D4037", border: "1px solid #FAE8B0" }}>
-                      {reason}
+                    <div className="mt-3 inline-flex w-fit max-w-full items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-semibold" style={{ background: "#FFF7E6", color: "#6D4C41", border: "1px solid #FAE8B0" }}>
+                      <span className="text-[13px]">✨</span>
+                      <span className="truncate">{reason}</span>
                     </div>
                   )}
 
@@ -104,7 +111,7 @@ export default function RecommendationList({ recommendations, title = "Món ăn 
                     <button
                       type="button"
                       onClick={handleAdd}
-                      className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-bold transition-transform hover:-translate-y-0.5"
+                      className="mt-auto flex w-full items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-bold transition-transform hover:-translate-y-0.5"
                       style={{ background: "linear-gradient(135deg, #E6B422, #D4A017)", color: "#3E2723", border: "none" }}
                     >
                       <ShoppingCart className="h-4 w-4" />
