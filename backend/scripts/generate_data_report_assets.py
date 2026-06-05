@@ -6,6 +6,8 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+from PIL import Image, ImageDraw, ImageFont
+
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = ROOT / "backend" / "database" / "processed"
@@ -22,6 +24,205 @@ PRICE_LABELS = {
     "premium": "Cao cấp",
     "unknown": "Chưa rõ",
 }
+
+CHART_TITLES = {
+    "01_kmeans_convergence.png": "Độ hội tụ của K-Means",
+    "02_kmeans_price_calories.png": "Phân bố món theo giá và calories",
+    "03_kmeans_cluster_sizes.png": "Số lượng món trong từng cụm",
+    "04_similarity_score_histogram.png": "Phân bố điểm tương đồng",
+}
+
+CHART_COLORS = ["#2563EB", "#D97706", "#059669", "#7C3AED", "#DC2626"]
+
+
+def chart_font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
+    candidates = []
+    if bold:
+        candidates.extend(
+            [
+                Path("C:/Windows/Fonts/arialbd.ttf"),
+                Path("C:/Windows/Fonts/segoeuib.ttf"),
+            ]
+        )
+    candidates.extend(
+        [
+            Path("C:/Windows/Fonts/arial.ttf"),
+            Path("C:/Windows/Fonts/segoeui.ttf"),
+            Path("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"),
+        ]
+    )
+    for path in candidates:
+        if path.exists():
+            return ImageFont.truetype(str(path), size)
+    return ImageFont.load_default()
+
+
+def chart_canvas() -> tuple[Image.Image, ImageDraw.ImageDraw]:
+    image = Image.new("RGB", (1400, 820), "white")
+    return image, ImageDraw.Draw(image)
+
+
+def draw_axes(
+    draw: ImageDraw.ImageDraw,
+    x_label: str,
+    y_label: str,
+) -> tuple[int, int, int, int]:
+    left, top, right, bottom = 135, 70, 1330, 700
+    draw.line((left, bottom, right, bottom), fill="#64748B", width=3)
+    draw.line((left, top, left, bottom), fill="#64748B", width=3)
+    draw.text((650, 750), x_label, fill="#334155", font=chart_font(25, True))
+    draw.text((left, 20), y_label, fill="#334155", font=chart_font(25, True))
+    return left, top, right, bottom
+
+
+def save_convergence_chart(history: list[float]) -> None:
+    if not history:
+        return
+    image, draw = chart_canvas()
+    left, top, right, bottom = draw_axes(draw, "Vòng lặp", "WCSS")
+    values = [float(value) for value in history]
+    low, high = min(values), max(values)
+    span = max(high - low, 1)
+    points = []
+    for index, value in enumerate(values):
+        x = left if len(values) == 1 else left + (right - left) * index / (len(values) - 1)
+        y = bottom - (bottom - top) * (value - low) / span
+        points.append((x, y))
+    for tick in range(6):
+        value = low + span * tick / 5
+        y = bottom - (bottom - top) * tick / 5
+        draw.line((left, y, right, y), fill="#E2E8F0", width=1)
+        draw.text((35, y - 12), f"{value:.1f}", fill="#64748B", font=chart_font(20))
+    if len(points) > 1:
+        draw.line(points, fill=CHART_COLORS[0], width=5, joint="curve")
+    for index, (x, y) in enumerate(points):
+        draw.ellipse((x - 7, y - 7, x + 7, y + 7), fill=CHART_COLORS[0])
+        draw.text((x - 5, bottom + 15), str(index + 1), fill="#64748B", font=chart_font(18))
+    image.save(CHART_DIR / "01_kmeans_convergence.png")
+
+
+def save_cluster_scatter(dishes: list[dict[str, str]]) -> None:
+    rows = []
+    for row in dishes:
+        try:
+            rows.append(
+                (
+                    float(row.get("price_vnd") or 0),
+                    float(row.get("estimated_calories") or 0),
+                    int(row.get("cluster_id") or 0),
+                )
+            )
+        except ValueError:
+            continue
+    if not rows:
+        return
+    image, draw = chart_canvas()
+    left, top, right, bottom = draw_axes(draw, "Giá bán (đồng)", "Calories ước tính")
+    max_price = max(value[0] for value in rows) or 1
+    min_cal = min(value[1] for value in rows)
+    max_cal = max(value[1] for value in rows)
+    cal_span = max(max_cal - min_cal, 1)
+    for tick in range(6):
+        x = left + (right - left) * tick / 5
+        price = max_price * tick / 5
+        draw.line((x, top, x, bottom), fill="#F1F5F9", width=1)
+        draw.text((x - 30, bottom + 15), f"{price / 1000:.0f}k", fill="#64748B", font=chart_font(18))
+        y = bottom - (bottom - top) * tick / 5
+        cal = min_cal + cal_span * tick / 5
+        draw.line((left, y, right, y), fill="#F1F5F9", width=1)
+        draw.text((55, y - 10), f"{cal:.0f}", fill="#64748B", font=chart_font(18))
+    for price, calories, cluster in rows:
+        x = left + (right - left) * price / max_price
+        y = bottom - (bottom - top) * (calories - min_cal) / cal_span
+        color = CHART_COLORS[cluster % len(CHART_COLORS)]
+        draw.ellipse((x - 7, y - 7, x + 7, y + 7), fill=color, outline="white", width=1)
+    legend_x = 970
+    for cluster in sorted({row[2] for row in rows}):
+        color = CHART_COLORS[cluster % len(CHART_COLORS)]
+        draw.ellipse((legend_x, 25, legend_x + 16, 41), fill=color)
+        draw.text((legend_x + 24, 20), f"Cụm {cluster + 1}", fill="#334155", font=chart_font(19))
+        legend_x += 115
+    image.save(CHART_DIR / "02_kmeans_price_calories.png")
+
+
+def save_bar_chart(
+    filename: str,
+    labels: list[str],
+    values: list[float],
+    x_label: str,
+    y_label: str,
+) -> None:
+    if not labels or not values:
+        return
+    image, draw = chart_canvas()
+    left, top, right, bottom = draw_axes(draw, x_label, y_label)
+    maximum = max(values) or 1
+    slot = (right - left) / len(labels)
+    bar_width = min(slot * 0.58, 150)
+    for tick in range(6):
+        value = maximum * tick / 5
+        y = bottom - (bottom - top) * tick / 5
+        draw.line((left, y, right, y), fill="#E2E8F0", width=1)
+        draw.text((55, y - 10), f"{value:.0f}", fill="#64748B", font=chart_font(18))
+    for index, (label, value) in enumerate(zip(labels, values)):
+        center = left + slot * (index + 0.5)
+        height = (bottom - top) * value / maximum
+        color = CHART_COLORS[index % len(CHART_COLORS)]
+        draw.rounded_rectangle(
+            (center - bar_width / 2, bottom - height, center + bar_width / 2, bottom),
+            radius=8,
+            fill=color,
+        )
+        draw.text((center - 18, bottom - height - 35), f"{value:.0f}", fill="#0F172A", font=chart_font(21, True))
+        short_label = label[:18]
+        width = draw.textbbox((0, 0), short_label, font=chart_font(19))[2]
+        draw.text((center - width / 2, bottom + 15), short_label, fill="#475569", font=chart_font(19))
+    image.save(CHART_DIR / filename)
+
+
+def save_similarity_histogram(similarity_rows: list[dict[str, str]]) -> None:
+    scores = []
+    for row in similarity_rows:
+        try:
+            scores.append(float(row.get("score") or 0))
+        except ValueError:
+            continue
+    if not scores:
+        return
+    labels = ["0-0,2", "0,2-0,4", "0,4-0,6", "0,6-0,8", "0,8-1,0"]
+    counts = [0, 0, 0, 0, 0]
+    for score in scores:
+        counts[min(int(max(score, 0) * 5), 4)] += 1
+    save_bar_chart(
+        "04_similarity_score_histogram.png",
+        labels,
+        counts,
+        "Khoảng điểm tương đồng",
+        "Số cặp gợi ý",
+    )
+
+
+def generate_png_charts(
+    report: dict[str, Any],
+    dishes: list[dict[str, str]],
+    similarity_rows: list[dict[str, str]],
+    cluster_counts: Counter[str],
+) -> list[dict[str, str]]:
+    save_convergence_chart(report.get("kmeans", {}).get("convergence_history", []))
+    save_cluster_scatter(dishes)
+    save_bar_chart(
+        "03_kmeans_cluster_sizes.png",
+        [f"Cụm {index + 1}" for index, _ in enumerate(cluster_counts)],
+        [float(value) for value in cluster_counts.values()],
+        "Cụm K-Means",
+        "Số món",
+    )
+    save_similarity_histogram(similarity_rows)
+    return [
+        {"filename": filename, "title": title}
+        for filename, title in CHART_TITLES.items()
+        if (CHART_DIR / filename).exists()
+    ]
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -150,6 +351,7 @@ def main() -> None:
         cluster_counts=cluster_counts,
         score_buckets=score_buckets,
     )
+    png_charts = generate_png_charts(report, dishes, similarity_rows, cluster_counts)
 
     summary = {
         "raw": {"files": len(raw_files), "rows": raw_rows, "file_rows": raw_file_rows},
@@ -170,7 +372,7 @@ def main() -> None:
             "status": "removed",
             "reason": "Không có hóa đơn công khai thật nên không dùng dữ liệu giao dịch sinh giả.",
         },
-        "charts": [],
+        "charts": png_charts,
         "chart_data": chart_data,
     }
 
@@ -205,7 +407,7 @@ def main() -> None:
 
     print(
         json.dumps(
-            {"charts": 0, "chart_data": len(chart_data), "summary_md": str(SUMMARY_MD), "summary_json": str(SUMMARY_JSON)},
+            {"charts": len(png_charts), "chart_data": len(chart_data), "summary_md": str(SUMMARY_MD), "summary_json": str(SUMMARY_JSON)},
             ensure_ascii=False,
             indent=2,
         )

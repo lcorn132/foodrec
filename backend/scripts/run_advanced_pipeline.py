@@ -429,7 +429,11 @@ def one_hot_keywords(dishes: list[dict[str, Any]], labels: list[str]) -> dict[st
     return result
 
 
-def kmeans_cluster(dishes: list[dict[str, Any]], k: int = K_CLUSTERS, iterations: int = 80) -> list[dict[str, Any]]:
+def kmeans_cluster(
+    dishes: list[dict[str, Any]],
+    k: int = K_CLUSTERS,
+    iterations: int = 80,
+) -> tuple[list[dict[str, Any]], list[float]]:
     random.seed(SEED)
     keyword_labels = ["lau", "com", "canh", "rau", "hai_san", "thit", "chien_xao", "thanh_dam", "do_uong_them"]
     prices = zscore([float(d["price_vnd"]) for d in dishes])
@@ -455,6 +459,11 @@ def kmeans_cluster(dishes: list[dict[str, Any]], k: int = K_CLUSTERS, iterations
         selected.append(candidate)
     centroids = [vectors[i] for i in selected]
     assignments = [-1] * len(vectors)
+    initial_wcss = sum(
+        min(sum((a - b) ** 2 for a, b in zip(vector, centroid)) for centroid in centroids)
+        for vector in vectors
+    )
+    convergence_history: list[float] = [round(initial_wcss, 6)]
     for _ in range(iterations):
         changed = False
         for idx, vector in enumerate(vectors):
@@ -473,12 +482,17 @@ def kmeans_cluster(dishes: list[dict[str, Any]], k: int = K_CLUSTERS, iterations
             )
             assignments[farthest_idx] = cluster
             changed = True
-        if not changed:
-            break
         for cluster in range(len(centroids)):
             members = [vectors[i] for i, a in enumerate(assignments) if a == cluster]
             if members:
                 centroids[cluster] = [sum(values) / len(values) for values in zip(*members)]
+        wcss = sum(
+            sum((a - b) ** 2 for a, b in zip(vector, centroids[assignments[idx]]))
+            for idx, vector in enumerate(vectors)
+        )
+        convergence_history.append(round(wcss, 6))
+        if not changed:
+            break
     summaries = summarize_clusters(dishes, assignments)
     clustered = []
     for dish, cluster in zip(dishes, assignments):
@@ -487,7 +501,7 @@ def kmeans_cluster(dishes: list[dict[str, Any]], k: int = K_CLUSTERS, iterations
         row["meal_role"] = summaries[cluster]["role"]
         row["cluster_label"] = f"{ROLE_CLUSTER_CODES[row['meal_role']]} - {summaries[cluster]['label']}"
         clustered.append(row)
-    return clustered
+    return clustered, convergence_history
 
 
 def score_meal_roles(members: list[dict[str, Any]]) -> dict[str, float]:
@@ -648,7 +662,7 @@ def main() -> None:
 
     dishes = build_dishes(raw_rows)
     set_transactions, set_item_rows = build_set_transactions(raw_rows)
-    clustered_dishes = kmeans_cluster(dishes)
+    clustered_dishes, convergence_history = kmeans_cluster(dishes)
     cluster_summary = summarize_clusters(clustered_dishes, [int(d["cluster_id"]) for d in clustered_dishes])
     similarity_rows = content_similarity_recommendations(clustered_dishes)
 
@@ -674,6 +688,7 @@ def main() -> None:
             "k": K_CLUSTERS,
             "features": ["price_vnd", "estimated_calories", "is_set_menu", "keyword one-hot"],
             "interpretation": "Diễn giải 4 cụm theo cấu trúc bữa ăn Việt: cơm - món mặn - rau/canh - tiệc/lẩu.",
+            "convergence_history": convergence_history,
             "clusters": list(cluster_summary.values()),
         },
         "content_based_recommendation": {

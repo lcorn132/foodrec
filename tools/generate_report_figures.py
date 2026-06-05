@@ -257,7 +257,6 @@ def figure_5_1():
 
 
 def main():
-    figure_2_1()
     figure_2_2()
     figure_2_3()
     figure_3_2()

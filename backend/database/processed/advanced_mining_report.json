@@ -4,7 +4,7 @@
       {
         "file": "comnieuvietnam-vn-2026-06-04.xlsx",
         "rows": 119,
-        "size_bytes": 340067
+        "size_bytes": 59816
       },
       {
         "file": "comnieuvietnam-vn-2026-06-04_1.xlsx",
@@ -54,7 +54,7 @@
       {
         "file": "comnieuvietnam-vn-2026-06-04_7.xlsx",
         "rows": 20,
-        "size_bytes": 51263
+        "size_bytes": 19185
       },
       {
         "file": "comnieuvietnam-vn-2026-06-04_8.xlsx",
@@ -87,6 +87,11 @@
       "keyword one-hot"
     ],
     "interpretation": "Diễn giải 4 cụm theo cấu trúc bữa ăn Việt: cơm - món mặn - rau/canh - tiệc/lẩu.",
+    "convergence_history": [
+      3113.522826,
+      2137.095582,
+      2137.095582
+    ],
     "clusters": [
       {
         "cluster_id": 0,
@@ -102,7 +107,7 @@
         "role": "savory",
         "label": "Cụm 2: Món mặn đưa cơm",
         "size": 62,
-        "avg_price": 131081,
+        "avg_price": 133339,
         "top_categories": "Món cá|Món khai vị|Món heo|Món gà/bò|Món đậu hũ/trứng",
         "top_keywords": "thit|thanh_dam|do_uong_them|hai_san|chien_xao"
       },

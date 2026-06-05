@@ -17,6 +17,12 @@ PROCESSED_DIR = DATABASE_DIR / "processed"
 REPORT_PATH = PROCESSED_DIR / "advanced_mining_report.json"
 STATS_PATH = PROCESSED_DIR / "report_assets" / "data_statistics_report.json"
 CHART_DIR = PROCESSED_DIR / "report_assets" / "charts"
+CHART_TITLES = {
+    "01_kmeans_convergence.png": "Độ hội tụ của K-Means",
+    "02_kmeans_price_calories.png": "Phân bố món theo giá và calories",
+    "03_kmeans_cluster_sizes.png": "Số lượng món trong từng cụm",
+    "04_similarity_score_histogram.png": "Phân bố điểm tương đồng",
+}
 
 
 def _safe_int(value: Any, default: int = 0) -> int:
@@ -86,7 +92,7 @@ def chart_files() -> list[dict[str, Any]]:
     return [
         {
             "name": path.name,
-            "title": path.stem.replace("_", " ").title(),
+            "title": CHART_TITLES.get(path.name, path.stem.replace("_", " ").title()),
             "size": path.stat().st_size,
             "modified": path.stat().st_mtime,
             "url": f"/api/data-pipeline/charts/{path.name}",

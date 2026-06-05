@@ -78,8 +78,7 @@
     "price_range_counts": {
       "Trung bình": 40,
       "Cao cấp": 13,
-      "Vừa phải": 45,
-      "Chưa rõ": 1,
+      "Vừa phải": 46,
       "Bình dân": 20
     }
   },
@@ -95,8 +94,8 @@
   "content_based_recommendation": {
     "rows": 952,
     "score_buckets": {
-      "Rất cao": 583,
-      "Cao": 292,
+      "Rất cao": 590,
+      "Cao": 285,
       "Trung bình": 53,
       "Thấp": 24
     },
@@ -119,7 +118,24 @@
     "status": "removed",
     "reason": "Không có hóa đơn công khai thật nên không dùng dữ liệu giao dịch sinh giả."
   },
-  "charts": [],
+  "charts": [
+    {
+      "filename": "01_kmeans_convergence.png",
+      "title": "Độ hội tụ của K-Means"
+    },
+    {
+      "filename": "02_kmeans_price_calories.png",
+      "title": "Phân bố món theo giá và calories"
+    },
+    {
+      "filename": "03_kmeans_cluster_sizes.png",
+      "title": "Số lượng món trong từng cụm"
+    },
+    {
+      "filename": "04_similarity_score_histogram.png",
+      "title": "Phân bố điểm tương đồng"
+    }
+  ],
   "chart_data": [
     {
       "id": "raw_rows_by_file",
@@ -269,7 +285,7 @@
         },
         {
           "label": "Vừa phải",
-          "value": 45
+          "value": 46
         },
         {
           "label": "Trung bình",
@@ -281,7 +297,7 @@
         },
         {
           "label": "Chưa rõ",
-          "value": 1
+          "value": 0
         }
       ]
     },
@@ -315,11 +331,11 @@
       "data": [
         {
           "label": "Rất cao",
-          "value": 583
+          "value": 590
         },
         {
           "label": "Cao",
-          "value": 292
+          "value": 285
         },
         {
           "label": "Trung bình",

@@ -2,8 +2,15 @@ import { useEffect, useMemo, useState } from "react";
 import axios from "../../api/axios";
 import DynamicCharts from "../../components/admin/DynamicCharts.jsx";
 
+const API_ORIGIN = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/api\/?$/, "");
+
 function formatNumber(value) {
   return Number(value || 0).toLocaleString("vi-VN");
+}
+
+function chartImageUrl(chart) {
+  const path = `${chart.url}?v=${chart.modified}`;
+  return API_ORIGIN ? `${API_ORIGIN}${path}` : path;
 }
 
 function Card({ title, value, note }) {
@@ -100,6 +107,7 @@ export default function DashboardPreprocessing() {
   const rawFiles = status?.raw_files || [];
   const stats = status?.statistics || {};
   const chartData = stats?.chart_data || [];
+  const chartImages = status?.charts || [];
   const clusterRows = useMemo(() => Object.entries(stats?.kmeans?.clusters || {}), [stats]);
   const similarityBuckets = useMemo(() => Object.entries(stats?.content_based_recommendation?.score_buckets || {}), [stats]);
 
@@ -218,6 +226,24 @@ export default function DashboardPreprocessing() {
       </Section>
 
       <Section title="4. Biểu đồ báo cáo" subtitle="Các biểu đồ được vẽ tự động từ dữ liệu thống kê mới nhất sau khi chạy pipeline.">
+        {chartImages.length ? (
+          <div className="mb-6 grid gap-5 xl:grid-cols-2">
+            {chartImages.map((chart) => {
+              const imageUrl = chartImageUrl(chart);
+              return (
+                <figure key={chart.name} className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+                  <div className="flex items-center justify-between gap-3 border-b border-slate-100 px-4 py-3">
+                    <figcaption className="text-sm font-bold text-slate-900">{chart.title}</figcaption>
+                    <a href={imageUrl} download className="text-xs font-semibold text-blue-700 hover:text-blue-900">
+                      Tải ảnh
+                    </a>
+                  </div>
+                  <img src={imageUrl} alt={chart.title} className="block aspect-[7/4] w-full object-contain p-3" />
+                </figure>
+              );
+            })}
+          </div>
+        ) : null}
         {chartData.length ? (
           <DynamicCharts charts={chartData} />
         ) : (

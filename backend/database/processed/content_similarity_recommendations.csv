@@ -146,19 +146,19 @@ D0046,Cá dứa biển kho tộ,D0052,Cá lăng sông kho tộ,0.8654,8,cùng c�
 D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0048,Khô cá cơm cháy tỏi,0.7875,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0041,Cá mú đỏ: Sốt cà/ Kho tộ/ Chưng tương,0.7351,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,0.7257,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.7075,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0039,Cá bóng cát kho tộ,0.6958,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0045,Cá bớp kho tộ,0.6958,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0038,Cá diếc: Kho tương bần/ chiên giòn,0.6958,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0049,Cá lóc biển hồ Cambodia chiên giòn,0.6958,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0051,Cá thác lác chiên thì là,0.7125,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.7075,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0039,Cá bóng cát kho tộ,0.6958,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0045,Cá bớp kho tộ,0.6958,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0040,Cá gáy Phú Quý: Kho tộ/ Chưng tương,D0038,Cá diếc: Kho tương bần/ chiên giòn,0.6958,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0053,Cá dứa 1 nắng Cần Giờ: Chiên/ Sốt cà,0.9089,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,0.8722,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0049,Cá lóc biển hồ Cambodia chiên giòn,0.8598,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0054,Khô cá lóc Cambodia,0.8265,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,0.8039,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.8015,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0046,Cá dứa biển kho tộ,0.7812,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0047,Khô cá cơm rim ba rọi,0.7779,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0051,Cá thác lác chiên thì là,0.8247,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,0.8039,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.8015,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,D0046,Cá dứa biển kho tộ,0.7812,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0036,Cá kho làng Vũ Đại,D0046,Cá dứa biển kho tộ,0.9451,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0036,Cá kho làng Vũ Đại,D0050,Cá bông lau kho tộ,0.9229,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0036,Cá kho làng Vũ Đại,D0052,Cá lăng sông kho tộ,0.9007,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
@@ -187,10 +187,10 @@ D0049,Cá lóc biển hồ Cambodia chiên giòn,D0037,Cá ngừ đại dương:
 D0049,Cá lóc biển hồ Cambodia chiên giòn,D0054,Khô cá lóc Cambodia,0.95,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0049,Cá lóc biển hồ Cambodia chiên giòn,D0039,Cá bóng cát kho tộ,0.9,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0049,Cá lóc biển hồ Cambodia chiên giòn,D0045,Cá bớp kho tộ,0.9,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0049,Cá lóc biển hồ Cambodia chiên giòn,D0055,Cá linh chiên giòn,0.8687,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0049,Cá lóc biển hồ Cambodia chiên giòn,D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,0.8598,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0049,Cá lóc biển hồ Cambodia chiên giòn,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.85,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0049,Cá lóc biển hồ Cambodia chiên giòn,D0046,Cá dứa biển kho tộ,0.8452,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0049,Cá lóc biển hồ Cambodia chiên giòn,D0051,Cá thác lác chiên thì là,0.87,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0049,Cá lóc biển hồ Cambodia chiên giòn,D0055,Cá linh chiên giòn,0.8687,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0049,Cá lóc biển hồ Cambodia chiên giòn,D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,0.8598,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0049,Cá lóc biển hồ Cambodia chiên giòn,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.85,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,D0039,Cá bóng cát kho tộ,0.8996,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,D0045,Cá bớp kho tộ,0.8996,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0043,Cá mú nghệ: Chưng tương/ Kho tộ/ Sốt cà chua,D0053,Cá dứa 1 nắng Cần Giờ: Chiên/ Sốt cà,0.8833,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
@@ -215,14 +215,14 @@ D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,D0045,Cá bớp
 D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,D0046,Cá dứa biển kho tộ,0.8576,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,D0055,Cá linh chiên giòn,0.8489,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,D0036,Cá kho làng Vũ Đại,0.8444,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0051,Cá thác lác chiên thì là,D0049,Cá lóc biển hồ Cambodia chiên giòn,0.6833,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0051,Cá thác lác chiên thì là,D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,0.6833,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0051,Cá thác lác chiên thì là,D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,0.66,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0051,Cá thác lác chiên thì là,D0055,Cá linh chiên giòn,0.65,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0051,Cá thác lác chiên thì là,D0054,Khô cá lóc Cambodia,0.65,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0051,Cá thác lác chiên thì là,D0047,Khô cá cơm rim ba rọi,0.625,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0051,Cá thác lác chiên thì là,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.625,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0051,Cá thác lác chiên thì là,D0053,Cá dứa 1 nắng Cần Giờ: Chiên/ Sốt cà,0.625,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0051,Cá thác lác chiên thì là,D0049,Cá lóc biển hồ Cambodia chiên giòn,0.87,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0051,Cá thác lác chiên thì là,D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,0.8389,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0051,Cá thác lác chiên thì là,D0054,Khô cá lóc Cambodia,0.8367,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0051,Cá thác lác chiên thì là,D0044,Cá hồng biển Phú Quý: Kho tộ/ Sốt cà chua,0.8247,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0051,Cá thác lác chiên thì là,D0042,Cá thu: Kho tộ/ Sốt cà chua,0.8117,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0051,Cá thác lác chiên thì là,D0047,Khô cá cơm rim ba rọi,0.8107,6,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0051,Cá thác lác chiên thì là,D0039,Cá bóng cát kho tộ,0.7867,7,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0051,Cá thác lác chiên thì là,D0045,Cá bớp kho tộ,0.7867,8,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0042,Cá thu: Kho tộ/ Sốt cà chua,D0047,Khô cá cơm rim ba rọi,0.9733,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0042,Cá thu: Kho tộ/ Sốt cà chua,D0050,Cá bông lau kho tộ,0.9,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0042,Cá thu: Kho tộ/ Sốt cà chua,D0046,Cá dứa biển kho tộ,0.8765,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
@@ -413,8 +413,8 @@ D0082,Đậu hũ sốt cà chua,D0086,Mì xào hải sản,0.7614,3,cùng cụm 
 D0082,Đậu hũ sốt cà chua,D0085,Trứng chiên lá mơ,0.7375,4,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0082,Đậu hũ sốt cà chua,D0084,Trứng chiên hành,0.65,5,cùng cụm K-Means; cùng danh mục; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0082,Đậu hũ sốt cà chua,D0025,Ba rọi luộc + cà pháo,0.5173,6,cùng cụm K-Means; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0082,Đậu hũ sốt cà chua,D0088,Lườn ngỗng sốt chanh dây,0.505,7,cùng cụm K-Means; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0082,Đậu hũ sốt cà chua,D0027,Ba rọi rang cháy cạnh,0.5015,8,cùng cụm K-Means; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0082,Đậu hũ sốt cà chua,D0051,Cá thác lác chiên thì là,0.5107,7,cùng cụm K-Means; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0082,Đậu hũ sốt cà chua,D0088,Lườn ngỗng sốt chanh dây,0.505,8,cùng cụm K-Means; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0083,Đậu hũ sốt thịt bằm,D0086,Mì xào hải sản,0.825,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0083,Đậu hũ sốt thịt bằm,D0081,Đậu hũ chiên giòn,0.7964,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0083,Đậu hũ sốt thịt bằm,D0082,Đậu hũ sốt cà chua,0.7964,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
@@ -446,7 +446,7 @@ D0085,Trứng chiên lá mơ,D0081,Đậu hũ chiên giòn,0.7375,4,cùng cụm 
 D0085,Trứng chiên lá mơ,D0082,Đậu hũ sốt cà chua,0.7375,5,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0085,Trứng chiên lá mơ,D0092,Hến xúc bánh đa,0.7348,6,cùng cụm K-Means; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0085,Trứng chiên lá mơ,D0080,Ốc bưu xào chuối đậu,0.675,7,cùng cụm K-Means; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0085,Trứng chiên lá mơ,D0087,Chả mực Hạ Long,0.5633,8,cùng cụm K-Means; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0085,Trứng chiên lá mơ,D0051,Cá thác lác chiên thì là,0.5982,8,cùng cụm K-Means; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0065,Bò lúc lắc,D0061,Cải mầm đá Sapa xào bò,0.95,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0065,Bò lúc lắc,D0064,Rau rừng Gia Lai xào bò,0.9353,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0065,Bò lúc lắc,D0062,Bò xào hành cần,0.9,3,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
@@ -534,15 +534,15 @@ D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,D0049,Cá lóc biển hồ 
 D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,D0061,Cải mầm đá Sapa xào bò,0.7417,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,D0090,Miến xào thịt ghẹ,0.7417,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,D0064,Rau rừng Gia Lai xào bò,0.727,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,D0037,Cá ngừ đại dương: Sốt cà/ Kho thơm/ Lúc lắc,0.7083,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,D0051,Cá thác lác chiên thì là,0.7167,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0080,Ốc bưu xào chuối đậu,D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,0.86,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0080,Ốc bưu xào chuối đậu,D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,0.8475,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0080,Ốc bưu xào chuối đậu,D0092,Hến xúc bánh đa,0.7112,3,cùng cụm K-Means; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0080,Ốc bưu xào chuối đậu,D0085,Trứng chiên lá mơ,0.675,4,cùng cụm K-Means; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0080,Ốc bưu xào chuối đậu,D0087,Chả mực Hạ Long,0.6708,5,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0080,Ốc bưu xào chuối đậu,D0089,Nem ghẹ Phú Quốc,0.635,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0080,Ốc bưu xào chuối đậu,D0063,Măng trúc yên tử xào bò,0.6338,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
-D0080,Ốc bưu xào chuối đậu,D0098,Mì xào hải sản,0.6225,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0080,Ốc bưu xào chuối đậu,D0051,Cá thác lác chiên thì là,0.6875,4,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0080,Ốc bưu xào chuối đậu,D0085,Trứng chiên lá mơ,0.675,5,cùng cụm K-Means; trùng từ khóa món,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0080,Ốc bưu xào chuối đậu,D0087,Chả mực Hạ Long,0.6708,6,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0080,Ốc bưu xào chuối đậu,D0089,Nem ghẹ Phú Quốc,0.635,7,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
+D0080,Ốc bưu xào chuối đậu,D0063,Măng trúc yên tử xào bò,0.6338,8,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,D0078,Mực ống: Xào/ Hấp/ Chiên nước mắm,0.8708,1,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,D0080,Ốc bưu xào chuối đậu,0.86,2,cùng cụm K-Means; cùng danh mục; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
 D0079,Tôm: Cháy tỏi/ Rang muối/ Chiên nước mắm,D0089,Nem ghẹ Phú Quốc,0.775,3,cùng cụm K-Means; trùng từ khóa món; mức giá gần nhau,C2 - Cụm 2: Món mặn đưa cơm,C2 - Cụm 2: Món mặn đưa cơm
