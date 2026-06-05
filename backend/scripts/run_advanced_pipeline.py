@@ -1,6 +1,7 @@
 ﻿from __future__ import annotations
 
 import csv
+import itertools
 import json
 import random
 import re
@@ -429,70 +430,180 @@ def one_hot_keywords(dishes: list[dict[str, Any]], labels: list[str]) -> dict[st
     return result
 
 
+def category_family_features(category: str) -> list[float]:
+    families = [
+        {"mon-com-nieu"},
+        {"mon-heo", "mon-ca", "mon-ga-bo", "mon-dau-hu-trung", "mon-hai-san"},
+        {"mon-canh", "mon-rau"},
+        {"mon-lau", "menu-com-doan-du-lich", "mon-khai-vi", "mon-them"},
+    ]
+    return [1.0 if category in members else 0.0 for members in families]
+
+
+def squared_distance(left: list[float], right: list[float]) -> float:
+    return sum((a - b) ** 2 for a, b in zip(left, right))
+
+
+def initialize_kmeans_plus_plus(
+    vectors: list[list[float]],
+    k: int,
+    rng: random.Random,
+) -> list[list[float]]:
+    selected = [rng.randrange(len(vectors))]
+    while len(selected) < min(k, len(vectors)):
+        distances = [
+            min(squared_distance(vector, vectors[index]) for index in selected)
+            for vector in vectors
+        ]
+        total = sum(distances)
+        if total <= 0:
+            remaining = [index for index in range(len(vectors)) if index not in selected]
+            selected.append(rng.choice(remaining))
+            continue
+        threshold = rng.random() * total
+        cumulative = 0.0
+        candidate = len(vectors) - 1
+        for index, distance in enumerate(distances):
+            cumulative += distance
+            if cumulative >= threshold:
+                candidate = index
+                break
+        if candidate in selected:
+            candidate = max(
+                (index for index in range(len(vectors)) if index not in selected),
+                key=lambda index: distances[index],
+            )
+        selected.append(candidate)
+    return [list(vectors[index]) for index in selected]
+
+
+def run_kmeans_once(
+    vectors: list[list[float]],
+    k: int,
+    iterations: int,
+    rng: random.Random,
+) -> tuple[list[int], list[float]]:
+    centroids = initialize_kmeans_plus_plus(vectors, k, rng)
+    assignments = [-1] * len(vectors)
+    initial_wcss = sum(
+        min(squared_distance(vector, centroid) for centroid in centroids)
+        for vector in vectors
+    )
+    history = [round(initial_wcss, 6)]
+
+    for _ in range(iterations):
+        new_assignments = [
+            min(
+                range(len(centroids)),
+                key=lambda cluster: squared_distance(vector, centroids[cluster]),
+            )
+            for vector in vectors
+        ]
+
+        for cluster in range(len(centroids)):
+            if cluster in new_assignments:
+                continue
+            farthest_index = max(
+                range(len(vectors)),
+                key=lambda index: squared_distance(
+                    vectors[index],
+                    centroids[new_assignments[index]],
+                ),
+            )
+            new_assignments[farthest_index] = cluster
+
+        new_centroids = []
+        for cluster in range(len(centroids)):
+            members = [
+                vectors[index]
+                for index, assignment in enumerate(new_assignments)
+                if assignment == cluster
+            ]
+            new_centroids.append(
+                [sum(values) / len(values) for values in zip(*members)]
+            )
+
+        wcss = sum(
+            squared_distance(vector, new_centroids[new_assignments[index]])
+            for index, vector in enumerate(vectors)
+        )
+        history.append(round(wcss, 6))
+        converged = new_assignments == assignments
+        assignments = new_assignments
+        centroids = new_centroids
+        if converged:
+            break
+
+    return assignments, history
+
+
+def silhouette_score(vectors: list[list[float]], assignments: list[int]) -> float:
+    clusters = sorted(set(assignments))
+    if len(clusters) < 2:
+        return 0.0
+    members = {
+        cluster: [index for index, value in enumerate(assignments) if value == cluster]
+        for cluster in clusters
+    }
+    scores = []
+    for index, vector in enumerate(vectors):
+        own_cluster = assignments[index]
+        own_members = [member for member in members[own_cluster] if member != index]
+        intra = (
+            sum(squared_distance(vector, vectors[member]) ** 0.5 for member in own_members)
+            / len(own_members)
+            if own_members
+            else 0.0
+        )
+        nearest_other = min(
+            sum(squared_distance(vector, vectors[member]) ** 0.5 for member in members[cluster])
+            / len(members[cluster])
+            for cluster in clusters
+            if cluster != own_cluster
+        )
+        denominator = max(intra, nearest_other)
+        scores.append((nearest_other - intra) / denominator if denominator else 0.0)
+    return round(sum(scores) / len(scores), 4)
+
+
 def kmeans_cluster(
     dishes: list[dict[str, Any]],
     k: int = K_CLUSTERS,
     iterations: int = 80,
-) -> tuple[list[dict[str, Any]], list[float]]:
-    random.seed(SEED)
+) -> tuple[list[dict[str, Any]], list[float], float]:
     keyword_labels = ["lau", "com", "canh", "rau", "hai_san", "thit", "chien_xao", "thanh_dam", "do_uong_them"]
     prices = zscore([float(d["price_vnd"]) for d in dishes])
     calories = zscore([float(d["estimated_calories"]) for d in dishes])
     set_flags = [float(d["is_set_menu"]) for d in dishes]
     kw_matrix = one_hot_keywords(dishes, keyword_labels)
     vectors = []
-    role_scores_by_dish = {}
     for idx, dish in enumerate(dishes):
-        role_scores = score_meal_roles([dish])
-        role_scores_by_dish[dish["dish_id"]] = role_scores
-        role_features = [role_scores["foundation"] * 2.5, role_scores["savory"] * 2.5, role_scores["fresh"] * 2.5, role_scores["feast"] * 2.5]
-        vectors.append([prices[idx], calories[idx], set_flags[idx] * 1.5] + kw_matrix[dish["dish_id"]] + role_features)
-    selected: list[int] = []
-    for role in ["foundation", "savory", "fresh", "feast"][: min(k, len(vectors))]:
-        candidate = max(
-            (idx for idx in range(len(dishes)) if idx not in selected),
-            key=lambda idx: role_scores_by_dish[dishes[idx]["dish_id"]][role],
+        category_features = [
+            value * 2.5
+            for value in category_family_features(str(dish.get("category") or "unknown"))
+        ]
+        vectors.append(
+            [prices[idx] * 0.5, calories[idx] * 0.5, set_flags[idx] * 0.4]
+            + category_features
+            + [value * 0.6 for value in kw_matrix[dish["dish_id"]]]
         )
-        selected.append(candidate)
-    while len(selected) < min(k, len(vectors)):
-        candidate = random.choice([idx for idx in range(len(vectors)) if idx not in selected])
-        selected.append(candidate)
-    centroids = [vectors[i] for i in selected]
-    assignments = [-1] * len(vectors)
-    initial_wcss = sum(
-        min(sum((a - b) ** 2 for a, b in zip(vector, centroid)) for centroid in centroids)
-        for vector in vectors
-    )
-    convergence_history: list[float] = [round(initial_wcss, 6)]
-    for _ in range(iterations):
-        changed = False
-        for idx, vector in enumerate(vectors):
-            distances = [sum((a - b) ** 2 for a, b in zip(vector, centroid)) for centroid in centroids]
-            cluster = distances.index(min(distances))
-            if cluster != assignments[idx]:
-                assignments[idx] = cluster
-                changed = True
-        used_clusters = set(assignments)
-        for cluster in range(len(centroids)):
-            if cluster in used_clusters:
-                continue
-            farthest_idx = max(
-                range(len(vectors)),
-                key=lambda i: sum((a - b) ** 2 for a, b in zip(vectors[i], centroids[assignments[i]])),
-            )
-            assignments[farthest_idx] = cluster
-            changed = True
-        for cluster in range(len(centroids)):
-            members = [vectors[i] for i, a in enumerate(assignments) if a == cluster]
-            if members:
-                centroids[cluster] = [sum(values) / len(values) for values in zip(*members)]
-        wcss = sum(
-            sum((a - b) ** 2 for a, b in zip(vector, centroids[assignments[idx]]))
-            for idx, vector in enumerate(vectors)
+
+    best_assignments: list[int] = []
+    best_history: list[float] = []
+    best_wcss = float("inf")
+    for run in range(20):
+        assignments, history = run_kmeans_once(
+            vectors,
+            k=min(k, len(vectors)),
+            iterations=iterations,
+            rng=random.Random(SEED + run),
         )
-        convergence_history.append(round(wcss, 6))
-        if not changed:
-            break
+        if history[-1] < best_wcss:
+            best_assignments = assignments
+            best_history = history
+            best_wcss = history[-1]
+
+    assignments = best_assignments
     summaries = summarize_clusters(dishes, assignments)
     clustered = []
     for dish, cluster in zip(dishes, assignments):
@@ -501,7 +612,7 @@ def kmeans_cluster(
         row["meal_role"] = summaries[cluster]["role"]
         row["cluster_label"] = f"{ROLE_CLUSTER_CODES[row['meal_role']]} - {summaries[cluster]['label']}"
         clustered.append(row)
-    return clustered, convergence_history
+    return clustered, best_history, silhouette_score(vectors, assignments)
 
 
 def score_meal_roles(members: list[dict[str, Any]]) -> dict[str, float]:
@@ -539,25 +650,23 @@ def score_meal_roles(members: list[dict[str, Any]]) -> dict[str, float]:
 
 
 def assign_cluster_roles(cluster_members: dict[int, list[dict[str, Any]]]) -> dict[int, str]:
-    scored_pairs: list[tuple[float, int, str]] = []
     role_scores = {cluster: score_meal_roles(members) for cluster, members in cluster_members.items()}
-    for cluster, scores in role_scores.items():
-        for role, score in scores.items():
-            scored_pairs.append((score, cluster, role))
+    clusters = sorted(cluster_members)
+    roles = list(MEAL_ROLES)
+    if len(clusters) == len(roles):
+        best_roles = max(
+            itertools.permutations(roles),
+            key=lambda permutation: sum(
+                role_scores[cluster][role]
+                for cluster, role in zip(clusters, permutation)
+            ),
+        )
+        return dict(zip(clusters, best_roles))
 
-    assignments: dict[int, str] = {}
-    used_roles: set[str] = set()
-    for _, cluster, role in sorted(scored_pairs, reverse=True):
-        if cluster in assignments or role in used_roles:
-            continue
-        assignments[cluster] = role
-        used_roles.add(role)
-
-    remaining_roles = [role for role in MEAL_ROLES if role not in used_roles]
-    for cluster in sorted(cluster_members):
-        if cluster not in assignments:
-            assignments[cluster] = remaining_roles.pop(0) if remaining_roles else "savory"
-    return assignments
+    return {
+        cluster: max(role_scores[cluster], key=role_scores[cluster].get)
+        for cluster in clusters
+    }
 
 
 def summarize_clusters(dishes: list[dict[str, Any]], assignments: list[int]) -> dict[int, dict[str, Any]]:
@@ -606,7 +715,7 @@ def content_similarity_recommendations(dishes: list[dict[str, Any]], top_n: int 
             same_category = 1.0 if source.get("category") == target.get("category") else 0.0
             target_price = max(1, int(target.get("price_vnd") or 0))
             price_score = 1 - min(abs(source_price - target_price) / max(source_price, target_price), 1)
-            score = keyword_score * 0.35 + same_cluster * 0.25 + same_category * 0.2 + price_score * 0.2
+            score = keyword_score * 0.45 + same_category * 0.25 + price_score * 0.2 + same_cluster * 0.1
             reasons = []
             if same_cluster:
                 reasons.append("cùng cụm K-Means")
@@ -616,7 +725,8 @@ def content_similarity_recommendations(dishes: list[dict[str, Any]], top_n: int 
                 reasons.append("trùng từ khóa món")
             if price_score >= 0.75:
                 reasons.append("mức giá gần nhau")
-            scored.append((score, target, reasons or ["tương đồng nội dung"]))
+            if score >= 0.5:
+                scored.append((score, target, reasons or ["tương đồng nội dung"]))
         for rank, (score, target, reasons) in enumerate(sorted(scored, key=lambda item: item[0], reverse=True)[:top_n], start=1):
             rows.append(
                 {
@@ -662,7 +772,7 @@ def main() -> None:
 
     dishes = build_dishes(raw_rows)
     set_transactions, set_item_rows = build_set_transactions(raw_rows)
-    clustered_dishes, convergence_history = kmeans_cluster(dishes)
+    clustered_dishes, convergence_history, silhouette = kmeans_cluster(dishes)
     cluster_summary = summarize_clusters(clustered_dishes, [int(d["cluster_id"]) for d in clustered_dishes])
     similarity_rows = content_similarity_recommendations(clustered_dishes)
 
@@ -684,17 +794,32 @@ def main() -> None:
             ],
         },
         "kmeans": {
-            "algorithm": "K-Means tự cài đặt bằng Python thuần",
+            "algorithm": "K-Means không giám sát, khởi tạo K-Means++, chạy 20 lần và chọn WCSS thấp nhất",
             "k": K_CLUSTERS,
-            "features": ["price_vnd", "estimated_calories", "is_set_menu", "keyword one-hot"],
-            "interpretation": "Diễn giải 4 cụm theo cấu trúc bữa ăn Việt: cơm - món mặn - rau/canh - tiệc/lẩu.",
+            "features": [
+                "price_vnd chuẩn hóa",
+                "estimated_calories chuẩn hóa",
+                "is_set_menu",
+                "category_family one-hot",
+                "keyword one-hot",
+            ],
+            "interpretation": (
+                "Nhóm danh mục được xây dựng từ loại món có trong dữ liệu theo tri thức cấu trúc "
+                "bữa ăn Việt. K-Means không nhận nhãn cụm đích; sau khi hội tụ, mỗi cụm mới được "
+                "đặt tên theo đặc trưng chiếm ưu thế."
+            ),
+            "n_init": 20,
+            "silhouette_score": silhouette,
             "convergence_history": convergence_history,
             "clusters": list(cluster_summary.values()),
         },
         "content_based_recommendation": {
             "algorithm": "Content-Based Filtering",
             "features": ["category", "cluster_label", "meal_role", "keywords", "price_vnd"],
-            "similarity": "weighted score: keyword Jaccard + same cluster + same category + price proximity",
+            "similarity": (
+                "weighted score: keyword Jaccard 45% + same category 25% + "
+                "price proximity 20% + same cluster 10%"
+            ),
             "recommendation_rows": len(similarity_rows),
             "top_n_per_dish": 8,
             "note": "Không dùng hóa đơn sinh giả; hệ thống gợi ý từ thuộc tính thật của món ăn và tri thức phối mâm cơm Việt.",

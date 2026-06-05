@@ -84,20 +84,77 @@
   },
   "kmeans": {
     "clusters": {
-      "C4 - Cụm 4: Món tiệc/lẩu/ăn chơi": 25,
-      "C2 - Cụm 2: Món mặn đưa cơm": 62,
+      "C4 - Cụm 4: Món tiệc/lẩu/ăn chơi": 39,
+      "C2 - Cụm 2: Món mặn đưa cơm": 50,
       "C3 - Cụm 3: Món thanh mát (rau/canh)": 27,
-      "C1 - Cụm 1: Món nền tảng (cơm)": 5
+      "C1 - Cụm 1: Món nền tảng (cơm)": 3
     },
-    "cluster_count": 4
+    "cluster_count": 4,
+    "silhouette_score": 0.6543,
+    "method": {
+      "algorithm": "K-Means không giám sát, khởi tạo K-Means++, chạy 20 lần và chọn WCSS thấp nhất",
+      "k": 4,
+      "features": [
+        "price_vnd chuẩn hóa",
+        "estimated_calories chuẩn hóa",
+        "is_set_menu",
+        "category_family one-hot",
+        "keyword one-hot"
+      ],
+      "interpretation": "Nhóm danh mục được xây dựng từ loại món có trong dữ liệu theo tri thức cấu trúc bữa ăn Việt. K-Means không nhận nhãn cụm đích; sau khi hội tụ, mỗi cụm mới được đặt tên theo đặc trưng chiếm ưu thế.",
+      "n_init": 20,
+      "silhouette_score": 0.6543,
+      "convergence_history": [
+        279.601961,
+        118.206599,
+        118.206599
+      ],
+      "clusters": [
+        {
+          "cluster_id": 0,
+          "role": "foundation",
+          "label": "Cụm 1: Món nền tảng (cơm)",
+          "size": 3,
+          "avg_price": 24333,
+          "top_categories": "Cơm niêu",
+          "top_keywords": "com|hai_san|canh|thanh_dam"
+        },
+        {
+          "cluster_id": 1,
+          "role": "fresh",
+          "label": "Cụm 3: Món thanh mát (rau/canh)",
+          "size": 27,
+          "avg_price": 118222,
+          "top_categories": "Món canh|Món rau",
+          "top_keywords": "thanh_dam|thit|do_uong_them|rau|hai_san"
+        },
+        {
+          "cluster_id": 2,
+          "role": "savory",
+          "label": "Cụm 2: Món mặn đưa cơm",
+          "size": 50,
+          "avg_price": 133800,
+          "top_categories": "Món cá|Món heo|Món gà/bò|Món đậu hũ/trứng|Món hải sản",
+          "top_keywords": "thit|thanh_dam|do_uong_them|hai_san|chien_xao"
+        },
+        {
+          "cluster_id": 3,
+          "role": "feast",
+          "label": "Cụm 4: Món tiệc/lẩu/ăn chơi",
+          "size": 39,
+          "avg_price": 200821,
+          "top_categories": "Set menu đoàn|Món khai vị|Món thêm|Món lẩu",
+          "top_keywords": "do_uong_them|hai_san|thit|thanh_dam|chien_xao"
+        }
+      ]
+    }
   },
   "content_based_recommendation": {
-    "rows": 952,
+    "rows": 892,
     "score_buckets": {
-      "Rất cao": 590,
-      "Cao": 285,
-      "Trung bình": 53,
-      "Thấp": 24
+      "Rất cao": 470,
+      "Cao": 372,
+      "Trung bình": 50
     },
     "method": {
       "algorithm": "Content-Based Filtering",
@@ -108,8 +165,8 @@
         "keywords",
         "price_vnd"
       ],
-      "similarity": "weighted score: keyword Jaccard + same cluster + same category + price proximity",
-      "recommendation_rows": 952,
+      "similarity": "weighted score: keyword Jaccard 45% + same category 25% + price proximity 20% + same cluster 10%",
+      "recommendation_rows": 892,
       "top_n_per_dish": 8,
       "note": "Không dùng hóa đơn sinh giả; hệ thống gợi ý từ thuộc tính thật của món ăn và tri thức phối mâm cơm Việt."
     }
@@ -215,7 +272,7 @@
         },
         {
           "label": "Dòng gợi ý",
-          "value": 952
+          "value": 892
         }
       ]
     },
@@ -308,19 +365,19 @@
       "data": [
         {
           "label": "C2 - Cụm 2: Món mặn đưa cơm",
-          "value": 62
+          "value": 50
+        },
+        {
+          "label": "C4 - Cụm 4: Món tiệc/lẩu/ăn chơi",
+          "value": 39
         },
         {
           "label": "C3 - Cụm 3: Món thanh mát (rau/canh)",
           "value": 27
         },
         {
-          "label": "C4 - Cụm 4: Món tiệc/lẩu/ăn chơi",
-          "value": 25
-        },
-        {
           "label": "C1 - Cụm 1: Món nền tảng (cơm)",
-          "value": 5
+          "value": 3
         }
       ]
     },
@@ -331,19 +388,15 @@
       "data": [
         {
           "label": "Rất cao",
-          "value": 590
+          "value": 470
         },
         {
           "label": "Cao",
-          "value": 285
+          "value": 372
         },
         {
           "label": "Trung bình",
-          "value": 53
-        },
-        {
-          "label": "Thấp",
-          "value": 24
+          "value": 50
         }
       ]
     }

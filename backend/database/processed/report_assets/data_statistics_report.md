@@ -11,10 +11,12 @@
 
 ## 3. Gom cụm K-Means
 - Số cụm: **4**.
-- Thuộc tính gom cụm: giá, calories ước tính, cờ set menu, keyword one-hot.
-- Diễn giải cụm theo cấu trúc mâm cơm Việt: món nền tảng, món mặn đưa cơm, món thanh mát và món tiệc/lẩu/ăn chơi.
+- Silhouette Score: **0.6543**.
+- Thuộc tính gom cụm: giá và calories đã chuẩn hóa, cờ set menu, nhóm danh mục one-hot và keyword one-hot.
+- Khởi tạo K-Means++, chạy 20 lần và chọn kết quả có WCSS thấp nhất.
+- Nhóm danh mục được trích từ loại món theo tri thức cấu trúc bữa ăn Việt; tên cụm chỉ được gán sau khi K-Means hội tụ.
 
 ## 4. Gợi ý món ăn
-- Số dòng gợi ý tương đồng: **952**.
+- Số dòng gợi ý tương đồng: **892**.
 - Gợi ý chi tiết món dùng content-based filtering theo danh mục, cụm, keyword và độ gần giá.
 - Gợi ý giỏ hàng dùng ma trận phối cụm để hoàn thiện mâm cơm Việt.

@@ -33,6 +33,7 @@ CHART_TITLES = {
 }
 
 CHART_COLORS = ["#2563EB", "#D97706", "#059669", "#7C3AED", "#DC2626"]
+ROLE_ORDER = {"foundation": 0, "savory": 1, "fresh": 2, "feast": 3}
 
 
 def chart_font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
@@ -109,7 +110,7 @@ def save_cluster_scatter(dishes: list[dict[str, str]]) -> None:
                 (
                     float(row.get("price_vnd") or 0),
                     float(row.get("estimated_calories") or 0),
-                    int(row.get("cluster_id") or 0),
+                    ROLE_ORDER.get(row.get("meal_role") or "", int(row.get("cluster_id") or 0)),
                 )
             )
         except ValueError:
@@ -212,9 +213,12 @@ def generate_png_charts(
     save_cluster_scatter(dishes)
     cluster_rows = sorted(
         report.get("kmeans", {}).get("clusters", []),
-        key=lambda row: int(row.get("cluster_id", 0)),
+        key=lambda row: ROLE_ORDER.get(row.get("role") or "", int(row.get("cluster_id", 0))),
     )
-    cluster_labels = [f"Cụm {int(row.get('cluster_id', 0)) + 1}" for row in cluster_rows]
+    cluster_labels = [
+        f"Cụm {ROLE_ORDER.get(row.get('role') or '', int(row.get('cluster_id', 0))) + 1}"
+        for row in cluster_rows
+    ]
     cluster_sizes = [float(row.get("size", 0)) for row in cluster_rows]
     if not cluster_rows:
         cluster_labels = [label.split(" - ", 1)[0] for label in cluster_counts]
@@ -371,7 +375,12 @@ def main() -> None:
             "category_counts": dict(category_counts),
             "price_range_counts": {PRICE_LABELS.get(label, label): count for label, count in price_counts.items()},
         },
-        "kmeans": {"clusters": dict(cluster_counts), "cluster_count": len(cluster_counts)},
+        "kmeans": {
+            "clusters": dict(cluster_counts),
+            "cluster_count": len(cluster_counts),
+            "silhouette_score": report.get("kmeans", {}).get("silhouette_score"),
+            "method": report.get("kmeans", {}),
+        },
         "content_based_recommendation": {
             "rows": len(similarity_rows),
             "score_buckets": dict(score_buckets),
@@ -402,8 +411,12 @@ def main() -> None:
                 "",
                 "## 3. Gom cụm K-Means",
                 f"- Số cụm: **{vi_num(len(cluster_counts))}**.",
-                "- Thuộc tính gom cụm: giá, calories ước tính, cờ set menu, keyword one-hot.",
-                "- Diễn giải cụm theo cấu trúc mâm cơm Việt: món nền tảng, món mặn đưa cơm, món thanh mát và món tiệc/lẩu/ăn chơi.",
+                (
+                    f"- Silhouette Score: **{report.get('kmeans', {}).get('silhouette_score', 0):.4f}**."
+                ),
+                "- Thuộc tính gom cụm: giá và calories đã chuẩn hóa, cờ set menu, nhóm danh mục one-hot và keyword one-hot.",
+                "- Khởi tạo K-Means++, chạy 20 lần và chọn kết quả có WCSS thấp nhất.",
+                "- Nhóm danh mục được trích từ loại món theo tri thức cấu trúc bữa ăn Việt; tên cụm chỉ được gán sau khi K-Means hội tụ.",
                 "",
                 "## 4. Gợi ý món ăn",
                 f"- Số dòng gợi ý tương đồng: **{vi_num(len(similarity_rows))}**.",
