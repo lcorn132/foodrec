@@ -4,9 +4,20 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models.models import Dish
 from app.schemas.schemas import RecommendationRequest
+from app.services.culinary_knowledge import CULINARY_KNOWLEDGE_SOURCES, MEAL_ROLE_LABELS
 from app.services.recommendation_service import RecommendationService
 
 router = APIRouter(prefix="/api/recommendations", tags=["Recommendations"])
+
+
+@router.get("/knowledge-sources")
+def knowledge_sources():
+    return {
+        "engine": "hybrid: K-Means + content-based similarity + domain-knowledge cross-cluster mapping",
+        "meal_roles": MEAL_ROLE_LABELS,
+        "sources": CULINARY_KNOWLEDGE_SOURCES,
+        "scope_note": "Các luật là cách triển khai của nhóm dựa trên tài liệu; không phải trích dẫn nguyên văn hoặc tư vấn dinh dưỡng.",
+    }
 
 
 def _display_score(score: float, strategy: str = "") -> float:

@@ -9,6 +9,11 @@ from typing import Dict, List
 from sqlalchemy.orm import Session
 
 from app.models.models import Dish, Rating
+from app.services.culinary_knowledge import (
+    COMPLETE_MEAL_CATEGORIES,
+    HOT_POT_EXTRA_CATEGORIES,
+    ROLE_COMPLETION_RULES,
+)
 
 
 class RecommendationService:
@@ -199,15 +204,14 @@ class RecommendationService:
         text = " ".join(self._text(dish) for dish in dishes)
 
         if "feast" in roles or "lau" in text:
-            return set(), {"khai vi", "mon them", "trang mieng", "appetizer_drink"}
+            return set(), set(HOT_POT_EXTRA_CATEGORIES)
         if {"foundation", "savory", "fresh"}.issubset(roles):
-            return set(), {"khai vi", "trang mieng", "appetizer_drink"}
-        if {"foundation", "savory"}.issubset(roles):
-            return {"fresh"}, {"rau", "canh"}
-        if {"savory", "fresh"}.issubset(roles):
-            return {"foundation"}, {"com"}
-        if {"foundation", "fresh"}.issubset(roles):
-            return {"savory"}, {"heo", "ga", "bo", "ca", "hai san"}
+            return set(), set(COMPLETE_MEAL_CATEGORIES)
+
+        for covered_roles, (target_roles, target_categories, _) in ROLE_COMPLETION_RULES.items():
+            if covered_roles.issubset(roles):
+                return set(target_roles), set(target_categories)
+
         if "foundation" in roles:
             return {"savory", "fresh"}, {"heo", "ga", "bo", "ca", "hai san", "rau", "canh"}
         if "savory" in roles:

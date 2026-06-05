@@ -50,17 +50,18 @@ Quy mô hiện tại:
 
 ## Cơ Sở Học Thuật
 
-Hướng gom cụm và phối món dựa trên ba nhóm tài liệu:
+Hướng gom cụm và phối món dựa trên ba nhóm tài liệu. Đây là cách nhóm chuyển hóa tri thức tài liệu thành đặc trưng và luật phần mềm, không phải trích dẫn nguyên văn:
 
-- Văn hóa học: cấu trúc bữa ăn truyền thống “Cơm - Rau - Cá/Thịt”.
-- Dinh dưỡng học: mâm cơm cân bằng gồm nhóm sinh năng lượng, nhóm đạm/chất béo và nhóm rau/canh giàu vitamin/khoáng chất.
-- Nghiên cứu ẩm thực: triết lý phối món theo cân bằng nóng/lạnh, đậm/thanh trong bữa ăn Việt.
+- Văn hóa học: cấu trúc bữa ăn được diễn giải thành món nền tảng, món đạm đưa cơm và rau/canh cân bằng.
+- Triết lý ẩm thực: ưu tiên phối món đậm, kho/chiên với món thanh, rau hoặc canh; không xem đây là chẩn đoán tính âm/dương của thực phẩm.
+- Dinh dưỡng học: kiểm tra độ phủ bốn nhóm bột đường, chất đạm, chất béo, vitamin và muối khoáng. Dữ liệu hiện tại chưa đủ thành phần dinh dưỡng định lượng để khẳng định K-Means được huấn luyện trực tiếp bằng đủ bốn nhóm này.
+- Ma trận luật dùng thực tế nằm tại `backend/app/services/culinary_knowledge.py` và được `recommendation_service.py` sử dụng trực tiếp.
 
 Tài liệu tham khảo APA:
 
-- Trần, N. T. (2004). *Cơ sở văn hóa Việt Nam*. Nhà xuất bản Giáo dục.
-- Viện Dinh dưỡng Quốc gia. (2020). *Dinh dưỡng hợp lý và hướng dẫn tháp dinh dưỡng cho người Việt Nam*. Nhà xuất bản Y học.
-- Nguyễn, N. (2009). *Bản sắc ẩm thực Việt Nam*. Nhà xuất bản Thông tin và Truyền thông.
+- Trần, N. T. (1999). *Cơ sở văn hóa Việt Nam*. Nhà xuất bản Giáo dục.
+- Nguyễn, N. (2009). *Bản sắc ẩm thực Việt Nam*. Nhà xuất bản Thông Tấn.
+- Viện Dinh dưỡng Quốc gia. (2019). *Ăn đa dạng nhiều loại thực phẩm và đảm bảo đủ 4 nhóm: chất bột, chất đạm, chất béo, vitamin và muối khoáng*. Bộ Y tế. https://chuyentrang.viendinhduong.vn/vi/10-loi-khuyen-dinh-duong-hop-ly/loi-khuyen-so-1-an-da-dang-nhieu-loai-thuc-pham-va-dam-bao-du-4-nhom-chat-bot-chat-dam-chat-beo-vitamin-va-muoi-khoang.html
 
 ## Ứng Dụng
 
