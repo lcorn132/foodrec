@@ -137,12 +137,12 @@ def figure_2_1():
 
 def figure_2_2():
     img, d = canvas("Hình 2.2. Các hướng tiếp cận trong hệ thống gợi ý")
-    box(d, 130, 270, 430, 330, "Theo nội dung", ["Đặc trưng món"], COL["blue"])
-    box(d, 685, 270, 430, 330, "Theo hành vi", ["Lịch sử người dùng"], COL["rose"])
-    box(d, 1240, 270, 430, 330, "Gợi ý lai", ["Kết hợp phương pháp"], COL["green"])
-    arrow(d, 560, 475, 685, 475)
-    arrow(d, 1115, 475, 1240, 475)
-    pill(d, 780, 720, "Giải pháp của đề tài", COL["gold_light"])
+    box(d, 130, 350, 430, 190, "Theo nội dung", ["Đặc trưng món"], COL["blue"])
+    box(d, 685, 350, 430, 190, "Theo hành vi", ["Lịch sử người dùng"], COL["rose"])
+    box(d, 1240, 350, 430, 190, "Gợi ý lai", ["Kết hợp phương pháp"], COL["green"])
+    arrow(d, 560, 445, 685, 445)
+    arrow(d, 1115, 445, 1240, 445)
+    pill(d, 780, 620, "Giải pháp của đề tài", COL["gold_light"])
     caption(d, "Nguồn: Nhóm thực hiện tổng hợp từ cơ sở lý thuyết hệ thống gợi ý")
     img.save(OUT / "hinh_2_2_huong_tiep_can_goi_y.png")
 
@@ -157,10 +157,14 @@ def figure_2_3():
     ]
     x = 130
     for i, (title, line, color) in enumerate(items):
-        box(d, x + i * 405, 330, 320, 210, title, [line], color)
+        box(d, x + i * 405, 270, 320, 160, title, [line], color)
         if i < 3:
-            arrow(d, x + i * 405 + 320, 435, x + (i + 1) * 405, 435)
-    box(d, 590, 650, 620, 140, "Mâm cơm hài hòa", None, COL["cream"])
+            arrow(d, x + i * 405 + 320, 350, x + (i + 1) * 405, 350)
+        center_x = x + i * 405 + 160
+        d.line((center_x, 430, center_x, 535), fill=COL["line"], width=3)
+    d.line((290, 535, 1505, 535), fill=COL["line"], width=3)
+    arrow(d, 900, 535, 900, 650)
+    box(d, 590, 650, 620, 120, "Mâm cơm hài hòa", None, COL["cream"])
     caption(d, "Nguồn: Nhóm thực hiện diễn giải từ tri thức cấu trúc bữa ăn Việt Nam")
     img.save(OUT / "hinh_2_3_cau_truc_bua_an_viet.png")
 
@@ -176,7 +180,7 @@ def figure_3_2():
     ]
     for i, (title, line, color) in enumerate(steps):
         bx = 95 + i * 340
-        box(d, bx, 350, 270, 210, title, [line], color)
+        box(d, bx, 380, 270, 150, title, [line], color)
         if i < 4:
             arrow(d, bx + 270, 455, bx + 340, 455)
     caption(d, "Nguồn: Nhóm thực hiện mô tả quy trình xử lý dữ liệu trong đề tài")
@@ -215,23 +219,23 @@ def figure_4_2():
     ]
     for i, (title, line, color) in enumerate(steps):
         bx = 80 + i * 345
-        box(d, bx, 370, 275, 220, title, [line] if line else None, color)
+        box(d, bx, 390, 275, 150, title, [line] if line else None, color)
         if i < 4:
-            arrow(d, bx + 275, 480, bx + 345, 480)
+            arrow(d, bx + 275, 465, bx + 345, 465)
     caption(d, "Nguồn: Nhóm thực hiện mô tả luồng gợi ý món tương đồng")
     img.save(OUT / "hinh_4_2_luong_goi_y_tuong_dong.png")
 
 
 def figure_4_3():
     img, d = canvas("Hình 4.3. Luồng gợi ý phối món theo giỏ hàng")
-    box(d, 100, 300, 320, 170, "Giỏ hàng", None, COL["blue"])
-    box(d, 560, 300, 330, 170, "Vai trò món", None, COL["green"])
-    box(d, 1020, 300, 330, 170, "Nhóm còn thiếu", None, COL["gold_light"])
-    box(d, 1480, 300, 240, 170, "Gợi ý", None, COL["rose"])
-    arrow(d, 420, 385, 560, 385)
-    arrow(d, 890, 385, 1020, 385)
-    arrow(d, 1350, 385, 1480, 385)
-    box(d, 300, 650, 1200, 150, "Cơm + món mặn  →  Rau / Canh", None, COL["cream"])
+    box(d, 100, 340, 320, 140, "Giỏ hàng", None, COL["blue"])
+    box(d, 560, 340, 330, 140, "Vai trò món", None, COL["green"])
+    box(d, 1020, 340, 330, 140, "Nhóm còn thiếu", None, COL["gold_light"])
+    box(d, 1480, 340, 240, 140, "Gợi ý", None, COL["rose"])
+    arrow(d, 420, 410, 560, 410)
+    arrow(d, 890, 410, 1020, 410)
+    arrow(d, 1350, 410, 1480, 410)
+    box(d, 300, 620, 1200, 110, "Cơm + món mặn  →  Rau / Canh", None, COL["cream"])
     caption(d, "Nguồn: Nhóm thực hiện mô tả luồng gợi ý phối món theo giỏ hàng")
     img.save(OUT / "hinh_4_3_luong_goi_y_gio_hang.png")
 
