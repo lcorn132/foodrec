@@ -41,6 +41,12 @@ class RecommendationService:
             category = self._category_slug(candidate)
             score = 0.0
 
+            # Do not keep recommending a meal role that is already covered in
+            # the cart. Example: once a soup/vegetable dish is present, avoid
+            # more "fresh" items and focus on the missing rice/savory side.
+            if role in cart_roles and role not in target_roles:
+                continue
+
             if role in target_roles:
                 score += 1.25
             if any(target in category for target in target_categories):
@@ -49,8 +55,6 @@ class RecommendationService:
                 score += 1.15
 
             # Cross-cluster suggestions should not be drowned out by more of the same.
-            if role in cart_roles and role not in target_roles:
-                score -= 0.65
             if category in cart_categories:
                 score -= 0.25
 
@@ -175,8 +179,14 @@ class RecommendationService:
 
         if "feast" in roles or "lau" in text:
             return {"feast"}, {"khai vi", "mon them", "trang mieng", "appetizer_drink"}
+        if {"foundation", "savory", "fresh"}.issubset(roles):
+            return {"feast"}, {"khai vi", "mon them", "trang mieng", "appetizer_drink"}
         if {"foundation", "savory"}.issubset(roles):
             return {"fresh"}, {"rau", "canh"}
+        if {"savory", "fresh"}.issubset(roles):
+            return {"foundation"}, {"com"}
+        if {"foundation", "fresh"}.issubset(roles):
+            return {"savory"}, {"heo", "ga", "bo", "ca", "hai san"}
         if "foundation" in roles:
             return {"savory", "fresh"}, {"heo", "ga", "bo", "ca", "hai san", "rau", "canh"}
         if "savory" in roles:
