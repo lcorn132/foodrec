@@ -121,11 +121,11 @@
   "charts": [
     {
       "filename": "01_kmeans_convergence.png",
-      "title": "Độ hội tụ của K-Means"
+      "title": "Mức giảm WCSS qua các bước cập nhật tâm cụm"
     },
     {
       "filename": "02_kmeans_price_calories.png",
-      "title": "Phân bố món theo giá và calories"
+      "title": "Hình chiếu cụm K-Means theo giá và calories"
     },
     {
       "filename": "03_kmeans_cluster_sizes.png",

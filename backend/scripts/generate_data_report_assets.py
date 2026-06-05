@@ -26,8 +26,8 @@ PRICE_LABELS = {
 }
 
 CHART_TITLES = {
-    "01_kmeans_convergence.png": "Độ hội tụ của K-Means",
-    "02_kmeans_price_calories.png": "Phân bố món theo giá và calories",
+    "01_kmeans_convergence.png": "Mức giảm WCSS qua các bước cập nhật tâm cụm",
+    "02_kmeans_price_calories.png": "Hình chiếu cụm K-Means theo giá và calories",
     "03_kmeans_cluster_sizes.png": "Số lượng món trong từng cụm",
     "04_similarity_score_histogram.png": "Phân bố điểm tương đồng",
 }
@@ -79,7 +79,7 @@ def save_convergence_chart(history: list[float]) -> None:
     if not history:
         return
     image, draw = chart_canvas()
-    left, top, right, bottom = draw_axes(draw, "Vòng lặp", "WCSS")
+    left, top, right, bottom = draw_axes(draw, "Bước cập nhật tâm cụm", "WCSS")
     values = [float(value) for value in history]
     low, high = min(values), max(values)
     span = max(high - low, 1)
@@ -97,7 +97,7 @@ def save_convergence_chart(history: list[float]) -> None:
         draw.line(points, fill=CHART_COLORS[0], width=5, joint="curve")
     for index, (x, y) in enumerate(points):
         draw.ellipse((x - 7, y - 7, x + 7, y + 7), fill=CHART_COLORS[0])
-        draw.text((x - 5, bottom + 15), str(index + 1), fill="#64748B", font=chart_font(18))
+        draw.text((x - 5, bottom + 15), str(index), fill="#64748B", font=chart_font(18))
     image.save(CHART_DIR / "01_kmeans_convergence.png")
 
 
@@ -210,10 +210,19 @@ def generate_png_charts(
 ) -> list[dict[str, str]]:
     save_convergence_chart(report.get("kmeans", {}).get("convergence_history", []))
     save_cluster_scatter(dishes)
+    cluster_rows = sorted(
+        report.get("kmeans", {}).get("clusters", []),
+        key=lambda row: int(row.get("cluster_id", 0)),
+    )
+    cluster_labels = [f"Cụm {int(row.get('cluster_id', 0)) + 1}" for row in cluster_rows]
+    cluster_sizes = [float(row.get("size", 0)) for row in cluster_rows]
+    if not cluster_rows:
+        cluster_labels = [label.split(" - ", 1)[0] for label in cluster_counts]
+        cluster_sizes = [float(cluster_counts[label]) for label in cluster_counts]
     save_bar_chart(
         "03_kmeans_cluster_sizes.png",
-        [f"Cụm {index + 1}" for index, _ in enumerate(cluster_counts)],
-        [float(value) for value in cluster_counts.values()],
+        cluster_labels,
+        cluster_sizes,
         "Cụm K-Means",
         "Số món",
     )
