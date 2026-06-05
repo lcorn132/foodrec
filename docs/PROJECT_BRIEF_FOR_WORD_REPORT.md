@@ -1,12 +1,14 @@
-# Tài liệu dự án FoodRec để viết báo cáo Word
+# Tài liệu dự án: PHÂN TÍCH MỐI QUAN HỆ DỮ LIỆU MÓN ĂN VÀ XÂY DỰNG HỆ THỐNG GỢI Ý THỰC ĐƠN
 
 Tài liệu này dùng làm bản nền cho AI hoặc người viết báo cáo. Nội dung ưu tiên đúng với hệ thống hiện tại, tránh phóng đại thành mô hình học hành vi người dùng khi dự án chưa có dữ liệu giao dịch thật.
 
 ## 1. Thông tin tổng quan
 
-Tên dự án: FoodRec - Hệ thống gợi ý món ăn từ dữ liệu thực đơn thật.
+Tên đề tài: PHÂN TÍCH MỐI QUAN HỆ DỮ LIỆU MÓN ĂN VÀ XÂY DỰNG HỆ THỐNG GỢI Ý THỰC ĐƠN.
 
-Mục tiêu: xây dựng website đặt món và gợi ý phối món cho thực đơn nhà hàng Cơm Niêu Việt Nam, sử dụng dữ liệu món ăn thật thu thập từ website công khai. Hệ thống hỗ trợ hai nhóm người dùng:
+Tên sản phẩm minh họa: FoodRec.
+
+Mục tiêu: phân tích mối quan hệ giữa các món ăn trong dữ liệu thực đơn thật, sau đó xây dựng website đặt món và gợi ý phối món cho thực đơn nhà hàng Cơm Niêu Việt Nam. Hệ thống hỗ trợ hai nhóm người dùng:
 
 - Khách hàng: xem trang chủ, duyệt món, xem chi tiết món, chọn kiểu chế biến, thêm vào giỏ hàng, chọn voucher, đặt hàng và nhận gợi ý món ăn.
 - Quản trị: quản lý món ăn, đơn hàng, voucher, dữ liệu upload, pipeline tiền xử lý và dashboard thống kê.
@@ -325,7 +327,7 @@ Chương 5 - Kết luận và hướng phát triển:
 Có thể đưa đoạn sau cho AI khác:
 
 ```text
-Hãy viết báo cáo Word cho đồ án FoodRec dựa trên tài liệu dự án sau. 
+Hãy viết báo cáo Word cho đề tài "PHÂN TÍCH MỐI QUAN HỆ DỮ LIỆU MÓN ĂN VÀ XÂY DỰNG HỆ THỐNG GỢI Ý THỰC ĐƠN" dựa trên tài liệu dự án sau. Sản phẩm minh họa của đề tài có tên FoodRec.
 Yêu cầu:
 - Viết bằng tiếng Việt học thuật, mạch lạc.
 - Không phóng đại thành mô hình học sâu hoặc collaborative filtering.

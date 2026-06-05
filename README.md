@@ -1,6 +1,6 @@
-# FoodRec - Hệ thống gợi ý thực đơn từ dữ liệu thật
+# PHÂN TÍCH MỐI QUAN HỆ DỮ LIỆU MÓN ĂN VÀ XÂY DỰNG HỆ THỐNG GỢI Ý THỰC ĐƠN
 
-FoodRec là đồ án khai thác dữ liệu sử dụng dữ liệu thực đơn thật từ website Cơm Niêu Việt Nam. Do nhà hàng không công khai hóa đơn/giao dịch thật, hệ thống không sinh hóa đơn giả mà chuyển hướng sang bài toán gợi ý thực đơn dựa trên nội dung món ăn và tri thức cấu trúc bữa ăn truyền thống của người Việt.
+FoodRec là sản phẩm web minh họa cho đề tài khai thác dữ liệu sử dụng dữ liệu thực đơn thật từ website Cơm Niêu Việt Nam. Do nhà hàng không công khai hóa đơn/giao dịch thật, hệ thống không sinh hóa đơn giả mà chuyển hướng sang bài toán phân tích mối quan hệ dữ liệu món ăn và gợi ý thực đơn dựa trên nội dung món ăn, gom cụm K-Means và tri thức cấu trúc bữa ăn truyền thống của người Việt.
 
 ## Bài Toán
 
