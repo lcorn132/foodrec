@@ -4,55 +4,55 @@
     "rows": 238,
     "file_rows": [
       [
-        "raw.xlsx",
+        "File 1",
         119
       ],
       [
-        "raw_1.xlsx",
+        "File 2",
         12
       ],
       [
-        "raw_10.xlsx",
+        "File 3",
         10
       ],
       [
-        "raw_11.xlsx",
+        "File 4",
         9
       ],
       [
-        "raw_12.xlsx",
+        "File 5",
         12
       ],
       [
-        "raw_2.xlsx",
+        "File 6",
         3
       ],
       [
-        "raw_3.xlsx",
+        "File 7",
         6
       ],
       [
-        "raw_4.xlsx",
+        "File 8",
         15
       ],
       [
-        "raw_5.xlsx",
+        "File 9",
         12
       ],
       [
-        "raw_6.xlsx",
+        "File 10",
         11
       ],
       [
-        "raw_7.xlsx",
+        "File 11",
         20
       ],
       [
-        "raw_8.xlsx",
+        "File 12",
         6
       ],
       [
-        "raw_9.xlsx",
+        "File 13",
         3
       ]
     ]
@@ -91,6 +91,8 @@
     },
     "cluster_count": 4,
     "silhouette_score": 0.6543,
+    "convergence_start": 279.601961,
+    "convergence_end": 118.206599,
     "method": {
       "algorithm": "K-Means không giám sát, khởi tạo K-Means++, chạy 20 lần và chọn WCSS thấp nhất",
       "k": 4,
@@ -152,9 +154,9 @@
   "content_based_recommendation": {
     "rows": 892,
     "score_buckets": {
-      "Rất cao": 470,
-      "Cao": 372,
-      "Trung bình": 50
+      "Cao": 421,
+      "Rất cao": 326,
+      "Đạt ngưỡng": 145
     },
     "method": {
       "algorithm": "Content-Based Filtering",
@@ -182,15 +184,15 @@
     },
     {
       "filename": "02_kmeans_price_calories.png",
-      "title": "Hình chiếu cụm K-Means theo giá và calories"
+      "title": "Hình chiếu cụm K-Means theo giá bán và calories"
     },
     {
       "filename": "03_kmeans_cluster_sizes.png",
-      "title": "Số lượng món trong từng cụm"
+      "title": "Số lượng món ăn trong từng cụm K-Means"
     },
     {
       "filename": "04_similarity_score_histogram.png",
-      "title": "Phân bố điểm tương đồng"
+      "title": "Phân bố điểm tương đồng giữa các cặp món ăn"
     }
   ],
   "chart_data": [
@@ -200,55 +202,55 @@
       "title": "Dữ liệu gốc theo file Excel",
       "data": [
         {
-          "label": "raw.xlsx",
+          "label": "File 1",
           "value": 119
         },
         {
-          "label": "raw_1.xlsx",
+          "label": "File 2",
           "value": 12
         },
         {
-          "label": "raw_10.xlsx",
+          "label": "File 3",
           "value": 10
         },
         {
-          "label": "raw_11.xlsx",
+          "label": "File 4",
           "value": 9
         },
         {
-          "label": "raw_12.xlsx",
+          "label": "File 5",
           "value": 12
         },
         {
-          "label": "raw_2.xlsx",
+          "label": "File 6",
           "value": 3
         },
         {
-          "label": "raw_3.xlsx",
+          "label": "File 7",
           "value": 6
         },
         {
-          "label": "raw_4.xlsx",
+          "label": "File 8",
           "value": 15
         },
         {
-          "label": "raw_5.xlsx",
+          "label": "File 9",
           "value": 12
         },
         {
-          "label": "raw_6.xlsx",
+          "label": "File 10",
           "value": 11
         },
         {
-          "label": "raw_7.xlsx",
+          "label": "File 11",
           "value": 20
         },
         {
-          "label": "raw_8.xlsx",
+          "label": "File 12",
           "value": 6
         },
         {
-          "label": "raw_9.xlsx",
+          "label": "File 13",
           "value": 3
         }
       ]
@@ -279,7 +281,7 @@
     {
       "id": "category_distribution",
       "type": "horizontal_bar",
-      "title": "Phân bổ món theo danh mục",
+      "title": "Phân bố món theo danh mục",
       "data": [
         {
           "label": "Món cá",
@@ -351,17 +353,13 @@
         {
           "label": "Cao cấp",
           "value": 13
-        },
-        {
-          "label": "Chưa rõ",
-          "value": 0
         }
       ]
     },
     {
       "id": "kmeans_cluster_distribution",
       "type": "horizontal_bar",
-      "title": "Phân bổ cụm món ăn",
+      "title": "Phân bố cụm K-Means",
       "data": [
         {
           "label": "C2 - Cụm 2: Món mặn đưa cơm",
@@ -384,19 +382,19 @@
     {
       "id": "similarity_score_distribution",
       "type": "donut",
-      "title": "Độ phù hợp của gợi ý",
+      "title": "Phân bổ điểm tương đồng",
       "data": [
         {
-          "label": "Rất cao",
-          "value": 470
-        },
-        {
           "label": "Cao",
-          "value": 372
+          "value": 421
         },
         {
-          "label": "Trung bình",
-          "value": 50
+          "label": "Rất cao",
+          "value": 326
+        },
+        {
+          "label": "Đạt ngưỡng",
+          "value": 145
         }
       ]
     }

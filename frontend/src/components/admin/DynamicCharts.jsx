@@ -16,17 +16,17 @@ function normalizeData(data = []) {
 function BarChart({ data }) {
   const { rows, max } = normalizeData(data);
   return (
-    <div className="flex h-[300px] items-end gap-3 border-b border-l border-slate-200 px-4 pt-4">
+    <div className="flex h-[330px] items-end gap-3 border-b border-l border-slate-200 px-4 pt-4">
       {rows.map((item, index) => {
-        const height = Math.max(8, (item.value / max) * 220);
+        const height = Math.max(8, (item.value / max) * 230);
         return (
           <div key={item.label} className="flex min-w-0 flex-1 flex-col items-center justify-end gap-2">
-            <div className="text-[12px] font-bold text-slate-900">{formatNumber(item.value)}</div>
+            <div className="text-[13px] font-bold text-slate-900">{formatNumber(item.value)}</div>
             <div
               className="w-full max-w-[54px] rounded-t-md"
               style={{ height, background: COLORS[index % COLORS.length] }}
             />
-            <div className="h-14 w-full overflow-hidden text-center text-[11px] font-medium leading-snug text-slate-600">
+            <div className="h-16 w-full overflow-hidden text-center text-[12px] font-semibold leading-snug text-slate-600">
               {item.label}
             </div>
           </div>

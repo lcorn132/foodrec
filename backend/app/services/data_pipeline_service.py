@@ -18,10 +18,10 @@ REPORT_PATH = PROCESSED_DIR / "advanced_mining_report.json"
 STATS_PATH = PROCESSED_DIR / "report_assets" / "data_statistics_report.json"
 CHART_DIR = PROCESSED_DIR / "report_assets" / "charts"
 CHART_TITLES = {
-    "01_kmeans_convergence.png": "Mức giảm WCSS qua các bước cập nhật tâm cụm",
-    "02_kmeans_price_calories.png": "Hình chiếu cụm K-Means theo giá và calories",
-    "03_kmeans_cluster_sizes.png": "Số lượng món trong từng cụm",
-    "04_similarity_score_histogram.png": "Phân bố điểm tương đồng",
+    "01_kmeans_convergence.png": "M?c gi?m WCSS qua c?c b??c c?p nh?t t?m c?m",
+    "02_kmeans_price_calories.png": "H?nh chi?u c?m K-Means theo gi? b?n v? calories",
+    "03_kmeans_cluster_sizes.png": "S? l??ng m?n ?n trong t?ng c?m K-Means",
+    "04_similarity_score_histogram.png": "Ph?n b? ?i?m t??ng ??ng gi?a c?c c?p m?n ?n",
 }
 
 
