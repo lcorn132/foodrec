@@ -31,6 +31,7 @@ class RecommendationService:
         cart_ids = {dish.id for dish in cart_dishes}
         cart_roles = {self._meal_role(dish) for dish in cart_dishes}
         cart_categories = {self._category_slug(dish) for dish in cart_dishes}
+        cart_text = " ".join(self._text(dish) for dish in cart_dishes)
         recommendations: defaultdict[int, float] = defaultdict(float)
 
         for candidate in self.db.query(Dish).filter(Dish.is_active == 1).all():
@@ -40,6 +41,11 @@ class RecommendationService:
             role = self._meal_role(candidate)
             category = self._category_slug(candidate)
             score = 0.0
+
+            if self._is_set_menu(candidate):
+                continue
+            if self._is_noodle_extra(candidate) and not self._cart_supports_noodle_extra(cart_text):
+                continue
 
             # Do not keep recommending a meal role that is already covered in
             # the cart. Example: once a soup/vegetable dish is present, avoid
@@ -144,7 +150,22 @@ class RecommendationService:
     def _is_appetizer_or_drink(self, dish: Dish) -> bool:
         text = self._text(dish)
         category = self._category_slug(dish)
-        return any(term in text or term in category for term in ("khai vi", "do uong", "nuoc", "tra", "mon them", "trang mieng"))
+        if self._is_noodle_extra(dish):
+            return False
+        return any(term in text or term in category for term in ("khai vi", "do uong", "nuoc", "tra", "trang mieng"))
+
+    def _is_noodle_extra(self, dish: Dish) -> bool:
+        text = self._text(dish)
+        category = self._category_slug(dish)
+        return ("mon them" in category or "mon them" in text) and any(term in text for term in ("mi", "bun"))
+
+    def _is_set_menu(self, dish: Dish) -> bool:
+        text = self._text(dish)
+        category = self._category_slug(dish)
+        return "set menu" in text or "set menu" in category
+
+    def _cart_supports_noodle_extra(self, cart_text: str) -> bool:
+        return any(term in cart_text for term in ("lau", "bun", "mi", "nuoc leo", "nuoc dung"))
 
     def _similarity_score(self, source: Dish, target: Dish) -> float:
         source_tokens = self._tokens(source.ingredients) | self._tokens(source.detailed_ingredients) | self._tokens(source.tags)
@@ -178,9 +199,9 @@ class RecommendationService:
         text = " ".join(self._text(dish) for dish in dishes)
 
         if "feast" in roles or "lau" in text:
-            return {"feast"}, {"khai vi", "mon them", "trang mieng", "appetizer_drink"}
+            return set(), {"khai vi", "mon them", "trang mieng", "appetizer_drink"}
         if {"foundation", "savory", "fresh"}.issubset(roles):
-            return {"feast"}, {"khai vi", "mon them", "trang mieng", "appetizer_drink"}
+            return set(), {"khai vi", "trang mieng", "appetizer_drink"}
         if {"foundation", "savory"}.issubset(roles):
             return {"fresh"}, {"rau", "canh"}
         if {"savory", "fresh"}.issubset(roles):

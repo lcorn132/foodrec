@@ -13,7 +13,7 @@ router = APIRouter(prefix="/api/analytics", tags=["Analytics"])
 def overview(db: Session = Depends(get_db)):
     service = AnalyticsService(db)
     data = service.get_overview()
-    total_revenue = db.query(func.sum(Order.total_amount)).filter(Order.status != "cancelled").scalar() or 0
+    total_revenue = db.query(func.sum(Order.total_amount)).filter(Order.status == "completed").scalar() or 0
     completed_orders = db.query(func.count(Order.id)).filter(Order.status == "completed").scalar() or 0
     data["total_revenue"] = int(total_revenue)
     data["completed_orders"] = completed_orders
