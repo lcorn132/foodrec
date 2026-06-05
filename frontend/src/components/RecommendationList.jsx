@@ -6,6 +6,7 @@ import Loading from "./Loading.jsx";
 import DishImage from "./DishImage.jsx";
 import { useCart } from "../context/CartContext.jsx";
 import { showToast } from "./Toast.jsx";
+import { makeCartDish } from "../utils/dishVariants.js";
 
 function shortReason(strategy, fallback) {
   if (strategy === "cross_cluster_mapping") return "Đi kèm rất hợp mâm này";
@@ -56,8 +57,9 @@ export default function RecommendationList({ recommendations, title = "Món ăn 
             const handleAdd = (event) => {
               event.preventDefault();
               event.stopPropagation();
-              addToCart({ id, name, price: dish?.price, image_url: dish?.image_url });
-              showToast(`Đã thêm ${name} vào giỏ hàng`);
+              const cartDish = makeCartDish({ ...dish, id, name });
+              addToCart(cartDish);
+              showToast(`Đã thêm ${cartDish.name} vào giỏ hàng`);
             };
 
             return (

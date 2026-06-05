@@ -101,6 +101,9 @@
 
   .prose-lite p {
     margin: 0.25rem 0;
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.85;
   }
 
   .prose-lite ul,

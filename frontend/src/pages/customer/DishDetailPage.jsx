@@ -22,6 +22,10 @@ const PRICE_RANGE_LABELS = {
   premium: "Cao cấp",
 };
 
+function cleanDescriptionHtml(html = "") {
+  return String(html).replace(/([.!?])(?=\p{Lu}|\p{L})/gu, "$1 ");
+}
+
 export default function DishDetailPage() {
   const { id } = useParams();
   const { addToCart } = useCart();
@@ -155,7 +159,7 @@ export default function DishDetailPage() {
                 <div
                   className="text-[15px] leading-relaxed pb-5 prose-lite"
                   style={{ color: "#5D4037", borderBottom: "1px solid #E8DDD4" }}
-                  dangerouslySetInnerHTML={{ __html: dish.description }}
+                  dangerouslySetInnerHTML={{ __html: cleanDescriptionHtml(dish.description) }}
                 />
               ) : (
                 <p className="text-sm" style={{ color: "#8D6E63" }}>Chưa có mô tả cho món ăn này.</p>
