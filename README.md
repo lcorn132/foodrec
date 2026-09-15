@@ -95,10 +95,6 @@ python backend/scripts/run_advanced_pipeline.py
 python backend/scripts/generate_data_report_assets.py
 ```
 
-Hoặc chạy trên web admin tại:
-
-- `/dashboard/preprocessing`
-
 ## Xác Nhận Hướng Đồ Án
 
 Đề tài đáp ứng các nhóm tiêu chí:
